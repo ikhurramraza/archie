@@ -13,6 +13,10 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 export PROMPT_EOL_MARK=""
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
+# ASDF settings
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
+
 # SQLite settings
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
