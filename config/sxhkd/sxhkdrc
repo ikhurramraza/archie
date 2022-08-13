@@ -1,0 +1,11 @@
+XF86AudioRaiseVolume
+    amixer -q sset Master 5%+ && pkill -RTMIN+10 i3blocks
+
+XF86AudioLowerVolume
+    amixer -q sset Master 5%- && pkill -RTMIN+10 i3blocks
+
+XF86AudioMute
+    amixer -q sset Master toggle && pkill -RTMIN+10 i3blocks
+
+alt + space
+    rofi -show drun
