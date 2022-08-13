@@ -17,6 +17,9 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 
+# IRB settings
+export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
+
 # SQLite settings
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
