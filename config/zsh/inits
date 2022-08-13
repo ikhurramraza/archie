@@ -1,0 +1,21 @@
+# Init OMZ
+source "$ZSH/oh-my-zsh.sh"
+
+# Init p10k
+source "$ZDOTDIR/.p10k.zsh"
+
+# Enable option stacking auto completion for docker
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
+
+# Init 1Password completion
+eval "$(op completion zsh)"; compdef _op op
+
+# Add GPG key
+export GPG_TTY=$(tty)
+
+# Enable vim mode
+bindkey -v
