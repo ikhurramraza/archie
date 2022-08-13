@@ -1,0 +1,1 @@
+Plug 'jesseleite/vim-noh'
