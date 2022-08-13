@@ -1,0 +1,10 @@
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Ruby project apps
+.bundle/config
+vendor/bundle
+
+# Project environment variable
+.env

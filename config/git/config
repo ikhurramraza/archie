@@ -1,0 +1,56 @@
+[alias]
+	co = checkout
+	br = branch
+	st = status
+	sw = switch
+	amend = commit --amend --no-edit
+	append = ! git add --all && git commit --amend --no-edit
+	wip = ! git add --all && git commit -m \"WIP\"
+	ignored = ! git ls-files -v | grep '^[[:lower:]]' | cut -c3-
+[user]
+	name = Khurram Raza
+	email = ikhurramraza@gmail.com
+	signingkey = A0A4FBA74266E3D9
+[core]
+	excludesfile = ~/.config/git/global_gitignore
+	attributesfile = ~/.config/git/gitattributes
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[commit]
+	verbose = true
+	gpgsign = false
+[pull]
+	rebase = true
+	twohead = ort
+[sequence]
+	editor = interactive-rebase-tool
+[init]
+	defaultBranch = main
+[diff "rspec"]
+  xfuncname = "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario)[ \t].*)$"
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[diff-so-fancy]
+	markEmptyLines = false
+	stripLeadingSymbols = false
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[blame]
+	markIgnoredLines = true
