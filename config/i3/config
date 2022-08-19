@@ -137,4 +137,5 @@ focus_follows_mouse no
 bindsym $mod+x exec i3lock -c 000000
 
 include config-bar
+include config-scratchpads
 include config-gaps
