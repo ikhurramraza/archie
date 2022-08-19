@@ -60,15 +60,15 @@ doautocmd User PlugLoaded
 nmap <leader>ve :edit   ~/.config/nvim/init.vim<cr>
 nmap <leader>vs :source ~/.config/nvim/init.vim<cr>
 
-nmap <leader>Q :bufdo bdelete<cr>
-
 nmap <leader>gf :edit <cfile><cr>
+
 nmap <C-S> :w<cr>
 
 " Buffer switching
 nmap <Tab>   :bn<cr>
 nmap <S-Tab> :bp<cr>
 nmap <S-W>   :bw<cr>
+nmap <S-Q>   :bufdo bdelete<cr>
 
 " Moving lines up and down
 nnoremap <C-J> :m .+1<CR>==
