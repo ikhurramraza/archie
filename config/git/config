@@ -54,3 +54,5 @@
 	whitespace = red reverse
 [blame]
 	markIgnoredLines = true
+[add "interactive"]
+	useBuiltin = false
