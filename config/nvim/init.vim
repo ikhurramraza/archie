@@ -65,8 +65,10 @@ nmap <leader>gf :edit <cfile><cr>
 nmap <C-S> :w<cr>
 
 " Buffer switching
-nmap <Tab>   :bn<cr>
-nmap <S-Tab> :bp<cr>
+nmap <leader><Tab>   :bn<cr>
+nmap <leader><S-Tab> :bp<cr>
+
+" Buffer closing
 nmap <S-W>   :bw<cr>
 nmap <S-Q>   :bufdo bdelete<cr>
 
