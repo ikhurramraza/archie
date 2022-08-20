@@ -27,6 +27,7 @@ plugins=(
   systemadmin
   systemd
   tmux
+  tmuxinator
   universalarchive
   z
   zsh-history-substring-search
