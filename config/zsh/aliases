@@ -9,3 +9,7 @@ alias vim="nvim"
 
 # Exa aliases
 alias l='exa -l'
+
+# Klippy aliases
+alias kcp='klippy copy'
+alias kpp='klippy paste'
