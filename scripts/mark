@@ -1,0 +1,75 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+# ============================================================================ #
+# =============================== SUB COMMANDS =============================== #
+# ============================================================================ #
+
+# ============================== COMMAND: Help =============================== #
+
+function mark::help {
+  cat <<HELP
+Usage: mark COMMAND
+
+Commands:
+  help            Show this help
+  start           Start marking files in Kittr and Redrr
+  copy            Copy tagged files to new location
+HELP
+}
+
+# ============================== COMMAND: Start ============================== #
+
+function mark::start {
+  cd /mnt/Archive/Media/Kitrr || exit 1
+  marker mark "devour sxiv -a"                   "**/*.{jpeg,jpg,png,gif}"
+  marker mark "devour mpv --loop=inf --mute=yes" "**/*.mp4"
+
+  cd /mnt/Archive/Media/Redrr || exit 1
+  marker mark "devour sxiv -a"                   "**/*.{jpeg,jpg,png,gif}"
+  marker mark "devour mpv --loop=inf --mute=yes" "**/*.mp4"
+}
+
+# ============================== COMMAND: Copy =============================== #
+
+function titlelize {
+  ruby -e "puts ARGV.first.split(/ |\_/).map(&:capitalize).join(' ')" "$1"
+}
+
+function mark::copy {
+  local folder
+  local directory
+
+  while read -r tag; do
+    folder="$(titlelize "$tag")"
+    directory="/mnt/Archive/Media/FontKit/$folder"
+
+    [[ ! -d "$directory" ]] && mkdir -p "$directory"
+
+    marker list "$tag" | xargs --no-run-if-empty -I{} cp {} "$directory"
+    marker list "$tag" | xargs --no-run-if-empty -n1 basename >>/mnt/Archive/Media/Kitrr/.kitrrignore
+  done < <(comm -12 <(sort "$XDG_DATA_HOME/mark/tags") <(marker stats | awk '{print $1}' | sort))
+
+  marker list d | xargs --no-run-if-empty -n1 basename >>/mnt/Archive/Media/Kitrr/.kitrrignore
+  marker list d | xargs --no-run-if-empty rm
+}
+
+# ============================================================================ #
+# ================================ ENTRYPOINT ================================ #
+# ============================================================================ #
+
+if [[ $# -ne 1 ]]; then
+  mark::help
+  exit 1
+else
+  sub_command="$1"
+  function_name="mark::$sub_command"
+
+  if ! type -f "$function_name" >/dev/null; then
+    mark::help
+    exit 1
+  fi
+
+  $function_name "$@"
+fi
