@@ -1,1 +1,0 @@
-Plug 'ngmy/vim-rubocop'
