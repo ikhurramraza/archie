@@ -33,13 +33,13 @@ HELP
 # ============================== COMMAND: Start ============================== #
 
 function mark::start {
-  cd "$DIRECTORY_KITRR" || exit 1
-  marker mark "devour sxiv -a"                   "**/*.{jpeg,jpg,png,gif}"
-  marker mark "devour mpv --loop=inf --mute=yes" "**/*.mp4"
+  local directories=("$DIRECTORY_REDRR" "$DIRECTORY_KITRR")
 
-  cd "$DIRECTORY_REDRR" || exit 1
-  marker mark "devour sxiv -a"                   "**/*.{jpeg,jpg,png,gif}"
-  marker mark "devour mpv --loop=inf --mute=yes" "**/*.mp4"
+  for directory in "${directories[@]}"; do
+    cd "$directory" || exit 1
+    marker mark "devour sxiv -a"                   "**/*.{jpeg,jpg,png,gif}"
+    marker mark "devour mpv --loop=inf --mute=yes" "**/*.mp4"
+  done
 }
 
 # ============================== COMMAND: Copy =============================== #
