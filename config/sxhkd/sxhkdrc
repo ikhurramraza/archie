@@ -7,5 +7,5 @@ XF86AudioLowerVolume
 XF86AudioMute
     amixer -q sset Master toggle && pkill -RTMIN+10 i3blocks
 
-alt + space
+super + space
     rofi -show drun
