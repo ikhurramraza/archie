@@ -1562,7 +1562,7 @@
   }
 
   function prompt_tmux() {
-    [ -n "$TMUX" ] && p10k segment -f 208 -t "$(tmux display-message -p '#S')"
+    [ -n "$TMUX" ] && p10k segment -f 208 -t "$(tmux display-message -p '#W')"
   }
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
   # is to generate the prompt segment for display in instant prompt. See
