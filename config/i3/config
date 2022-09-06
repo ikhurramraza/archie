@@ -124,7 +124,7 @@ client.background       #F8F8F2
 # Hide title bar for Firefox
 for_window [class="firefox"] border pixel 0
 
-# ALways float 1Password
+# Always float 1Password
 for_window [class="1Password"] floating enable
 
 # Window compositor
