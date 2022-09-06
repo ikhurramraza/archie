@@ -19,7 +19,6 @@
 	verbose = true
 	gpgsign = true
 [pull]
-	rebase = true
 	twohead = ort
 [sequence]
 	editor = interactive-rebase-tool
