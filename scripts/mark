@@ -3,6 +3,16 @@
 set -euo pipefail
 
 # ============================================================================ #
+# ================================ CONSTANTS ================================= #
+# ============================================================================ #
+
+IGNORE_FILE="$XDG_DATA_HOME/mark/ignore"
+TAGS_FILE="$XDG_DATA_HOME/mark/tags"
+DIRECTORY_KITRR="$XDG_DATA_HOME/4k/Kitrr"
+DIRECTORY_REDRR="/mnt/Archive/Media/Redrr"
+DIRECTORY_STOGRAM="$XDG_DATA_HOME/4k/4K Stogram"
+
+# ============================================================================ #
 # =============================== SUB COMMANDS =============================== #
 # ============================================================================ #
 
@@ -16,17 +26,18 @@ Commands:
   help            Show this help
   start           Start marking files in Kittr and Redrr
   copy            Copy tagged files to new location
+  create          Move files to Kitrr
 HELP
 }
 
 # ============================== COMMAND: Start ============================== #
 
 function mark::start {
-  cd /mnt/Archive/Media/Kitrr || exit 1
+  cd "$DIRECTORY_KITRR" || exit 1
   marker mark "devour sxiv -a"                   "**/*.{jpeg,jpg,png,gif}"
   marker mark "devour mpv --loop=inf --mute=yes" "**/*.mp4"
 
-  cd /mnt/Archive/Media/Redrr || exit 1
+  cd "$DIRECTORY_REDRR" || exit 1
   marker mark "devour sxiv -a"                   "**/*.{jpeg,jpg,png,gif}"
   marker mark "devour mpv --loop=inf --mute=yes" "**/*.mp4"
 }
@@ -48,11 +59,30 @@ function mark::copy {
     [[ ! -d "$directory" ]] && mkdir -p "$directory"
 
     marker list "$tag" | xargs --no-run-if-empty -I{} cp {} "$directory"
-    marker list "$tag" | xargs --no-run-if-empty -n1 basename >>/mnt/Archive/Media/Kitrr/.kitrrignore
-  done < <(comm -12 <(sort "$XDG_DATA_HOME/mark/tags") <(marker stats | awk '{print $1}' | sort))
+    marker list "$tag" | xargs --no-run-if-empty -n1 basename >>"$IGNORE_FILE"
+    marker list "$tag" | xargs --no-run-if-empty rm
+  done < <(comm -12 <(sort "$TAGS_FILE") <(marker stats | awk '{print $1}' | sort))
 
-  marker list d | xargs --no-run-if-empty -n1 basename >>/mnt/Archive/Media/Kitrr/.kitrrignore
+  marker list d | xargs --no-run-if-empty -n1 basename >>"$IGNORE_FILE"
   marker list d | xargs --no-run-if-empty rm
+}
+
+# ============================= COMMAND: Create ============================== #
+
+function mark::create {
+  while read -r filepath; do
+    [[ "$filepath" =~ "thumb|sqlite" ]] && continue
+
+    local filename="$(basename "$filepath")"
+    local prefix="$(echo "$filename" | sha1sum | head -c5)"
+    local new_filename="${prefix}_${filename##* }"
+    local new_filepath="$KITRR_DIRECTORY/$new_filename"
+
+    [[ -f "$new_filepath" ]] && continue
+    [ grep -Fxq "$new_filepath" "$IGNORE_FILE" ] && continue
+
+    cp "$filepath" "$new_filepath"
+  done < <(find "$DIRECTORY_STOGRAM" -type f)
 }
 
 # ============================================================================ #
