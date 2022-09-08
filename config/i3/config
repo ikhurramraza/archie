@@ -136,6 +136,10 @@ focus_follows_mouse no
 # Lock screen
 bindsym $mod+x exec i3lock -c 000000
 
+# Notie
+for_window [ title="notie_window" ] floating enable resize set 1080 640
+bindsym $mod+n exec kitty --title="notie_window" /home/raza/.local/scripts/notie create
+
 include config-bar
 include config-scratchpads
 include config-gaps
