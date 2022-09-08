@@ -11,6 +11,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_PREFIXED=true
+export VI_MODE_SET_CURSOR=true
 
 plugins=(
   1password
@@ -29,6 +30,7 @@ plugins=(
   tmux
   tmuxinator
   universalarchive
+  vi-mode
   z
   zsh-history-substring-search
 )
