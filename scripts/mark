@@ -74,12 +74,14 @@ function mark::create {
     [[ "$filepath" =~ "thumb|sqlite" ]] && continue
 
     local filename="$(basename "$filepath")"
-    local prefix="$(echo "$filename" | sha1sum | head -c5)"
-    local new_filename="${prefix}_${filename##* }"
-    local new_filepath="$KITRR_DIRECTORY/$new_filename"
+    local extension="${filename##*.}"
+    local filename_wo_extention="${filename%.*}"
+    local suffix="$(sha1sum "$filepath" | head -c5)"
+    local new_filename="${filename_wo_extention##* }_${suffix}.${extension}"
+    local new_filepath="$DIRECTORY_KITRR/$new_filename"
 
     [[ -f "$new_filepath" ]] && continue
-    [ grep -Fxq "$new_filepath" "$IGNORE_FILE" ] && continue
+    grep -Fxq "$new_filepath" "$IGNORE_FILE" && continue
 
     cp "$filepath" "$new_filepath"
   done < <(find "$DIRECTORY_STOGRAM" -type f)
