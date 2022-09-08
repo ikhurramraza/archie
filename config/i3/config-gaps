@@ -1,8 +1,7 @@
 # Settings for i3-gaps
 for_window [class=".*"] border pixel 0
 smart_gaps on
-gaps inner 1
-gaps outer 1
+gaps inner 10
 
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
