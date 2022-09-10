@@ -1,0 +1,6 @@
+name: nvim
+root: ~/Developer/archie/config/nvim
+
+windows:
+  - editor: nvim .
+  - shell:

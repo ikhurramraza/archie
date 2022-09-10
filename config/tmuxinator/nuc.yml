@@ -1,0 +1,5 @@
+name: nuc
+root: "~"
+
+windows:
+  - shell: ssh nuc
