@@ -81,7 +81,7 @@ function mark::create {
     local new_filepath="$DIRECTORY_KITRR/$new_filename"
 
     [[ -f "$new_filepath" ]] && continue
-    grep -Fxq "$new_filepath" "$IGNORE_FILE" && continue
+    grep -Fxq "$new_filename" "$IGNORE_FILE" && continue
 
     cp "$filepath" "$new_filepath"
   done < <(find "$DIRECTORY_STOGRAM" -type f)
