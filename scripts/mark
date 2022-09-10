@@ -8,6 +8,7 @@ set -euo pipefail
 
 IGNORE_FILE="$XDG_DATA_HOME/mark/ignore"
 TAGS_FILE="$XDG_DATA_HOME/mark/tags"
+DIRECTORY_DOWNLOADS="$HOME/Downloads"
 DIRECTORY_KITRR="$XDG_DATA_HOME/4k/Kitrr"
 DIRECTORY_REDRR="/mnt/Archive/Media/Redrr"
 DIRECTORY_STOGRAM="$XDG_DATA_HOME/4k/4K Stogram"
@@ -33,7 +34,7 @@ HELP
 # ============================== COMMAND: Start ============================== #
 
 function mark::start {
-  local directories=("$DIRECTORY_REDRR" "$DIRECTORY_KITRR")
+  local directories=("$DIRECTORY_DOWNLOADS" "$DIRECTORY_REDRR" "$DIRECTORY_KITRR")
 
   for directory in "${directories[@]}"; do
     cd "$directory" || exit 1
@@ -58,13 +59,13 @@ function mark::copy {
 
     [[ ! -d "$directory" ]] && mkdir -p "$directory"
 
-    marker list "$tag" | xargs --no-run-if-empty -I{} cp {} "$directory"
-    marker list "$tag" | xargs --no-run-if-empty -n1 basename >>"$IGNORE_FILE"
-    marker list "$tag" | xargs --no-run-if-empty rm
+    marker list "$tag" | xargs --no-run-if-empty -I{} cp "{}" "$directory"
+    marker list "$tag" | xargs --no-run-if-empty -I{} -n1 basename "{}" >>"$IGNORE_FILE"
+    marker list "$tag" | xargs --no-run-if-empty -I{} rm "{}"
   done < <(comm -12 <(sort "$TAGS_FILE") <(marker stats | awk '{print $1}' | sort))
 
-  marker list d | xargs --no-run-if-empty -n1 basename >>"$IGNORE_FILE"
-  marker list d | xargs --no-run-if-empty rm
+  marker list d | xargs --no-run-if-empty -I{} -n1 basename "{}" >>"$IGNORE_FILE"
+  marker list d | xargs --no-run-if-empty -I{} rm "{}"
 }
 
 # ============================= COMMAND: Create ============================== #
