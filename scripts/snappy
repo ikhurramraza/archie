@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -euo pipefail
+
+SNAPPY_DIRECTORY="$XDG_STATE_HOME/snappy"
+SNAPPY_CACHE_DIRECTORY="$XDG_CACHE_HOME/snappy"
+
+mkdir -p "$SNAPPY_DIRECTORY"
+mkdir -p "$SNAPPY_CACHE_DIRECTORY"
+
+# Build snapshot for npm
+npm list --global --depth=0 --json >"$SNAPPY_DIRECTORY/npm.json"
+
+# Build snapshot for nvim
+tmp_nvim_snapshot="$(mktemp -u $SNAPPY_CACHE_DIRECTORY/nvim.XXXXXX.json)"
+nvim --headless -c "PackerSnapshot $tmp_nvim_snapshot" -c "silent !sleep 1" -c "quit"
+prettier "$tmp_nvim_snapshot" >"$SNAPPY_DIRECTORY/nvim.json"
+
+# Build snapshot for pacman
+pacman -Qqm >"$SNAPPY_DIRECTORY/pacman.txt"
+
+# Build snapshot for crontab
+crontab -l >"$SNAPPY_DIRECTORY/crontab.txt"

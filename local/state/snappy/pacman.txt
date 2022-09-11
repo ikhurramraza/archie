@@ -1,0 +1,16 @@
+1password
+4kstogram
+ani-cli
+asdf-vm-git
+brave-bin
+devour
+diff-so-fancy-git
+discord_arch_electron
+git-interactive-rebase-tool
+litecli
+nerd-fonts-cascadia-code
+nerd-fonts-jetbrains-mono
+nerd-fonts-roboto-mono
+nerd-fonts-ubuntu-mono
+pspg
+spotify
