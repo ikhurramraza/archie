@@ -6,6 +6,7 @@ brave-bin
 devour
 diff-so-fancy-git
 discord_arch_electron
+electron16
 git-interactive-rebase-tool
 litecli
 nerd-fonts-cascadia-code
