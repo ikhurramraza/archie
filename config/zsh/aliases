@@ -13,6 +13,3 @@ alias l='exa -l'
 # Klippy aliases
 alias kcp='klippy copy'
 alias kpp='klippy paste'
-
-# Tmux aliases
-alias t="tmuxinator start"

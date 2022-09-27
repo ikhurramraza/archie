@@ -1,6 +1,0 @@
-name: archie
-root: ~/Developer/archie
-
-windows:
-  - editor: nvim .
-  - shell:

@@ -1,5 +1,0 @@
-name: mark
-root: ~/.local/share/mark
-
-windows:
-  - shell:

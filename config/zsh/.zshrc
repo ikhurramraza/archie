@@ -34,7 +34,6 @@ plugins=(
   systemadmin
   systemd
   tmux
-  tmuxinator
   universalarchive
   vi-mode
   z
