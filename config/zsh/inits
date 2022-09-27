@@ -1,3 +1,5 @@
+#!/usr/bin/zsh
+
 # Init OMZ
 source "$ZSH/oh-my-zsh.sh"
 

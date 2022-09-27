@@ -1,11 +1,17 @@
+#!/usr/bin/zsh
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Set OMZ installation path
 export ZSH="$ZDOTDIR/.oh-my-zsh"
 
-HIST_STAMPS="dd.mm.yyy"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# History file settings
+export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+
+# Set OMZ theme
+export ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # OMZ Plugins envs
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
