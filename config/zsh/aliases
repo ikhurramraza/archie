@@ -13,3 +13,6 @@ alias l='exa -l'
 # Klippy aliases
 alias kcp='klippy copy'
 alias kpp='klippy paste'
+
+# Unalias for t script
+unalias t

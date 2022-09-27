@@ -1,0 +1,127 @@
+#!/bin/sh
+
+set -eo pipefail
+
+# ============================================================================ #
+# ============================== HELPER METHODS ============================== #
+# ============================================================================ #
+
+# ============================= HELPERS: Basics ============================== #
+
+help() {
+  cat <<HELP
+Usage: $(basename $0) NAME
+
+Arguments:
+  NAME        Name of the tmux session
+HELP
+}
+
+exit_with_error() {
+  echo "$1" 1>&2
+  exit 1
+}
+
+# =============================== HELPERS: Tmux ============================== #
+
+create_session() {
+  local session="$1"
+
+  if ! tmux has-session -t "$session" 2>/dev/null; then
+    tmux new-session -d -s "$session"
+  fi
+}
+
+switch_or_attach() {
+  local session="$1"
+
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$session"
+  else
+    tmux attach-session -t "$session"
+  fi
+}
+
+# ============================================================================ #
+# ============================= SESSION CREATORS ============================= #
+# ============================================================================ #
+
+# ============================== SESSION: dots =============================== #
+
+create_or_attach_dots() {
+  local session="dots"
+  local working_directory="$HOME/Developer/archie"
+
+  if tmux has-session -t "$session" 2>/dev/null; then
+    switch_or_attach "$session"
+  else
+    tmux new-session -d -s "$session" -c "$working_directory"
+    tmux rename-window -t "$session:1" "nvim"
+    tmux send-keys -t "$session:nvim" "nvim" "C-m"
+    tmux new-window -t "$session" -n "shell" -c "$working_directory"
+
+    switch_or_attach "$session:nvim"
+  fi
+
+}
+
+# ============================== SESSION: mark =============================== #
+
+create_or_attach_mark() {
+  local session="mark"
+  local working_directory="$XDG_DATA_HOME/mark"
+
+  if tmux has-session -t "$session" 2>/dev/null; then
+    switch_or_attach "$session"
+  else
+    tmux new-session -d -s "$session" -c "$working_directory"
+    tmux rename-window -t "$session:1" "shell"
+    switch_or_attach "$session:shell"
+  fi
+
+}
+
+# =============================== SESSION: nuc ============================== #
+
+create_or_attach_nuc() {
+  local session="nuc"
+  local working_directory="$HOME"
+
+  if tmux has-session -t "$session" 2>/dev/null; then
+    switch_or_attach "$session"
+  else
+    tmux new-session -d -s "$session" -c "$working_directory"
+    tmux rename-window -t "$session:1" "shell"
+    tmux send-keys -t "$session:shell" "ssh nuc" "C-m"
+    switch_or_attach "$session:shell"
+  fi
+
+}
+# ============================================================================ #
+# ================================ ENTRYPOINT ================================ #
+# ============================================================================ #
+
+if [ $# -ne 1 ]; then
+  help
+  exit 1
+fi
+
+case "$1" in
+--help | -h)
+  help
+  exit 0
+  ;;
+dots)
+  create_or_attach_dots
+  ;;
+mark)
+  create_or_attach_mark
+  ;;
+nuc)
+  create_or_attach_nuc
+  ;;
+*)
+  create_session "$1"
+  switch_or_attach "$1"
+  ;;
+esac
