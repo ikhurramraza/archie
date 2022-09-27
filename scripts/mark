@@ -34,12 +34,24 @@ HELP
 # ============================== COMMAND: Start ============================== #
 
 function mark::start {
+  local img_command vid_command
   local directories=("$DIRECTORY_DOWNLOADS" "$DIRECTORY_REDRR" "$DIRECTORY_KITRR")
+
+  case "$DESKTOP_SESSION" in
+    gnome)
+      img_command="sxiv -a"
+      vid_command="mpv --loop=inf --mute=yes"
+      ;;
+    *)
+      img_command="devour sxiv -a"
+      vid_command="devour mpv --loop=inf --mute=yes"
+      ;;
+  esac
 
   for directory in "${directories[@]}"; do
     cd "$directory" || exit 1
-    marker mark "devour sxiv -a"                   "**/*.{jpeg,jpg,png,gif}"
-    marker mark "devour mpv --loop=inf --mute=yes" "**/*.mp4"
+    marker mark "$img_command" "**/*.{jpeg,jpg,png,gif}"
+    marker mark "$vid_command" "**/*.mp4"
   done
 }
 
