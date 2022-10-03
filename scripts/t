@@ -116,6 +116,26 @@ create_or_attach_nuc() {
   fi
 
 }
+
+# ============================== SESSION: nvim =============================== #
+
+create_or_attach_nvim() {
+  local session="nvim"
+  local working_directory="$HOME/Developer/archie/config/nvim"
+
+  if tmux has-session -t="$session" 2>/dev/null; then
+    switch_or_attach "$session"
+  else
+    tmux new-session -d -s "$session" -c "$working_directory"
+    tmux rename-window -t="$session:1" "editor"
+    tmux send-keys -t="$session:editor" "nvim" "C-m"
+    tmux new-window -t="$session" -n "shell" -c "$working_directory"
+
+    switch_or_attach "$session:editor"
+  fi
+
+}
+
 # ============================================================================ #
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
@@ -141,6 +161,9 @@ marker)
   ;;
 nuc)
   create_or_attach_nuc
+  ;;
+nvim)
+  create_or_attach_nvim
   ;;
 *)
   create_session "$1"
