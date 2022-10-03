@@ -104,17 +104,11 @@ function mark::create {
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
 
-if [[ $# -ne 1 ]]; then
+if [[ $# -eq 0 ]]; then
   mark::help
   exit 1
 else
-  sub_command="$1"
-  function_name="mark::$sub_command"
-
-  if ! type -f "$function_name" >/dev/null; then
-    mark::help
-    exit 1
-  fi
-
-  $function_name "$@"
+  for subcommand in "$@"; do
+    "mark::$subcommand"
+  done
 fi
