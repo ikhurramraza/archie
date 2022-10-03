@@ -65,22 +65,6 @@ create_or_attach_dots() {
 
 }
 
-# ============================== SESSION: mark =============================== #
-
-create_or_attach_mark() {
-  local session="mark"
-  local working_directory="$XDG_DATA_HOME/mark"
-
-  if tmux has-session -t="$session" 2>/dev/null; then
-    switch_or_attach "$session"
-  else
-    tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t="$session:1" "shell"
-    switch_or_attach "$session:shell"
-  fi
-
-}
-
 # ============================= SESSION: marker ============================== #
 
 create_or_attach_marker() {
@@ -96,23 +80,6 @@ create_or_attach_marker() {
     tmux new-window -t="$session" -n "shell" -c "$working_directory"
 
     switch_or_attach "$session:editor"
-  fi
-
-}
-
-# =============================== SESSION: nuc ============================== #
-
-create_or_attach_nuc() {
-  local session="nuc"
-  local working_directory="$HOME"
-
-  if tmux has-session -t="$session" 2>/dev/null; then
-    switch_or_attach "$session"
-  else
-    tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t="$session:1" "shell"
-    tmux send-keys -t="$session:shell" "ssh nuc" "C-m"
-    switch_or_attach "$session:shell"
   fi
 
 }
@@ -153,14 +120,8 @@ case "$1" in
 dots)
   create_or_attach_dots
   ;;
-mark)
-  create_or_attach_mark
-  ;;
 marker)
   create_or_attach_marker
-  ;;
-nuc)
-  create_or_attach_nuc
   ;;
 nvim)
   create_or_attach_nvim
