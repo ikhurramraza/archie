@@ -81,6 +81,25 @@ create_or_attach_mark() {
 
 }
 
+# ============================= SESSION: marker ============================== #
+
+create_or_attach_marker() {
+  local session="marker"
+  local working_directory="$HOME/Developer/marker"
+
+  if tmux has-session -t="$session" 2>/dev/null; then
+    switch_or_attach "$session"
+  else
+    tmux new-session -d -s "$session" -c "$working_directory"
+    tmux rename-window -t="$session:1" "nvim"
+    tmux send-keys -t="$session:nvim" "nvim" "C-m"
+    tmux new-window -t="$session" -n "shell" -c "$working_directory"
+
+    switch_or_attach "$session:nvim"
+  fi
+
+}
+
 # =============================== SESSION: nuc ============================== #
 
 create_or_attach_nuc() {
@@ -116,6 +135,9 @@ dots)
   ;;
 mark)
   create_or_attach_mark
+  ;;
+marker)
+  create_or_attach_marker
   ;;
 nuc)
   create_or_attach_nuc
