@@ -56,11 +56,11 @@ create_or_attach_dots() {
     switch_or_attach "$session"
   else
     tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t="$session:1" "nvim"
-    tmux send-keys -t="$session:nvim" "nvim" "C-m"
+    tmux rename-window -t="$session:1" "editor"
+    tmux send-keys -t="$session:editor" "nvim" "C-m"
     tmux new-window -t="$session" -n "shell" -c "$working_directory"
 
-    switch_or_attach "$session:nvim"
+    switch_or_attach "$session:editor"
   fi
 
 }
@@ -91,11 +91,11 @@ create_or_attach_marker() {
     switch_or_attach "$session"
   else
     tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t="$session:1" "nvim"
-    tmux send-keys -t="$session:nvim" "nvim" "C-m"
+    tmux rename-window -t="$session:1" "editor"
+    tmux send-keys -t="$session:editor" "nvim" "C-m"
     tmux new-window -t="$session" -n "shell" -c "$working_directory"
 
-    switch_or_attach "$session:nvim"
+    switch_or_attach "$session:editor"
   fi
 
 }
