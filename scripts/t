@@ -27,7 +27,7 @@ exit_with_error() {
 create_session() {
   local session="$1"
 
-  if ! tmux has-session -t "$session" 2>/dev/null; then
+  if ! tmux has-session -t="$session" 2>/dev/null; then
     tmux new-session -d -s "$session"
   fi
 }
@@ -36,9 +36,9 @@ switch_or_attach() {
   local session="$1"
 
   if [ -n "$TMUX" ]; then
-    tmux switch-client -t "$session"
+    tmux switch-client -t="$session"
   else
-    tmux attach-session -t "$session"
+    tmux attach-session -t="$session"
   fi
 }
 
@@ -52,13 +52,13 @@ create_or_attach_dots() {
   local session="dots"
   local working_directory="$HOME/Developer/archie"
 
-  if tmux has-session -t "$session" 2>/dev/null; then
+  if tmux has-session -t="$session" 2>/dev/null; then
     switch_or_attach "$session"
   else
     tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t "$session:1" "nvim"
-    tmux send-keys -t "$session:nvim" "nvim" "C-m"
-    tmux new-window -t "$session" -n "shell" -c "$working_directory"
+    tmux rename-window -t="$session:1" "nvim"
+    tmux send-keys -t="$session:nvim" "nvim" "C-m"
+    tmux new-window -t="$session" -n "shell" -c "$working_directory"
 
     switch_or_attach "$session:nvim"
   fi
@@ -71,11 +71,11 @@ create_or_attach_mark() {
   local session="mark"
   local working_directory="$XDG_DATA_HOME/mark"
 
-  if tmux has-session -t "$session" 2>/dev/null; then
+  if tmux has-session -t="$session" 2>/dev/null; then
     switch_or_attach "$session"
   else
     tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t "$session:1" "shell"
+    tmux rename-window -t="$session:1" "shell"
     switch_or_attach "$session:shell"
   fi
 
@@ -87,12 +87,12 @@ create_or_attach_nuc() {
   local session="nuc"
   local working_directory="$HOME"
 
-  if tmux has-session -t "$session" 2>/dev/null; then
+  if tmux has-session -t="$session" 2>/dev/null; then
     switch_or_attach "$session"
   else
     tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t "$session:1" "shell"
-    tmux send-keys -t "$session:shell" "ssh nuc" "C-m"
+    tmux rename-window -t="$session:1" "shell"
+    tmux send-keys -t="$session:shell" "ssh nuc" "C-m"
     switch_or_attach "$session:shell"
   fi
 
