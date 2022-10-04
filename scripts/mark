@@ -100,12 +100,6 @@ mark__create() {
   done < <(find "$DIRECTORY_STOGRAM" -type f)
 }
 
-# ============================= COMMAND: Clean =============================== #
-
-function mark::clean {
-  marker clean
-}
-
 # ============================================================================ #
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
@@ -115,6 +109,13 @@ if [[ $# -eq 0 ]]; then
   exit 1
 else
   for subcommand in "$@"; do
-    "mark__$subcommand"
+    case "$subcommand" in
+    create | start | copy)
+      "mark__$subcommand"
+      ;;
+    clean | stats | undo)
+      marker "$subcommand"
+      ;;
+    esac
   done
 fi
