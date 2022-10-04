@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/bash
 
 set -euo pipefail
 
@@ -19,7 +19,7 @@ DIRECTORY_STOGRAM="$XDG_DATA_HOME/4k/4K Stogram"
 
 # ============================== COMMAND: Help =============================== #
 
-function mark::help {
+mark__help() {
   cat <<HELP
 Usage: mark COMMAND
 
@@ -33,19 +33,19 @@ HELP
 
 # ============================== COMMAND: Start ============================== #
 
-function mark::start {
+mark__start() {
   local img_command vid_command
   local directories=("$DIRECTORY_DOWNLOADS" "$DIRECTORY_REDRR" "$DIRECTORY_KITRR")
 
   case "$DESKTOP_SESSION" in
-    gnome)
-      img_command="sxiv -a"
-      vid_command="mpv --loop=inf --mute=yes"
-      ;;
-    *)
-      img_command="devour sxiv -a"
-      vid_command="devour mpv --loop=inf --mute=yes"
-      ;;
+  gnome)
+    img_command="sxiv -a"
+    vid_command="mpv --loop=inf --mute=yes"
+    ;;
+  *)
+    img_command="devour sxiv -a"
+    vid_command="devour mpv --loop=inf --mute=yes"
+    ;;
   esac
 
   for directory in "${directories[@]}"; do
@@ -57,11 +57,11 @@ function mark::start {
 
 # ============================== COMMAND: Copy =============================== #
 
-function titlelize {
+titlelize() {
   ruby -e "puts ARGV.first.split(/ |\_/).map(&:capitalize).join(' ')" "$1"
 }
 
-function mark::copy {
+mark__copy() {
   local folder
   local directory
 
@@ -82,7 +82,7 @@ function mark::copy {
 
 # ============================= COMMAND: Create ============================== #
 
-function mark::create {
+mark__create() {
   while read -r filepath; do
     [[ "$filepath" =~ "thumb|sqlite" ]] && continue
 
@@ -111,10 +111,10 @@ function mark::clean {
 # ============================================================================ #
 
 if [[ $# -eq 0 ]]; then
-  mark::help
+  mark__help
   exit 1
 else
   for subcommand in "$@"; do
-    "mark::$subcommand"
+    "mark__$subcommand"
   done
 fi
