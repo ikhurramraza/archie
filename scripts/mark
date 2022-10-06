@@ -84,7 +84,7 @@ mark__copy() {
 
 mark__create() {
   while read -r filepath; do
-    [[ "$filepath" =~ "thumb|sqlite" ]] && continue
+    [[ "$filepath" =~ thumb|sqlite ]] && continue
 
     local filename="$(basename "$filepath")"
     local extension="${filename##*.}"
