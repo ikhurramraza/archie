@@ -8,7 +8,9 @@ diff-so-fancy-git
 discord_arch_electron
 electron16
 git-interactive-rebase-tool
+inducker
 litecli
+manjaro-firmware
 nerd-fonts-cascadia-code
 nerd-fonts-jetbrains-mono
 nerd-fonts-roboto-mono
