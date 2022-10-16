@@ -103,6 +103,25 @@ create_or_attach_nvim() {
 
 }
 
+# ============================== SESSION: nukes ============================== #
+
+create_or_attach_nukes() {
+  local session="nukes"
+  local working_directory="$HOME/Developer/nukes"
+
+  if tmux has-session -t="$session" 2>/dev/null; then
+    switch_or_attach "$session"
+  else
+    tmux new-session -d -s "$session" -c "$working_directory"
+    tmux rename-window -t="$session:1" "editor"
+    tmux send-keys -t="$session:editor" "nvim" "C-m"
+    tmux new-window -t="$session" -n "shell" -c "$working_directory"
+
+    switch_or_attach "$session:editor"
+  fi
+
+}
+
 # ============================================================================ #
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
@@ -122,6 +141,9 @@ dots)
   ;;
 marker)
   create_or_attach_marker
+  ;;
+nukes)
+  create_or_attach_nukes
   ;;
 nvim)
   create_or_attach_nvim
