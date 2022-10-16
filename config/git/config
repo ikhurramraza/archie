@@ -10,7 +10,7 @@
 [user]
 	name = Khurram Raza
 	email = ikhurramraza@gmail.com
-	signingkey = A0A4FBA74266E3D9
+	signingkey = 2422E12C0CC4325F
 [core]
 	excludesfile = ~/.config/git/global_gitignore
 	attributesfile = ~/.config/git/gitattributes
