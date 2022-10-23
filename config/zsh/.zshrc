@@ -42,3 +42,4 @@ plugins=(
 
 source "$ZDOTDIR/inits"
 source "$ZDOTDIR/aliases"
+source "$ZDOTDIR/functions"

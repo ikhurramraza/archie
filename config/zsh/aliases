@@ -7,6 +7,10 @@ alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}'"
 alias vi="nvim"
 alias vim="nvim"
 
+# Git aliases
+alias gdm='gd $(git_main_branch)'
+alias gfom='gfob $(git_main_branch)'
+
 # Exa aliases
 alias l='exa -l'
 
