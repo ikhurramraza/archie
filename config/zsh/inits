@@ -19,5 +19,5 @@ eval "$(op completion zsh)"; compdef _op op
 # Add GPG key
 export GPG_TTY=$(tty)
 
-# Enable vim mode
-bindkey -v
+# Fix fuzzy search (zsh-history-substring-search and zsh-vi-mode)
+bindkey -v "^R" fzf-history-widget
