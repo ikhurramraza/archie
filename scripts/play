@@ -1,0 +1,106 @@
+#!/usr/bin/bash
+
+set -euo pipefail
+
+# ============================================================================ #
+# ================================ CONSTANTS ================================= #
+# ============================================================================ #
+
+# ============================= Player constants ============================= #
+
+: "${IMAGE_PLAYER:=sxiv}"
+: "${GIF_PLAYER:=sxiv -a}"
+: "${VIDEO_PLAYER:=mpv --really-quiet --loop=inf}"
+
+# ============================= Option defaults ============================== #
+
+: "${PLAY_ONLY:=all}"
+: "${PLAY_ORDER:=normal}"
+
+# ============================================================================ #
+# ============================== HELPER METHODS ============================== #
+# ============================================================================ #
+
+help() {
+  cat <<HELP
+Usage: $(basename $0) [OPTIONS] PATH
+
+Play media using defined programs.
+
+Arguments:
+  PATH        Path to file or directory
+
+Options:
+  --order     Files ordering (default: normal)
+              Possible values: random, size, normal
+  --only      Files to play (default: all)
+              Possible values: images, gifs, videos, all
+HELP
+}
+
+exit_with_error() {
+  echo "$1" 1>&2
+  exit 1
+}
+
+# ============================================================================ #
+# ================================= FUNCTIONS ================================ #
+# ============================================================================ #
+
+fetch_files() {
+  local find_opts
+
+  case "$PLAY_ONLY" in
+  all) find_opts="" ;;
+  gifs) find_opts="-regex .*\.gif$" ;;
+  videos) find_opts="-regex .*\.\(mp4\|mov\|webm\)$" ;;
+  images) find_opts="-regex .*\.\(jpg\|jpeg\|png\|webp\)$" ;;
+  *) exit_with_error "Unknown --only value." ;;
+  esac
+
+  local find_command="find $PLAY_DIRECTORY -type f $find_opts"
+
+  case "$PLAY_ORDER" in
+  normal) $find_command ;;
+  random) $find_command | sort -R ;;
+  size) $find_command -printf '%s\t%p\n' | sort -r -n | cut -f2- ;;
+  *) exit_with_error "Unknown --order value." ;;
+  esac
+}
+
+# ============================================================================ #
+# ============================= ARGUMENT PARSING ============================= #
+# ============================================================================ #
+
+for option in "$@"; do
+  case "$option" in
+  --order=*)
+    PLAY_ORDER="${1#*=}"
+    shift
+    ;;
+  --only=*)
+    PLAY_ONLY="${1#*=}"
+    shift
+    ;;
+  --*)
+    exit_with_error "Unknown option: ${1%%=*}"
+    ;;
+  *)
+    PLAY_DIRECTORY="$1"
+    shift
+    ;;
+  esac
+done
+
+# ============================================================================ #
+# ================================ ENTRYPOINT ================================ #
+# ============================================================================ #
+
+while read -r file; do
+  case "$file" in
+  *.gif) $GIF_PLAYER "$file" ;;
+  *.mp4 | *.webm | *.mov) $VIDEO_PLAYER "$file" ;;
+  *.jpg | *.jpeg | *.png | *.webp) $IMAGE_PLAYER "$file" ;;
+  *) echo "Don't know how to play $file" ;;
+  esac
+done < <(fetch_files)
