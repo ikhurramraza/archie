@@ -10,10 +10,12 @@ set -eo pipefail
 
 help() {
   cat <<HELP
-Usage: $(basename $0) NAME
+Usage: $(basename $0) PATH
+
+Create or attach to dev session
 
 Arguments:
-  NAME        Name of the tmux session
+  PATH        Path to the directory
 HELP
 }
 
@@ -23,14 +25,6 @@ exit_with_error() {
 }
 
 # =============================== HELPERS: Tmux ============================== #
-
-create_session() {
-  local session="$1"
-
-  if ! tmux has-session -t="$session" 2>/dev/null; then
-    tmux new-session -d -s "$session"
-  fi
-}
 
 switch_or_attach() {
   local session="$1"
@@ -46,30 +40,13 @@ switch_or_attach() {
 # ============================= SESSION CREATORS ============================= #
 # ============================================================================ #
 
-# ============================== SESSION: dots =============================== #
+# =========================== Dev session creator ============================ #
 
-create_or_attach_dots() {
-  local session="dots"
-  local working_directory="$HOME/Developer/archie"
+create_or_attach_to_dev_session() {
+  local working_directory="$1"
+  local session="$(basename "$working_directory")"
 
-  if tmux has-session -t="$session" 2>/dev/null; then
-    switch_or_attach "$session"
-  else
-    tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t="$session:1" "editor"
-    tmux send-keys -t="$session:editor" "nvim" "C-m"
-    tmux new-window -t="$session" -n "shell" -c "$working_directory"
-
-    switch_or_attach "$session:editor"
-  fi
-
-}
-
-# ============================= SESSION: marker ============================== #
-
-create_or_attach_marker() {
-  local session="marker"
-  local working_directory="$HOME/Developer/marker"
+  [[ -d "$working_directory" ]] || exit_with_error "Directory not found."
 
   if tmux has-session -t="$session" 2>/dev/null; then
     switch_or_attach "$session"
@@ -81,45 +58,6 @@ create_or_attach_marker() {
 
     switch_or_attach "$session:editor"
   fi
-
-}
-
-# ============================== SESSION: nvim =============================== #
-
-create_or_attach_nvim() {
-  local session="nvim"
-  local working_directory="$HOME/Developer/archie/config/nvim"
-
-  if tmux has-session -t="$session" 2>/dev/null; then
-    switch_or_attach "$session"
-  else
-    tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t="$session:1" "editor"
-    tmux send-keys -t="$session:editor" "nvim" "C-m"
-    tmux new-window -t="$session" -n "shell" -c "$working_directory"
-
-    switch_or_attach "$session:editor"
-  fi
-
-}
-
-# ============================== SESSION: nukes ============================== #
-
-create_or_attach_nukes() {
-  local session="nukes"
-  local working_directory="$HOME/Developer/nukes"
-
-  if tmux has-session -t="$session" 2>/dev/null; then
-    switch_or_attach "$session"
-  else
-    tmux new-session -d -s "$session" -c "$working_directory"
-    tmux rename-window -t="$session:1" "editor"
-    tmux send-keys -t="$session:editor" "nvim" "C-m"
-    tmux new-window -t="$session" -n "shell" -c "$working_directory"
-
-    switch_or_attach "$session:editor"
-  fi
-
 }
 
 # ============================================================================ #
@@ -136,20 +74,7 @@ case "$1" in
   help
   exit 0
   ;;
-dots)
-  create_or_attach_dots
-  ;;
-marker)
-  create_or_attach_marker
-  ;;
-nukes)
-  create_or_attach_nukes
-  ;;
-nvim)
-  create_or_attach_nvim
-  ;;
 *)
-  create_session "$1"
-  switch_or_attach "$1"
+  create_or_attach_to_dev_session "$1"
   ;;
 esac
