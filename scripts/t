@@ -78,4 +78,6 @@ if [[ -d "$SESSION_NAME" ]]; then
   create_or_attach_to_dev_session "$SESSION_NAME"
 elif [[ -d "$HOME/Developer/$SESSION_NAME" ]]; then
   create_or_attach_to_dev_session "$HOME/Developer/$SESSION_NAME"
+else
+  exit_with_error "Don't know how to create session for: $SESSION_NAME"
 fi
