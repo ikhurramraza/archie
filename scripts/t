@@ -64,17 +64,18 @@ create_or_attach_to_dev_session() {
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
 
-if [ $# -ne 1 ]; then
+if [[ $# -ne 1 ]]; then
   help
   exit 1
-fi
-
-case "$1" in
---help | -h)
+elif [[ "$1" == "-h" ]] && [[ "$1" == "--help" ]]; then
   help
   exit 0
-  ;;
-*)
-  create_or_attach_to_dev_session "$1"
-  ;;
-esac
+fi
+
+SESSION_NAME="$1"
+
+if [[ -d "$SESSION_NAME" ]]; then
+  create_or_attach_to_dev_session "$SESSION_NAME"
+elif [[ -d "$HOME/Developer/$SESSION_NAME" ]]; then
+  create_or_attach_to_dev_session "$HOME/Developer/$SESSION_NAME"
+fi
