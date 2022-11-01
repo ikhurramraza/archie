@@ -29,6 +29,7 @@ plugins=(
   docker-compose
   fzf
   git
+  rails
   sudo
   systemadmin
   systemd
