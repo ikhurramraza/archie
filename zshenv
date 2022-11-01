@@ -13,5 +13,8 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 export PROMPT_EOL_MARK=""
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
+# Set language to English
+export LANG="en_US.UTF-8"
+
 # Add local scripts to PATH
 export PATH="$PATH:$HOME/.local/scripts"
