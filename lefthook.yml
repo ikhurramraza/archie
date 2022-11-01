@@ -1,0 +1,7 @@
+pre-commit:
+  parallel: true
+  commands:
+    shfmt:
+      files: git ls-files scripts/ config/zsh/ config/i3/scripts/
+      exclude: ".p10k.zsh|.zshrc"
+      run: shfmt -i=2 -d {files}
