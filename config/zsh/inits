@@ -13,6 +13,20 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
+# Configure ASDF
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
+
+# Configure Pipenv
+export PIPENV_VENV_IN_PROJECT=enabled
+export PIPENV_VERBOSITY=-1
+
+# Configure IRB
+export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
+
+# Configure SQLite
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
+
 # Init 1Password completion
 eval "$(op completion zsh)"; compdef _op op
 
