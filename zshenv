@@ -1,3 +1,6 @@
+# Machine info
+export OS="$(uname)"
+
 # Default programs
 export EDITOR=nvim
 export TERMINAL=kitty
@@ -18,3 +21,9 @@ export LANG="en_US.UTF-8"
 
 # Add local scripts to PATH
 export PATH="$PATH:$HOME/.local/scripts"
+
+if [[ "$OS" == "Linux" ]];  then
+  source "$ZDOTDIR/linux.zsh"
+elif [[ "$OS" == "Darwin" ]]; then
+  source "$ZDOTDIR/mac.zsh"
+fi
