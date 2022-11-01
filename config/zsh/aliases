@@ -1,5 +1,8 @@
 #!/usr/bin/zsh
 
+# Vim like exiting
+alias :q="exit"
+
 # Check running containers in a compact way
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}'"
 
