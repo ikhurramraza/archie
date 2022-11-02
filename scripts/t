@@ -74,7 +74,9 @@ fi
 
 SESSION_NAME="$1"
 
-if [[ -d "$SESSION_NAME" ]]; then
+if tmux has-session -t="$SESSION_NAME" >/dev/null 2>&1; then
+  switch_or_attach "$SESSION_NAME"
+elif [[ -d "$SESSION_NAME" ]]; then
   create_or_attach_to_dev_session "$SESSION_NAME"
 elif [[ -d "$HOME/Developer/$SESSION_NAME" ]]; then
   create_or_attach_to_dev_session "$HOME/Developer/$SESSION_NAME"
