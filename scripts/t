@@ -81,5 +81,7 @@ elif [[ -d "$SESSION_NAME" ]]; then
 elif [[ -d "$HOME/Developer/$SESSION_NAME" ]]; then
   create_or_attach_to_dev_session "$HOME/Developer/$SESSION_NAME"
 else
-  exit_with_error "Don't know how to create session for: $SESSION_NAME"
+  tmux new-session -d -s "$SESSION_NAME"
+  tmux rename-window -t="$SESSION_NAME:1" "shell"
+  switch_or_attach "$SESSION_NAME:shell"
 fi
