@@ -8,3 +8,6 @@ vendor/bundle
 
 # Project environment variable
 .env
+
+# Runfile for TekWizely/run task runner
+Runfile
