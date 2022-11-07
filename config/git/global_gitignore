@@ -11,3 +11,6 @@ vendor/bundle
 
 # Runfile for TekWizely/run task runner
 Runfile
+
+# Cached rake tasks file for rake-fast OMZ plugin
+.rake_tasks

@@ -30,6 +30,7 @@ plugins=(
   fzf
   git
   rails
+  rake-fast
   sudo
   systemadmin
   systemd
