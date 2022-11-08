@@ -13,6 +13,7 @@ alias vim="nvim"
 # Git aliases
 alias gdm='gd $(git_main_branch)'
 alias gfom='gfob $(git_main_branch)'
+alias gmm='gm $(git_main_branch)'
 
 # Exa aliases
 alias l='exa -l'
