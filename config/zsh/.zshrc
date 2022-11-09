@@ -27,6 +27,7 @@ plugins=(
   copybuffer
   docker
   docker-compose
+  dotenv
   fzf
   git
   rails
