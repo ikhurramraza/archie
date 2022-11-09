@@ -23,4 +23,4 @@ alias kcp='klippy copy'
 alias kpp='klippy paste'
 
 # Unalias for t script
-alias t && unalias t
+alias t &>/dev/null && unalias t
