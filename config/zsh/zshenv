@@ -19,6 +19,10 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # Golang path
 export GOPATH="$XDG_DATA_HOME/go"
 
+# Rust paths
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+
 # Set language to English
 export LANG="en_US.UTF-8"
 
