@@ -1,5 +1,5 @@
 #!/bin/bash
 
 case "$1" in
-"C-x") xclip -in -filter | xclip -in -selection clipboard ;;
+"C-x") xclip -in -filter | tr -d '\n' | xclip -in -selection clipboard ;;
 esac
