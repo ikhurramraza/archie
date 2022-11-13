@@ -16,9 +16,9 @@ Arguments:
   FILE     Path of the gif file
 
 Options:
-  --rm     Remove gif file after converting
-  --show   Show before and after (uses sxiv and mpv)
-  --quiet  Make console output less verbose
+  --rm       Remove gif file after converting
+  --show     Show before and after (uses sxiv and mpv)
+  --verbose  Make console output verbose
 HELP
 }
 
@@ -44,13 +44,16 @@ convert() {
 }
 
 stats() {
-  [[ "$quiet" = 1 ]] && return
-
   local gif="$1"
   local mp4="$2"
 
-  gif_size="$(du -h "$gif" | cut -f1)"
-  mp4_size="$(du -h "$mp4" | cut -f1)"
+  gif_bytes+=$(du -k "$gif" | cut -f1)
+  mp4_bytes+=$(du -k "$mp4" | cut -f1)
+
+  [[ "$verbose" = 0 ]] && return
+
+  local gif_size="$(du -h "$gif" | cut -f1)"
+  local mp4_size="$(du -h "$mp4" | cut -f1)"
 
   echo "Gif: $gif ($gif_size)"
   echo "Mp4: $mp4 ($mp4_size)"
@@ -87,8 +90,12 @@ if [ $# -lt 1 ]; then
   exit 1
 fi
 
+verbose=0
 should_show=0
 should_remove=0
+
+declare -i gif_bytes
+declare -i mp4_bytes
 
 for option in "$@"; do
   case "$option" in
@@ -96,8 +103,8 @@ for option in "$@"; do
     should_show=1
     shift
     ;;
-  --quiet)
-    quiet=1
+  --verbose)
+    verbose=1
     shift
     ;;
   --rm)
@@ -126,3 +133,7 @@ for file in "$@"; do
   show "$gif" "$mp4"
   remove "$gif" "$mp4"
 done
+
+if [[ $gif_bytes -gt 0 ]] || [[ $mp4_bytes -gt 0 ]]; then
+  echo "Went from $(($gif_bytes / 1024)) megabytes to $(($mp4_bytes / 1024)) megabytes."
+fi
