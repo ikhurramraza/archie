@@ -47,6 +47,7 @@ stats() {
   local gif="$1"
   local mp4="$2"
 
+  count+=1
   gif_bytes+=$(du -k "$gif" | cut -f1)
   mp4_bytes+=$(du -k "$mp4" | cut -f1)
 
@@ -94,6 +95,7 @@ verbose=0
 should_show=0
 should_remove=0
 
+declare -i count
 declare -i gif_bytes
 declare -i mp4_bytes
 
@@ -135,5 +137,5 @@ for file in "$@"; do
 done
 
 if [[ $gif_bytes -gt 0 ]] || [[ $mp4_bytes -gt 0 ]]; then
-  echo "Went from $(($gif_bytes / 1024)) megabytes to $(($mp4_bytes / 1024)) megabytes."
+  echo "Converted $count gifs ($(($gif_bytes / 1024)) megabytes) to mp4s ($(($mp4_bytes / 1024)) megabytes)."
 fi
