@@ -1,4 +1,9 @@
 bar {
+  # Don't show bar on pressing Mod key
+  mode hide
+  hidden_state hide
+  modifier Mod1
+
   font pango:Monaco 12
   position top
 
