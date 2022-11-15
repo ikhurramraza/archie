@@ -14,6 +14,7 @@ export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # OMZ Plugins envs
+export BOL_QUIET_MODE=true
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_PREFIXED=true
@@ -22,6 +23,7 @@ export VI_MODE_SET_CURSOR=true
 plugins=(
   1password
   asdf
+  bol
   bundler
   common-aliases
   copybuffer
