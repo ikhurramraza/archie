@@ -12,6 +12,12 @@ set -euo pipefail
 : "${GIF_PLAYER:=sxiv -a}"
 : "${VIDEO_PLAYER:=mpv --really-quiet --loop=inf}"
 
+if [[ "$DESKTOP_SESSION" != "gnome" ]]; then
+  GIF_PLAYER="devour $GIF_PLAYER"
+  IMAGE_PLAYER="devour $IMAGE_PLAYER"
+  VIDEO_PLAYER="devour $VIDEO_PLAYER"
+fi
+
 # ============================= Option defaults ============================== #
 
 : "${PLAY_ONLY:=all}"
