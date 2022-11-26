@@ -22,6 +22,7 @@ export VI_MODE_SET_CURSOR=true
 
 plugins=(
   1password
+  ag
   asdf
   bol
   bundler
