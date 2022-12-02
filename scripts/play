@@ -58,9 +58,9 @@ fetch_files() {
 
   case "$PLAY_ONLY" in
   all) find_opts="" ;;
-  gifs) find_opts="-regex .*\.gif$" ;;
-  videos) find_opts="-regex .*\.\(mp4\|mov\|webm\)$" ;;
-  images) find_opts="-regex .*\.\(jpg\|jpeg\|png\|webp\)$" ;;
+  gifs) find_opts="-iregex .*\.gif$" ;;
+  videos) find_opts="-iregex .*\.\(mp4\|mov\|webm\)$" ;;
+  images) find_opts="-iregex .*\.\(jpg\|jpeg\|png\|webp\)$" ;;
   *) exit_with_error "Unknown --only value." ;;
   esac
 
@@ -101,6 +101,8 @@ done
 # ============================================================================ #
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
+
+shopt -s nocasematch
 
 while read -r file; do
   case "$file" in
