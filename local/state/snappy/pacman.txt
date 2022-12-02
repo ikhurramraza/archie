@@ -1,6 +1,5 @@
 1password
 4kstogram
-4ktokkit
 ani-cli
 asdf-vm-git
 bottles
@@ -8,11 +7,10 @@ brave-bin
 devour
 diff-so-fancy-git
 discord_arch_electron
-dynamic-wallpaper-editor
-electron16
 firefox-gnome-theme-maia
 fvs
 git-interactive-rebase-tool
+gtkhash-nautilus
 icoextract
 inducker
 lefthook
@@ -27,3 +25,4 @@ pspg
 python-steamgriddb
 spotify
 vino
+vkbasalt-cli
