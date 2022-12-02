@@ -35,7 +35,6 @@ HELP
 
 mark__start() {
   local img_command vid_command
-  local directories=("$DIRECTORY_DOWNLOADS" "$DIRECTORY_REDRR" "$DIRECTORY_KITRR")
 
   case "$DESKTOP_SESSION" in
   gnome)
