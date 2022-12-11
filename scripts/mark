@@ -49,7 +49,7 @@ mark__start() {
 
   cd "$DIRECTORY_DOWNLOADS" || exit 1
   marker mark "$img_command" "*.{jpeg,jpg,png,gif}"
-  marker mark "$vid_command" "*.mp4"
+  marker mark "$vid_command" "*.{mp4,webm}"
 
   cd "$DIRECTORY_REDRR" || exit 1
   marker mark "$img_command" "**/*.{jpeg,jpg,png,gif}"
