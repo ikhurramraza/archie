@@ -22,5 +22,8 @@ alias l='exa -l'
 alias kcp='klippy copy'
 alias kpp='klippy paste'
 
+# Unalias for sd command
+alias sd &>/dev/null && unalias sd
+
 # Unalias for t script
 alias t &>/dev/null && unalias t
