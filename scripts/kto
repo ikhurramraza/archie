@@ -1,0 +1,130 @@
+#!/usr/bin/env bash
+
+author="Khurram Raza"
+version="1.0.0"
+
+set -eo pipefail
+
+# ============================================================================ #
+# ================================= HELPERS ================================== #
+# ============================================================================ #
+
+help() {
+  cat <<HELP
+Usage: $(basename $0) [OPTIONS] TEMPLATE FILE
+
+Convert file from one media type to another
+
+Arguments:
+  TEMPLATE   Conversion template to use
+  FILE       Path to the input file
+
+Options:
+  --rm          Remove input file after converting
+  --show        Show before and after (uses sxiv and mpv)
+  --verbose     Show more information along the way
+
+  -h --help     Show this help message
+  -v --version  Show version
+
+TEMPLATES:
+  264to265      Convert native x264 mp4 video to hevc x265
+HELP
+}
+
+# ============================================================================ #
+# ================================ FUNCTIONS ================================= #
+# ============================================================================ #
+
+exit_with_error() {
+  echo "$1" 1>&2
+  exit 1
+}
+
+log() {
+  [[ "$verbose" == "1" ]] && echo "$1"
+}
+
+show_if_option_enabled() {
+  [[ "$should_show" == "1" ]] || return
+
+  case "$output" in
+  *.mp4 | *.webm | *.mov) mpv --really-quiet "$output" "$input" ;;
+  *.jpg | *.jpeg | *.png | *.webp | *.gif) sxiv "$output" "$input" ;;
+  *) echo "Don't know how to play $output" ;;
+  esac
+}
+
+remove_if_option_enabled() {
+  [[ "$should_remove" == "1" ]] && mv "$input" "$output"
+}
+
+# ============================================================================ #
+# ============================= ARGUMENT PARSING ============================= #
+# ============================================================================ #
+
+if [[ $# -eq 0 ]]; then
+  help
+  exit 1
+elif [[ $# -eq 1 ]]; then
+  case "$1" in
+  -h | --help) help && exit ;;
+  -v | --version) echo "$version" && exit ;;
+  esac
+fi
+
+verbose=0
+should_show=0
+should_remove=0
+
+for option in "$@"; do
+  case "$option" in
+  --verbose)
+    verbose=1
+    shift
+    ;;
+  --show)
+    should_show=1
+    shift
+    ;;
+  --rm)
+    should_remove=1
+    shift
+    ;;
+  *)
+    break
+    ;;
+  esac
+done
+
+# ============================================================================ #
+# ================================ ENTRYPOINT ================================ #
+# ============================================================================ #
+
+template="$1"
+shift
+
+for file in "$@"; do
+  SECONDS=0
+  input="$(realpath "$file")"
+  extension="${input##*.}"
+  output="${input%%.*}.kto.$extension"
+
+  [[ -f "$input" ]] || exit_with_error "File not found: $input"
+  [[ -f "$output" ]] && exit_with_error "File already exists: $output"
+
+  log "Converting $file using template $template..."
+
+  if [[ "$template" == "264to265" ]]; then
+    ffmpeg -i "$input" -c:v libx265 -vtag hvc1 "$output" >/dev/null 2>&1
+  else
+    exit_with_error "Unknown template: $template"
+  fi
+
+  log "Time taken: $SECONDS seconds"
+  log "Input size: $(du -h "$input" | cut -f1)"
+  log "Output size: $(du -h "$output" | cut -f1)"
+
+  show_if_option_enabled
+  remove_if_option_enabled
+done
