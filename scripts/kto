@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 author="Khurram Raza"
-version="1.0.0"
+version="1.0.1"
 
 set -eo pipefail
 
@@ -42,11 +42,13 @@ exit_with_error() {
 }
 
 log() {
-  [[ "$verbose" == "1" ]] && echo "$1"
+  [[ $verbose -eq 0 ]] && return 0
+
+  echo "$1"
 }
 
 show_if_option_enabled() {
-  [[ "$should_show" == "1" ]] || return
+  [[ $should_show -eq 0 ]] && return 0
 
   case "$output" in
   *.mp4 | *.webm | *.mov) mpv --really-quiet "$output" "$input" ;;
@@ -56,7 +58,9 @@ show_if_option_enabled() {
 }
 
 remove_if_option_enabled() {
-  [[ "$should_remove" == "1" ]] && mv "$input" "$output"
+  [[ $should_remove -eq 0 ]] && return 0
+
+  mv "$output" "$input"
 }
 
 # ============================================================================ #
