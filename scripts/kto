@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 author="Khurram Raza"
-version="1.0.1"
+version="2.0.0"
 
 set -eo pipefail
 
@@ -28,6 +28,7 @@ Options:
   -v --version  Show version
 
 TEMPLATES:
+  rotate90      Rotate video 90 degrees
   264to265      Convert native x264 mp4 video to hevc x265
 HELP
 }
@@ -121,6 +122,8 @@ for file in "$@"; do
 
   if [[ "$template" == "264to265" ]]; then
     ffmpeg -i "$input" -c:v libx265 -vtag hvc1 "$output" >/dev/null 2>&1
+  elif [[ "$template" == "rotate90" ]]; then
+    ffmpeg -i "$input" -vf "transpose=1" "$output" >/dev/null 2>&1
   else
     exit_with_error "Unknown template: $template"
   fi
