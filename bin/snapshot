@@ -1,0 +1,57 @@
+#!/bin/sh
+
+set -euo pipefail
+
+# =========================================================================== #
+# ================================= Helpers ================================= #
+# =========================================================================== #
+
+help() {
+  echo "Usage: $0 SOURCE"
+  echo ""
+  echo "SOURCES:"
+  echo "  neovim"
+}
+
+exit_with_error() {
+  echo "$1" 1>&2
+  exit 1
+}
+
+# =========================================================================== #
+# ============================ Snapshot sources ============================= #
+# =========================================================================== #
+
+neovim() {
+  local SNAPSHOT_FILE="config/nvim/snapshot.json"
+  local SNAPSHOT_CACHE_DIRECTORY="$XDG_CACHE_HOME/nvim/packer.nvim"
+  local SNAPSHOT_CACHE_FILE="$(mktemp -u $SNAPSHOT_CACHE_DIRECTORY/snapshot.XXXX.json)"
+
+  mkdir -p "$SNAPSHOT_CACHE_DIRECTORY"
+
+  nvim \
+    --headless \
+    -c "PackerSnapshot $SNAPSHOT_CACHE_FILE" \
+    -c "silent !sleep 1" \
+    -c "quit"
+
+  prettier "$SNAPSHOT_CACHE_FILE" >"$SNAPSHOT_FILE"
+}
+
+# =========================================================================== #
+# ================================ Entrypoint =============================== #
+# =========================================================================== #
+
+if [[ $# -ne 1 ]]; then
+  help
+  exit 1
+fi
+
+case "$1" in
+neovim)
+  neovim
+  ;;
+*)
+  exit_with_error "Unknown source"
+  ;;
+esac
