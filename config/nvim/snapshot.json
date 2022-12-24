@@ -1,6 +1,6 @@
 {
-  "Comment.nvim": { "commit": "5f01c1a" },
-  "LuaSnip": { "commit": "8b25e74" },
+  "Comment.nvim": { "commit": "2a16514" },
+  "LuaSnip": { "commit": "5570fd7" },
   "better-escape.vim": { "commit": "6b16a45" },
   "bufdelete.nvim": { "commit": "f79e9d1" },
   "catppuccin": { "commit": "55f43a9" },
@@ -19,7 +19,7 @@
   "mason-lspconfig.nvim": { "commit": "5bea0e8" },
   "mason.nvim": { "commit": "dd04b41" },
   "null-ls.nvim": { "commit": "db1c7cb" },
-  "nvim-cmp": { "commit": "8bbaeda" },
+  "nvim-cmp": { "commit": "d09b0c3" },
   "nvim-lspconfig": { "commit": "d597b0f" },
   "nvim-treesitter": { "commit": "eedb7b9c" },
   "nvim-web-devicons": { "commit": "05e1072" },
