@@ -148,6 +148,7 @@ for file in "$@"; do
   log "Time taken: $SECONDS seconds"
   log "Input size: $(du -h "$input" | cut -f1)"
   log "Output size: $(du -h "$output" | cut -f1)"
+  log ""
 
   show_if_option_enabled
   remove_if_option_enabled
