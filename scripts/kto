@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 author="Khurram Raza"
-version="2.0.0"
+version="3.0.0"
 
 set -eo pipefail
 
@@ -20,7 +20,7 @@ Arguments:
   FILE       Path to the input file
 
 Options:
-  --rm          Remove input file after converting
+  --keep        Keep original input file after converting
   --show        Show before and after (uses sxiv and mpv)
   --verbose     Show more information along the way
 
@@ -59,7 +59,7 @@ show_if_option_enabled() {
 }
 
 remove_if_option_enabled() {
-  [[ $should_remove -eq 0 ]] && return 0
+  [[ $keep_original -eq 1 ]] && return 0
 
   mv "$output" "$input"
 }
@@ -80,7 +80,7 @@ fi
 
 verbose=0
 should_show=0
-should_remove=0
+keep_original=0
 
 for option in "$@"; do
   case "$option" in
@@ -92,8 +92,8 @@ for option in "$@"; do
     should_show=1
     shift
     ;;
-  --rm)
-    should_remove=1
+  --keep)
+    keep_original=1
     shift
     ;;
   *)
