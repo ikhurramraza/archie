@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 author="Khurram Raza"
-version="4.0.0"
+version="5.0.0"
 
 set -eo pipefail
 
@@ -21,7 +21,7 @@ Arguments:
 
 Options:
   --show        Show before and after (uses sxiv and mpv)
-  --verbose     Show more information along the way
+  --quiet       Suppress script output
   --original    What to do with the original input file (default: ask)
                 Options available: keep, remove, ask
 
@@ -44,7 +44,7 @@ exit_with_error() {
 }
 
 log() {
-  [[ $verbose -eq 0 ]] && return 0
+  [[ $quiet -eq 1 ]] && return 0
 
   echo "$1"
 }
@@ -91,14 +91,14 @@ elif [[ $# -eq 1 ]]; then
   esac
 fi
 
-verbose=0
+quiet=0
 original="ask"
 should_show=0
 
 for option in "$@"; do
   case "$option" in
-  --verbose)
-    verbose=1
+  --quiet)
+    quiet=1
     shift
     ;;
   --show)
