@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 author="Khurram Raza"
-version="3.0.0"
+version="4.0.0"
 
 set -eo pipefail
 
@@ -20,9 +20,10 @@ Arguments:
   FILE       Path to the input file
 
 Options:
-  --keep        Keep original input file after converting
   --show        Show before and after (uses sxiv and mpv)
   --verbose     Show more information along the way
+  --original    What to do with the original input file (default: ask)
+                Options available: keep, remove, ask
 
   -h --help     Show this help message
   -v --version  Show version
@@ -59,9 +60,21 @@ show_if_option_enabled() {
 }
 
 remove_if_option_enabled() {
-  [[ $keep_original -eq 1 ]] && return 0
-
-  mv "$output" "$input"
+  case "$original" in
+  ask)
+    read -p "Do you wish to keep the original? (y/N) " -r
+    [[ ! $REPLY =~ [yY]$ ]] && mv "$output" "$input"
+    ;;
+  remove)
+    mv "$output" "$input"
+    ;;
+  keep)
+    return 0
+    ;;
+  *)
+    exit_with_error "Unknown value for original option: $original"
+    ;;
+  esac
 }
 
 # ============================================================================ #
@@ -79,8 +92,8 @@ elif [[ $# -eq 1 ]]; then
 fi
 
 verbose=0
+original="ask"
 should_show=0
-keep_original=0
 
 for option in "$@"; do
   case "$option" in
@@ -92,9 +105,13 @@ for option in "$@"; do
     should_show=1
     shift
     ;;
-  --keep)
-    keep_original=1
+  --original=*)
+    original="${1#*=}"
     shift
+    ;;
+  --original)
+    original="$2"
+    shift 2
     ;;
   *)
     break
