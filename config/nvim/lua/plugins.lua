@@ -23,6 +23,10 @@ require("packer").startup({
     use({ "tek/vim-textobj-ruby", requires = "kana/vim-textobj-user" })
     use({ "rhysd/vim-textobj-anyblock", requires = "kana/vim-textobj-user" })
 
+    -- Themes
+    use({ "dracula/vim", as = "dracula" })
+    use({ "catppuccin/nvim", as = "catppuccin" })
+
     -- LSP
     use("j-hui/fidget.nvim")
     use("neovim/nvim-lspconfig")
@@ -57,31 +61,6 @@ require("packer").startup({
       "numToStr/Comment.nvim",
       config = function()
         require("Comment").setup()
-      end,
-    })
-
-    -- use({
-    --   "dracula/vim",
-    --   as = "dracula",
-    --   config = function()
-    --     vim.g.dracula_italic = 0
-    --     vim.g.dracula_inverse = 0
-    --
-    --     vim.api.nvim_command("colorscheme dracula")
-    --     vim.api.nvim_command("highlight DraculaBoundary guibg=none")
-    --     vim.api.nvim_command("highlight DraculaDiffDelete ctermbg=none guibg=none")
-    --     vim.api.nvim_command("highlight DraculaComment cterm=italic gui=italic")
-    --     vim.api.nvim_command("highlight DraculaTodo guifg=#6272A4")
-    --   end,
-    -- })
-
-    use({
-      "catppuccin/nvim",
-      as = "catppuccin",
-      config = function()
-        vim.g.catppuccin_flavour = "macchiato"
-        require("catppuccin").setup()
-        vim.api.nvim_command("colorscheme catppuccin")
       end,
     })
 
