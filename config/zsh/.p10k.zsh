@@ -103,7 +103,7 @@
     # proxy                 # system-wide http/https/ftp proxy
     # battery               # internal battery
     # wifi                  # wifi speed
-    # tmux                  # tmux session name
+    tmux                  # tmux session name
     # example               # example user-defined segment (see prompt_example function below)
   )
 
@@ -1574,7 +1574,7 @@
   }
 
   function prompt_tmux() {
-    [ -n "$TMUX" ] && p10k segment -f 208 -t "$(tmux display-message -p '#W')"
+    [ -n "$TMUX" ] && p10k segment -f 208 -i '' -t "$(tmux display-message -p '#S')"
   }
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
   # is to generate the prompt segment for display in instant prompt. See
