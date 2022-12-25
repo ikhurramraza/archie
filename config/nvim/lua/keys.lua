@@ -41,3 +41,6 @@ vim.keymap.set("n", "<leader>P", '"+P')
 -- Delete without updating the registers
 vim.keymap.set("n", "<leader>d", '"_d')
 vim.keymap.set("v", "<leader>d", '"_d')
+
+-- Exit terminal mode with double escape
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
