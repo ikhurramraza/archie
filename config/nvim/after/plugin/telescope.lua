@@ -73,8 +73,8 @@ telescope.setup({
   },
 })
 
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("undo")
+telescope.load_extension("fzf")
+telescope.load_extension("undo")
 
 vim.keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<CR>")
