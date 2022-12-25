@@ -1,27 +1,39 @@
 require("packer").startup({
   function(use)
     use("tpope/vim-repeat")
-    use("tpope/vim-endwise")
-    use("vim-ruby/vim-ruby")
     use("tpope/vim-fugitive")
     use("jesseleite/vim-noh")
     use("tpope/vim-surround")
     use("wbthomason/packer.nvim")
     use("stevearc/dressing.nvim")
-    use("AndrewRadev/splitjoin.vim")
-    use("christoomey/vim-sort-motion")
     use("qpkorr/vim-renamer")
     use("famiu/bufdelete.nvim")
     use("metakirby5/codi.vim")
     use("ThePrimeagen/harpoon")
     use("mbbill/undotree")
 
-    use({ "EvanQuan/vim-textobj-delimiters", requires = "kana/vim-textobj-user" })
-    use({ "kana/vim-textobj-indent", requires = "kana/vim-textobj-user" })
-    use({ "kana/vim-textobj-line", requires = "kana/vim-textobj-user" })
-    use({ "sgur/vim-textobj-parameter", requires = "kana/vim-textobj-user" })
+    -- Ruby language
+    use("vim-ruby/vim-ruby")
+    use("tpope/vim-endwise")
+
+    -- Text objects
     use({ "tek/vim-textobj-ruby", requires = "kana/vim-textobj-user" })
+    use({ "kana/vim-textobj-line", requires = "kana/vim-textobj-user" })
+    use({ "kana/vim-textobj-indent", requires = "kana/vim-textobj-user" })
     use({ "rhysd/vim-textobj-anyblock", requires = "kana/vim-textobj-user" })
+    use({ "sgur/vim-textobj-parameter", requires = "kana/vim-textobj-user" })
+    use({ "EvanQuan/vim-textobj-delimiters", requires = "kana/vim-textobj-user" })
+
+    -- Text manipulators
+    use("AndrewRadev/splitjoin.vim")
+    use("christoomey/vim-sort-motion")
+    use({
+      "junegunn/vim-easy-align",
+      config = function()
+        vim.keymap.set("n", "ga", "<Plug>(EasyAlign)")
+        vim.keymap.set("x", "ga", "<Plug>(EasyAlign)")
+      end,
+    })
 
     -- Themes
     use({ "dracula/vim", as = "dracula" })
@@ -45,6 +57,10 @@ require("packer").startup({
     use("hrsh7th/cmp-nvim-lsp")
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
+
+    -- Telescope
+    use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
     use({ "jdhao/better-escape.vim", event = "InsertEnter" })
 
@@ -103,14 +119,6 @@ require("packer").startup({
     })
 
     use({
-      "junegunn/vim-easy-align",
-      config = function()
-        vim.keymap.set("n", "ga", "<Plug>(EasyAlign)")
-        vim.keymap.set("x", "ga", "<Plug>(EasyAlign)")
-      end,
-    })
-
-    use({
       "nvim-lualine/lualine.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
@@ -142,14 +150,6 @@ require("packer").startup({
         vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
       end,
     })
-
-    use({
-      "nvim-telescope/telescope.nvim",
-      tag = "0.1.0",
-      requires = "nvim-lua/plenary.nvim",
-    })
-
-    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
     use({
       "vim-test/vim-test",
