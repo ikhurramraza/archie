@@ -63,11 +63,21 @@ telescope.setup({
       },
     },
   },
+
+  extensions = {
+    undo = {
+      side_by_side = true,
+      layout_strategy = "vertical",
+      layout_config = { preview_height = 0.8 },
+    },
+  },
 })
 
 require("telescope").load_extension("fzf")
+require("telescope").load_extension("undo")
 
 vim.keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles<CR>")
 vim.keymap.set("n", "<leader>ss", "<cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<CR>")

@@ -32,6 +32,7 @@
   "rust-tools.nvim": { "commit": "99fd123" },
   "splitjoin.vim": { "commit": "956d67c" },
   "telescope-fzf-native.nvim": { "commit": "fab3e22" },
+  "telescope-undo.nvim": { "commit": "85b1cac" },
   "telescope.nvim": { "commit": "b79cd6c" },
   "typescript.nvim": { "commit": "b96b3f8" },
   "undotree": { "commit": "1a23ea8" },
