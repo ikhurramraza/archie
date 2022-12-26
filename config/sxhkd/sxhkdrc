@@ -9,3 +9,6 @@ XF86AudioMute
 
 super + space
     rofi -show drun
+
+super + ctrl + c
+   liner cp
