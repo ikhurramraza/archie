@@ -36,6 +36,7 @@ convert() {
   local mp4="$2"
 
   ffmpeg \
+    -hwaccel cuda \
     -i "$gif" \
     -movflags faststart \
     -pix_fmt yuv420p \

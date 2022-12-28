@@ -138,9 +138,9 @@ for file in "$@"; do
   log "Converting $file using template $template..."
 
   if [[ "$template" == "264to265" ]]; then
-    ffmpeg -i "$input" -c:v libx265 -vtag hvc1 "$output" >/dev/null 2>&1
+    ffmpeg -i "$input" -c:v hevc_nvenc -vtag hvc1 "$output" >/dev/null 2>&1
   elif [[ "$template" == "rotate90" ]]; then
-    ffmpeg -i "$input" -vf "transpose=1" "$output" >/dev/null 2>&1
+    ffmpeg --hwaccel cuda -i "$input" -vf "transpose=1" "$output" >/dev/null 2>&1
   else
     exit_with_error "Unknown template: $template"
   fi
