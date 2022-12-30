@@ -1,5 +1,7 @@
 #!/bin/bash
 
-case "$1" in
-"C-x") xclip -in -filter | tr -d '\n' | xclip -in -selection clipboard ;;
-esac
+while read file; do
+  case "$1" in
+  "C-x") echo -n "$file" | xclip -in -selection clipboard ;;
+  esac
+done
