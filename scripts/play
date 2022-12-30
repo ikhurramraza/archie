@@ -12,14 +12,12 @@ set -euo pipefail
 : "${VIDEO_PLAYER:=mpv --really-quiet --loop=inf}"
 
 if [[ "$DESKTOP_SESSION" != "gnome" ]]; then
-  GIF_PLAYER="devour $GIF_PLAYER"
   IMAGE_PLAYER="devour $IMAGE_PLAYER"
   VIDEO_PLAYER="devour $VIDEO_PLAYER"
 fi
 
 # ============================= Option defaults ============================== #
 
-: "${PLAY_ONLY:=all}"
 : "${PLAY_ORDER:=normal}"
 
 # ============================================================================ #
@@ -47,31 +45,12 @@ exit_with_error() {
   exit 1
 }
 
-# ============================================================================ #
-# ================================= FUNCTIONS ================================ #
-# ============================================================================ #
-
-files() {
-  local find_opts=""
-
-  case "$PLAY_TYPE" in
-  v | videos) find_opts="-iregex .*\.\(mp4\|mov\|webm\)$" ;;
-  i | images) find_opts="-iregex .*\.\(jpg\|jpeg\|png\|webp\|gif\)$" ;;
-  *) exit_with_error "Unknown type: $type" ;;
-  esac
-
-  local find_command="find $PLAY_DIRECTORY -type f $find_opts -print0"
-
-  case "$PLAY_ORDER" in
-  normal) $find_command ;;
-  random) $find_command | sort -R ;;
-  size) $find_command -printf '%s\t%p\n' | sort -r -n | cut -f2- ;;
-  *) exit_with_error "Unknown --order value." ;;
-  esac
+command_available() {
+  command -v "$1" >/dev/null 2>&1 || exit_with_error "Please make sure $1 is installed."
 }
 
 # ============================================================================ #
-# ============================= ARGUMENT PARSING ============================= #
+# ============================= OPTIONS PARSING ============================== #
 # ============================================================================ #
 
 for option in "$@"; do
@@ -86,17 +65,45 @@ for option in "$@"; do
   esac
 done
 
-PLAY_TYPE="$1"
-PLAY_DIRECTORY="$2"
-
 # ============================================================================ #
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
 
-case "$PLAY_TYPE" in
-i | images) PLAYER="$IMAGE_PLAYER" ;;
-v | videos) PLAYER="$VIDEO_PLAYER" ;;
-*) exit_with_error "Unknown type: $type" ;;
-esac
+command_available fd
 
-files | xargs -0 $PLAYER
+if [[ $# -ne 2 ]]; then
+  help
+  exit 1
+fi
+
+PLAY_TYPE="$1"
+PLAY_DIRECTORY="$2"
+
+main() {
+  case "$PLAY_TYPE" in
+  i | images)
+    local player="$IMAGE_PLAYER"
+    local glob="**/*.{gif,jpeg,jpg,png,webp}"
+    ;;
+  v | videos)
+    local player="$VIDEO_PLAYER"
+    local glob="**/*.{mkv,mov,mp4,webm}"
+    ;;
+  *)
+    exit_with_error "Unknown type: $PLAY_TYPE"
+    ;;
+  esac
+
+  local fd="fd --glob $glob --print0 $PLAY_DIRECTORY"
+
+  case "$PLAY_ORDER" in
+  normal) local sorter="sort -z" ;;
+  random) local sorter="shuf -z" ;;
+  size) local sorter="xargs -0 ls -S --zero" ;;
+  *) exit_with_error "Unknown --order value." ;;
+  esac
+
+  $fd | $sorter | xargs -0 $player
+}
+
+main "$@"
