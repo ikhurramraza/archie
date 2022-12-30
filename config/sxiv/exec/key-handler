@@ -3,5 +3,6 @@
 while read file; do
   case "$1" in
   "C-x") echo -n "$file" | xclip -in -selection clipboard ;;
+  "C-r") convert "$file" -rotate 90 "$file" ;;
   esac
 done
