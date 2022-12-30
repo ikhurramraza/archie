@@ -18,6 +18,9 @@ alias gmm='gm $(git_main_branch)'
 # Exa aliases
 alias l='exa -l'
 
+# Disable status bar for sxiv
+alias sxiv='sxiv -b'
+
 # Klippy aliases
 alias kcp='klippy copy'
 alias kpp='klippy paste'
