@@ -60,7 +60,7 @@ files() {
   *) exit_with_error "Unknown type: $type" ;;
   esac
 
-  local find_command="find $PLAY_DIRECTORY -type f $find_opts"
+  local find_command="find $PLAY_DIRECTORY -type f $find_opts -print0"
 
   case "$PLAY_ORDER" in
   normal) $find_command ;;
@@ -99,4 +99,4 @@ v | videos) PLAYER="$VIDEO_PLAYER" ;;
 *) exit_with_error "Unknown type: $type" ;;
 esac
 
-files | xargs -d '\n' $PLAYER
+files | xargs -0 $PLAYER
