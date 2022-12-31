@@ -123,6 +123,12 @@ done
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
 
+case "$(uname)" in
+Linux) hwaccel_opts="-hwaccel cuda" ;;
+Darwin) hwaccel_opts="-hwaccel videotoolbox" ;;
+*) hwaccel_opts="" ;;
+esac
+
 template="$1"
 shift
 
@@ -138,9 +144,9 @@ for file in "$@"; do
   log "Converting $file using template $template..."
 
   if [[ "$template" == "264to265" ]]; then
-    ffmpeg -i "$input" -c:v hevc_nvenc -vtag hvc1 "$output" >/dev/null 2>&1
+    ffmpeg $hwaccel_opts -i "$input" -c:v hevc -vtag hvc1 "$output" >/dev/null 2>&1
   elif [[ "$template" == "rotate90" ]]; then
-    ffmpeg --hwaccel cuda -i "$input" -vf "transpose=1" "$output" >/dev/null 2>&1
+    ffmpeg $hwaccel_opts -i "$input" -vf "transpose=1" "$output" >/dev/null 2>&1
   else
     exit_with_error "Unknown template: $template"
   fi
