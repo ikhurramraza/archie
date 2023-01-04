@@ -89,5 +89,6 @@ vim.keymap.set("n", "<leader>sf", builtins.find_files, { desc = "[S]earch [F]ile
 vim.keymap.set("n", "<leader>sg", builtins.live_grep, { desc = "[S]each by [G]rep" })
 vim.keymap.set("n", "<leader>so", builtins.oldfiles, { desc = "[S]earch [O]ldfiles" })
 vim.keymap.set("n", "<leader>su", extensions.undo.undo, { desc = "[S]each [U]ndotree" })
+vim.keymap.set("n", "<leader>sw", builtins.grep_string, { desc = "[S]earch current [W]ord" })
 
 vim.keymap.set("n", "<leader>/", builtins.current_buffer_fuzzy_find, { desc = "[/] Fuzzily search in current buffer" })
