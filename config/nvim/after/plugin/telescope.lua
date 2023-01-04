@@ -89,6 +89,7 @@ vim.keymap.set("n", "<leader>sd", builtins.diagnostics, { desc = "[S]earch [D]ia
 vim.keymap.set("n", "<leader>sf", builtins.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>sg", builtins.live_grep, { desc = "[S]each by [G]rep" })
 vim.keymap.set("n", "<leader>so", builtins.oldfiles, { desc = "[S]earch [O]ldfiles" })
+vim.keymap.set("n", "<leader>sr", builtins.resume, { desc = "[S]earch [R]esume" })
 vim.keymap.set("n", "<leader>su", extensions.undo.undo, { desc = "[S]each [U]ndotree" })
 vim.keymap.set("n", "<leader>sw", builtins.grep_string, { desc = "[S]earch current [W]ord" })
 

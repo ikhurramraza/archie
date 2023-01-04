@@ -28,6 +28,7 @@ vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>")
 -- Diagnostics
 vim.keymap.set("n", "{", vim.diagnostic.goto_prev, { silent = true })
 vim.keymap.set("n", "}", vim.diagnostic.goto_next, { silent = true })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { silent = true })
 
 -- Copy to clipboard
 vim.keymap.set("n", "<leader>y", '"+y')
