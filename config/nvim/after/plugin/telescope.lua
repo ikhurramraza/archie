@@ -5,6 +5,8 @@ if not present then
 end
 
 local actions = require("telescope.actions")
+local builtins = require("telescope.builtin")
+local extensions = telescope.extensions
 local layout_actions = require("telescope.actions.layout")
 
 telescope.setup({
@@ -82,10 +84,10 @@ telescope.setup({
 telescope.load_extension("fzf")
 telescope.load_extension("undo")
 
-vim.keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<CR>")
-vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<CR>")
-vim.keymap.set("n", "<leader>sg", "<cmd>Telescope live_grep<CR>")
-vim.keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles<CR>")
-vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<CR>")
+vim.keymap.set("n", "<leader>sb", builtins.buffers, { desc = "[S]earch [B]uffers" })
+vim.keymap.set("n", "<leader>sf", builtins.find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader>sg", builtins.live_grep, { desc = "[S]each by [G]rep" })
+vim.keymap.set("n", "<leader>so", builtins.oldfiles, { desc = "[S]earch [O]ldfiles" })
+vim.keymap.set("n", "<leader>su", extensions.undo.undo, { desc = "[S]each [U]ndotree" })
 
-vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+vim.keymap.set("n", "<leader>/", builtins.current_buffer_fuzzy_find, { desc = "[/] Fuzzily search in current buffer" })
