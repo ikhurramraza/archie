@@ -85,6 +85,7 @@ telescope.load_extension("fzf")
 telescope.load_extension("undo")
 
 vim.keymap.set("n", "<leader>sb", builtins.buffers, { desc = "[S]earch [B]uffers" })
+vim.keymap.set("n", "<leader>sd", builtins.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>sf", builtins.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>sg", builtins.live_grep, { desc = "[S]each by [G]rep" })
 vim.keymap.set("n", "<leader>so", builtins.oldfiles, { desc = "[S]earch [O]ldfiles" })
