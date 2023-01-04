@@ -70,6 +70,13 @@ telescope.setup({
       theme = "dropdown",
       winblend = 10,
     },
+
+    lsp_references = {
+      side_by_side = true,
+      layout_strategy = "vertical",
+      winblend = 3,
+      layout_config = { preview_height = 0.75 },
+    },
   },
 
   extensions = {
@@ -93,4 +100,5 @@ vim.keymap.set("n", "<leader>sr", builtins.resume, { desc = "[S]earch [R]esume" 
 vim.keymap.set("n", "<leader>su", extensions.undo.undo, { desc = "[S]each [U]ndotree" })
 vim.keymap.set("n", "<leader>sw", builtins.grep_string, { desc = "[S]earch current [W]ord" })
 
+vim.keymap.set("n", "<leader>gr", builtins.lsp_references, { desc = "[G]oto [R]eferences" })
 vim.keymap.set("n", "<leader>/", builtins.current_buffer_fuzzy_find, { desc = "[/] Fuzzily search in current buffer" })
