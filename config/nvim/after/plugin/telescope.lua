@@ -62,6 +62,12 @@ telescope.setup({
         height = 0.6,
       },
     },
+
+    current_buffer_fuzzy_find = {
+      previewer = false,
+      theme = "dropdown",
+      winblend = 10,
+    },
   },
 
   extensions = {
@@ -81,3 +87,5 @@ vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles<CR>")
 vim.keymap.set("n", "<leader>ss", "<cmd>Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<CR>")
+
+vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
