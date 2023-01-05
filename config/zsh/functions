@@ -4,3 +4,21 @@ gfob() {
   local branch="$1"
   git fetch origin "$branch:$branch"
 }
+
+vplay() {
+  local directory="/mnt/Archive/Media/FontKit"
+  local selection="$(ls -1 $directory | fzf-tmux -p --reverse)"
+
+  [[ "$selection" == "" ]] && return 1
+
+  play v "$directory/$selection"
+}
+
+iplay() {
+  local directory="/mnt/Archive/Media/FontKit"
+  local selection="$(ls -1 $directory | fzf-tmux -p --reverse)"
+
+  [[ "$selection" == "" ]] && return 1
+
+  play i "$directory/$selection"
+}
