@@ -138,6 +138,8 @@ if [[ $# -eq 0 ]]; then
   exit 1
 else
   for subcommand in "$@"; do
+    SECONDS=0
+
     case "$subcommand" in
     create | start | copy | optimize)
       "mark__$subcommand"
@@ -146,5 +148,7 @@ else
       marker "$subcommand"
       ;;
     esac
+
+    echo "Ran $subcommand in $SECONDS seconds"
   done
 fi
