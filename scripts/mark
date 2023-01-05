@@ -12,6 +12,20 @@ DIRECTORY_DOWNLOADS="$HOME/Downloads"
 DIRECTORY_KITRR="$XDG_DATA_HOME/4k/Kitrr"
 DIRECTORY_REDRR="/mnt/Archive/Media/Redrr"
 DIRECTORY_STOGRAM="$XDG_DATA_HOME/4k/4K Stogram"
+DIRECTORY_FONTKIT="/mnt/Archive/Media/FontKit"
+
+# ============================================================================ #
+# ============================== HELPER METHODS ============================== #
+# ============================================================================ #
+
+exit_with_error() {
+  echo "$1" 1>&2
+  exit 1
+}
+
+command_available() {
+  command -v "$1" >/dev/null 2>&1 || exit_with_error "Please make sure $1 is installed."
+}
 
 # ============================================================================ #
 # =============================== SUB COMMANDS =============================== #
@@ -28,6 +42,7 @@ Commands:
   start           Start marking files in Kittr and Redrr
   copy            Copy tagged files to new location
   create          Move files to Kitrr
+  optimize        Optimize today's files in FontKit directory
 HELP
 }
 
@@ -72,7 +87,7 @@ mark__copy() {
 
   while read -r tag; do
     folder="$(titlelize "$tag")"
-    directory="/mnt/Archive/Media/FontKit/$folder"
+    directory="$DIRECTORY_FONTKIT/$folder"
 
     [[ ! -d "$directory" ]] && mkdir -p "$directory"
 
@@ -105,6 +120,15 @@ mark__create() {
   done < <(find "$DIRECTORY_STOGRAM" -type f)
 }
 
+# ============================ COMMAND: Optimize ============================= #
+
+mark__optimize() {
+  command_available fd
+  command_available mize
+
+  fd . "$DIRECTORY_FONTKIT" --changed-within=1d --type=f | xargs mize
+}
+
 # ============================================================================ #
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
@@ -115,7 +139,7 @@ if [[ $# -eq 0 ]]; then
 else
   for subcommand in "$@"; do
     case "$subcommand" in
-    create | start | copy)
+    create | start | copy | optimize)
       "mark__$subcommand"
       ;;
     clean | stats | undo)
