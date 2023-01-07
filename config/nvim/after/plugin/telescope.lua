@@ -76,6 +76,13 @@ telescope.setup({
       side_by_side = true,
       layout_strategy = "vertical",
       layout_config = { preview_height = 0.65 },
+      mappings = {
+        i = {
+          ["<CR>"] = require("telescope-undo.actions").restore,
+          ["<leader>ya"] = require("telescope-undo.actions").yank_additions,
+          ["<leader>yd"] = require("telescope-undo.actions").yank_deletions,
+        },
+      },
     },
 
     frecency = {
