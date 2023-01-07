@@ -48,14 +48,6 @@ telescope.setup({
       },
     },
 
-    oldfiles = {
-      previewer = false,
-      cwd_only = true,
-      layout_config = {
-        preview_width = 0.6,
-      },
-    },
-
     live_grep = {
       previewer = false,
       theme = "dropdown",
@@ -85,17 +77,23 @@ telescope.setup({
       layout_strategy = "vertical",
       layout_config = { preview_height = 0.65 },
     },
+
+    frecency = {
+      default_workspace = "CWD",
+      show_filter_column = false,
+    },
   },
 })
 
 telescope.load_extension("fzf")
 telescope.load_extension("undo")
+telescope.load_extension("frecency")
 
 vim.keymap.set("n", "<leader>sb", builtins.buffers, { desc = "[S]earch [B]uffers" })
 vim.keymap.set("n", "<leader>sd", builtins.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>sf", builtins.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>sg", builtins.live_grep, { desc = "[S]each by [G]rep" })
-vim.keymap.set("n", "<leader>so", builtins.oldfiles, { desc = "[S]earch [O]ldfiles" })
+vim.keymap.set("n", "<leader>so", extensions.frecency.frecency, { desc = "[S]earch [O]ldfiles" })
 vim.keymap.set("n", "<leader>sr", builtins.resume, { desc = "[S]earch [R]esume" })
 vim.keymap.set("n", "<leader>su", extensions.undo.undo, { desc = "[S]each [U]ndotree" })
 vim.keymap.set("n", "<leader>sw", builtins.grep_string, { desc = "[S]earch current [W]ord" })

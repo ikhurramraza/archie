@@ -31,6 +31,8 @@
   "quick-scope": { "commit": "428e869" },
   "rust-tools.nvim": { "commit": "99fd123" },
   "splitjoin.vim": { "commit": "956d67c" },
+  "sqlite.lua": { "commit": "53cac3f" },
+  "telescope-frecency.nvim": { "commit": "62cbd4e" },
   "telescope-fzf-native.nvim": { "commit": "fab3e22" },
   "telescope-undo.nvim": { "commit": "f2ca7c9" },
   "telescope.nvim": { "commit": "a606bd1" },
