@@ -9,6 +9,8 @@ local builtins = require("telescope.builtin")
 local extensions = telescope.extensions
 local layout_actions = require("telescope.actions.layout")
 
+local grep_actions = require("telescope-live-grep-args.actions")
+
 telescope.setup({
   defaults = {
     path_display = { truncate = 3 },
@@ -45,12 +47,6 @@ telescope.setup({
       layout_config = { preview_width = 0.6 },
     },
 
-    live_grep = {
-      previewer = false,
-      theme = "dropdown",
-      layout_config = { width = 0.9, height = 0.6 },
-    },
-
     current_buffer_fuzzy_find = {
       previewer = false,
       theme = "dropdown",
@@ -79,6 +75,18 @@ telescope.setup({
       },
     },
 
+    live_grep_args = {
+      previewer = false,
+      auto_quoting = true,
+      layout_config = { preview_width = 0.6, mirror = false },
+      mappings = {
+        i = {
+          ["<C-k>"] = grep_actions.quote_prompt(),
+          ["<C-i>"] = grep_actions.quote_prompt({ postfix = " --iglob " }),
+        },
+      },
+    },
+
     frecency = {
       default_workspace = "CWD",
       show_filter_column = false,
@@ -89,11 +97,12 @@ telescope.setup({
 telescope.load_extension("fzf")
 telescope.load_extension("undo")
 telescope.load_extension("frecency")
+telescope.load_extension("live_grep_args")
 
 vim.keymap.set("n", "<leader>sb", builtins.buffers, { desc = "[S]earch [B]uffers" })
 vim.keymap.set("n", "<leader>sd", builtins.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>sf", builtins.find_files, { desc = "[S]earch [F]iles" })
-vim.keymap.set("n", "<leader>sg", builtins.live_grep, { desc = "[S]each by [G]rep" })
+vim.keymap.set("n", "<leader>sg", extensions.live_grep_args.live_grep_args, { desc = "[S]each by [G]rep" })
 vim.keymap.set("n", "<leader>so", extensions.frecency.frecency, { desc = "[S]earch [O]ldfiles" })
 vim.keymap.set("n", "<leader>sr", builtins.resume, { desc = "[S]earch [R]esume" })
 vim.keymap.set("n", "<leader>su", extensions.undo.undo, { desc = "[S]each [U]ndotree" })

@@ -63,6 +63,7 @@ require("packer").startup({
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
     use({ "debugloop/telescope-undo.nvim" })
     use({ "nvim-telescope/telescope-frecency.nvim", requires = "kkharji/sqlite.lua" })
+    use({ "nvim-telescope/telescope-live-grep-args.nvim" })
 
     use({ "jdhao/better-escape.vim", event = "InsertEnter" })
 
