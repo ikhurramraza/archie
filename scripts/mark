@@ -103,21 +103,29 @@ mark__copy() {
 # ============================= COMMAND: Create ============================== #
 
 mark__create() {
-  while read -r filepath; do
-    [[ "$filepath" =~ thumb|sqlite ]] && continue
+  while IFS= read -r -d $'\0' filepath; do
+    mark__create__process "$filepath" &
+  done < <(fd . "$DIRECTORY_STOGRAM" --type f --print0)
 
-    local filename="$(basename "$filepath")"
-    local extension="${filename##*.}"
-    local filename_wo_extention="${filename%.*}"
-    local suffix="$(sha1sum "$filepath" | head -c5)"
-    local new_filename="${filename_wo_extention##* }_${suffix}.${extension}"
-    local new_filepath="$DIRECTORY_KITRR/$new_filename"
+  wait
+}
 
-    [[ -f "$new_filepath" ]] && continue
-    grep -Fxq "$new_filename" "$IGNORE_FILE" && continue
+mark__create__process() {
+  local filepath="$1"
 
-    cp "$filepath" "$new_filepath"
-  done < <(find "$DIRECTORY_STOGRAM" -type f)
+  [[ "$filepath" =~ thumb|sqlite ]] && return
+
+  local filename="$(basename "$filepath")"
+  local extension="${filename##*.}"
+  local filename_wo_extention="${filename%.*}"
+  local suffix="$(sha1sum "$filepath" | head -c5)"
+  local new_filename="${filename_wo_extention##* }_${suffix}.${extension}"
+  local new_filepath="$DIRECTORY_KITRR/$new_filename"
+
+  [[ -f "$new_filepath" ]] && return
+  grep -Fxq "$new_filename" "$IGNORE_FILE" && return
+
+  cp "$filepath" "$new_filepath"
 }
 
 # ============================ COMMAND: Optimize ============================= #
