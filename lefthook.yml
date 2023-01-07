@@ -8,14 +8,14 @@ pre-commit:
   parallel: true
   commands:
     shfmt:
-      files: git diff --name-only scripts/ config/zsh/ config/i3/scripts/
+      files: git diff --name-only --cached scripts/ config/zsh/ config/i3/scripts/
       exclude: ".p10k.zsh|.zshrc"
       run: shfmt -i=2 -d {files}
 
     stylua:
-      files: git diff --name-only **/*.lua
+      files: git diff --name-only --cached **/*.lua
       run: stylua --check {files}
 
     snapshot-neovim:
-      files: git diff --name-only config/nvim/lua/plugins.lua
+      files: git diff --name-only --cached config/nvim/lua/plugins.lua
       run: bin/snapshot neovim
