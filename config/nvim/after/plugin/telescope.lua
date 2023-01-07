@@ -24,13 +24,12 @@ telescope.setup({
       },
     },
   },
+
   pickers = {
     buffers = {
       theme = "dropdown",
       previewer = false,
-      layout_config = {
-        height = 0.25,
-      },
+      layout_config = { height = 0.25 },
     },
 
     find_files = {
@@ -43,18 +42,13 @@ telescope.setup({
         "--exclude=node_modules/",
         "--exclude=vendor/bundle/",
       },
-      layout_config = {
-        preview_width = 0.6,
-      },
+      layout_config = { preview_width = 0.6 },
     },
 
     live_grep = {
       previewer = false,
       theme = "dropdown",
-      layout_config = {
-        width = 0.9,
-        height = 0.6,
-      },
+      layout_config = { width = 0.9, height = 0.6 },
     },
 
     current_buffer_fuzzy_find = {
