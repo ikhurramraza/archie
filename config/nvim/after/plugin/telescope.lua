@@ -6,9 +6,10 @@ end
 
 local actions = require("telescope.actions")
 local builtins = require("telescope.builtin")
-local extensions = telescope.extensions
 local layout_actions = require("telescope.actions.layout")
 
+local extensions = telescope.extensions
+local undo_actions = require("telescope-undo.actions")
 local grep_actions = require("telescope-live-grep-args.actions")
 
 telescope.setup({
@@ -68,9 +69,9 @@ telescope.setup({
       layout_config = { preview_height = 0.65 },
       mappings = {
         i = {
-          ["<CR>"] = require("telescope-undo.actions").restore,
-          ["<leader>ya"] = require("telescope-undo.actions").yank_additions,
-          ["<leader>yd"] = require("telescope-undo.actions").yank_deletions,
+          ["<CR>"] = undo_actions.restore,
+          ["<leader>ya"] = undo_actions.yank_additions,
+          ["<leader>yd"] = undo_actions.yank_deletions,
         },
       },
     },
