@@ -8,7 +8,7 @@ pre-commit:
   parallel: true
   commands:
     shfmt:
-      files: git diff --name-only --cached scripts/ config/zsh/ config/i3/scripts/
+      files: git diff --name-only --cached config/zsh/ config/i3/scripts/
       exclude: ".p10k.zsh|.zshrc"
       run: shfmt -i=2 -d {files}
 
