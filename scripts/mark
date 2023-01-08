@@ -92,13 +92,13 @@ mark__copy() {
 
     [[ ! -d "$directory" ]] && mkdir -p "$directory"
 
-    marker list "$tag" | xargs --no-run-if-empty -I{} cp "{}" "$directory"
-    marker list "$tag" | xargs --no-run-if-empty -I{} -n1 basename "{}" >>"$IGNORE_FILE"
-    marker list "$tag" | xargs --no-run-if-empty -I{} rm "{}"
+    marker list --null "$tag" | xargs -r0 -I{} cp "{}" "$directory"
+    marker list --null "$tag" | xargs -r0 -I{} -n1 basename "{}" >>"$IGNORE_FILE"
+    marker list --null "$tag" | xargs -r0 -I{} rm "{}"
   done < <(comm -12 <(sort "$TAGS_FILE") <(marker stats | awk '{print $1}' | sort))
 
-  marker list d | xargs --no-run-if-empty -I{} -n1 basename "{}" >>"$IGNORE_FILE"
-  marker list d | xargs --no-run-if-empty -I{} rm "{}"
+  marker list --null d | xargs -r0 -I{} -n1 basename "{}" >>"$IGNORE_FILE"
+  marker list --null d | xargs -r0 -I{} rm "{}"
 }
 
 # ============================= COMMAND: Create ============================== #
