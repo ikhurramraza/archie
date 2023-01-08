@@ -42,6 +42,7 @@ Commands:
   start           Start marking files in Kittr and Redrr
   copy            Copy tagged files to new location
   create          Move files to Kitrr
+  clean           Remove duplicates and clean marker db
   optimize        Optimize today's files in FontKit directory
 HELP
 }
@@ -128,6 +129,19 @@ mark__create__process() {
   cp "$filepath" "$new_filepath"
 }
 
+# ============================== COMMAND: Clean ============================== #
+
+mark__clean() {
+  command_available fd
+  command_available fdupes
+
+  marker clean &>/dev/null
+
+  fd . "$DIRECTORY_FONTKIT" --type=d --maxdepth=1 --print0 |
+    xargs --no-run-if-empty -I{} --null -n1 \
+      fdupes --immediate --delete --order=time "{}"
+}
+
 # ============================ COMMAND: Optimize ============================= #
 
 mark__optimize() {
@@ -149,10 +163,10 @@ else
     SECONDS=0
 
     case "$subcommand" in
-    create | start | copy | optimize)
+    create | start | copy | clean | optimize)
       "mark__$subcommand"
       ;;
-    clean | stats | undo)
+    stats | undo)
       marker "$subcommand"
       ;;
     esac
