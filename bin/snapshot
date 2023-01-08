@@ -23,20 +23,45 @@ exit_with_error() {
 # =========================================================================== #
 
 neovim() {
-  local SNAPSHOT_FILE="config/nvim/snapshot.json"
-  local SNAPSHOT_CACHE_DIRECTORY="$XDG_CACHE_HOME/nvim/packer.nvim"
-  local SNAPSHOT_CACHE_FILE="$(mktemp -u $SNAPSHOT_CACHE_DIRECTORY/snapshot.XXXX.json)"
+  local file="config/nvim/snapshot.json"
+  local cache_directory="$XDG_CACHE_HOME/nvim/packer.nvim"
+  local cache_file="$(mktemp -u $cache_directory/snapshot.XXXX.json)"
+  local sorted_cache_file="$(mktemp -u $cache_directory/snapshot.XXXX.json)"
 
-  mkdir -p "$SNAPSHOT_CACHE_DIRECTORY"
+  mkdir -p "$cache_directory"
 
   nvim \
     --headless \
-    -c "PackerSnapshot $SNAPSHOT_CACHE_FILE" \
+    -c "PackerSnapshot $cache_file" \
     -c "silent !sleep 1" \
     -c "quit"
 
-  prettier "$SNAPSHOT_CACHE_FILE" >"$SNAPSHOT_FILE"
+  prettier "$cache_file" >"$sorted_cache_file"
+
+  if [[ $ONLY_CHECK -eq 1 ]]; then
+    diff "$file" "$sorted_cache_file"
+  else
+    cp "$sorted_cache_file" "$file"
+  fi
 }
+
+# ============================================================================ #
+# ============================= OPTIONS PARSING ============================== #
+# ============================================================================ #
+
+ONLY_CHECK=0
+
+for option in "$@"; do
+  case "$option" in
+  --check)
+    ONLY_CHECK=1
+    shift
+    ;;
+  --*)
+    exit_with_error "Unknown option: ${1%%=*}"
+    ;;
+  esac
+done
 
 # =========================================================================== #
 # ================================ Entrypoint =============================== #

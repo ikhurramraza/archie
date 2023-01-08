@@ -17,5 +17,5 @@ pre-commit:
       run: stylua --check {files}
 
     snapshot-neovim:
-      files: git diff --name-only --cached config/nvim/lua/plugins.lua
-      run: bin/snapshot neovim
+      files: git diff --name-only --cached config/nvim/lua/plugins.lua config/nvim/snapshot.json
+      run: bin/snapshot --check neovim
