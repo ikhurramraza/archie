@@ -98,8 +98,8 @@ require("packer").startup({
           on_attach = function(bufnr)
             local gs = package.loaded.gitsigns
 
-            vim.keymap.set("n", "<leader>hj", gs.prev_hunk, { buffer = bufnr })
-            vim.keymap.set("n", "<leader>hk", gs.next_hunk, { buffer = bufnr })
+            vim.keymap.set("n", "[h", gs.prev_hunk, { buffer = bufnr })
+            vim.keymap.set("n", "]h", gs.next_hunk, { buffer = bufnr })
             vim.keymap.set("n", "<leader>hp", gs.preview_hunk, { buffer = bufnr })
             vim.keymap.set("n", "<leader>hs", "<cmd>Gitsigns stage_hunk<CR>", { buffer = bufnr })
             vim.keymap.set("n", "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", { buffer = bufnr })
