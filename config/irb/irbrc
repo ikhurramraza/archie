@@ -1,3 +1,2 @@
-IRB.conf[:SAVE_HISTORY] ||= 1000
-IRB.conf[:HISTORY_FILE] ||= File.join(ENV["XDG_DATA_HOME"], "irb", "history")
-IRB.conf[:USE_AUTOCOMPLETE] = false
+require_relative 'debundle'
+require_relative 'my_irb'
