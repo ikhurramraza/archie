@@ -13,6 +13,7 @@ export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 # Configure ASDF
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
+export ASDF_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/asdf/default_gems"
 
 # Init OMZ
 source "$ZSH/oh-my-zsh.sh"
