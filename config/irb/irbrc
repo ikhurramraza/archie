@@ -1,2 +1,1 @@
-require_relative 'debundle'
 require_relative 'my_irb'
