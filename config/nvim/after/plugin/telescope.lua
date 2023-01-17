@@ -48,6 +48,11 @@ telescope.setup({
       layout_config = { preview_width = 0.6 },
     },
 
+    git_files = {
+      previewer = false,
+      layout_config = { preview_width = 0.6 },
+    },
+
     current_buffer_fuzzy_find = {
       previewer = false,
       theme = "dropdown",
@@ -102,7 +107,8 @@ telescope.load_extension("live_grep_args")
 
 vim.keymap.set("n", "<leader>sb", builtins.buffers, { desc = "[S]earch [B]uffers" })
 vim.keymap.set("n", "<leader>sd", builtins.diagnostics, { desc = "[S]earch [D]iagnostics" })
-vim.keymap.set("n", "<leader>sf", builtins.find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader>sf", builtins.git_files, { desc = "[S]earch git [F]iles" })
+vim.keymap.set("n", "<leader>sF", builtins.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>sg", extensions.live_grep_args.live_grep_args, { desc = "[S]each by [G]rep" })
 vim.keymap.set("n", "<leader>so", extensions.frecency.frecency, { desc = "[S]earch [O]ldfiles" })
 vim.keymap.set("n", "<leader>sr", builtins.resume, { desc = "[S]earch [R]esume" })
