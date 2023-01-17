@@ -34,6 +34,10 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { silent = true })
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 
+-- Move to start/end of line in insert mode
+vim.keymap.set("i", "<C-A>", "<C-O>_")
+vim.keymap.set("i", "<C-E>", "<C-O>$")
+
 -- Paste from clipboard
 vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("n", "<leader>P", '"+P')
