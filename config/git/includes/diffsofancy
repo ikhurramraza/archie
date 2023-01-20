@@ -1,0 +1,30 @@
+[add "interactive"]
+  useBuiltin = false
+
+[core]
+  pager = diff-so-fancy | less --tabs=4 -RFX
+
+[color]
+  ui = true
+
+[color "diff-highlight"]
+  newHighlight = green bold 22
+  newNormal    = green bold
+  oldHighlight = red bold 52
+  oldNormal    = red bold
+
+[color "diff"]
+  commit     = yellow bold
+  frag       = magenta bold
+  func       = 146 bold
+  meta       = 11
+  new        = green bold
+  old        = red bold
+  whitespace = red reverse
+
+[diff-so-fancy]
+  markEmptyLines      = false
+  stripLeadingSymbols = false
+
+[interactive]
+  diffFilter = diff-so-fancy --patch

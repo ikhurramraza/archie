@@ -1,61 +1,52 @@
 [alias]
-	co = checkout
-	br = branch
-	st = status
-	sw = switch
-	amend = commit --amend --no-edit
-	append = ! git add --all && git commit --amend --no-edit
-	wip = ! git add --all && git commit -m \"WIP\"
-	ignored = ! git ls-files -v | grep '^[[:lower:]]' | cut -c3-
-[user]
-	name = Khurram Raza
-	email = ikhurramraza@gmail.com
-	signingkey = 2422E12C0CC4325F
-[core]
-	excludesfile = ~/.config/git/global_gitignore
-	attributesfile = ~/.config/git/gitattributes
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  amend   = commit --amend --no-edit
+  br      = branch
+  co      = checkout
+  st      = status
+  sw      = switch
+  append  = ! git add --all && git commit --amend --no-edit
+  ignored = ! git ls-files -v | grep '^[[:lower:]]' | cut -c3-
+  wip     = ! git add --all && git commit -m \"WIP\"
+
+[blame]
+  markIgnoredLines = true
+
 [commit]
-	verbose = true
-	gpgsign = true
-[pull]
-	twohead = ort
-[sequence]
-	editor = interactive-rebase-tool
-[init]
-	defaultBranch = main
+  gpgsign = true
+  verbose = true
+
+[core]
+  excludesfile   = ~/.config/git/global_gitignore
+  attributesfile = ~/.config/git/gitattributes
+
+[credential "https://github.com"]
+  helper = !gh auth git-credential
+
+[credential "https://gist.github.com"]
+  helper = !gh auth git-credential
+
 [diff "rspec"]
   xfuncname = "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario)[ \t].*)$"
+
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-[interactive]
-	diffFilter = diff-so-fancy --patch
-[diff-so-fancy]
-	markEmptyLines = false
-	stripLeadingSymbols = false
-[color]
-	ui = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-[blame]
-	markIgnoredLines = true
-[add "interactive"]
-	useBuiltin = false
-[credential "https://github.com"]
-	helper = !gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = !gh auth git-credential
+  clean    = git-lfs clean -- %f
+  process  = git-lfs filter-process
+  required = true
+  smudge   = git-lfs smudge -- %f
+
+[init]
+  defaultBranch = main
+
+[pull]
+  twohead = ort
+
+[sequence]
+  editor = interactive-rebase-tool
+
+[user]
+  name       = Khurram Raza
+  email      = ikhurramraza@gmail.com
+  signingkey = 2422E12C0CC4325F
+
+[include]
+  path = includes/diffsofancy
