@@ -2,19 +2,19 @@
   "name": "lib",
   "dependencies": {
     "corepack": {
-      "version": "0.12.1",
+      "version": "0.15.1",
       "overridden": false
     },
     "npm": {
-      "version": "8.19.1",
+      "version": "9.2.0",
       "overridden": false
     },
     "prettier-plugin-sort-json": {
-      "version": "0.0.3",
+      "version": "1.0.0",
       "overridden": false
     },
     "prettier": {
-      "version": "2.7.1",
+      "version": "2.8.1",
       "overridden": false
     }
   }
