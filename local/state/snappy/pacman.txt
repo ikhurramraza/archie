@@ -2,12 +2,10 @@
 4kstogram
 ani-cli
 asdf-vm-git
-bottles
 brave-bin
 devour
 diff-so-fancy-git
 discord_arch_electron
-firefox-gnome-theme-maia
 fvs
 git-interactive-rebase-tool
 gtkhash-nautilus
@@ -20,6 +18,7 @@ nerd-fonts-cascadia-code
 nerd-fonts-jetbrains-mono
 nerd-fonts-roboto-mono
 nordvpn-bin
+noto-fonts-compat
 patool
 pspg
 python-steamgriddb
