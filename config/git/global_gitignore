@@ -14,3 +14,6 @@ Runfile
 
 # Cached rake tasks file for rake-fast OMZ plugin
 .rake_tasks
+
+# Jira files for OMZ jira plugin
+.jira-url

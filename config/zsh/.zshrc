@@ -32,6 +32,7 @@ plugins=(
   dotenv
   fzf
   git
+  jira
   rails
   rake-fast
   sudo
