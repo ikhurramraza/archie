@@ -32,6 +32,9 @@ export PATH="$PATH:$HOME/.local/scripts"
 # Add cargo bin directory to PATH
 export PATH="$PATH:$CARGO_HOME/bin"
 
+# Add Neovim Mason bin directory to PATH
+export PATH="$PATH:$XDG_DATA_HOME/nvim/mason/bin"
+
 if [[ "$OS" == "Linux" ]]; then
   source "$ZDOTDIR/linux.zsh"
 elif [[ "$OS" == "Darwin" ]]; then
