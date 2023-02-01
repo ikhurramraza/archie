@@ -14,9 +14,6 @@ inducker
 lefthook
 litecli
 manjaro-dynamic-wallpaper
-nerd-fonts-cascadia-code
-nerd-fonts-jetbrains-mono
-nerd-fonts-roboto-mono
 nordvpn-bin
 noto-fonts-compat
 patool
