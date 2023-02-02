@@ -2,7 +2,9 @@
 vim.keymap.set("n", "<C-S>", ":w<CR>", { silent = true })
 vim.keymap.set("n", "<C-Q>", ":Bwipeout<CR>", { silent = true })
 
--- Switch and close buffers
+-- Switch buffers
+vim.keymap.set("n", "]b", ":bn<CR>", { silent = true })
+vim.keymap.set("n", "[b", ":bp<CR>", { silent = true })
 vim.keymap.set("n", "<leader><Tab>", ":bn<CR>", { silent = true })
 vim.keymap.set("n", "<leader><S-Tab>", ":bp<CR>", { silent = true })
 
