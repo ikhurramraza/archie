@@ -1,0 +1,56 @@
+[class]
+audio_default = [{ command = "mpv", args = ["--mute", "on", "--"], fork = true, silent = true }]
+image_default = [{ command = "sxiv", args = ["-b"], fork = true, silent = true }]
+text_default  = [{ command = "nvim" }, { command = "bat", args = ["--paging=always"] }]
+video_default = [{ command = "mpv", args = ["--mute", "on", "--"], fork = true, silent = true }]
+
+[extension]
+
+avif.inherit = "image_default"
+bmp.inherit  = "image_default"
+gif.inherit  = "image_default"
+heic.inherit = "image_default"
+jpe.inherit  = "image_default"
+jpeg.inherit = "image_default"
+jpg.inherit  = "image_default"
+pgm.inherit  = "image_default"
+png.inherit  = "image_default"
+ppm.inherit  = "image_default"
+webp.inherit = "image_default"
+
+flac.inherit = "audio_default"
+m4a.inherit  = "audio_default"
+mp3.inherit  = "audio_default"
+ogg.inherit  = "audio_default"
+wav.inherit  = "audio_default"
+
+av1.inherit  = "video_default"
+avi.inherit  = "video_default"
+flv.inherit  = "video_default"
+m4v.inherit  = "video_default"
+mkv.inherit  = "video_default"
+mov.inherit  = "video_default"
+mp4.inherit  = "video_default"
+ts.inherit   = "video_default"
+webm.inherit = "video_default"
+wmv.inherit  = "video_default"
+
+conf.inherit   = "text_default"
+csv.inherit    = "text_default"
+env.inherit    = "text_default"
+ini.inherit    = "text_default"
+json.inherit   = "text_default"
+log.inherit    = "text_default"
+md.inherit     = "text_default"
+ninja.inherit  = "text_default"
+py.inherit     = "text_default"
+rb.inherit     = "text_default"
+sh.inherit     = "text_default"
+srt.inherit    = "text_default"
+toml.inherit   = "text_default"
+txt.inherit    = "text_default"
+vim.inherit    = "text_default"
+xml.inherit    = "text_default"
+yaml.inherit   = "text_default"
+yml.inherit    = "text_default"
+zsh.inherit    = "text_default"
