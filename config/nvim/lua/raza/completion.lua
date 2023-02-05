@@ -32,8 +32,10 @@ cmp.setup({
 
     -- LuaSnip tab completion mappings
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
+      if luasnip.jumpable() then
+        luasnip.jump(1)
+      elseif luasnip.expandable() then
+        luasnip.expand()
       else
         fallback()
       end
