@@ -11,6 +11,7 @@ git-interactive-rebase-tool
 gtkhash-nautilus
 icoextract
 inducker
+joshuto
 lefthook
 litecli
 manjaro-dynamic-wallpaper
