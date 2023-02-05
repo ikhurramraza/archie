@@ -26,6 +26,9 @@ alias sxiv='sxiv -b'
 alias kcp='klippy copy'
 alias kpp='klippy paste'
 
+# Joshuto alias
+alias j='joshuto'
+
 # Unalias for sd command
 alias sd &>/dev/null && unalias sd
 
