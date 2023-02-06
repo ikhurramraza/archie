@@ -134,6 +134,9 @@ require("packer").startup({
             lualine_y = { "progress" },
             lualine_z = { "location" },
           },
+          extensions = {
+            "quickfix",
+          },
         })
       end,
     })
