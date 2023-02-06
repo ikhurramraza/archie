@@ -65,6 +65,13 @@ telescope.setup({
       winblend = 3,
       layout_config = { preview_height = 0.75 },
     },
+
+    quickfix = {
+      side_by_side = true,
+      layout_strategy = "vertical",
+      winblend = 3,
+      layout_config = { preview_height = 0.65 },
+    },
   },
 
   extensions = {
@@ -111,6 +118,7 @@ vim.keymap.set("n", "<leader>sf", builtins.git_files, { desc = "[S]earch git [F]
 vim.keymap.set("n", "<leader>sF", builtins.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>sg", extensions.live_grep_args.live_grep_args, { desc = "[S]each by [G]rep" })
 vim.keymap.set("n", "<leader>so", extensions.frecency.frecency, { desc = "[S]earch [O]ldfiles" })
+vim.keymap.set("n", "<leader>sq", builtins.quickfix, { desc = "[S]earch [Q]uickfix" })
 vim.keymap.set("n", "<leader>sr", builtins.resume, { desc = "[S]earch [R]esume" })
 vim.keymap.set("n", "<leader>su", extensions.undo.undo, { desc = "[S]each [U]ndotree" })
 vim.keymap.set("n", "<leader>sw", builtins.grep_string, { desc = "[S]earch current [W]ord" })
