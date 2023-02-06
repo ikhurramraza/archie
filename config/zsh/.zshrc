@@ -54,3 +54,7 @@ fi
 source "$ZDOTDIR/inits"
 source "$ZDOTDIR/aliases"
 source "$ZDOTDIR/functions"
+
+if [[ -f "$ZDOTDIR/overrides" ]]; then
+  source "$ZDOTDIR/overrides"
+fi
