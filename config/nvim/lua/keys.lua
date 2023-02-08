@@ -1,6 +1,7 @@
 -- Save and exit keys
 vim.keymap.set("n", "<C-S>", ":w<CR>", { silent = true })
 vim.keymap.set("n", "<C-Q>", ":Bwipeout<CR>", { silent = true })
+vim.keymap.set("n", "<C-W>", ":bufdo bw<CR>", { silent = true })
 
 -- Switch buffers
 vim.keymap.set("n", "]b", ":bn<CR>", { silent = true })
