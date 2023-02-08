@@ -66,6 +66,13 @@ telescope.setup({
       layout_config = { preview_height = 0.75 },
     },
 
+    grep_string = {
+      side_by_side = true,
+      layout_strategy = "vertical",
+      winblend = 3,
+      layout_config = { preview_height = 0.65 },
+    },
+
     quickfix = {
       side_by_side = true,
       layout_strategy = "vertical",
