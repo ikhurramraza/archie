@@ -1,8 +1,8 @@
 [class]
-audio_default = [{ command = "mpv", args = ["--mute", "on", "--"], fork = true, silent = true }]
+audio_default = [{ command = "mpv", args = ["--"], fork = true, silent = true }]
 image_default = [{ command = "sxiv", args = ["-b"], fork = true, silent = true }]
 text_default  = [{ command = "nvim" }, { command = "bat", args = ["--paging=always"] }]
-video_default = [{ command = "mpv", args = ["--mute", "on", "--"], fork = true, silent = true }]
+video_default = [{ command = "mpv", args = ["--"], fork = true, silent = true }]
 
 [extension]
 
