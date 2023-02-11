@@ -57,5 +57,6 @@
   "vim-textobj-line": { "commit": "1a6780d" },
   "vim-textobj-parameter": { "commit": "201144f" },
   "vim-textobj-ruby": { "commit": "e955714" },
-  "vim-textobj-user": { "commit": "41a675d" }
+  "vim-textobj-user": { "commit": "41a675d" },
+  "yaml.nvim": { "commit": "ec53f8e" }
 }

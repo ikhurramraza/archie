@@ -13,6 +13,7 @@ treesitter.setup({
     "rust",
     "typescript",
     "vim",
+    "yaml",
   },
   highlight = {
     enable = true,

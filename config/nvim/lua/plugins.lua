@@ -67,6 +67,8 @@ require("packer").startup({
 
     use({ "jdhao/better-escape.vim", event = "InsertEnter" })
 
+    use({ "cuducos/yaml.nvim", requires = "nvim-telescope/telescope.nvim" })
+
     use({
       "907th/vim-auto-save",
       config = function()
