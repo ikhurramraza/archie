@@ -1,7 +1,7 @@
 local theme = "catppuccin"
 
 if theme == "catppuccin" then
-  vim.g.catppuccin_flavour = "macchiato"
+  vim.g.catppuccin_flavour = "mocha"
   require("catppuccin").setup()
   vim.api.nvim_command("colorscheme catppuccin")
 elseif theme == "dracula" then
