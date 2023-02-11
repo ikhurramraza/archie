@@ -5,7 +5,9 @@ local null_config_path = vim.env.XDG_CONFIG_HOME .. "/null/"
 
 null_ls.setup({
   sources = {
-    null_ls.builtins.diagnostics.trail_space,
+    null_ls.builtins.diagnostics.trail_space.with({
+      disabled_filetypes = { "gitcommit" },
+    }),
     null_ls.builtins.diagnostics.zsh,
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.sql_formatter.with({
