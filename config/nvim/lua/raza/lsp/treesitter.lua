@@ -11,6 +11,7 @@ treesitter.setup({
     "lua",
     "ruby",
     "rust",
+    "tsx",
     "typescript",
     "vim",
     "yaml",
