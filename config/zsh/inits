@@ -16,6 +16,9 @@ export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 export ASDF_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/asdf/default_gems"
 
+# Disable OMZ characters escape on paste
+export DISABLE_MAGIC_FUNCTIONS=true
+
 # Init OMZ
 source "$ZSH/oh-my-zsh.sh"
 
