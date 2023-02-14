@@ -17,10 +17,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 end
 
-lsp.sumneko_lua.setup({
+lsp.lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  -- See: https://github.com/sumneko/lua-language-server/wiki/Settings
+  -- See: https://github.com/LuaLS/lua-language-server/wiki/Settings
   settings = {
     Lua = {
       diagnostics = { globals = { "vim" } },
