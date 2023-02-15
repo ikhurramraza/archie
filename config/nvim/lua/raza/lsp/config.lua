@@ -29,6 +29,13 @@ lsp.lua_ls.setup({
   },
 })
 
+lsp.solargraph.setup({
+  autostart = false,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = { formating = false },
+})
+
 require("rust-tools").setup({
   server = {
     on_attach = on_attach,
