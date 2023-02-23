@@ -28,6 +28,13 @@ require("packer").startup({
     use("AndrewRadev/splitjoin.vim")
     use("christoomey/vim-sort-motion")
     use({
+      "AndrewRadev/sideways.vim",
+      config = function()
+        vim.keymap.set("n", "<C-H>", "<CMD>SidewaysLeft<CR>")
+        vim.keymap.set("n", "<C-L>", "<CMD>SidewaysRight<CR>")
+      end,
+    })
+    use({
       "junegunn/vim-easy-align",
       config = function()
         vim.keymap.set("n", "ga", "<Plug>(EasyAlign)")

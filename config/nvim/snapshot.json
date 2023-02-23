@@ -30,6 +30,7 @@
   "plenary.nvim": { "commit": "253d348" },
   "quick-scope": { "commit": "428e869" },
   "rust-tools.nvim": { "commit": "71d2cf6" },
+  "sideways.vim": { "commit": "e683ed0" },
   "splitjoin.vim": { "commit": "cdc1eb0" },
   "sqlite.lua": { "commit": "93ff582" },
   "telescope-frecency.nvim": { "commit": "e5696af" },
