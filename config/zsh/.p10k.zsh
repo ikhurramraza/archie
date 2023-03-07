@@ -104,7 +104,7 @@
     # proxy                 # system-wide http/https/ftp proxy
     # battery               # internal battery
     # wifi                  # wifi speed
-    tmux                  # tmux session name
+    # tmux                  # tmux session name
     # example               # example user-defined segment (see prompt_example function below)
   )
 
