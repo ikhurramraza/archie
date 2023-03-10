@@ -1,7 +1,6 @@
 1password
 4kstogram
 ani-cli
-asdf-vm-git
 brave-bin
 devour
 diff-so-fancy-git

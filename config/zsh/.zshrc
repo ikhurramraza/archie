@@ -22,7 +22,6 @@ export VI_MODE_SET_CURSOR=true
 
 plugins=(
   ag
-  asdf
   bol
   bundler
   common-aliases
