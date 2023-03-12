@@ -10,6 +10,10 @@ export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
 # Configure SQLite
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
+# Configure RTX
+eval "$(rtx activate zsh)"
+eval "$(rtx complete --shell zsh)"
+
 # Disable OMZ characters escape on paste
 export DISABLE_MAGIC_FUNCTIONS=true
 
