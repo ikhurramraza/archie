@@ -10,10 +10,6 @@ export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
 # Configure SQLite
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
-# Configure RTX
-eval "$(rtx activate zsh)"
-eval "$(rtx complete --shell zsh)"
-
 # Disable OMZ characters escape on paste
 export DISABLE_MAGIC_FUNCTIONS=true
 
@@ -29,6 +25,10 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
+
+# Configure RTX
+eval "$(rtx activate zsh)"
+eval "$(rtx complete --shell zsh)"
 
 # Add GPG key
 export GPG_TTY=$(tty)
