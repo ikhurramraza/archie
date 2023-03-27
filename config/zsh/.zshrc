@@ -32,6 +32,7 @@ plugins=(
   fzf
   git
   jira
+  npm
   rails
   rake-fast
   sudo
