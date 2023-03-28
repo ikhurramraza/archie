@@ -1,0 +1,27 @@
+bat v0.23.0:
+    bat
+cargo-binstall v0.22.0:
+    cargo-binstall
+cargo-watch v8.4.0:
+    cargo-watch
+exa v0.10.1:
+    exa
+fd-find v8.7.0:
+    fd
+git-interactive-rebase-tool v2.2.1:
+    interactive-rebase-tool
+gitui v0.22.1:
+    gitui
+joshuto v0.9.4 (/home/raza/.local/installs/joshuto):
+    joshuto
+mprocs v0.6.4:
+    mprocs
+porsmo v0.1.3:
+    porsmo
+rtx-cli v1.27.8:
+    rtx
+stash v0.1.0 (/home/raza/Developer/stash):
+    stash
+toipe v0.4.1:
+    randomword
+    toipe
