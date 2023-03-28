@@ -3,6 +3,7 @@
 4ktokkit
 ani-cli
 brave-bin
+devour
 lefthook
 litecli
 paru
