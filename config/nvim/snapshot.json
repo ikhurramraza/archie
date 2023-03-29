@@ -10,6 +10,7 @@
   "cmp-path": { "commit": "91ff86c" },
   "cmp_luasnip": { "commit": "1809552" },
   "codi.vim": { "commit": "83b9859" },
+  "copilot.vim": { "commit": "b6e5624" },
   "dracula": { "commit": "eb577d4" },
   "dressing.nvim": { "commit": "5f44f82" },
   "fidget.nvim": { "commit": "0ba1e16" },

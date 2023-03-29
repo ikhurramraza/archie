@@ -11,6 +11,7 @@ require("packer").startup({
     use("metakirby5/codi.vim")
     use("ThePrimeagen/harpoon")
     use("mbbill/undotree")
+    use("github/copilot.vim")
 
     -- Ruby language
     use("vim-ruby/vim-ruby")
