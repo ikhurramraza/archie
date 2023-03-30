@@ -79,6 +79,7 @@ keymap = [
 
   { keys = [ " " ], command = "select --toggle=true" },
   { keys = [ "t" ], command = "select --all=true --toggle=true" },
+  { keys = [ "T" ], command = "select --all=true --toggle=false" },
   { keys = [ "V" ], command = "toggle_visual" },
 
   { keys = [ "w" ],      command = "show_tasks --exit-key=w" },
