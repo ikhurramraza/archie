@@ -17,5 +17,6 @@ end
 
 -- Disable italics since it is broken on Windows Terminal when using Nerd Fonts
 -- See: https://github.com/microsoft/terminal/issues/14094
+vim.api.nvim_command("highlight @parameter  gui=none")
 vim.api.nvim_command("highlight Comment     gui=none")
 vim.api.nvim_command("highlight Conditional gui=none")
