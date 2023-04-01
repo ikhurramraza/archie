@@ -1,0 +1,48 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+NOTIE_DIRECTORY="${XDG_DATA_HOME:-$HOME/.local/share}/notie"
+NOTIE_MARKDOWN_DIRECTORY="$NOTIE_DIRECTORY/markdown"
+
+exit_with_error() {
+  echo "$1" 1>&2
+  exit 1
+}
+
+main() {
+  local note_type="$1"
+  local directory filename
+
+  directory="$NOTIE_MARKDOWN_DIRECTORY"
+
+  case "$note_type" in
+  branch)
+    filename="$(git branch --show-current)"
+    directory="$directory/$(basename $(git rev-parse --show-toplevel))"
+    ;;
+  *)
+    exit_with_error "Unknown note type: $note_type"
+    ;;
+  esac
+
+  mkdir -p "$directory"
+
+  local filepath="$directory/$filename.md"
+
+  if [ ! -f "$filepath" ]; then
+    echo "# Notes for $filename $note_type" >"$filepath"
+  fi
+
+  nvim \
+    -c "norm G2o" \
+    -c "norm zz" \
+    -c "imap <C-c> <cmd>:q!<CR>" \
+    -c "nmap <C-c> <cmd>:q!<CR>" \
+    -c "set nonumber norelativenumber" \
+    -c "set laststatus=0" \
+    -c "startinsert" \
+    "$filepath"
+}
+
+main "$@"
