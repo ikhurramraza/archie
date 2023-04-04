@@ -9,3 +9,4 @@ litecli
 paru
 pspg
 spotify
+visual-studio-code-bin
