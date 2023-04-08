@@ -45,6 +45,7 @@ require("rust-tools").setup({
 
 require("typescript").setup({
   server = {
+    autostart = false,
     on_attach = on_attach,
     capabilities = capabilities,
   },
