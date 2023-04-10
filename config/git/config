@@ -50,3 +50,6 @@
 
 [include]
   path = includes/diffsofancy
+
+[includeIf "gitdir:~/.cache/paru/clone/"]
+  path = includes/paru-clone-fix
