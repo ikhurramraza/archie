@@ -6,6 +6,7 @@ brave-bin
 devour
 lefthook
 litecli
+nsxiv
 paru
 pspg
 spotify
