@@ -1,9 +1,9 @@
 {
-  "Comment.nvim": { "commit": "ab62084" },
+  "Comment.nvim": { "commit": "a89339f" },
   "LuaSnip": { "commit": "dc2e307" },
   "better-escape.vim": { "commit": "6b16a45" },
   "bufdelete.nvim": { "commit": "8933abc" },
-  "catppuccin": { "commit": "f078aa4" },
+  "catppuccin": { "commit": "5e31d3c" },
   "cmp-buffer": { "commit": "3022dbc" },
   "cmp-cmdline": { "commit": "8fcc934" },
   "cmp-nvim-lsp": { "commit": "0e6b2ed" },
@@ -18,13 +18,13 @@
   "gitsigns.nvim": { "commit": "372d5cb" },
   "harpoon": { "commit": "f7040fd" },
   "lualine.nvim": { "commit": "84ffb80" },
-  "mason-lspconfig.nvim": { "commit": "a8d5db8" },
-  "mason.nvim": { "commit": "3fb2be4" },
+  "mason-lspconfig.nvim": { "commit": "84d9c35" },
+  "mason.nvim": { "commit": "4c3e920" },
   "null-ls.nvim": { "commit": "f8ffcd7" },
   "nvim-cmp": { "commit": "777450f" },
-  "nvim-lspconfig": { "commit": "10fa01d" },
+  "nvim-lspconfig": { "commit": "6fe6902" },
   "nvim-treesitter": { "commit": "ac4020c7" },
-  "nvim-web-devicons": { "commit": "defb7da" },
+  "nvim-web-devicons": { "commit": "4ec26d6" },
   "open-browser-github.vim": { "commit": "ac7c034" },
   "open-browser.vim": { "commit": "7d4c1d8" },
   "packer.nvim": { "commit": "1d0cf98" },
@@ -60,5 +60,5 @@
   "vim-textobj-parameter": { "commit": "201144f" },
   "vim-textobj-ruby": { "commit": "e955714" },
   "vim-textobj-user": { "commit": "41a675d" },
-  "yaml.nvim": { "commit": "7925bd2" }
+  "yaml.nvim": { "commit": "043296e" }
 }
