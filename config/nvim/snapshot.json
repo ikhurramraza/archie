@@ -60,5 +60,6 @@
   "vim-textobj-parameter": { "commit": "201144f" },
   "vim-textobj-ruby": { "commit": "e955714" },
   "vim-textobj-user": { "commit": "41a675d" },
+  "which-key.nvim": { "commit": "4b73390" },
   "yaml.nvim": { "commit": "043296e" }
 }

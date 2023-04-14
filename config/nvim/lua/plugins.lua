@@ -13,6 +13,15 @@ require("packer").startup({
     use("mbbill/undotree")
     use("github/copilot.vim")
 
+    use({
+      "folke/which-key.nvim",
+      config = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 300
+        require("which-key").setup({})
+      end,
+    })
+
     -- Ruby language
     use("vim-ruby/vim-ruby")
     use("tpope/vim-endwise")
