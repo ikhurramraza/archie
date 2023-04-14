@@ -7,6 +7,8 @@ cargo-update v13.0.1:
     cargo-install-update-config
 cargo-watch v8.4.0:
     cargo-watch
+czkawka_cli v5.1.0:
+    czkawka_cli
 czkawka_gui v5.1.0:
     czkawka_gui
 exa v0.10.1:
@@ -25,7 +27,7 @@ porsmo v0.1.3:
     porsmo
 ripgrep v13.0.0:
     rg
-rtx-cli v1.28.3:
+rtx-cli v1.28.4:
     rtx
 stash v0.1.0 (/home/raza/Developer/stash):
     stash
