@@ -4,6 +4,7 @@
 ani-cli
 brave-bin
 devour
+git-secret
 lefthook
 litecli
 nsxiv
