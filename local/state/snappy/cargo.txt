@@ -11,6 +11,8 @@ czkawka_cli v5.1.0:
     czkawka_cli
 czkawka_gui v5.1.0:
     czkawka_gui
+diesel_cli v2.0.1:
+    diesel
 exa v0.10.1:
     exa
 fd-find v8.7.0:
