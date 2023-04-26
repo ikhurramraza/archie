@@ -36,6 +36,9 @@ export GPG_TTY=$(tty)
 # Fix fuzzy search (zsh-history-substring-search and zsh-vi-mode)
 bindkey -v "^R" fzf-history-widget
 
+# Setup Copilot CLI
+which github-copilot-cli &>/dev/null && eval "$(github-copilot-cli alias -- "$0")"
+
 # Set catppuccin theme for fzf
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \

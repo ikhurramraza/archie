@@ -1,6 +1,10 @@
 {
   "name": "lib",
   "dependencies": {
+    "@githubnext/github-copilot-cli": {
+      "version": "0.1.33",
+      "overridden": false
+    },
     "corepack": {
       "version": "0.15.3",
       "overridden": false
