@@ -30,6 +30,9 @@ zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 eval "$(rtx activate zsh)"
 eval "$(rtx complete --shell zsh)"
 
+# Configure RTX options
+export RTX_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/gems/default_gems"
+
 # Add GPG key
 export GPG_TTY=$(tty)
 
