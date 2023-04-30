@@ -7,6 +7,9 @@ export PIPENV_VERBOSITY=-1
 # Configure IRB
 export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
 
+# Configure gemrc
+export GEMRC="$XDG_CONFIG_HOME/gems/gemrc"
+
 # Configure SQLite
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
