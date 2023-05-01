@@ -10,8 +10,14 @@ require("packer").startup({
     use("famiu/bufdelete.nvim")
     use("metakirby5/codi.vim")
     use("ThePrimeagen/harpoon")
-    use("mbbill/undotree")
     use("github/copilot.vim")
+
+    use({
+      "mbbill/undotree",
+      config = function()
+        vim.keymap.set("n", "<leader>ou", "<CMD>UndotreeToggle<CR>")
+      end,
+    })
 
     use({
       "folke/which-key.nvim",
