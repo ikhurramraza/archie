@@ -36,6 +36,9 @@ alias gu='gitui'
 # Unalias for sd command
 alias sd &>/dev/null && unalias sd
 
+# Unalias for duf command
+alias duf &>/dev/null && unalias duf
+
 # Unalias for t script
 alias t &>/dev/null && unalias t
 
