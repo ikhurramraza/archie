@@ -15,6 +15,10 @@ require("packer").startup({
     use({
       "mbbill/undotree",
       config = function()
+        vim.g.undotree_WindowLayout = 3
+        vim.g.undotree_DiffAutoOpen = 0
+        vim.g.undotree_SetFocusWhenToggle = 1
+
         vim.keymap.set("n", "<leader>ou", "<CMD>UndotreeToggle<CR>")
       end,
     })
@@ -161,6 +165,9 @@ require("packer").startup({
           },
           extensions = {
             "quickfix",
+          },
+          options = {
+            disabled_filetypes = { "undotree" },
           },
         })
       end,
