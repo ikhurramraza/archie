@@ -48,6 +48,14 @@ require("packer").startup({
     use("christoomey/vim-sort-motion")
 
     use({
+      "AckslD/muren.nvim",
+      config = function()
+        require("muren").setup()
+        vim.keymap.set("n", "<leader>om", "<CMD>MurenToggle<CR>")
+      end,
+    })
+
+    use({
       "AndrewRadev/sideways.vim",
       config = function()
         vim.keymap.set("n", "<C-H>", "<CMD>SidewaysLeft<CR>")
