@@ -46,6 +46,7 @@ require("packer").startup({
     -- Text manipulators
     use("AndrewRadev/splitjoin.vim")
     use("christoomey/vim-sort-motion")
+
     use({
       "AndrewRadev/sideways.vim",
       config = function()
@@ -53,6 +54,7 @@ require("packer").startup({
         vim.keymap.set("n", "<C-L>", "<CMD>SidewaysRight<CR>")
       end,
     })
+
     use({
       "junegunn/vim-easy-align",
       config = function()
