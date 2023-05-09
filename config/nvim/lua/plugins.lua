@@ -44,7 +44,6 @@ require("packer").startup({
     use({ "EvanQuan/vim-textobj-delimiters", requires = "kana/vim-textobj-user" })
 
     -- Text manipulators
-    use("AndrewRadev/splitjoin.vim")
     use("christoomey/vim-sort-motion")
 
     use({
@@ -67,6 +66,16 @@ require("packer").startup({
       "kylechui/nvim-surround",
       config = function()
         require("nvim-surround").setup()
+      end,
+    })
+
+    use({
+      "Wansmer/treesj",
+      requires = { "nvim-treesitter" },
+      config = function()
+        require("treesj").setup({ use_default_keymaps = false })
+
+        vim.keymap.set("n", "<leader>m", "<CMD>TSJToggle<CR>", { desc = "Split or Join" })
       end,
     })
 
