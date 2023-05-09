@@ -3,7 +3,6 @@ require("packer").startup({
     use("tpope/vim-repeat")
     use("tpope/vim-fugitive")
     use("jesseleite/vim-noh")
-    use("tpope/vim-surround")
     use("wbthomason/packer.nvim")
     use("stevearc/dressing.nvim")
     use("qpkorr/vim-renamer")
@@ -59,6 +58,13 @@ require("packer").startup({
       config = function()
         vim.keymap.set("n", "ga", "<Plug>(EasyAlign)")
         vim.keymap.set("x", "ga", "<Plug>(EasyAlign)")
+      end,
+    })
+
+    use({
+      "kylechui/nvim-surround",
+      config = function()
+        require("nvim-surround").setup()
       end,
     })
 
