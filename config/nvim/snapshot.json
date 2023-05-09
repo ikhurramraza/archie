@@ -21,6 +21,7 @@
   "mason-lspconfig.nvim": { "commit": "cec0e6d" },
   "mason.nvim": { "commit": "057ac5ca" },
   "null-ls.nvim": { "commit": "71797bb" },
+  "nvim-bqf": { "commit": "1276701" },
   "nvim-cmp": { "commit": "935b406" },
   "nvim-lspconfig": { "commit": "5ba7ab7" },
   "nvim-surround": { "commit": "219bd66" },

@@ -10,6 +10,7 @@ require("packer").startup({
     use("metakirby5/codi.vim")
     use("ThePrimeagen/harpoon")
     use("github/copilot.vim")
+    use("kevinhwang91/nvim-bqf")
 
     use({
       "mbbill/undotree",
