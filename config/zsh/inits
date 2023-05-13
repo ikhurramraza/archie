@@ -13,6 +13,9 @@ export GEMRC="$XDG_CONFIG_HOME/gems/gemrc"
 # Configure SQLite
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
+# Disable OMZ auto update
+export DISABLE_UPDATE_PROMPT=true
+
 # Disable OMZ characters escape on paste
 export DISABLE_MAGIC_FUNCTIONS=true
 
