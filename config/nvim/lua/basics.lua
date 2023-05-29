@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.opt.shm:append("I")
+
 vim.opt.number = true
 vim.opt.relativenumber = false
 
