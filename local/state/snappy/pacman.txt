@@ -11,4 +11,5 @@ nsxiv
 paru
 pspg
 spotify
+systemd-fsck-silent
 visual-studio-code-bin
