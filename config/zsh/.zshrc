@@ -29,7 +29,6 @@ plugins=(
   docker
   docker-compose
   dotenv
-  fzf
   git
   jira
   npm
@@ -42,7 +41,6 @@ plugins=(
   universalarchive
   vi-mode
   z
-  zsh-history-substring-search
 )
 
 if [[ "$OS" == "Darwin" ]]; then

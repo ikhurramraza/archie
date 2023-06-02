@@ -1,3 +1,5 @@
+atuin v15.0.0:
+    atuin
 bat v0.23.0:
     bat
 cargo-binstall v0.23.1:
