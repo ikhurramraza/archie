@@ -1,5 +1,0 @@
-require("raza.lsp.mason")
-require("raza.lsp.config")
-require("raza.lsp.null")
-require("raza.lsp.treesitter")
-require("raza.lsp.fidget")

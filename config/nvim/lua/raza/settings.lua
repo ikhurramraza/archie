@@ -20,4 +20,8 @@ vim.opt.si = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+vim.g.netrw_browse_split = 0
+
 vim.opt.completeopt = { "menu", "menuone", "noselect" }

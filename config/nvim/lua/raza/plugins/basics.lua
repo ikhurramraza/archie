@@ -1,0 +1,23 @@
+return {
+  { "christoomey/vim-sort-motion", event = "VeryLazy" },
+  { "famiu/bufdelete.nvim", event = "VeryLazy" },
+  { "github/copilot.vim", cmd = "Copilot" },
+  { "jdhao/better-escape.vim", event = "InsertEnter" },
+  { "jesseleite/vim-noh", event = "VeryLazy" },
+  { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
+  { "kylechui/nvim-surround", config = true, event = "VeryLazy" },
+  { "metakirby5/codi.vim", cmd = "Codi" },
+  { "numToStr/Comment.nvim", config = true, keys = { "gcA", "gcO", "gcc", "gco" } },
+  { "qpkorr/vim-renamer", cmd = "Renamer" },
+  { "stevearc/dressing.nvim", event = "VeryLazy" },
+  { "tpope/vim-endwise", event = "VeryLazy" },
+  { "tpope/vim-fugitive", event = "VeryLazy" },
+  { "tpope/vim-repeat", event = "VeryLazy" },
+
+  -- Text objects
+  { "kana/vim-textobj-indent", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
+  { "kana/vim-textobj-line", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
+  { "rhysd/vim-textobj-anyblock", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
+  { "sgur/vim-textobj-parameter", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
+  { "wellle/targets.vim", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
+}

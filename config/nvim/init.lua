@@ -1,8 +1,4 @@
-require("basics")
-require("plugins")
-require("keys")
-require("hooks")
-
-require("raza.lsp")
-require("raza.completion")
-require("raza.navigation")
+require("raza.settings")
+require("raza.keys")
+require("raza.hooks")
+require("raza.lazy")
