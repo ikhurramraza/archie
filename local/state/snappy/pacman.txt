@@ -7,9 +7,10 @@ devour
 git-secret
 lefthook
 litecli
-nsxiv
 paru
 pspg
+python-jarowinkler
+python-rapidfuzz-capi
 spotify
 systemd-fsck-silent
 visual-studio-code-bin
