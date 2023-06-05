@@ -14,6 +14,14 @@ return {
   { "tpope/vim-fugitive", event = "VeryLazy" },
   { "tpope/vim-repeat", event = "VeryLazy" },
 
+  {
+    "unblevable/quick-scope",
+    event = "VeryLazy",
+    init = function()
+      vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
+    end,
+  },
+
   -- Text objects
   { "kana/vim-textobj-indent", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
   { "kana/vim-textobj-line", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
