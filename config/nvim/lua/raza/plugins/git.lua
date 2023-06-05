@@ -31,4 +31,13 @@ local GitSigns = {
   },
 }
 
-return { GitBlame, GitSigns }
+local GithubOpen = {
+  "tyru/open-browser-github.vim",
+  dependencies = "tyru/open-browser.vim",
+  keys = {
+    { "<leader>ghf", "<CMD>OpenGithubFile<CR>", silent = true, desc = "Open current file on Github" },
+    { "<leader>ghp", "<CMD>OpenGithubPullReq<CR>", silent = true, desc = "Open current PR on Github" },
+  },
+}
+
+return { GitBlame, GitSigns, GithubOpen }
