@@ -1,5 +1,6 @@
 return {
   { "christoomey/vim-sort-motion", event = "VeryLazy" },
+  { "cuducos/yaml.nvim", dependencies = "nvim-telescope/telescope.nvim", ft = "yaml" },
   { "famiu/bufdelete.nvim", event = "VeryLazy" },
   { "github/copilot.vim", cmd = "Copilot" },
   { "jdhao/better-escape.vim", event = "InsertEnter" },

@@ -57,5 +57,6 @@
   "vim-textobj-parameter": { "branch": "master", "commit": "201144f19a1a7081033b3cf2b088916dd0bcb98c" },
   "vim-textobj-ruby": { "branch": "master", "commit": "e955714b2e8cd581a4945b5ac5428c4c18de1657" },
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
-  "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" }
+  "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" },
+  "yaml.nvim": { "branch": "main", "commit": "043296e23c8f17310dfd08e445d1d4cc8903870d" }
 }
