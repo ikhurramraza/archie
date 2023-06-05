@@ -50,6 +50,7 @@
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-ruby": { "branch": "master", "commit": "0960d0f59ce2bb576177a3cfed2bb55c53552a71" },
   "vim-sort-motion": { "branch": "master", "commit": "c8782be8f7da414c6442b3ba4b6abb0345d392d9" },
+  "vim-test": { "branch": "master", "commit": "08250c56f11cb3460c8a02c8fdb80c8d39c92173" },
   "vim-textobj-anyblock": { "branch": "master", "commit": "a8517f7a7a2fc210a5ef774857b0b5aa66d1c1ea" },
   "vim-textobj-indent": { "branch": "master", "commit": "deb76867c302f933c8f21753806cbf2d8461b548" },
   "vim-textobj-line": { "branch": "master", "commit": "1a6780d29adcf7e464e8ddbcd0be0a9df1a37339" },
