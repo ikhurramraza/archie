@@ -8,12 +8,17 @@ return {
   { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
   { "kylechui/nvim-surround", config = true, event = "VeryLazy" },
   { "metakirby5/codi.vim", cmd = "Codi" },
-  { "numToStr/Comment.nvim", config = true, keys = { "gcA", "gcO", "gcc", "gco" } },
   { "qpkorr/vim-renamer", cmd = "Renamer" },
   { "stevearc/dressing.nvim", event = "VeryLazy" },
   { "tpope/vim-endwise", event = "VeryLazy" },
   { "tpope/vim-fugitive", event = "VeryLazy" },
   { "tpope/vim-repeat", event = "VeryLazy" },
+
+  {
+    "numToStr/Comment.nvim",
+    config = true,
+    keys = { "gbc", "gcA", "gcO", "gcc", "gco", { "gb", mode = "x" }, { "gc", mode = "x" } },
+  },
 
   {
     "unblevable/quick-scope",
