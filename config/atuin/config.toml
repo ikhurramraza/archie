@@ -71,19 +71,19 @@ filter_mode = "directory"
 ## https://docs.rs/regex/latest/regex/#syntax
 history_filter = [
   # Single character commands
-  "^.$", "^[ltz] .*$",
+  "^.$", "^[ltz] ",
 
   # Change directory commands
-  "^cd$", "^cd .*$",
+  "^cd$", "^cd ",
 
   # git aliases
-  "^g.{1,4}$", "^g.{1,4} .*$",
+  "^g.{1,4}$", "^g.{1,4} ",
 
   # Vim commands
   "^vi$", "^vim$", "^nvim$",
 
   # Others
-  "^:q$", "^alias$", "^which .*$"
+  "^:q$", "^alias$", "^which "
 ]
 
 ## prevent commands run with cwd matching any of these regexes from being written
