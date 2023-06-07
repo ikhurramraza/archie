@@ -83,7 +83,10 @@ history_filter = [
   "^vi$", "^vim$", "^nvim$",
 
   # Others
-  "^:q$", "^alias$", "^which "
+  "^:q$", "^alias$", "^which ",
+
+  "^mark(er)?$", "^mark(er)? ",
+  "^stash-import$"
 ]
 
 ## prevent commands run with cwd matching any of these regexes from being written
