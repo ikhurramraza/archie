@@ -25,17 +25,21 @@ git-interactive-rebase-tool v2.2.1:
     interactive-rebase-tool
 gitui v0.22.1:
     gitui
+hyperfine v1.17.0:
+    hyperfine
 joshuto v0.9.4 (/home/raza/.local/installs/joshuto):
     joshuto
 mprocs v0.6.4:
     mprocs
+pangran v0.1.0 (/home/raza/.local/installs/pangran):
+    pangran
 porsmo v0.2.0:
     porsmo
 ripgrep v13.0.0:
     rg
-rtx-cli v1.31.0:
+rtx-cli v1.32.0:
     rtx
-stash v0.1.0 (/home/raza/Developer/stash):
+stash v0.1.0 (/home/raza/Developer/stash-cli):
     stash
 toipe v0.4.1:
     randomword
