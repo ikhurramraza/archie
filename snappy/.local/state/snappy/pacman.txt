@@ -5,6 +5,7 @@ ani-cli
 brave-bin
 devour
 git-secret
+google-chrome
 lefthook
 litecli
 paru
