@@ -39,6 +39,7 @@ eval "$(rtx complete --shell zsh)"
 
 # Configure RTX options
 export RTX_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/ruby/default_gems"
+export RTX_NPM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/nodejs/default_npm_packages"
 
 # Add GPG key
 export GPG_TTY=$(tty)
