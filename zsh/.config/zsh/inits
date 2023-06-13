@@ -38,7 +38,7 @@ eval "$(rtx activate zsh)"
 eval "$(rtx complete --shell zsh)"
 
 # Configure RTX options
-export RTX_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/gems/default_gems"
+export RTX_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/ruby/default_gems"
 
 # Add GPG key
 export GPG_TTY=$(tty)
