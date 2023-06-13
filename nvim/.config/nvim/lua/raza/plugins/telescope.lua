@@ -13,7 +13,12 @@ local M = {
     { "<leader>sg", "<CMD>Telescope live_grep_args<CR>", silent = true, desc = "[S]each by [G]rep" },
     { "<leader>sq", "<CMD>Telescope quickfix<CR>", silent = true, desc = "[S]earch [Q]uickfix" },
     { "<leader>sr", "<CMD>Telescope resume<CR>", silent = true, desc = "[S]earch [R]esume" },
-    { "<leader>sw", "<CMD>Telescope grep_string<CR>", silent = true, desc = "[S]earch current [W]ord" },
+    {
+      "<leader>sw",
+      "<CMD>lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor()<CR>",
+      silent = true,
+      desc = "[S]earch current [W]ord",
+    },
 
     { "<leader>gr", "<CMD>Telescope lsp_references<CR>", silent = true, desc = "[G]oto [R]eferences" },
     { "<leader>/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", desc = "[/] Fuzzily search in current buffer" },
@@ -66,13 +71,6 @@ function M.config()
           "--exclude=node_modules/",
           "--exclude=vendor/bundle/",
         },
-      },
-
-      grep_string = {
-        side_by_side = true,
-        layout_strategy = "vertical",
-        winblend = 3,
-        layout_config = { preview_height = 0.65 },
       },
 
       lsp_references = {
