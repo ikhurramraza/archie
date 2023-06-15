@@ -16,8 +16,11 @@ local stree_formatter = {
   filetypes = { "ruby" },
   generator = helpers.formatter_factory({
     command = "bundle",
-    args = { "exec", "stree", "format" },
-    to_stdin = true,
+    args = function(params)
+      local filename = string.sub(params.bufname, #params.root + 2)
+
+      return { "exec", "stree", "format", filename }
+    end,
   }),
 }
 
