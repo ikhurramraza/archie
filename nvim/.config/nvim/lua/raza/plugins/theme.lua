@@ -14,11 +14,12 @@ local Catppuccin = {
   enabled = theme == "catppuccin",
   lazy = false,
   priority = 1000,
-  init = disable_italics,
   config = function(plugin)
     vim.g.catppuccin_flavour = "mocha"
     require(plugin.name).setup()
     vim.api.nvim_command("colorscheme catppuccin")
+
+    disable_italics()
   end,
 }
 
@@ -28,7 +29,6 @@ local Dracula = {
   enabled = theme == "dracula",
   lazy = false,
   priority = 1000,
-  init = disable_italics,
   config = function()
     vim.g.dracula_italic = 0
     vim.g.dracula_inverse = 0
@@ -38,6 +38,8 @@ local Dracula = {
     vim.api.nvim_command("highlight DraculaTodo       guifg=#6272A4")
     vim.api.nvim_command("highlight DraculaDiffDelete guibg=none ctermbg=none")
     vim.api.nvim_command("highlight DraculaComment    cterm=italic gui=italic")
+
+    disable_italics()
   end,
 }
 
