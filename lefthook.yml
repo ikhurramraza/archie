@@ -13,5 +13,5 @@ pre-commit:
       run: shfmt -i=2 -d {files}
 
     stylua:
-      files: git diff --name-only --cached **/*.lua
+      files: git diff --name-only --cached *.lua
       run: stylua --config-path stylua/.config/stylua/stylua.toml --check {files}
