@@ -1,0 +1,19 @@
+[core]
+  pager = delta
+
+[delta]
+  pager = less
+  paging = always
+  zero-style = normal
+  plus-style = auto raw
+  minus-style = auto raw
+  hunk-header-style = omit
+
+[diff]
+  colorMoved = default
+
+[interactive]
+  diffFilter = delta --color-only
+
+[merge]
+  conflictstyle = diff3

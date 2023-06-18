@@ -49,7 +49,7 @@
   signingkey = 2422E12C0CC4325F
 
 [include]
-  path = includes/diffsofancy
+  path = includes/git-delta
 
 [includeIf "gitdir:~/.cache/paru/clone/"]
   path = includes/paru-clone-fix
