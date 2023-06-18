@@ -17,7 +17,12 @@ local stree_formatter = {
   generator = helpers.formatter_factory({
     command = "bundle",
     args = function(params)
+      local bufnr = vim.fn.bufnr()
       local filename = string.sub(params.bufname, #params.root + 2)
+
+      if vim.fn.getbufinfo(bufnr)[1].changed then
+        vim.cmd.w()
+      end
 
       return { "exec", "stree", "format", filename }
     end,
