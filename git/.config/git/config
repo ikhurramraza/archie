@@ -1,13 +1,3 @@
-[alias]
-  amend   = commit --amend --no-edit
-  br      = branch
-  co      = checkout
-  st      = status
-  sw      = switch
-  append  = ! git add --all && git commit --amend --no-edit
-  ignored = ! git ls-files -v | grep '^[[:lower:]]' | cut -c3-
-  wip     = ! git add --all && git commit -m \"WIP\"
-
 [blame]
   markIgnoredLines = true
 
