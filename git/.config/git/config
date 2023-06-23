@@ -15,9 +15,6 @@
 [credential "https://gist.github.com"]
   helper = !gh auth git-credential
 
-[diff "rspec"]
-  xfuncname = "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario)[ \t].*)$"
-
 [filter "lfs"]
   clean    = git-lfs clean -- %f
   process  = git-lfs filter-process
