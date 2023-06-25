@@ -34,7 +34,6 @@ function M.config()
   telescope.setup({
     defaults = {
       path_display = { truncate = 3 },
-      layout_config = { preview_width = 0.6 },
       mappings = {
         i = {
           ["<C-n>"] = actions.cycle_history_next,
@@ -51,18 +50,20 @@ function M.config()
     },
 
     pickers = {
-      buffers = { previewer = false },
-      diagnostics = { previewer = false },
-      git_files = { previewer = false },
+      buffers = { previewer = false, preview_width = 0.6 },
+      diagnostics = { previewer = false, preview_width = 0.6 },
+      git_files = { previewer = false, preview_width = 0.6 },
 
       current_buffer_fuzzy_find = {
         previewer = false,
+        preview_width = 0.6,
         theme = "dropdown",
         winblend = 10,
       },
 
       find_files = {
         previewer = false,
+        preview_width = 0.6,
         find_command = {
           "fd",
           "--hidden",
@@ -75,6 +76,7 @@ function M.config()
 
       lsp_references = {
         side_by_side = true,
+        preview_width = 0.6,
         winblend = 3,
       },
 
@@ -82,7 +84,7 @@ function M.config()
         side_by_side = true,
         layout_strategy = "vertical",
         winblend = 3,
-        layout_config = { preview_height = 0.65 },
+        layout_config = { preview_height = 0.65, preview_width = 0.6 },
       },
     },
 
