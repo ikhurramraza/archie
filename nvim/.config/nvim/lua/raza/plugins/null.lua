@@ -26,6 +26,8 @@ function M.config()
 
   null_ls.setup({
     sources = {
+      null_ls.builtins.code_actions.eslint,
+      null_ls.builtins.diagnostics.eslint,
       null_ls.builtins.diagnostics.trail_space.with({
         disabled_filetypes = { "gitcommit" },
       }),
