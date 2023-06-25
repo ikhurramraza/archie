@@ -15,7 +15,9 @@ local M = {
     { "<leader>sr", "<CMD>Telescope resume<CR>", silent = true, desc = "[S]earch [R]esume" },
     {
       "<leader>sw",
-      "<CMD>lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor()<CR>",
+      function()
+        require("telescope-live-grep-args.shortcuts").grep_word_under_cursor({ postfix = " -Fs " })
+      end,
       silent = true,
       desc = "[S]earch current [W]ord",
     },
