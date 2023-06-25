@@ -10,6 +10,12 @@ local M = {
       silent = true,
       desc = "Format the document",
     },
+    {
+      "<leader>ca",
+      vim.lsp.buf.code_action,
+      silent = true,
+      desc = "Open code actions menu",
+    },
   },
 }
 

@@ -16,7 +16,6 @@ local M = {
     vim.keymap.set("n", "<leader>K", vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set("n", "<leader>gd", vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
   end,
 }
 
