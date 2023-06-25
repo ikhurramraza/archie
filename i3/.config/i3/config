@@ -1,7 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango:Monaco 10
+font pango:Monaco Nerd Font Mono 10
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
@@ -15,7 +15,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # start dmenu
-bindsym $mod+p exec --no-startup-id dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'Monaco-10'
+bindsym $mod+p exec --no-startup-id dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2'
 
 # Toggle bar
 bindsym $mod+b bar mode toggle
