@@ -4,6 +4,7 @@
 [submodule "nvim/.config/nvim/sneaps"]
 	path = nvim/.config/nvim/sneaps
 	url = https://github.com/rafamadriz/friendly-snippets
+	shallow = true
 [submodule "zsh/.config/zsh/oh-my-zsh-custom/plugins/bol"]
 	path = zsh/.config/zsh/oh-my-zsh-custom/plugins/bol
 	url = https://github.com/ikhurramraza/bol
