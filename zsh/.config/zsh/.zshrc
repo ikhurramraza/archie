@@ -45,8 +45,6 @@ plugins=(
 
 if [[ "$OS" == "Darwin" ]]; then
   plugins+=(brew macos)
-elif [[ "$OS" == "Linux" ]]; then
-  plugins+=(archlinux)
 fi
 
 source "$ZDOTDIR/inits"
