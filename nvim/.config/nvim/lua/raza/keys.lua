@@ -1,8 +1,6 @@
 -- Switch buffers
 vim.keymap.set("n", "]b", ":bn<CR>", { silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "[b", ":bp<CR>", { silent = true, desc = "Previous buffer" })
-vim.keymap.set("n", "<leader><Tab>", ":bn<CR>", { silent = true, desc = "Next buffer" })
-vim.keymap.set("n", "<leader><S-Tab>", ":bp<CR>", { silent = true, desc = "Previous buffer" })
 
 -- Moving lines
 vim.keymap.set("n", "<C-J>", ":m .+1<CR>==", { silent = true })
