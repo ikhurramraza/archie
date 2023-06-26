@@ -1,7 +1,3 @@
--- Save and exit keys
-vim.keymap.set("n", "<C-S>", vim.cmd.w, { silent = true, desc = "Write to buffer" })
-vim.keymap.set("n", "<C-Q>", vim.cmd.Bwipeout, { silent = true, desc = "Close the buffer" })
-
 -- Switch buffers
 vim.keymap.set("n", "]b", ":bn<CR>", { silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "[b", ":bp<CR>", { silent = true, desc = "Previous buffer" })
