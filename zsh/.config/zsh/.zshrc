@@ -6,6 +6,7 @@ fi
 
 # Set OMZ installation path
 export ZSH="$ZDOTDIR/.oh-my-zsh"
+export ZSH_CUSTOM="$ZDOTDIR/oh-my-zsh-custom"
 
 # History file settings
 export HISTFILE="$XDG_CACHE_HOME/zsh/history"
