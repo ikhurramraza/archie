@@ -14,9 +14,6 @@ vim.keymap.set("v", "<C-K>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- Open Netrw file explorer
-vim.keymap.set("n", "<leader><leader>", vim.cmd.Ex, { desc = "Open Netrw file explorer" })
-
 -- Copy file paths
 vim.keymap.set("n", "<leader>cf", ":let @+=@%<CR>", { silent = true })
 vim.keymap.set("n", "<leader>cl", ":let @+=@% . ':' . line('.')<CR>", { silent = true })
