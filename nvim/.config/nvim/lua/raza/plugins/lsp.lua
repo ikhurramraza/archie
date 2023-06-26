@@ -4,6 +4,7 @@ local Mason = {
   opts = {
     ensure_installed = {
       "lua_ls",
+      "eslint",
       "rust_analyzer",
       "tsserver",
     },
