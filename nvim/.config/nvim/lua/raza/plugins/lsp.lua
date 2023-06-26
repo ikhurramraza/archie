@@ -1,7 +1,7 @@
 local Mason = {
   "williamboman/mason-lspconfig.nvim",
   cmd = "Mason",
-  config = {
+  opts = {
     ensure_installed = {
       "lua_ls",
       "rust_analyzer",
@@ -13,7 +13,7 @@ local Mason = {
 
 local Fidget = {
   "j-hui/fidget.nvim",
-  config = {
+  opts = {
     timer = {
       task_decay = 100,
       fidget_decay = 100,

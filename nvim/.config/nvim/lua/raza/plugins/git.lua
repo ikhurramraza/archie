@@ -17,7 +17,7 @@ local GitBlame = {
 local GitSigns = {
   "lewis6991/gitsigns.nvim",
   event = "VeryLazy",
-  config = {
+  opts = {
     on_attach = function(bufnr)
       local gs = require("gitsigns")
 
