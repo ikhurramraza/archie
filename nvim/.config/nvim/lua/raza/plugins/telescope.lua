@@ -8,8 +8,8 @@ local M = {
   keys = {
     { "<leader>sb", "<CMD>Telescope buffers<CR>", silent = true, desc = "[S]earch [B]uffers" },
     { "<leader>sd", "<CMD>Telescope diagnostics<CR>", silent = true, desc = "[S]earch [D]iagnostics" },
-    { "<leader>sf", "<CMD>Telescope git_files<CR>", silent = true, desc = "[S]earch git [F]iles" },
-    { "<leader>sF", "<CMD>Telescope find_files<CR>", silent = true, desc = "[S]earch [F]iles" },
+    { "<leader>sf", "<CMD>Telescope find_files<CR>", silent = true, desc = "[S]earch git [F]iles" },
+    { "<leader>sF", "<CMD>Telescope git_files<CR>", silent = true, desc = "[S]earch [F]iles" },
     { "<leader>sg", "<CMD>Telescope live_grep_args<CR>", silent = true, desc = "[S]each by [G]rep" },
     { "<leader>sq", "<CMD>Telescope quickfix<CR>", silent = true, desc = "[S]earch [Q]uickfix" },
     { "<leader>sr", "<CMD>Telescope resume<CR>", silent = true, desc = "[S]earch [R]esume" },
