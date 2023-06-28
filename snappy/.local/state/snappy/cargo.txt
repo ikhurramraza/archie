@@ -9,9 +9,9 @@ cargo-update v13.0.4:
     cargo-install-update-config
 cargo-watch v8.4.0:
     cargo-watch
-czkawka_cli v5.1.0:
+czkawka_cli v6.0.0:
     czkawka_cli
-czkawka_gui v5.1.0:
+czkawka_gui v6.0.0:
     czkawka_gui
 diesel_cli v2.1.0:
     diesel
@@ -23,7 +23,7 @@ fd-find v8.7.0:
     fd
 git-interactive-rebase-tool v2.2.1:
     interactive-rebase-tool
-gitui v0.22.1:
+gitui v0.23.0 (https://github.com/hendrikmaus/gitui?branch=gpg-commit-signing#3f625db9):
     gitui
 hyperfine v1.17.0:
     hyperfine
