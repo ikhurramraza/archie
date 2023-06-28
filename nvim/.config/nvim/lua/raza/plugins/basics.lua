@@ -2,7 +2,6 @@ return {
   { "christoomey/vim-sort-motion", event = "VeryLazy" },
   { "cuducos/yaml.nvim", dependencies = "nvim-telescope/telescope.nvim", ft = "yaml" },
   { "famiu/bufdelete.nvim", event = "VeryLazy" },
-  { "github/copilot.vim", cmd = "Copilot" },
   { "jdhao/better-escape.vim", event = "InsertEnter" },
   { "jesseleite/vim-noh", event = "VeryLazy" },
   { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
@@ -13,6 +12,24 @@ return {
   { "tpope/vim-endwise", event = "VeryLazy" },
   { "tpope/vim-fugitive", event = "VeryLazy" },
   { "tpope/vim-repeat", event = "VeryLazy" },
+
+  {
+    "github/copilot.vim",
+    init = function()
+      vim.g.copilot_no_tab_map = true
+    end,
+    cmd = "Copilot",
+    keys = {
+      {
+        "<C-]>",
+        "copilot#Accept('<CR>')",
+        mode = "i",
+        expr = true,
+        silent = true,
+        replace_keycodes = false,
+      },
+    },
+  },
 
   {
     "numToStr/Comment.nvim",
