@@ -1,6 +1,7 @@
 1password
 4kstogram
 4ktokkit
+act
 ani-cli
 brave-bin
 devour
@@ -10,8 +11,6 @@ lefthook
 litecli
 paru
 pspg
-python-jarowinkler
-python-rapidfuzz-capi
 spotify
 systemd-fsck-silent
 visual-studio-code-bin
