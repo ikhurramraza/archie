@@ -7,31 +7,31 @@ local helpers = require("null-ls.helpers")
 -- dynamically and it needs to be cached to avoid directory exists calls
 -- on the subsequent runs for better performance.
 
-local bundle_prefix_cache = {}
+local function bundle_prefixed_dynamic_command(command)
+  local cached_command = nil
 
-local function bundle_prefixed_dynamic_command(command, cache_key)
   return function(params)
-    if bundle_prefix_cache[cache_key] then
-      return bundle_prefix_cache[cache_key]
+    if cached_command then
+      return cached_command
     end
 
     local Path = require("plenary.path")
     local vendor_bundle_path = Path:new(params.root .. "/vendor/bundle")
 
     if vendor_bundle_path:is_dir() then
-      bundle_prefix_cache[cache_key] = { "bundle", "exec", command }
+      cached_command = { "bundle", "exec", command }
     else
-      bundle_prefix_cache[cache_key] = command
+      cached_command = command
     end
 
-    return bundle_prefix_cache[cache_key]
+    return cached_command
   end
 end
 
 -- Diagnostics
 
 local bundled_rubocop_diagnostics = null_ls.builtins.diagnostics.rubocop.with({
-  dynamic_command = bundle_prefixed_dynamic_command("rubocop", "bundled_rubocop_diagnostics"),
+  dynamic_command = bundle_prefixed_dynamic_command("rubocop"),
   args = { "-fj", "--force-exclusion", "-s", "$FILENAME" },
 })
 
@@ -42,7 +42,7 @@ local stree_formatter = {
   method = null_ls.methods.FORMATTING,
   filetypes = { "ruby" },
   generator = helpers.formatter_factory({
-    dynamic_command = bundle_prefixed_dynamic_command("stree", "stree_formatter"),
+    dynamic_command = bundle_prefixed_dynamic_command("stree"),
     args = function(params)
       local bufnr = vim.fn.bufnr()
       local filename = string.sub(params.bufname, #params.root + 2)
@@ -57,7 +57,7 @@ local stree_formatter = {
 }
 
 local bundled_rubocop_formatter = null_ls.builtins.formatting.rubocop.with({
-  dynamic_command = bundle_prefixed_dynamic_command("rubocop", "bundled_rubocop_formatter"),
+  dynamic_command = bundle_prefixed_dynamic_command("rubocop"),
   args = { "-fq", "-a", "--stderr", "-s", "$FILENAME" },
 })
 
