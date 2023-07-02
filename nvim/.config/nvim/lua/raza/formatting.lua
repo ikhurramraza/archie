@@ -7,7 +7,7 @@ local helpers = require("null-ls.helpers")
 -- dynamically and it needs to be cached to avoid directory exists calls
 -- on the subsequent runs for better performance.
 
-local function bundle_prefixed_dynamic_command(command)
+local function bundle_prefixed_dynamic_command()
   local cached_command = nil
 
   return function(params)
@@ -19,9 +19,9 @@ local function bundle_prefixed_dynamic_command(command)
     local vendor_bundle_path = Path:new(params.root .. "/vendor/bundle")
 
     if vendor_bundle_path:is_dir() then
-      cached_command = { "bundle", "exec", command }
+      cached_command = { "bundle", "exec", params.command }
     else
-      cached_command = command
+      cached_command = params.command
     end
 
     return cached_command
@@ -31,7 +31,8 @@ end
 -- Diagnostics
 
 local bundled_rubocop_diagnostics = null_ls.builtins.diagnostics.rubocop.with({
-  dynamic_command = bundle_prefixed_dynamic_command("rubocop"),
+  command = "rubocop",
+  dynamic_command = bundle_prefixed_dynamic_command(),
   args = { "-fj", "--force-exclusion", "-s", "$FILENAME" },
 })
 
@@ -42,7 +43,8 @@ local stree_formatter = {
   method = null_ls.methods.FORMATTING,
   filetypes = { "ruby" },
   generator = helpers.formatter_factory({
-    dynamic_command = bundle_prefixed_dynamic_command("stree"),
+    command = "stree",
+    dynamic_command = bundle_prefixed_dynamic_command(),
     args = function(params)
       local bufnr = vim.fn.bufnr()
       local filename = string.sub(params.bufname, #params.root + 2)
@@ -57,7 +59,8 @@ local stree_formatter = {
 }
 
 local bundled_rubocop_formatter = null_ls.builtins.formatting.rubocop.with({
-  dynamic_command = bundle_prefixed_dynamic_command("rubocop"),
+  command = "rubocop",
+  dynamic_command = bundle_prefixed_dynamic_command(),
   args = { "-fq", "-a", "--stderr", "-s", "$FILENAME" },
 })
 
