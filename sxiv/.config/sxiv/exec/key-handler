@@ -1,8 +1,11 @@
 #!/bin/bash
 
+BIN_DIRECTORY=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+
 while read file; do
   case "$1" in
   "C-p") echo -n "$file" | xclip -in -selection clipboard ;;
   "C-r") convert "$file" -rotate 90 "$file" ;;
+  "C-x") $BIN_DIRECTORY/x $file ;;
   esac
 done
