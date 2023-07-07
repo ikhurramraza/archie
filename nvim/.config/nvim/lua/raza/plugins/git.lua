@@ -1,3 +1,18 @@
+local NeoGit = {
+  "NeogitOrg/neogit",
+  cmd = "Neogit",
+  dependencies = {
+    { "nvim-lua/plenary.nvim" },
+    { "sindrets/diffview.nvim", cmd = "DiffviewFileHistory" },
+  },
+  opts = {
+    kind = "replace",
+    preview_buffer = { kind = "floating" },
+    commit_popup = { kind = "floating" },
+    integrations = { diffview = true },
+  },
+}
+
 local GitBlame = {
   "f-person/git-blame.nvim",
   cmd = "GitBlameToggle",
@@ -41,4 +56,4 @@ local GithubOpen = {
   },
 }
 
-return { GitBlame, GitSigns, GithubOpen }
+return { GitBlame, GitSigns, GithubOpen, NeoGit }
