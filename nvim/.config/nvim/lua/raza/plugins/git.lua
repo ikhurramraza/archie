@@ -1,16 +1,26 @@
 return {
   {
+    "sindrets/diffview.nvim",
+    cmd = "DiffviewFileHistory",
+    keys = {
+      {
+        "<leader>od",
+        vim.cmd.DiffviewFileHistory,
+        silent = true,
+        desc = "Toggle git diff view",
+      },
+    },
+    opts = { show_help_hints = false },
+  },
+
+  {
     "NeogitOrg/neogit",
     cmd = "Neogit",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "sindrets/diffview.nvim", cmd = "DiffviewFileHistory" },
-    },
+    dependencies = "nvim-lua/plenary.nvim",
     opts = {
       kind = "replace",
       preview_buffer = { kind = "floating" },
       commit_popup = { kind = "floating" },
-      integrations = { diffview = true },
     },
   },
 
