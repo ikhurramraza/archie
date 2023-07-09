@@ -13,6 +13,7 @@ local M = {
     { "<leader>sg", "<CMD>Telescope live_grep_args<CR>", silent = true, desc = "[S]each by [G]rep" },
     { "<leader>sq", "<CMD>Telescope quickfix<CR>", silent = true, desc = "[S]earch [Q]uickfix" },
     { "<leader>sr", "<CMD>Telescope resume<CR>", silent = true, desc = "[S]earch [R]esume" },
+    { "<leader>ss", "<CMD>Telescope git_status<CR>", silent = true, desc = "[S]earch git [S]tatus" },
     {
       "<leader>sw",
       function()
