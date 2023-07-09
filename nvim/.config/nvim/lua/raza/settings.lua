@@ -15,6 +15,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.lazyredraw = true
 
+vim.opt.showmode = false
+
 vim.opt.ai = true
 vim.opt.si = true
 vim.opt.expandtab = true
