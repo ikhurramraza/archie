@@ -2,7 +2,7 @@ atuin v15.0.0:
     atuin
 bat v0.23.0:
     bat
-cargo-binstall v0.23.1:
+cargo-binstall v1.0.0:
     cargo-binstall
 cargo-update v13.0.4:
     cargo-install-update
@@ -33,11 +33,11 @@ mprocs v0.6.4:
     mprocs
 pangran v0.1.0 (/home/raza/.local/installs/pangran):
     pangran
-porsmo v0.2.0:
+porsmo v0.2.2:
     porsmo
 ripgrep v13.0.0:
     rg
-rtx-cli v1.32.0:
+rtx-cli v1.33.0:
     rtx
 stash v0.1.0 (/home/raza/Developer/stash-cli):
     stash
