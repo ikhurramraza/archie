@@ -9,6 +9,7 @@ git-secret
 google-chrome
 lefthook
 litecli
+microsoft-edge-beta-bin
 paru
 pspg
 spotify
