@@ -16,7 +16,6 @@ vim.opt.cursorline = true
 vim.opt.lazyredraw = true
 
 vim.opt.showmode = false
-vim.opt.cmdheight = 0
 
 vim.opt.ai = true
 vim.opt.si = true
