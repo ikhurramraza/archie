@@ -1,13 +1,5 @@
 local theme = "catppuccin"
 
-local function disable_italics()
-  -- Disable italics since it is broken on Windows Terminal when using Nerd Fonts
-  -- See: https://github.com/microsoft/terminal/issues/14094
-  vim.api.nvim_command("highlight @parameter  gui=none")
-  vim.api.nvim_command("highlight Comment     gui=none")
-  vim.api.nvim_command("highlight Conditional gui=none")
-end
-
 local Catppuccin = {
   "catppuccin/nvim",
   name = "catppuccin",
@@ -16,10 +8,8 @@ local Catppuccin = {
   priority = 1000,
   config = function(plugin)
     vim.g.catppuccin_flavour = "mocha"
-    require(plugin.name).setup()
+    require(plugin.name).setup({ no_italic = true })
     vim.api.nvim_command("colorscheme catppuccin")
-
-    disable_italics()
   end,
 }
 
@@ -38,8 +28,6 @@ local Dracula = {
     vim.api.nvim_command("highlight DraculaTodo       guifg=#6272A4")
     vim.api.nvim_command("highlight DraculaDiffDelete guibg=none ctermbg=none")
     vim.api.nvim_command("highlight DraculaComment    cterm=italic gui=italic")
-
-    disable_italics()
   end,
 }
 
