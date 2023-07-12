@@ -13,6 +13,10 @@ local M = {
   keys = {
     { key = "f", mods = "SHIFT|CTRL", action = wezterm.action.ToggleFullScreen },
     { key = "v", mods = "SHIFT|CTRL", action = wezterm.action.PasteFrom("Clipboard") },
+
+    { key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
+    { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+    { key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
   },
 }
 
