@@ -9,6 +9,14 @@ local M = {
   font_size = 16,
   hide_tab_bar_if_only_one_tab = true,
   window_decorations = "RESIZE",
+
+  keys = {
+    {
+      key = "f",
+      mods = "SHIFT|CTRL",
+      action = wezterm.action.ToggleFullScreen,
+    },
+  },
 }
 
 return M
