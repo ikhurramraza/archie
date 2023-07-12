@@ -8,7 +8,7 @@ local M = {
   font = wezterm.font("Monaco Nerd Font Mono"),
   font_size = 16,
   hide_tab_bar_if_only_one_tab = true,
-  window_decorations = "NONE",
+  window_decorations = "RESIZE",
 }
 
 return M
