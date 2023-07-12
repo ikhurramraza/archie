@@ -16,6 +16,11 @@ local M = {
       mods = "SHIFT|CTRL",
       action = wezterm.action.ToggleFullScreen,
     },
+    {
+      key = "v",
+      mods = "SHIFT|CTRL",
+      action = wezterm.action.PasteFrom("Clipboard"),
+    },
   },
 }
 
