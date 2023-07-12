@@ -6,8 +6,10 @@ ani-cli
 brave-bin
 devour
 git-secret
+gnome-shell-extension-material-shell
 google-chrome
 lefthook
+libsidplay
 litecli
 microsoft-edge-beta-bin
 paru
