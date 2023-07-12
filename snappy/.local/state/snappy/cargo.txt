@@ -37,7 +37,7 @@ porsmo v0.2.2:
     porsmo
 ripgrep v13.0.0:
     rg
-rtx-cli v1.33.0:
+rtx-cli v1.34.0:
     rtx
 stash v0.1.0 (/home/raza/Developer/stash-cli):
     stash
