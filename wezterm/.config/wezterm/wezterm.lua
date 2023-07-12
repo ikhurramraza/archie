@@ -18,6 +18,13 @@ local M = {
     { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
     { key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
   },
+
+  window_padding = {
+    left = "6pt",
+    right = "2pt",
+    top = "6pt",
+    bottom = "0pt",
+  },
 }
 
 return M
