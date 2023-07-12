@@ -1,24 +1,28 @@
 {
   "name": "lib",
   "dependencies": {
+    "@githubnext/github-copilot-cli": {
+      "version": "0.1.33",
+      "overridden": false
+    },
     "corepack": {
-      "version": "0.17.2",
-      "overridden": false
-    },
-    "node-gyp": {
-      "version": "9.3.1",
-      "overridden": false
-    },
-    "nopt": {
-      "version": "7.1.0",
+      "version": "0.15.3",
       "overridden": false
     },
     "npm": {
-      "version": "8.19.2",
+      "version": "9.8.0",
       "overridden": false
     },
-    "semver": {
-      "version": "7.3.8",
+    "pnpm": {
+      "version": "8.6.7",
+      "overridden": false
+    },
+    "prettier-plugin-sort-json": {
+      "version": "1.0.0",
+      "overridden": false
+    },
+    "prettier": {
+      "version": "2.8.7",
       "overridden": false
     }
   }
