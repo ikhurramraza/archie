@@ -11,16 +11,8 @@ local M = {
   window_decorations = "RESIZE",
 
   keys = {
-    {
-      key = "f",
-      mods = "SHIFT|CTRL",
-      action = wezterm.action.ToggleFullScreen,
-    },
-    {
-      key = "v",
-      mods = "SHIFT|CTRL",
-      action = wezterm.action.PasteFrom("Clipboard"),
-    },
+    { key = "f", mods = "SHIFT|CTRL", action = wezterm.action.ToggleFullScreen },
+    { key = "v", mods = "SHIFT|CTRL", action = wezterm.action.PasteFrom("Clipboard") },
   },
 }
 
