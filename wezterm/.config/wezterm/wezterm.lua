@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local color_schemes = require("color_schemes")
+local env = require("env")
 
 local M = {
   color_scheme = "Catppuccin Mocha Custom",
@@ -8,7 +9,7 @@ local M = {
   font = wezterm.font("Monaco Nerd Font Mono"),
   font_size = 16,
   hide_tab_bar_if_only_one_tab = true,
-  window_decorations = os.getenv("OS") == "Darwin" and "RESIZE" or "NONE",
+  window_decorations = env.os == "Darwin" and "RESIZE" or "NONE",
 
   keys = {
     { key = "f", mods = "SHIFT|CTRL", action = wezterm.action.ToggleFullScreen },
