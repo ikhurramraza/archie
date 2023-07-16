@@ -2,12 +2,22 @@ local wezterm = require("wezterm")
 local color_schemes = require("color_schemes")
 local env = require("env")
 
+local font_family = "Monaco Nerd Font Mono"
+
 local M = {
   color_scheme = "Catppuccin Mocha Custom",
   color_schemes = color_schemes,
   disable_default_key_bindings = true,
-  font = wezterm.font("Monaco Nerd Font Mono"),
+  font = wezterm.font(font_family),
   font_size = 16,
+
+  font_rules = {
+    {
+      italic = true,
+      font = wezterm.font({ family = font_family, italic = false }),
+    },
+  },
+
   hide_tab_bar_if_only_one_tab = true,
   window_decorations = env.os == "Darwin" and "RESIZE" or "NONE",
 
