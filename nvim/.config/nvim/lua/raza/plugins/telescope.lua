@@ -8,6 +8,8 @@ local M = {
   },
   keys = {
     { "<leader>sb", "<CMD>Telescope buffers<CR>", silent = true, desc = "[S]earch [B]uffers" },
+    { "<leader>sc", "<CMD>Telescope git_bcommits<CR>", silent = true, desc = "[S]earch buffer [C]ommits" },
+    { "<leader>sC", "<CMD>Telescope git_commits<CR>", silent = true, desc = "[S]earch [C]ommits" },
     { "<leader>sd", "<CMD>Telescope diagnostics<CR>", silent = true, desc = "[S]earch [D]iagnostics" },
     { "<leader>sf", "<CMD>Telescope find_files<CR>", silent = true, desc = "[S]earch git [F]iles" },
     { "<leader>sF", "<CMD>Telescope git_files<CR>", silent = true, desc = "[S]earch [F]iles" },
