@@ -15,6 +15,8 @@ czkawka_gui v6.0.0:
     czkawka_gui
 diesel_cli v2.1.0:
     diesel
+difftastic v0.48.0:
+    difft
 du-dust v0.8.6:
     dust
 exa v0.10.1:
@@ -27,7 +29,7 @@ gitui v0.23.0 (https://github.com/hendrikmaus/gitui?branch=gpg-commit-signing#3f
     gitui
 hyperfine v1.17.0:
     hyperfine
-joshuto v0.9.4 (/home/raza/.local/installs/joshuto):
+joshuto v0.9.5 (/home/raza/.local/installs/joshuto):
     joshuto
 mprocs v0.6.4:
     mprocs
@@ -37,7 +39,7 @@ porsmo v0.2.2:
     porsmo
 ripgrep v13.0.0:
     rg
-rtx-cli v1.34.0:
+rtx-cli v1.34.1:
     rtx
 stash v0.1.0 (/home/raza/Developer/stash-cli):
     stash
