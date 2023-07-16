@@ -14,6 +14,13 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" },
 
   {
+    dir = vim.fn.stdpath("config") .. "/plugins/skeleton.nvim",
+    config = true,
+    cmd = "Skeleton",
+    keys = { { "<leader>gs", vim.cmd.Skeleton, desc = "Insert a skeletons" } },
+  },
+
+  {
     "github/copilot.vim",
     init = function()
       vim.g.copilot_no_tab_map = true
