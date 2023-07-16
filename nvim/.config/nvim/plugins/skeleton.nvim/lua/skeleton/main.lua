@@ -6,7 +6,7 @@ local function prettify_skeleton_path(old_path)
   local new_path = old_path
 
   for _, directory in ipairs(config.settings.directories) do
-    new_path = vim.fn.substitute(new_path, directory, "", "")
+    new_path = vim.fn.substitute(new_path, directory .. "/", "", "")
   end
 
   return new_path
