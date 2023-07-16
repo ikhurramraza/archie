@@ -38,10 +38,10 @@ M.open = function()
   vim.ui.select(skeletons, {
     prompt = "Select a skeleton:",
     format_item = prettify_skeleton_path,
-  }, function(choice)
-    if choice then
-      local skeleton = vim.fn.readfile(choice)
-      vim.api.nvim_put(skeleton, "l", false, false)
+  }, function(skeleton)
+    if skeleton then
+      local lines = vim.fn.readfile(skeleton)
+      vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
     end
   end)
 end
