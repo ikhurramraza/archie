@@ -30,6 +30,22 @@ local M = {
     Fidget,
     Mason,
   },
+  keys = {
+    {
+      "<leader>ol",
+      function()
+        if next(vim.lsp.get_active_clients()) == nil then
+          vim.cmd.LspStart()
+          print("LSP server started")
+        else
+          vim.cmd.LspStop()
+          print("LSP server stopped")
+        end
+      end,
+      silent = true,
+      desc = "Toggle LSP server",
+    },
+  },
 }
 
 function M.config()
