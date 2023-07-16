@@ -1,6 +1,6 @@
 local function get_os()
   local os = "Linux"
-  local handle = io.open("uname")
+  local handle = io.popen("uname")
   if handle then
     os = handle:read("*a"):gsub("[\n\r]", "")
     handle:close()
