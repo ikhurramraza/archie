@@ -14,6 +14,7 @@ local Mason = {
 
 local Fidget = {
   "j-hui/fidget.nvim",
+  tag = "legacy",
   opts = {
     timer = {
       task_decay = 100,
