@@ -7,15 +7,23 @@ local M = {
     -- Disable syntax highlighting from LSP
     client.server_capabilities.semanticTokensProvider = nil
 
-    local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-    vim.keymap.set("n", "<leader>K", vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set("n", "<leader>gd", vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+    local set = function(key, callback, opts)
+      vim.keymap.set(
+        "n",
+        key,
+        callback,
+        vim.tbl_deep_extend("force", { noremap = true, silent = true, buffer = bufnr }, opts)
+      )
+    end
+
+    set("gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+    set("gr", vim.lsp.buf.references, { desc = "Go to references" })
+    set("gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+    set("gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+    set("K", vim.lsp.buf.hover, { desc = "Show hover information" })
+    set("<leader>K", vim.lsp.buf.signature_help, { desc = "Get signature help" })
+    set("<leader>gd", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
+    set("<leader>rn", vim.lsp.buf.rename, { desc = "Rename variable" })
   end,
 }
 
