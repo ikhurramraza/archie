@@ -4,6 +4,11 @@ video_default = [{ command = "mpv", args = ["--no-border", "--really-quiet", "--
 image_default = [{ command = "sxiv", args = ["-b"], fork = true, silent = true }]
 text_default  = [{ command = "nvim" }, { command = "bat", args = ["--paging=always"] }]
 
+[mimetype]
+
+text.inherit = "text_default"
+video.inherit = "video_default"
+
 [extension]
 
 avif.inherit = "image_default"
