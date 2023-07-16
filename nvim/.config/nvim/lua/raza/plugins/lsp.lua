@@ -30,6 +30,7 @@ local M = {
     Fidget,
     Mason,
   },
+  opts = { inlay_hints = { enabled = true } },
   keys = {
     {
       "<leader>ol",
@@ -63,6 +64,7 @@ function M.config()
       Lua = {
         diagnostics = { globals = { "vim" } },
         completion = { keywordSnippet = "Disable" },
+        hint = { enable = true },
       },
     },
   })
@@ -105,6 +107,30 @@ local Typescript = {
         autostart = false,
         on_attach = config.on_attach,
         capabilities = config.capabilities,
+        settings = {
+          javascript = {
+            inlayHints = {
+              includeInlayEnumMemberValueHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayVariableTypeHints = true,
+            },
+          },
+          typescript = {
+            inlayHints = {
+              includeInlayEnumMemberValueHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayVariableTypeHints = true,
+            },
+          },
+        },
       },
     })
   end,
