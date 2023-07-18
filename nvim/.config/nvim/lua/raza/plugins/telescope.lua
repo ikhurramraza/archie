@@ -14,6 +14,7 @@ local M = {
     { "<leader>sf", "<CMD>Telescope find_files<CR>", silent = true, desc = "[S]earch git [F]iles" },
     { "<leader>sF", "<CMD>Telescope git_files<CR>", silent = true, desc = "[S]earch [F]iles" },
     { "<leader>sg", "<CMD>Telescope live_grep_args<CR>", silent = true, desc = "[S]each by [G]rep" },
+    { "<leader>sh", "<CMD>Telescope help_tags<CR>", silent = true, desc = "[S]each [H]elp" },
     { "<leader>sq", "<CMD>Telescope quickfix<CR>", silent = true, desc = "[S]earch [Q]uickfix" },
     { "<leader>sr", "<CMD>Telescope resume<CR>", silent = true, desc = "[S]earch [R]esume" },
     { "<leader>ss", "<CMD>Telescope git_status<CR>", silent = true, desc = "[S]earch git [S]tatus" },
