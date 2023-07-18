@@ -1,0 +1,5 @@
+vim.api.nvim_create_user_command("W", function()
+  local directory = vim.fn.expand("%:p:h")
+  vim.fn.mkdir(directory, "p")
+  vim.cmd.w()
+end, { nargs = 0, desc = "Like w but creates directories as well." })
