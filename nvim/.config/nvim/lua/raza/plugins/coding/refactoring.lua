@@ -1,4 +1,4 @@
-local function key(key, mode, refactor)
+local function build_key(key, mode, refactor)
   return {
     key,
     function()
@@ -13,12 +13,12 @@ end
 return {
   "ThePrimeagen/refactoring.nvim",
   keys = {
-    key("<leader>rB", "n", "Extract Block To File"),
-    key("<leader>rF", "x", "Extract Function To File"),
-    key("<leader>rb", "n", "Extract Block"),
-    key("<leader>rf", "x", "Extract Function"),
-    key("<leader>ri", "n", "Inline Variable"),
-    key("<leader>ri", "x", "Inline Variable"),
-    key("<leader>rv", "x", "Extract Variable"),
+    build_key("<leader>rB", "n", "Extract Block To File"),
+    build_key("<leader>rF", "x", "Extract Function To File"),
+    build_key("<leader>rb", "n", "Extract Block"),
+    build_key("<leader>rf", "x", "Extract Function"),
+    build_key("<leader>ri", "n", "Inline Variable"),
+    build_key("<leader>ri", "x", "Inline Variable"),
+    build_key("<leader>rv", "x", "Extract Variable"),
   },
 }
