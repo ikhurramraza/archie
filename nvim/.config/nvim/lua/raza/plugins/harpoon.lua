@@ -33,7 +33,7 @@ local M = {
       desc = "Jump to file 3 on Harpoon list",
     },
     {
-      ",3",
+      ",4",
       "<CMD>lua require('harpoon.ui').nav_file(4)<CR>",
       silent = true,
       desc = "Jump to file 4 on Harpoon list",
