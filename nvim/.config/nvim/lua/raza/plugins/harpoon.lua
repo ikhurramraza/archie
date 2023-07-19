@@ -38,6 +38,12 @@ local M = {
       silent = true,
       desc = "Jump to file 4 on Harpoon list",
     },
+    {
+      ",5",
+      "<CMD>lua require('harpoon.ui').nav_file(5)<CR>",
+      silent = true,
+      desc = "Jump to file 5 on Harpoon list",
+    },
   },
 }
 
