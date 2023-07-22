@@ -13,14 +13,12 @@ export GEMRC="$XDG_CONFIG_HOME/gems/gemrc"
 # Configure SQLite
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
-# Disable OMZ auto update
-export DISABLE_UPDATE_PROMPT=true
-zstyle ':omz:update' mode disabled
-
-# Disable OMZ characters escape on paste
-export DISABLE_MAGIC_FUNCTIONS=true
-
 # Init OMZ
+zstyle ':omz:*' aliases no
+zstyle ':omz:plugins:bundler' aliases yes
+zstyle ':omz:update' mode disabled
+export DISABLE_UPDATE_PROMPT=true
+export DISABLE_MAGIC_FUNCTIONS=true
 source "$ZSH/oh-my-zsh.sh"
 
 # Init starship
