@@ -23,6 +23,9 @@ export DISABLE_MAGIC_FUNCTIONS=true
 # Init OMZ
 source "$ZSH/oh-my-zsh.sh"
 
+# Init starship
+which starship &>/dev/null && eval "$(starship init zsh)"
+
 # Enable option stacking auto completion for docker
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
