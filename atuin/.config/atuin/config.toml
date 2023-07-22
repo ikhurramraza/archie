@@ -80,7 +80,7 @@ history_filter = [
   "^vi$", "^vim$", "^nvim$",
 
   # Others
-  "^:q$", "^alias$", "^which ",
+  "^alias$", "^which ",
 
   "^mark(er)?$", "^mark(er)? ",
   "^stash-import$"
