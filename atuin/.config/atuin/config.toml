@@ -76,9 +76,6 @@ history_filter = [
   # Change directory commands
   "^cd$", "^cd ",
 
-  # git aliases
-  "^g.{1,4}$", "^g.{1,4} ",
-
   # Vim commands
   "^vi$", "^vim$", "^nvim$",
 
