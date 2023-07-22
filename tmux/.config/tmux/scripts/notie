@@ -9,33 +9,20 @@ exit_with_error() {
   exit 1
 }
 
-main() {
-  local note_type="$1"
-  local directory filename
+create() {
+  local filename="$1"
 
-  directory="$NOTIE_DIRECTORY"
+  if [ -z "$filename" ]; then
+    exit_with_error "No filename provided."
+  fi
 
-  case "$note_type" in
-  branch)
-    filename="$(git branch --show-current)"
-    directory="$directory/$(basename $(git rev-parse --show-toplevel))"
-    ;;
-  *)
-    exit_with_error "Unknown note type: $note_type"
-    ;;
-  esac
+  local filepath="$NOTIE_DIRECTORY/$filename"
+  local directory="$(dirname $filepath)"
 
   mkdir -p "$directory"
 
-  local filepath="$directory/$filename.md"
-
-  if [ ! -f "$filepath" ]; then
-    echo "# Notes for $filename $note_type" >"$filepath"
-  fi
-
   nvim \
-    -c "norm G2o" \
-    -c "norm zz" \
+    -c "norm Gzz" \
     -c "imap <C-c> <cmd>:q!<CR>" \
     -c "nmap <C-c> <cmd>:q!<CR>" \
     -c "set nonumber norelativenumber" \
@@ -44,4 +31,8 @@ main() {
     "$filepath"
 }
 
-main "$@"
+main() {
+  create "$(find "$NOTIE_DIRECTORY" -type f -printf '%P\n' | sort | fzf --print-query | grep -Ev '^$')"
+}
+
+main
