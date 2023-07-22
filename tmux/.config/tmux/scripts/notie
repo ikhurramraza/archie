@@ -3,7 +3,6 @@
 set -euo pipefail
 
 NOTIE_DIRECTORY="${XDG_DATA_HOME:-$HOME/.local/share}/notie"
-NOTIE_MARKDOWN_DIRECTORY="$NOTIE_DIRECTORY/markdown"
 
 exit_with_error() {
   echo "$1" 1>&2
@@ -14,7 +13,7 @@ main() {
   local note_type="$1"
   local directory filename
 
-  directory="$NOTIE_MARKDOWN_DIRECTORY"
+  directory="$NOTIE_DIRECTORY"
 
   case "$note_type" in
   branch)
