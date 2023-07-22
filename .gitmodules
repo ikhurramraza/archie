@@ -11,7 +11,3 @@
 	path = zsh/.config/zsh/oh-my-zsh-custom/plugins/bol
 	url = https://github.com/ikhurramraza/bol
 
-[submodule "zsh/.config/zsh/oh-my-zsh-custom/themes/powerlevel10k"]
-	path = zsh/.config/zsh/oh-my-zsh-custom/themes/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
-	shallow = true

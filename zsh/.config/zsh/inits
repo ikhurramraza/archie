@@ -23,9 +23,6 @@ export DISABLE_MAGIC_FUNCTIONS=true
 # Init OMZ
 source "$ZSH/oh-my-zsh.sh"
 
-# Init p10k
-source "$ZDOTDIR/.p10k.zsh"
-
 # Enable option stacking auto completion for docker
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
