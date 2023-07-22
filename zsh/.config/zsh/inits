@@ -24,6 +24,7 @@ export DISABLE_MAGIC_FUNCTIONS=true
 source "$ZSH/oh-my-zsh.sh"
 
 # Init starship
+export STARSHIP_LOG="error" # Disable command timeout errors
 which starship &>/dev/null && eval "$(starship init zsh)"
 
 # Enable option stacking auto completion for docker
