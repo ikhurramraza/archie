@@ -14,6 +14,3 @@ PATH="$PATH:/Users/raza/.bin/doctolib"
 # Add Apple helper paths (removed from /etc/zprofile)
 PATH="$PATH:/usr/local/bin"
 PATH="$PATH:/Library/Apple/usr/bin"
-
-# Set default AWS profile name
-export AWS_PROFILE=Raza
