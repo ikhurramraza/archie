@@ -9,7 +9,7 @@ local M = {
   color_schemes = color_schemes,
   disable_default_key_bindings = true,
   font = wezterm.font(font_family),
-  font_size = 16,
+  font_size = env.os == "Darwin" and 21 or 16,
 
   font_rules = {
     {
