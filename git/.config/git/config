@@ -27,6 +27,9 @@
 [init]
   defaultBranch = main
 
+[merge]
+  stat = true
+
 [pull]
   twohead = ort
 
