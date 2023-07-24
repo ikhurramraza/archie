@@ -19,6 +19,7 @@
   helper = !gh auth git-credential
 
 [diff]
+  mnemonicprefix = true
   renames = copies
 
 [filter "lfs"]
