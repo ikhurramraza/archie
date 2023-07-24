@@ -18,6 +18,9 @@
 [credential "https://gist.github.com"]
   helper = !gh auth git-credential
 
+[diff]
+  renames = copies
+
 [filter "lfs"]
   clean    = git-lfs clean -- %f
   process  = git-lfs filter-process
