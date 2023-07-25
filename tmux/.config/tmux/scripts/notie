@@ -32,7 +32,7 @@ create() {
 }
 
 main() {
-  create "$(find "$NOTIE_DIRECTORY" -type f -printf '%P\n' | sort | fzf --print-query | grep -Ev '^$')"
+  create "$(cd "$NOTIE_DIRECTORY" && fd --type=f --strip-cwd-prefix | sort | fzf --print-query | grep -Ev '^$')"
 }
 
 main
