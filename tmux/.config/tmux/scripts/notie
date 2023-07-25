@@ -27,7 +27,6 @@ create() {
     -c "nmap <C-c> <cmd>:q!<CR>" \
     -c "set nonumber norelativenumber" \
     -c "set laststatus=0" \
-    -c "startinsert" \
     "$filepath"
 }
 
