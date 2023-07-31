@@ -12,6 +12,7 @@ behind = '↓${count}'
 
 [hostname]
 ssh_symbol = ' '
+trim_at = ''
 
 [ruby]
 symbol = '󰴭 '
