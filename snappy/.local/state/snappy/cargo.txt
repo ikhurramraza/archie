@@ -2,7 +2,7 @@ atuin v15.0.0:
     atuin
 bat v0.23.0:
     bat
-cargo-binstall v1.0.0:
+cargo-binstall v1.1.2:
     cargo-binstall
 cargo-update v13.0.4:
     cargo-install-update
@@ -15,7 +15,7 @@ czkawka_gui v6.0.0:
     czkawka_gui
 diesel_cli v2.1.0:
     diesel
-difftastic v0.48.0:
+difftastic v0.49.0:
     difft
 du-dust v0.8.6:
     dust
@@ -23,7 +23,7 @@ exa v0.10.1:
     exa
 fd-find v8.7.0:
     fd
-git-interactive-rebase-tool v2.2.1:
+git-interactive-rebase-tool v2.3.0:
     interactive-rebase-tool
 gitui v0.23.0 (https://github.com/hendrikmaus/gitui?branch=gpg-commit-signing#3f625db9):
     gitui
@@ -39,7 +39,7 @@ porsmo v0.2.2:
     porsmo
 ripgrep v13.0.0:
     rg
-rtx-cli v1.34.1:
+rtx-cli v1.35.1:
     rtx
 stash v0.1.0 (/home/raza/Developer/stash-cli):
     stash
