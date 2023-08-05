@@ -1,15 +1,14 @@
 1password
 4kstogram
 4ktokkit
-act
 ani-cli
 brave-bin
 devour
+docker-compose-v2-git
 git-secret
 gnome-shell-extension-material-shell
 google-chrome
 lefthook
-libsidplay
 litecli
 microsoft-edge-beta-bin
 paru
