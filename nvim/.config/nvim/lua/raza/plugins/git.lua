@@ -17,11 +17,7 @@ return {
     "NeogitOrg/neogit",
     cmd = "Neogit",
     dependencies = "nvim-lua/plenary.nvim",
-    opts = {
-      kind = "replace",
-      preview_buffer = { kind = "floating" },
-      commit_popup = { kind = "floating" },
-    },
+    opts = { kind = "floating" },
   },
 
   {
