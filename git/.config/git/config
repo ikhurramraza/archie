@@ -38,7 +38,7 @@
   twohead = ort
 
 [push]
-  default = nothing
+  default = simple
 
 [sequence]
   editor = interactive-rebase-tool
