@@ -44,6 +44,3 @@
 
 [include]
   path = includes/git-delta
-
-[includeIf "gitdir:~/.cache/paru/clone/"]
-  path = includes/paru-clone-fix
