@@ -12,12 +12,6 @@
   excludesfile   = ~/.config/git/global_gitignore
   attributesfile = ~/.config/git/gitattributes
 
-[credential "https://github.com"]
-  helper = !gh auth git-credential
-
-[credential "https://gist.github.com"]
-  helper = !gh auth git-credential
-
 [diff]
   mnemonicprefix = true
   renames = copies
