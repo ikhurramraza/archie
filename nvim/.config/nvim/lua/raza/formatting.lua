@@ -28,12 +28,22 @@ local function bundle_prefixed_dynamic_command()
   end
 end
 
+-- Code actions
+
+local node_moduled_eslint_code_action = null_ls.builtins.code_actions.eslint.with({
+  command = "node_modules/.bin/eslint",
+})
+
 -- Diagnostics
 
 local bundled_rubocop_diagnostics = null_ls.builtins.diagnostics.rubocop.with({
   command = "rubocop",
   dynamic_command = bundle_prefixed_dynamic_command(),
   args = { "-fj", "--force-exclusion", "-s", "$FILENAME" },
+})
+
+local node_moduled_eslint_diagnostics = null_ls.builtins.diagnostics.eslint.with({
+  command = "node_modules/.bin/eslint",
 })
 
 -- Formatters
@@ -65,8 +75,12 @@ local bundled_rubocop_formatter = null_ls.builtins.formatting.rubocop.with({
 })
 
 return {
+  code_actions = {
+    node_moduled_eslint = node_moduled_eslint_code_action,
+  },
   diagnostics = {
     bundled_rubocop = bundled_rubocop_diagnostics,
+    node_moduled_eslint = node_moduled_eslint_diagnostics,
   },
   formatting = {
     bundled_rubocop = bundled_rubocop_formatter,

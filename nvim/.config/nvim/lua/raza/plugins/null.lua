@@ -26,8 +26,6 @@ function M.config()
 
   null_ls.setup({
     sources = {
-      null_ls.builtins.code_actions.eslint,
-      null_ls.builtins.diagnostics.eslint,
       null_ls.builtins.diagnostics.trail_space.with({
         disabled_filetypes = { "gitcommit" },
       }),
@@ -45,7 +43,9 @@ function M.config()
       null_ls.builtins.formatting.trim_newlines,
       null_ls.builtins.formatting.trim_whitespace,
 
+      customs.code_actions.node_moduled_eslint,
       customs.diagnostics.bundled_rubocop,
+      customs.diagnostics.node_moduled_eslint,
       customs.formatting.stree,
     },
   })
