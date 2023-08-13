@@ -8,6 +8,14 @@ return {
       highlight = {
         enable = true,
       },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "+",
+          node_incremental = "+",
+          node_decremental = "-",
+        },
+      },
       ensure_installed = {
         "bash",
         "html",
