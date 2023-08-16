@@ -45,4 +45,19 @@ return {
       "TSPlaygroundToggle",
     },
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = { enable = false },
+    cmd = { "TSContextEnable", "TSContextDisable", "TSContextToggle" },
+    keys = {
+      {
+        "<leader>oc",
+        vim.cmd.TSContextToggle,
+        silent = true,
+        desc = "Toggle code context",
+      },
+    },
+  },
 }
