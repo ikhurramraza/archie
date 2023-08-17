@@ -3,7 +3,7 @@ local M = {
   dependencies = "neovim/nvim-lspconfig",
   keys = {
     {
-      "<leader>f",
+      "<leader><leader>",
       function()
         vim.lsp.buf.format({ timeout_ms = 5000 })
       end,
