@@ -28,7 +28,6 @@ local M = {
     },
 
     { "<leader>gr", "<CMD>Telescope lsp_references<CR>", silent = true, desc = "[G]oto [R]eferences" },
-    { "<leader>/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", desc = "[/] Fuzzily search in current buffer" },
   },
 }
 
