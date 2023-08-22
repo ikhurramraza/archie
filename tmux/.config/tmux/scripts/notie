@@ -26,6 +26,7 @@ create() {
     -c "set nonumber" \
     -c "set norelativenumber" \
     -c "set laststatus=0" \
+    -c "set textwidth=100" \
     "$filepath"
 }
 
