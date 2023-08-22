@@ -23,8 +23,6 @@ create() {
 
   nvim \
     -c "norm Gzz" \
-    -c "imap <C-c> <cmd>:q!<CR>" \
-    -c "nmap <C-c> <cmd>:q!<CR>" \
     -c "set nonumber norelativenumber" \
     -c "set laststatus=0" \
     "$filepath"
