@@ -31,7 +31,7 @@ create() {
 }
 
 main() {
-  create "$(cd "$NOTIE_DIRECTORY" && fd --type=f --strip-cwd-prefix | sort | fzf --print-query | tail -n1 | grep -Ev '^$')"
+  create "$(cd "$NOTIE_DIRECTORY" && fd --type=f --strip-cwd-prefix | sort | fzf --exact --print-query | tail -n1 | grep -Ev '^$')"
 }
 
 main
