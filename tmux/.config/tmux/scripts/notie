@@ -23,7 +23,8 @@ create() {
 
   nvim \
     -c "norm Gzz" \
-    -c "set nonumber norelativenumber" \
+    -c "set nonumber" \
+    -c "set norelativenumber" \
     -c "set laststatus=0" \
     "$filepath"
 }
