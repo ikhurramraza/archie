@@ -52,6 +52,13 @@ return {
     end,
   },
 
+  {
+    "stevearc/oil.nvim",
+    config = true,
+    dependencies = "kyazdani42/nvim-web-devicons",
+    keys = { { "-", vim.cmd.Oil, desc = "Open parent directory using Oil" } },
+  },
+
   -- Text objects
   { "kana/vim-textobj-indent", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
   { "kana/vim-textobj-line", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
