@@ -6,6 +6,7 @@ command_timeout = 1000
 symbol = ' '
 
 [git_status]
+disabled = true
 ahead = '↑${count}'
 diverged = '↑${ahead_count}↓${behind_count}'
 behind = '↓${count}'
