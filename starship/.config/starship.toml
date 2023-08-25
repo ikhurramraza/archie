@@ -15,5 +15,8 @@ behind = '↓${count}'
 ssh_symbol = ' '
 trim_at = ''
 
+[nodejs]
+symbol = ' '
+
 [ruby]
 symbol = '󰴭 '
