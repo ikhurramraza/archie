@@ -31,13 +31,7 @@ create() {
 }
 
 main() {
-  create "$(cd "$NOTIE_DIRECTORY" &&
-            fd --type=f --strip-cwd-prefix --exec stat --printf='%Y\t%n\n' |
-            sort -nr |
-            cut -f2 |
-            fzf --exact --print-query |
-            tail -n1 |
-            grep -Ev '^$')"
+  create "$(cd "$NOTIE_DIRECTORY" && fd --type=f --strip-cwd-prefix | sort | fzf --exact --print-query | tail -n1 | grep -Ev '^$')"
 }
 
 main
