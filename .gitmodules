@@ -10,4 +10,5 @@
 [submodule "zsh/.config/zsh/oh-my-zsh-custom/plugins/bol"]
 	path = zsh/.config/zsh/oh-my-zsh-custom/plugins/bol
 	url = https://github.com/ikhurramraza/bol
+	ignore = dirty
 
