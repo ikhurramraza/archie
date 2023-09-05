@@ -9,7 +9,6 @@ return {
   { "metakirby5/codi.vim", cmd = "Codi" },
   { "qpkorr/vim-renamer", cmd = "Renamer" },
   { "stevearc/dressing.nvim", event = "VeryLazy" },
-  { "tpope/vim-endwise", event = "VeryLazy" },
   { "tpope/vim-repeat", event = "VeryLazy" },
 
   {

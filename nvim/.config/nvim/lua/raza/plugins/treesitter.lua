@@ -1,10 +1,14 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = { "RRethy/nvim-treesitter-endwise" },
     event = "VeryLazy",
     build = ":TSUpdate",
     main = "nvim-treesitter.configs",
     opts = {
+      endwise = {
+        enable = true,
+      },
       highlight = {
         enable = true,
       },
