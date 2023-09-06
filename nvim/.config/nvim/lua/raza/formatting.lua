@@ -1,5 +1,4 @@
 local null_ls = require("null-ls")
-local helpers = require("null-ls.helpers")
 
 -- Ruby bundle prefixed dynamic commands
 -- For Ruby apps managed by bundler, we need to use bundle exec command
@@ -46,34 +45,6 @@ local node_moduled_eslint_diagnostics = null_ls.builtins.diagnostics.eslint.with
   command = "node_modules/.bin/eslint",
 })
 
--- Formatters
-
-local stree_formatter = {
-  name = "stree",
-  method = null_ls.methods.FORMATTING,
-  filetypes = { "ruby" },
-  generator = helpers.formatter_factory({
-    command = "stree",
-    dynamic_command = bundle_prefixed_dynamic_command(),
-    args = function(params)
-      local bufnr = vim.fn.bufnr()
-      local filename = string.sub(params.bufname, #params.root + 2)
-
-      if vim.fn.getbufinfo(bufnr)[1].changed then
-        vim.cmd.w()
-      end
-
-      return { "format", filename }
-    end,
-  }),
-}
-
-local bundled_rubocop_formatter = null_ls.builtins.formatting.rubocop.with({
-  command = "rubocop",
-  dynamic_command = bundle_prefixed_dynamic_command(),
-  args = { "-fq", "-a", "--stderr", "-s", "$FILENAME" },
-})
-
 return {
   code_actions = {
     node_moduled_eslint = node_moduled_eslint_code_action,
@@ -81,9 +52,5 @@ return {
   diagnostics = {
     bundled_rubocop = bundled_rubocop_diagnostics,
     node_moduled_eslint = node_moduled_eslint_diagnostics,
-  },
-  formatting = {
-    bundled_rubocop = bundled_rubocop_formatter,
-    stree = stree_formatter,
   },
 }
