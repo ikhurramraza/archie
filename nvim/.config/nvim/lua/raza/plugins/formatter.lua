@@ -29,6 +29,8 @@ local stree = function()
   }
 end
 
+-- Disabled for performance reasons
+---@diagnostic disable-next-line: unused-function, unused-local
 local rubocop = function()
   local util = require("formatter.util")
 
@@ -95,7 +97,7 @@ return {
         ["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
         lua = { require("formatter.filetypes.lua").stylua },
         markdown = { require("formatter.filetypes.markdown").prettier },
-        ruby = { rubocop, stree },
+        ruby = { stree },
         rust = { require("formatter.filetypes.rust").rustfmt },
         sql = { sql_formatter },
 
