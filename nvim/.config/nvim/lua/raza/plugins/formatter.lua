@@ -1,9 +1,16 @@
+--- Boolean flag that controls the auto formatting on save
+--- @type boolean
 local auto_format = false
 
--- Helper method that converts a command to a bundler command
--- based on the the presence of "vendor/bundle" directory in
--- the project root directory.
+--- Cache for bundle_command function
+--- @type string | nil
 local bundle_command_prefix_cache = nil
+
+--- Helper method that converts a command to a bundler command
+--- based on the the presence of "vendor/bundle" directory in
+--- the project root directory.
+--- @param command string
+--- @return string
 local function bundle_command(command)
   if bundle_command_prefix_cache then
     return bundle_command_prefix_cache .. command
@@ -21,6 +28,7 @@ local function bundle_command(command)
   return bundle_command(command)
 end
 
+--- Formatter definition for syntax tree
 local stree = function()
   return {
     exe = bundle_command("stree"),
@@ -29,8 +37,9 @@ local stree = function()
   }
 end
 
--- Disabled for performance reasons
----@diagnostic disable-next-line: unused-function, unused-local
+--- Formmater definition for rubocop
+--- Disabled for performance reasons
+--- @diagnostic disable-next-line: unused-function, unused-local
 local rubocop = function()
   local util = require("formatter.util")
 
@@ -48,6 +57,7 @@ local rubocop = function()
   }
 end
 
+--- Formmater definition for sql-formatter
 local sql_formatter = function()
   local config_path = vim.fn.stdpath("config") .. "/files/" .. "sql-formatter.json"
 
