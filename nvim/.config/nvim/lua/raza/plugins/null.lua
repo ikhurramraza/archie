@@ -15,7 +15,6 @@ local M = {
 function M.config()
   local null_ls = require("null-ls")
   local customs = require("raza.formatting")
-  local config_path = vim.env.XDG_CONFIG_HOME .. "/null/"
 
   null_ls.setup({
     sources = {
