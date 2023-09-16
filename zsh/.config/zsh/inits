@@ -36,13 +36,14 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
 # Configure RTX
-eval "$(rtx activate zsh)"
-eval "$(rtx complete --shell zsh)"
+if which rtx &>/dev/null; then
+  eval "$(rtx activate zsh)"
+  eval "$(rtx complete --shell zsh)"
 
-# Configure RTX options
-export RTX_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/ruby/default_gems"
-export RTX_NPM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/nodejs/default_npm_packages"
-export RTX_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/python/default_python_packages"
+  export RTX_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/ruby/default_gems"
+  export RTX_NPM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/nodejs/default_npm_packages"
+  export RTX_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/python/default_python_packages"
+fi
 
 # Add GPG key
 export GPG_TTY=$(tty)
