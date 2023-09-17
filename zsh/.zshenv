@@ -32,6 +32,9 @@ export PATH="$PATH:$HOME/.local/scripts"
 # Add cargo bin directory to PATH
 export PATH="$PATH:$CARGO_HOME/bin"
 
+# Add docker config path
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+
 # Add Neovim Mason bin directory to PATH
 export PATH="$PATH:$XDG_DATA_HOME/nvim/mason/bin"
 
