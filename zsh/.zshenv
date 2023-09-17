@@ -14,14 +14,6 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 
 # ZSH settings
 export PROMPT_EOL_MARK=""
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
-# Golang path
-export GOPATH="$XDG_DATA_HOME/go"
-
-# Rust paths
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 
 # Set language to English
 export LANG="en_US.UTF-8"
@@ -32,22 +24,20 @@ export PATH="$PATH:$HOME/.local/scripts"
 # Add cargo bin directory to PATH
 export PATH="$PATH:$CARGO_HOME/bin"
 
-# Add docker config path
-export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-
-# Add GPG config path
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-
-# Add bundler config path
-export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle/config"
-export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
-export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
-
-# Add z data path
-export _Z_DATA="$XDG_DATA_HOME/z"
-
 # Add Neovim Mason bin directory to PATH
 export PATH="$PATH:$XDG_DATA_HOME/nvim/mason/bin"
+
+# Set environment variables for XDG compliant paths
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle/config"
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GOPATH="$XDG_DATA_HOME/go"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export _Z_DATA="$XDG_DATA_HOME/z"
 
 if [[ "$OS" == "Linux" ]]; then
   source "$ZDOTDIR/linux.zsh"
