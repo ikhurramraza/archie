@@ -35,6 +35,9 @@ export PATH="$PATH:$CARGO_HOME/bin"
 # Add docker config path
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
+# Add GPG config path
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+
 # Add Neovim Mason bin directory to PATH
 export PATH="$PATH:$XDG_DATA_HOME/nvim/mason/bin"
 
