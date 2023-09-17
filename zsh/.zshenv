@@ -24,9 +24,6 @@ export PATH="$PATH:$HOME/.local/scripts"
 # Add cargo bin directory to PATH
 export PATH="$PATH:$CARGO_HOME/bin"
 
-# Add Neovim Mason bin directory to PATH
-export PATH="$PATH:$XDG_DATA_HOME/nvim/mason/bin"
-
 # Set environment variables for XDG compliant paths
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle/config"
