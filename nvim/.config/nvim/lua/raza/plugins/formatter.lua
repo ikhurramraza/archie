@@ -110,6 +110,7 @@ return {
         ruby = { stree },
         rust = { require("formatter.filetypes.rust").rustfmt },
         sql = { sql_formatter },
+        toml = { require("formatter.filetypes.toml").taplo },
 
         javascript = { require("formatter.filetypes.javascript").prettier },
         javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
