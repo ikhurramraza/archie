@@ -21,9 +21,6 @@ export LANG="en_US.UTF-8"
 # Add local scripts to PATH
 export PATH="$PATH:$HOME/.local/scripts"
 
-# Add cargo bin directory to PATH
-export PATH="$PATH:$CARGO_HOME/bin"
-
 # Set environment variables for XDG compliant paths
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle/config"
@@ -35,6 +32,9 @@ export GOPATH="$XDG_DATA_HOME/go"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export _Z_DATA="$XDG_DATA_HOME/z"
+
+# Add cargo bin directory to PATH
+export PATH="$PATH:$CARGO_HOME/bin"
 
 if [[ "$OS" == "Linux" ]]; then
   source "$ZDOTDIR/linux.zsh"
