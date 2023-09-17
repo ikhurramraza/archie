@@ -3,7 +3,7 @@ export OS="$(uname)"
 
 # Default programs
 export EDITOR=nvim
-export TERMINAL=kitty
+export TERMINAL=wezterm
 export BROWSER=firefox
 
 # XDG Dirs
