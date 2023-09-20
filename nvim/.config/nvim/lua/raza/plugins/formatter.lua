@@ -88,8 +88,8 @@ return {
     },
   },
   init = function()
-    vim.env.PATH = "node_modules/.bin/" .. ":" .. vim.env.PATH
-    vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/mason/bin/"
+    vim.env.PATH = "node_modules/.bin" .. ":" .. vim.env.PATH
+    vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/mason/bin"
   end,
   config = function(plugin, opts)
     vim.api.nvim_create_autocmd("BufWritePost", {
