@@ -1,5 +1,15 @@
-function TmuxStrategy(command)
-  vim.fn.execute("silent !tmux send-keys -t shell '" .. command .. "' Enter")
+local function sanitize_command(command)
+  local sanitized_command = command
+
+  -- Replace "./bin/rails test" with "rails t"
+  sanitized_command = string.gsub(command, "^./bin/rails test", "rails t")
+
+  return sanitized_command
+end
+
+local function TmuxStrategy(command)
+  local sanitized_command = sanitize_command(command)
+  vim.fn.execute("silent !tmux send-keys -t shell '" .. sanitized_command .. "' Enter")
   vim.fn.execute("silent !tmux select-window -t shell")
 end
 
