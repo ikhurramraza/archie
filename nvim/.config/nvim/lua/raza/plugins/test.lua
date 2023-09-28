@@ -9,6 +9,7 @@ end
 
 local function TmuxStrategy(command)
   local sanitized_command = sanitize_command(command)
+  vim.fn.execute("silent !tmux send-keys -t shell C-l")
   vim.fn.execute("silent !tmux send-keys -t shell '" .. sanitized_command .. "' Enter")
   vim.fn.execute("silent !tmux select-window -t shell")
 end
