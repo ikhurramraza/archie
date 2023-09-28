@@ -24,7 +24,7 @@ vim.keymap.set(
 )
 
 -- Replace current word
-vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>", { silent = true, desc = "Replace current word" })
+vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>", { desc = "Replace current word" })
 
 -- Diagnostics
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true, desc = "Next diagnostic" })
