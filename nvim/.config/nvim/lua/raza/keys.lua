@@ -15,8 +15,13 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Copy file paths
-vim.keymap.set("n", "<leader>cf", ":let @+=expand('%:~:.')<CR>", { silent = true })
-vim.keymap.set("n", "<leader>cl", ":let @+=expand('%:~:.') . ':' . line('.')<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cf", ":let @+=expand('%:~:.')<CR>", { silent = true, desc = "Copy current file path" })
+vim.keymap.set(
+  "n",
+  "<leader>cl",
+  ":let @+=expand('%:~:.') . ':' . line('.')<CR>",
+  { silent = true, desc = "Copy current file path with line number" }
+)
 
 -- Replace current word
 vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>", { silent = true, desc = "Replace current word" })
