@@ -65,7 +65,6 @@ function M.config()
   local ruby = lsp.solargraph
 
   lua.setup({
-    autostart = false,
     on_attach = config.on_attach,
     capabilities = config.capabilities,
     settings = {
