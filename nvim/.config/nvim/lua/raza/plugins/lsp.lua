@@ -23,14 +23,6 @@ local Fidget = {
   },
 }
 
-local LspLines = {
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  config = true,
-  init = function()
-    vim.diagnostic.config({ virtual_text = false })
-  end,
-}
-
 local M = {
   "neovim/nvim-lspconfig",
   cmd = { "LspInfo", "LspStart" },
@@ -38,7 +30,6 @@ local M = {
     "hrsh7th/cmp-nvim-lsp",
     Fidget,
     Mason,
-    LspLines,
   },
   opts = { inlay_hints = { enabled = true } },
   keys = {
