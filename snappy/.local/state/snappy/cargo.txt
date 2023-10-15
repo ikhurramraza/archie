@@ -1,10 +1,10 @@
 atuin v16.0.0:
     atuin
-bat v0.23.0:
+bat v0.24.0:
     bat
-cargo-binstall v1.3.1:
+cargo-binstall v1.4.3:
     cargo-binstall
-cargo-update v13.0.4:
+cargo-update v13.1.0:
     cargo-install-update
     cargo-install-update-config
 cargo-watch v8.4.1:
@@ -13,7 +13,7 @@ czkawka_cli v6.0.0:
     czkawka_cli
 czkawka_gui v6.0.0:
     czkawka_gui
-difftastic v0.51.1:
+difftastic v0.52.0:
     difft
 du-dust v0.8.6:
     dust
@@ -37,7 +37,7 @@ pangran v0.1.0 (/home/raza/.local/installs/pangran):
     pangran
 ripgrep v13.0.0:
     rg
-rtx-cli v2023.9.1:
+rtx-cli v2023.10.1:
     rtx
 stash v0.1.0 (/home/raza/Developer/stash-cli):
     stash
