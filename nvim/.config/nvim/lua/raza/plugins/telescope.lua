@@ -47,8 +47,10 @@ function M.config()
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
           ["<C-h>"] = layout_actions.toggle_preview,
+          ["<C-x>"] = actions.delete_buffer,
         },
         n = {
+          ["dd"] = actions.delete_buffer,
           ["<C-c>"] = actions.close,
           ["<C-h>"] = layout_actions.toggle_preview,
         },
