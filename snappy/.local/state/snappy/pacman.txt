@@ -17,4 +17,5 @@ pspg
 rtx-bin
 spotify
 systemd-fsck-silent
+thorium-browser-bin
 visual-studio-code-bin
