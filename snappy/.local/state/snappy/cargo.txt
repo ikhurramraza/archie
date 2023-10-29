@@ -1,17 +1,17 @@
-atuin v16.0.0:
+atuin v17.0.1:
     atuin
 bat v0.24.0:
     bat
-cargo-binstall v1.4.3:
+cargo-binstall v1.4.4:
     cargo-binstall
 cargo-update v13.1.0:
     cargo-install-update
     cargo-install-update-config
 cargo-watch v8.4.1:
     cargo-watch
-czkawka_cli v6.0.0:
+czkawka_cli v6.1.0:
     czkawka_cli
-czkawka_gui v6.0.0:
+czkawka_gui v6.1.0:
     czkawka_gui
 difftastic v0.52.0:
     difft
@@ -19,19 +19,19 @@ du-dust v0.8.6:
     dust
 exa v0.10.1:
     exa
-fd-find v8.7.0:
+fd-find v8.7.1:
     fd
 git-interactive-rebase-tool v2.3.0:
     interactive-rebase-tool
 gitui v0.23.0 (https://github.com/hendrikmaus/gitui?branch=gpg-commit-signing#3f625db9):
     gitui
-hyperfine v1.17.0:
+hyperfine v1.18.0:
     hyperfine
 joshuto v0.9.5 (/home/raza/.local/installs/joshuto):
     joshuto
 mprocs v0.6.4:
     mprocs
-nu v0.85.0:
+nu v0.86.0:
     nu
 pangran v0.1.0 (/home/raza/.local/installs/pangran):
     pangran
