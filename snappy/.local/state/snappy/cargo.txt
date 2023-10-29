@@ -37,8 +37,6 @@ pangran v0.1.0 (/home/raza/.local/installs/pangran):
     pangran
 ripgrep v13.0.0:
     rg
-rtx-cli v2023.10.1:
-    rtx
 stash v0.1.0 (/home/raza/Developer/stash-cli):
     stash
 toipe v0.4.1:
