@@ -19,3 +19,10 @@ vim.keymap.set(
   "<cmd>YAMLYank +<cr>",
   { buffer = 0, silent = true, desc = "Copy yaml key-value to system clipboard" }
 )
+
+vim.keymap.set(
+  "n",
+  "<leader>xx",
+  "<cmd>YAMLView<cr>",
+  { buffer = 0, silent = true, desc = "Print yaml key-value in the command line" }
+)
