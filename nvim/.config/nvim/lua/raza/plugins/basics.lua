@@ -53,7 +53,7 @@ return {
 
   {
     "stevearc/oil.nvim",
-    config = true,
+    opts = { view_options = { show_hidden = true } },
     dependencies = "kyazdani42/nvim-web-devicons",
     keys = { { "-", vim.cmd.Oil, desc = "Open parent directory using Oil" } },
   },
