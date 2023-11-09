@@ -24,7 +24,7 @@ return {
     "f-person/git-blame.nvim",
     cmd = "GitBlameToggle",
     config = function()
-      vim.g.gitblame_enabled = 0
+      vim.g.gitblame_enabled = false
     end,
     keys = {
       {
