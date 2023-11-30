@@ -34,6 +34,13 @@ return {
         silent = true,
         replace_keycodes = false,
       },
+      {
+        "<C-l>",
+        "<Plug>(copilot-suggest)",
+        mode = "i",
+        silent = true,
+        desc = "Suggest a completion using Copilot",
+      },
     },
   },
 
