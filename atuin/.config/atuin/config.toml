@@ -79,6 +79,9 @@ history_filter = [
   # Vim commands
   "^vi$", "^vim$", "^nvim$",
 
+  # Hoor commands
+  "hoor",
+
   # Others
   "^alias$", "^which ",
 
