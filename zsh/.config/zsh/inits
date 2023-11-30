@@ -15,8 +15,10 @@ export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
 # Init OMZ
 zstyle ':omz:*' aliases no
+zstyle ':omz:plugins:bundler' aliases yes
 zstyle ':omz:plugins:z' aliases yes
 zstyle ':omz:update' mode disabled
+export BUNDLED_COMMANDS=(rails)
 export CASE_SENSITIVE=true
 export DISABLE_UPDATE_PROMPT=true
 export DISABLE_MAGIC_FUNCTIONS=true
