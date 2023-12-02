@@ -18,7 +18,7 @@ zstyle ':omz:*' aliases no
 zstyle ':omz:plugins:bundler' aliases yes
 zstyle ':omz:plugins:z' aliases yes
 zstyle ':omz:update' mode disabled
-export BUNDLED_COMMANDS=(good_job rails)
+export BUNDLED_COMMANDS=(good_job rails stree)
 export CASE_SENSITIVE=true
 export DISABLE_UPDATE_PROMPT=true
 export DISABLE_MAGIC_FUNCTIONS=true
