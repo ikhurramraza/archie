@@ -27,8 +27,8 @@ alias kpp='klippy paste'
 # Joshuto alias
 alias j='joshuto'
 
-# Gitui alias
-alias gu='gitui'
+# Lazygit alias
+alias g='lazygit'
 
 # Unalias for sd command
 alias sd &>/dev/null && unalias sd
