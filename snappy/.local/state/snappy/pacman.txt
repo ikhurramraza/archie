@@ -11,7 +11,6 @@ google-chrome
 lazygit-git
 lefthook
 litecli
-microsoft-edge-beta-bin
 paru
 pspg
 rtx-bin
@@ -19,3 +18,5 @@ spotify
 systemd-fsck-silent
 thorium-browser-bin
 visual-studio-code-bin
+wordle-cli-bin
+yubico-authenticator-bin
