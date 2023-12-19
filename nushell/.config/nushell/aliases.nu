@@ -1,2 +1,2 @@
-alias l = exa -l
-alias g = lazygit
+export alias l = exa -l
+export alias g = lazygit
