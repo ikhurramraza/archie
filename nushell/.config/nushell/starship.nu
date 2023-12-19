@@ -5,13 +5,12 @@
 export-env { load-env {
     STARSHIP_SHELL: "nu"
     STARSHIP_SESSION_KEY: (random chars -l 16)
-    PROMPT_MULTILINE_INDICATOR: (
-        ^/usr/bin/starship prompt --continuation
-    )
 
     # Does not play well with default character module.
     # TODO: Also Use starship vi mode indicators?
     PROMPT_INDICATOR: ""
+    PROMPT_INDICATOR_VI_INSERT: ""
+    PROMPT_INDICATOR_VI_NORMAL: ""
 
     PROMPT_COMMAND: {||
         # jobs are not supported
