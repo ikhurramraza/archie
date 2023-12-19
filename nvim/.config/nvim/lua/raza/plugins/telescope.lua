@@ -76,7 +76,6 @@ function M.config()
           "fd",
           "--hidden",
           "--type=f",
-          "--exclude=.git/",
           "--exclude=node_modules/",
           "--exclude=vendor/bundle/",
         },
