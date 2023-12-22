@@ -1,8 +1,10 @@
-atuin v17.0.1:
+atuin v17.1.0:
     atuin
 bat v0.24.0:
     bat
-cargo-binstall v1.4.6:
+broot v1.30.1:
+    broot
+cargo-binstall v1.4.8:
     cargo-binstall
 cargo-update v13.3.0:
     cargo-install-update
@@ -19,7 +21,7 @@ du-dust v0.8.6:
     dust
 exa v0.10.1:
     exa
-fd-find v8.7.1:
+fd-find v9.0.0:
     fd
 git-interactive-rebase-tool v2.3.0:
     interactive-rebase-tool
@@ -31,7 +33,7 @@ joshuto v0.9.6:
     joshuto
 mprocs v0.6.4:
     mprocs
-nu v0.87.1:
+nu v0.88.1:
     nu
 pangran v0.1.0 (/home/raza/.local/installs/pangran):
     pangran
