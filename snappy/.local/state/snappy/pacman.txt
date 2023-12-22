@@ -12,6 +12,7 @@ lazygit-git
 lefthook
 litecli
 paru
+pdfmerger
 pspg
 rtx-bin
 spotify
