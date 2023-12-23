@@ -15,7 +15,7 @@ export-env { load-env {
     PROMPT_COMMAND: {||
         # jobs are not supported
         (
-            ^/usr/bin/starship prompt
+            starship prompt
                 --cmd-duration $env.CMD_DURATION_MS
                 $"--status=($env.LAST_EXIT_CODE)"
                 --terminal-width (term size).columns
@@ -28,7 +28,7 @@ export-env { load-env {
 
     PROMPT_COMMAND_RIGHT: {||
         (
-            ^/usr/bin/starship prompt
+            starship prompt
                 --right
                 --cmd-duration $env.CMD_DURATION_MS
                 $"--status=($env.LAST_EXIT_CODE)"
