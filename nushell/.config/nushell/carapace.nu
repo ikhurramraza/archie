@@ -1,3 +1,6 @@
+# Add carapace bin directory to PATH
+$env.PATH = ($env.PATH | split row (char esep) | append $"($env.XDG_CONFIG_HOME)/carapace/bin" | uniq)
+
 if (which carapace | is-empty) { return }
 
 def --env get-env [name] { $env | get $name }
