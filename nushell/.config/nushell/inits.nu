@@ -52,8 +52,8 @@ append-to-path $"($env.HOME)/.local/scripts"
 # Add cargo bin directory to PATH
 append-to-path $"($env.CARGO_HOME)/bin"
 
-source ~/.config/nushell/atuin.nu
-source ~/.config/nushell/carapace.nu
-source ~/.config/nushell/rtx.nu
-source ~/.config/nushell/starship.nu
-source ~/.config/nushell/zoxide.nu
+source atuin.nu
+source carapace.nu
+source rtx.nu
+source starship.nu
+source zoxide.nu
