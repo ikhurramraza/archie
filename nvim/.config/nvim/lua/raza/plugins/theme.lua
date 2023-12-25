@@ -10,6 +10,7 @@ local Catppuccin = {
     vim.g.catppuccin_flavour = "mocha"
     require(plugin.name).setup({ no_italic = true })
     vim.api.nvim_command("colorscheme catppuccin")
+    vim.api.nvim_command("highlight Todo gui=none guibg=none guifg=#6c7086")
   end,
 }
 
