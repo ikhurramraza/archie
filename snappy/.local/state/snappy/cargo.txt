@@ -2,8 +2,6 @@ atuin v17.1.0:
     atuin
 bat v0.24.0:
     bat
-broot v1.30.1:
-    broot
 cargo-binstall v1.4.8:
     cargo-binstall
 cargo-update v13.3.0:
