@@ -6,6 +6,7 @@ brave-bin
 carapace-bin
 devour
 docker-compose-v2-git
+git-extras
 git-secret
 gnome-shell-extension-material-shell
 google-chrome
