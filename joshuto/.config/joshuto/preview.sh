@@ -108,6 +108,12 @@ handle_extension() {
     exit 1
     ;;
 
+  ## MD
+  md)
+    glow --style=dark "${FILE_PATH}" && exit 5
+    exit 1
+    ;;
+
   ## HTML
   htm | html | xhtml)
     ## Preview as text conversion
