@@ -1,5 +1,5 @@
 # Add carapace bin directory to PATH
-$env.PATH = ($env.PATH | split row (char esep) | append $"($env.XDG_CONFIG_HOME)/carapace/bin" | uniq)
+append-to-path $"($env.XDG_CONFIG_HOME)/carapace/bin"
 
 if (which carapace | is-empty) { return }
 

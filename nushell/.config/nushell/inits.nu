@@ -38,11 +38,19 @@ $env.GEMRC = $"($env.XDG_CONFIG_HOME)/gems/gemrc"
 # Configure SQLite
 $env.SQLITE_HISTORY = $"($env.XDG_DATA_HOME)/sqlite/history"
 
+# Utility function to add new path to PATH env variable if it doesn't already exist
+def --env append-to-path [path] {
+  let paths = $env.PATH | split row (char esep)
+  if ($paths | where { |row| $row == $path } | length) > 0 { return }
+
+  $env.PATH = ($paths | append $path)
+}
+
 # Add local scripts to PATH
-$env.PATH = ($env.PATH | split row (char esep) | append $"($env.HOME)/.local/scripts" | uniq)
+append-to-path $"($env.HOME)/.local/scripts"
 
 # Add cargo bin directory to PATH
-$env.PATH = ($env.PATH | split row (char esep) | append $"($env.CARGO_HOME)/bin" | uniq)
+append-to-path $"($env.CARGO_HOME)/bin"
 
 source ~/.config/nushell/atuin.nu
 source ~/.config/nushell/carapace.nu
