@@ -11,6 +11,8 @@ local M = {
   font = wezterm.font(font_family),
   font_size = env.os == "Darwin" and 21 or 16,
 
+  default_prog = { os.getenv("HOME") .. "/.local/share/cargo/bin/nu", "--login" },
+
   font_rules = {
     {
       italic = true,
