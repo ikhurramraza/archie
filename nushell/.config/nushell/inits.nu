@@ -12,7 +12,6 @@ $env.GEMRC = $"($env.XDG_CONFIG_HOME)/gems/gemrc"
 $env.SQLITE_HISTORY = $"($env.XDG_DATA_HOME)/sqlite/history"
 
 source ~/.config/nushell/atuin.nu
-source ~/.config/nushell/git.nu
 source ~/.config/nushell/rtx.nu
 source ~/.config/nushell/starship.nu
 source ~/.config/nushell/zoxide.nu
