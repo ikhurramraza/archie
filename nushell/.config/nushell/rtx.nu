@@ -1,4 +1,4 @@
-if (which rtx | where type != custom | is-empty) { return }
+if (which rtx | is-empty) { return }
 
 export-env {
   $env.RTX_SHELL = "nu"
@@ -30,15 +30,15 @@ def --wrapped rtx [command?: string, --help, ...rest: string] {
   let commands = ["shell", "deactivate"]
 
   if ($command == null) {
-    ^"/usr/bin/rtx"
+    ^rtx
   } else if ($command == "activate") {
     $env.RTX_SHELL = "nu"
   } else if ($command in $commands) {
-    ^"/usr/bin/rtx" $command $rest
+    ^rtx $command $rest
     | parse vars
     | update-env
   } else {
-    ^"/usr/bin/rtx" $command $rest
+    ^rtx $command $rest
   }
 }
 
@@ -53,7 +53,7 @@ def --env "update-env" [] {
 }
 
 def --env rtx_hook [] {
-  ^"/usr/bin/rtx" hook-env -s nu
+  ^rtx hook-env -s nu
     | parse vars
     | update-env
 }
