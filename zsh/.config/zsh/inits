@@ -54,6 +54,9 @@ which github-copilot-cli &>/dev/null && eval "$(github-copilot-cli alias -- "$0"
 # Setup atuin
 which atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
 
+# Setup carapace
+which carapace &>/dev/null && source <(carapace _carapace)
+
 # Set catppuccin theme for fzf
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \

@@ -3,6 +3,7 @@
 4ktokkit
 ani-cli
 brave-bin
+carapace-bin
 devour
 docker-compose-v2-git
 git-secret
