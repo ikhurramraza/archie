@@ -53,6 +53,7 @@ append-to-path $"($env.HOME)/.local/scripts"
 append-to-path $"($env.CARGO_HOME)/bin"
 
 source atuin.nu
+source bundler.nu
 source carapace.nu
 source rtx.nu
 source starship.nu
