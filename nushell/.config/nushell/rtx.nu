@@ -26,7 +26,7 @@ def "parse vars" [] {
   $in | lines | parse "{op},{name},{value}"
 }
 
-def --wrapped rtx [command?: string, --help, ...rest: string] {
+def --wrapped rtx [command?: string, ...rest: string] {
   let commands = ["shell", "deactivate"]
 
   if ($command == null) {
