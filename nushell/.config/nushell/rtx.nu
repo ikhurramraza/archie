@@ -1,4 +1,4 @@
-if (which --all rtx | where type != custom | is-empty) { return }
+if (which ^rtx | is-empty) { return }
 
 export-env {
   $env.RTX_SHELL = "nu"
