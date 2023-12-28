@@ -11,6 +11,7 @@ return {
       lualine_z = { "location" },
     },
     extensions = {
+      "oil",
       "quickfix",
     },
     options = {
