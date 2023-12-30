@@ -38,6 +38,9 @@ $env.GEMRC = $"($env.XDG_CONFIG_HOME)/gems/gemrc"
 # Configure SQLite
 $env.SQLITE_HISTORY = $"($env.XDG_DATA_HOME)/sqlite/history"
 
+# Configure pass
+$env.PASSWORD_STORE_DIR = $"($env.XDG_DATA_HOME)/pass"
+
 # Utility function to add new path to PATH env variable if it doesn't already exist
 def --env append-to-path [path] {
   let paths = $env.PATH | split row (char esep)

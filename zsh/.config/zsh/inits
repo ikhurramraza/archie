@@ -13,6 +13,9 @@ export GEMRC="$XDG_CONFIG_HOME/gems/gemrc"
 # Configure SQLite
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
+# Configure pass
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
+
 # Init OMZ
 zstyle ':omz:*' aliases no
 zstyle ':omz:plugins:bundler' aliases yes

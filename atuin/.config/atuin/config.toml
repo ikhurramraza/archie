@@ -82,6 +82,9 @@ history_filter = [
   # Hoor commands
   "hoor",
 
+  # Pass commands
+  "^pass",
+
   # Others
   "^alias$", "^which ",
 
