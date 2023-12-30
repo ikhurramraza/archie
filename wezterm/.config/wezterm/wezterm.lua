@@ -4,6 +4,16 @@ local env = require("env")
 
 local font_family = "Monaco Nerd Font Mono"
 
+local prog_nushell = { os.getenv("HOME") .. "/.local/share/cargo/bin/nu", "-l" }
+
+local prog_nushell_via_zsh = {
+  "zsh",
+  "-l",
+  "-c",
+  os.getenv("HOME") .. "/.local/share/cargo/bin/nu",
+  "--login",
+}
+
 local M = {
   color_scheme = "Catppuccin Mocha Custom",
   color_schemes = color_schemes,
@@ -11,7 +21,7 @@ local M = {
   font = wezterm.font(font_family),
   font_size = env.os == "Darwin" and 21 or 16,
 
-  default_prog = { os.getenv("HOME") .. "/.local/share/cargo/bin/nu", "--login" },
+  default_prog = env.os == "Darwin" and prog_nushell_via_zsh or prog_nushell,
 
   font_rules = {
     {
