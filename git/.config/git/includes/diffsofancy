@@ -28,3 +28,5 @@
 
 [interactive]
   diffFilter = diff-so-fancy --patch
+
+# vi: filetype=gitconfig
