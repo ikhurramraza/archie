@@ -60,7 +60,6 @@ return {
 
   {
     "stevearc/oil.nvim",
-    commit = "24027ed8d7f3ee5c38cfd713915e2e16d89e79b3",
     opts = {
       columns = {},
       view_options = { show_hidden = true },
