@@ -8,12 +8,3 @@ vendor/bundle
 
 # Project environment variable
 .env
-
-# Runfile for TekWizely/run task runner
-Runfile
-
-# Cached rake tasks file for rake-fast OMZ plugin
-.rake_tasks
-
-# Jira files for OMZ jira plugin
-.jira-url
