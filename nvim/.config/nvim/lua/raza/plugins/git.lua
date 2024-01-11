@@ -17,7 +17,7 @@ return {
     "NeogitOrg/neogit",
     cmd = "Neogit",
     dependencies = "nvim-lua/plenary.nvim",
-    opts = { kind = "floating" },
+    opts = { kind = "replace" },
   },
 
   {
