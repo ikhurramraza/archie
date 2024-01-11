@@ -17,6 +17,14 @@ return {
     "NeogitOrg/neogit",
     cmd = "Neogit",
     dependencies = "nvim-lua/plenary.nvim",
+    keys = {
+      {
+        "<leader>gg",
+        vim.cmd.Neogit,
+        silent = true,
+        desc = "Open Neogit view",
+      },
+    },
     opts = { kind = "replace" },
   },
 
