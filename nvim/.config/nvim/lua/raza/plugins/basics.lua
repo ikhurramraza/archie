@@ -60,6 +60,7 @@ return {
 
   {
     "stevearc/oil.nvim",
+    tag = "v2.4.1",
     opts = {
       columns = {},
       view_options = { show_hidden = true },
