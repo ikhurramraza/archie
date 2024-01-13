@@ -2,3 +2,4 @@ bundler
 gemr
 irb-theme-dracula
 irbtools
+syntax_tree
