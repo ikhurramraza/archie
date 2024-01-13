@@ -51,6 +51,31 @@ return {
   },
 
   {
+    "LudoPinelli/comment-box.nvim",
+    opts = { box_width = 75, line_width = 75 },
+    cmd = {
+      "CBccbox",
+      "CBccline",
+      "CBclbox",
+      "CBclline",
+      "CBcrbox",
+      "CBcrline",
+      "CBlcbox",
+      "CBlcline",
+      "CBllbox",
+      "CBllline",
+      "CBlrbox",
+      "CBlrline",
+      "CBrcbox",
+      "CBrcline",
+      "CBrlbox",
+      "CBrlline",
+      "CBrrbox",
+      "CBrrline",
+    },
+  },
+
+  {
     "unblevable/quick-scope",
     event = "VeryLazy",
     init = function()
