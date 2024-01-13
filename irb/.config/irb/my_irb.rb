@@ -6,6 +6,7 @@ module MyIrb
   def start!
     setup_irb_conf!
     setup_irbtools!
+    setup_theme!
   end
 
   private
@@ -21,6 +22,12 @@ module MyIrb
 
     Irbtools.welcome_message = nil
     Irbtools.start
+  rescue LoadError # rubocop:disable Lint/SuppressedException
+  end
+
+  def setup_theme!
+    require "irb/theme/dracula/dark"
+    IRB.conf[:USE_AUTOCOMPLETE] = true
   rescue LoadError # rubocop:disable Lint/SuppressedException
   end
 end
