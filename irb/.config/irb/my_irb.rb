@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Lint/SuppressedException
+
 module MyIrb
   extend self
 
@@ -22,14 +24,16 @@ module MyIrb
 
     Irbtools.welcome_message = nil
     Irbtools.start
-  rescue LoadError # rubocop:disable Lint/SuppressedException
+  rescue LoadError
   end
 
   def setup_theme!
     require "irb/theme/dracula/dark"
     IRB.conf[:USE_AUTOCOMPLETE] = true
-  rescue LoadError # rubocop:disable Lint/SuppressedException
+  rescue LoadError
   end
 end
+
+# rubocop:enable Lint/SuppressedException
 
 MyIrb.start!
