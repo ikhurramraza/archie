@@ -1,8 +1,14 @@
-# Smart wrappers for ruby binaries (rails, rake, rspec) that runs
-# runs the command with these prefixes in order as availability:
-# - bin/rails           (if bin/rails file exists)
-# - bundle exec rails   (if Gemfile exists in the directory)
-# - rails               (fallback to default)
+#   ╭─────────────────────────────────────────────────────────────────────────╮
+#   │                         SMART BUNDLER PREFIXER                          │
+#   │                                                                         │
+#   │ A wrapper for ruby binaries that adds appropriate prefixes to the       │
+#   │ commands.                                                               │
+#   │                                                                         │
+#   │ The order of the prefixes (for rails binary):                           │
+#   │ - bin/rails           (if bin/rails file exists)                        │
+#   │ - bundle exec rails   (if Gemfile exists in the directory)              │
+#   │ - rails               (fallback to default)                             │
+#   ╰─────────────────────────────────────────────────────────────────────────╯
 
 # TODO: Make this DRY
 
