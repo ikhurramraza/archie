@@ -1,21 +1,21 @@
-atuin v17.1.0:
+atuin v17.2.1:
     atuin
 bat v0.24.0:
     bat
-cargo-binstall v1.4.8:
+cargo-binstall v1.6.0:
     cargo-binstall
 cargo-update v13.3.0:
     cargo-install-update
     cargo-install-update-config
-cargo-watch v8.4.1:
+cargo-watch v8.5.2:
     cargo-watch
 czkawka_cli v6.1.0:
     czkawka_cli
 czkawka_gui v6.1.0:
     czkawka_gui
-difftastic v0.53.1:
+difftastic v0.54.0:
     difft
-du-dust v0.8.6:
+du-dust v0.9.0:
     dust
 exa v0.10.1:
     exa
@@ -31,11 +31,11 @@ joshuto v0.9.6:
     joshuto
 mprocs v0.6.4:
     mprocs
-nu v0.88.1:
+nu v0.89.0:
     nu
 pangran v0.1.0 (/home/raza/.local/installs/pangran):
     pangran
-ripgrep v14.0.3:
+ripgrep v14.1.0:
     rg
 sd v1.0.0:
     sd
