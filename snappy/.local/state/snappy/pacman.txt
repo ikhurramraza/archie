@@ -13,6 +13,7 @@ google-chrome
 lazygit-git
 lefthook
 litecli
+par
 paru
 pdfmerger
 pspg
