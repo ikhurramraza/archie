@@ -34,11 +34,11 @@ def --wrapped rtx [command?: string, ...rest: string] {
   } else if ($command == "activate") {
     $env.RTX_SHELL = "nu"
   } else if ($command in $commands) {
-    ^rtx $command $rest
+    ^rtx $command ...$rest
     | parse vars
     | update-env
   } else {
-    ^rtx $command $rest
+    ^rtx $command ...$rest
   }
 }
 
