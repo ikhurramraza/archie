@@ -29,6 +29,7 @@
   twohead = ort
 
 [push]
+  autoSetupRemote = true
   default = simple
 
 [sequence]
