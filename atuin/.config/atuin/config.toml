@@ -79,6 +79,11 @@ history_filter = [
   # Vim commands
   "^vi$", "^vim$", "^nvim$",
 
+  # Environment variables at start e.g. RAILS_ENV=test rails c
+  # This is to avoid having messy history until atuin supports
+  # removing the environment variables
+  "^[A-Z]+=",
+
   # Pass commands
   "^pass",
 
