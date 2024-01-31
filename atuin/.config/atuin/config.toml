@@ -79,16 +79,11 @@ history_filter = [
   # Vim commands
   "^vi$", "^vim$", "^nvim$",
 
-  # Hoor commands
-  "hoor",
-
   # Pass commands
   "^pass",
 
   # Others
-  "^alias$", "^which ",
-
-  "^mark(er)?$", "^mark(er)? "
+  "^alias$", "^which "
 ]
 
 ## prevent commands run with cwd matching any of these regexes from being written
