@@ -15,3 +15,7 @@ pre-commit:
     stylua:
       files: git diff --name-only --cached *.lua
       run: stylua --config-path stylua/.config/stylua/stylua.toml --check {files}
+
+    snapshot:
+      files: git ls-files
+      run: make snapshot &>/dev/null && git diff --exit-code snapshot
