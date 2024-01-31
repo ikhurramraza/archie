@@ -88,8 +88,7 @@ history_filter = [
   # Others
   "^alias$", "^which ",
 
-  "^mark(er)?$", "^mark(er)? ",
-  "^stash-import$"
+  "^mark(er)?$", "^mark(er)? "
 ]
 
 ## prevent commands run with cwd matching any of these regexes from being written
