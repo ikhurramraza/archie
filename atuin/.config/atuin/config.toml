@@ -105,6 +105,7 @@ common_prefix = ["bundle exec", "sudo"]
 
 common_subcommands = [
   "brew",
+  "bundle",
   "cargo",
   "dctl",
   "gh",
