@@ -105,6 +105,7 @@ history_filter = [
 common_prefix = ["bundle exec", "sudo"]
 
 common_subcommands = [
+  "brew",
   "cargo",
   "git",
   "go",
