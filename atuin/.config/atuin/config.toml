@@ -100,3 +100,17 @@ history_filter = [
 # cwd_filter = [
 #   "^/very/secret/area"
 # ]
+
+[stats]
+common_prefix = ["bundle exec", "sudo"]
+
+common_subcommands = [
+  "cargo",
+  "git",
+  "go",
+  "kubectl",
+  "npm",
+  "pnpm",
+  "rails",
+  "yarn",
+]
