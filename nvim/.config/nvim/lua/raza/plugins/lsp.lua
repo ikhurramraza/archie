@@ -53,7 +53,7 @@ function M.config()
   local config = require("raza.lsp")
 
   local lua = lsp.lua_ls
-  local ruby = lsp.solargraph
+  local ruby = lsp.ruby_ls
 
   lua.setup({
     on_attach = config.on_attach,
@@ -71,6 +71,7 @@ function M.config()
     autostart = false,
     on_attach = config.on_attach,
     capabilities = config.capabilities,
+    cmd = { "bundle", "exec", "ruby-lsp" },
     init_options = { formating = false },
   })
 end
