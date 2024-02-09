@@ -81,7 +81,7 @@ main() {
   elif [[ -d "$HOME/Developer/$session_name" ]]; then
     create_or_attach_to_dev_session "$HOME/Developer/$session_name"
   else
-    tmux new-session -d -s "$session_name" -n "shell" "nu -l"
+    tmux new-session -d -c "$HOME" -s "$session_name" -n "shell" "nu -l"
     switch_or_attach "$session_name:shell"
   fi
 }
