@@ -294,7 +294,7 @@ $env.config = {
                 #      str join
                 #      str trim
                 #      str split
-                correct_cursor_pos: false
+                correct_cursor_pos: true
             }
             style: {
                 text: green
