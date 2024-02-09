@@ -1,7 +1,7 @@
 local M = {
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
   on_attach = function(client, bufnr)
-    -- Disable formating by the language server (using formatter.nvim for this)
+    -- Disable formating by the language server (using other tools/plugins for this)
     client.server_capabilities.documentFormattingProvider = false
 
     -- Disable syntax highlighting from LSP
