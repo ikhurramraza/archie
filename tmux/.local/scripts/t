@@ -85,7 +85,7 @@ main() {
 }
 
 if [[ $# -eq 0 ]]; then
-  switch_or_attach "main"
+  main "main"
 elif [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
   help
 elif [[ $# -eq 1 ]]; then
