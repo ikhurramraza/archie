@@ -55,6 +55,9 @@ append-to-path $"($env.HOME)/.local/scripts"
 # Add cargo bin directory to PATH
 append-to-path $"($env.CARGO_HOME)/bin"
 
+# Add go bin directory to PATH
+append-to-path $"($env.GOPATH)/bin"
+
 source bundler.nu
 source carapace.nu
 source rtx.nu
