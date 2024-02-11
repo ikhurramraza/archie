@@ -76,8 +76,6 @@ main() {
 
   if tmux has-session -t="$session_name" >/dev/null 2>&1; then
     switch_or_attach "$session_name"
-  elif [[ -d "$session_name" ]]; then
-    create_or_attach_to_dev_session "$session_name"
   elif [[ -d "$HOME/Developer/$session_name" ]]; then
     create_or_attach_to_dev_session "$HOME/Developer/$session_name"
   else
