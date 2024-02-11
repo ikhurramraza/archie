@@ -10,12 +10,12 @@ set -eo pipefail
 
 help() {
   cat <<HELP
-Usage: $(basename $0) [PATH]
+Usage: $(basename $0) SESSION_NAME
 
 Create or attach to dev session
 
 Arguments:
-  PATH        Path to the directory
+  SESSION_NAME    Name of the session to create or switch to
 HELP
 }
 
