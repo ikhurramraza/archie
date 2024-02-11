@@ -24,4 +24,9 @@ clean-scripts:
 
 snapshot: HOME=/tmp/archie-home
 snapshot: all
-	find $$HOME -type l | sort | xargs -I{} zsh -c 'echo "{} => $$(readlink -f {})"' | sd $$PWD "REPO_ROOT" > snapshot
+	find $$HOME -type l | \
+	sort | \
+	xargs -I{} zsh -c 'printf "%-45s %s\n" "{}" "$$(readlink -f {})"' | \
+	sd $$PWD "REPO" | \
+	sd $$HOME "HOME" \
+	>snapshot

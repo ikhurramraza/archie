@@ -1,36 +1,36 @@
-/tmp/archie-home/.config/atuin => REPO_ROOT/atuin/.config/atuin
-/tmp/archie-home/.config/bat => REPO_ROOT/bat/.config/bat
-/tmp/archie-home/.config/btop => REPO_ROOT/btop/.config/btop
-/tmp/archie-home/.config/bundle => REPO_ROOT/bundler/.config/bundle
-/tmp/archie-home/.config/docker => REPO_ROOT/docker/.config/docker
-/tmp/archie-home/.config/gems => REPO_ROOT/gems/.config/gems
-/tmp/archie-home/.config/git => REPO_ROOT/git/.config/git
-/tmp/archie-home/.config/gitui => REPO_ROOT/gitui/.config/gitui
-/tmp/archie-home/.config/i3 => REPO_ROOT/i3/.config/i3
-/tmp/archie-home/.config/irb => REPO_ROOT/irb/.config/irb
-/tmp/archie-home/.config/joshuto => REPO_ROOT/joshuto/.config/joshuto
-/tmp/archie-home/.config/kitty => REPO_ROOT/kitty/.config/kitty
-/tmp/archie-home/.config/lazygit => REPO_ROOT/lazygit/.config/lazygit
-/tmp/archie-home/.config/litecli => REPO_ROOT/litecli/.config/litecli
-/tmp/archie-home/.config/mpv => REPO_ROOT/mpv/.config/mpv
-/tmp/archie-home/.config/nushell => REPO_ROOT/nushell/.config/nushell
-/tmp/archie-home/.config/nvim => REPO_ROOT/nvim/.config/nvim
-/tmp/archie-home/.config/picom => REPO_ROOT/picom/.config/picom
-/tmp/archie-home/.config/rofi => REPO_ROOT/rofi/.config/rofi
-/tmp/archie-home/.config/rtx => REPO_ROOT/rtx/.config/rtx
-/tmp/archie-home/.config/rubocop => REPO_ROOT/rubocop/.config/rubocop
-/tmp/archie-home/.config/starship.toml => REPO_ROOT/starship/.config/starship.toml
-/tmp/archie-home/.config/stylua => REPO_ROOT/stylua/.config/stylua
-/tmp/archie-home/.config/sxhkd => REPO_ROOT/sxhkd/.config/sxhkd
-/tmp/archie-home/.config/sxiv => REPO_ROOT/sxiv/.config/sxiv
-/tmp/archie-home/.config/tmux => REPO_ROOT/tmux/.config/tmux
-/tmp/archie-home/.config/wezterm => REPO_ROOT/wezterm/.config/wezterm
-/tmp/archie-home/.config/zsh => REPO_ROOT/zsh/.config/zsh
-/tmp/archie-home/.local/scripts/t => REPO_ROOT/tmux/.local/scripts/t
-/tmp/archie-home/.local/share/fonts => REPO_ROOT/fonts/.local/share/fonts
-/tmp/archie-home/.local/share/gnupg => REPO_ROOT/gnupg/.local/share/gnupg
-/tmp/archie-home/.local/share/litecli => REPO_ROOT/litecli/.local/share/litecli
-/tmp/archie-home/.local/share/nvim => REPO_ROOT/nvim/.local/share/nvim
-/tmp/archie-home/.local/state/less => REPO_ROOT/zsh/.local/state/less
-/tmp/archie-home/.local/state/snappy => REPO_ROOT/snappy/.local/state/snappy
-/tmp/archie-home/.zshenv => REPO_ROOT/zsh/.zshenv
+HOME/.config/atuin                REPO/atuin/.config/atuin
+HOME/.config/bat                  REPO/bat/.config/bat
+HOME/.config/btop                 REPO/btop/.config/btop
+HOME/.config/bundle               REPO/bundler/.config/bundle
+HOME/.config/docker               REPO/docker/.config/docker
+HOME/.config/gems                 REPO/gems/.config/gems
+HOME/.config/git                  REPO/git/.config/git
+HOME/.config/gitui                REPO/gitui/.config/gitui
+HOME/.config/i3                   REPO/i3/.config/i3
+HOME/.config/irb                  REPO/irb/.config/irb
+HOME/.config/joshuto              REPO/joshuto/.config/joshuto
+HOME/.config/kitty                REPO/kitty/.config/kitty
+HOME/.config/lazygit              REPO/lazygit/.config/lazygit
+HOME/.config/litecli              REPO/litecli/.config/litecli
+HOME/.config/mpv                  REPO/mpv/.config/mpv
+HOME/.config/nushell              REPO/nushell/.config/nushell
+HOME/.config/nvim                 REPO/nvim/.config/nvim
+HOME/.config/picom                REPO/picom/.config/picom
+HOME/.config/rofi                 REPO/rofi/.config/rofi
+HOME/.config/rtx                  REPO/rtx/.config/rtx
+HOME/.config/rubocop              REPO/rubocop/.config/rubocop
+HOME/.config/starship.toml        REPO/starship/.config/starship.toml
+HOME/.config/stylua               REPO/stylua/.config/stylua
+HOME/.config/sxhkd                REPO/sxhkd/.config/sxhkd
+HOME/.config/sxiv                 REPO/sxiv/.config/sxiv
+HOME/.config/tmux                 REPO/tmux/.config/tmux
+HOME/.config/wezterm              REPO/wezterm/.config/wezterm
+HOME/.config/zsh                  REPO/zsh/.config/zsh
+HOME/.local/scripts/t             REPO/tmux/.local/scripts/t
+HOME/.local/share/fonts           REPO/fonts/.local/share/fonts
+HOME/.local/share/gnupg           REPO/gnupg/.local/share/gnupg
+HOME/.local/share/litecli         REPO/litecli/.local/share/litecli
+HOME/.local/share/nvim            REPO/nvim/.local/share/nvim
+HOME/.local/state/less            REPO/zsh/.local/state/less
+HOME/.local/state/snappy          REPO/snappy/.local/state/snappy
+HOME/.zshenv                      REPO/zsh/.zshenv
