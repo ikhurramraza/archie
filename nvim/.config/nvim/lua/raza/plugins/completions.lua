@@ -8,6 +8,7 @@ local M = {
     "hrsh7th/cmp-nvim-lsp",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
+    { dir = vim.fn.stdpath("config") .. "/plugins/cmp-git-authors" },
   },
 }
 
@@ -68,6 +69,8 @@ function M.config()
       { name = "buffer", keyword_length = 3 },
     }),
   })
+
+  cmp.setup.filetype("gitcommit", { sources = { { name = "git-authors" } } })
 end
 
 return M
