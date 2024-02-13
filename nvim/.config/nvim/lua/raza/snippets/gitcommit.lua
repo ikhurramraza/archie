@@ -28,5 +28,7 @@ return {
   s("feats!", fmt("feat!({}): {}\n{}", { i(1), i(2), i(3) })),
   s("fixs!", fmt("fix!({}): {}\n{}", { i(1), i(2), i(3) })),
 
+  s("cob", fmt("Co-Authored-By: {}", { i(1) })),
+
   s("BREAK", fmt("BREAKING CHANGE: {}", { i(1) })),
 }
