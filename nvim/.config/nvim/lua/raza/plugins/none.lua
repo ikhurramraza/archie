@@ -18,10 +18,14 @@ return {
     local builtins = require("null-ls").builtins
     local customs = require("raza.none").customs
 
+    local is_not_mac = function()
+      return vim.loop.os_uname().sysname ~= "Darwin"
+    end
+
     return {
       sources = {
-        builtins.code_actions.eslint,
-        builtins.diagnostics.eslint,
+        builtins.code_actions.eslint.with({ condition = is_not_mac }),
+        builtins.diagnostics.eslint.with({ condition = is_not_mac }),
         builtins.diagnostics.zsh,
         builtins.formatting.prettier,
         builtins.formatting.rustfmt,
