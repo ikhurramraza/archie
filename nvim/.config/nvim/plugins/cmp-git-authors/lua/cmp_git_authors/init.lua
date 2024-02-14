@@ -2,7 +2,7 @@ local git = require("cmp_git_authors.git")
 
 local M = {}
 
-TRIGGER_CHARACTER = "@"
+local TRIGGER_CHARACTER = "@"
 
 M.new = function()
   return setmetatable({}, { __index = M })
