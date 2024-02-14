@@ -12,7 +12,7 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" },
 
   {
-    dir = vim.fn.stdpath("config") .. "/plugins/skeleton.nvim",
+    dir = vim.fn.stdpath("config") .. "/plugins/skeleton",
     config = true,
     cmd = "Skeleton",
     keys = { { "<leader>gs", vim.cmd.Skeleton, desc = "Insert a skeletons" } },
