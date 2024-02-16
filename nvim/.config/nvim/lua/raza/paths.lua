@@ -1,5 +1,9 @@
 local M = {}
 
+M.for_fixture = function(name)
+  return vim.fn.stdpath("data") .. "/fixtures/" .. name
+end
+
 M.env = {
   append = function(path)
     local current_path = vim.fn.getenv("PATH")

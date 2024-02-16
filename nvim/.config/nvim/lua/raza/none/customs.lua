@@ -1,6 +1,7 @@
 local null_ls = require("null-ls")
 local helpers = require("null-ls.helpers")
 local utils = require("raza.none.utils")
+local paths = require("raza.paths")
 
 -- Diagnostics
 
@@ -12,7 +13,7 @@ local rubocop_diagnostics = null_ls.builtins.diagnostics.rubocop.with({
 -- Formatting
 
 local sql_formatter = null_ls.builtins.formatting.sql_formatter.with({
-  args = { "--config", vim.fn.stdpath("config") .. "/files/" .. "sql-formatter.json" },
+  args = { "--config", paths.for_fixture("sql-formatter.json") },
 })
 
 local syntax_tree = {
