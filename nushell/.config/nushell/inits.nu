@@ -46,7 +46,7 @@ def --env append-to-path [path] {
   let paths = $env.PATH | split row (char esep)
   if ($paths | where { |row| $row == $path } | length) > 0 { return }
 
-  $env.PATH = ($paths | append $path)
+  $env.PATH = ($paths | append $path | str join (char esep))
 }
 
 # Add local scripts to PATH
