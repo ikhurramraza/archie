@@ -38,14 +38,14 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
-# Configure RTX
-if which rtx &>/dev/null; then
-  eval "$(rtx activate zsh)"
-  eval "$(rtx complete --shell zsh)"
+# Configure MISE
+if which mise &>/dev/null; then
+  eval "$(mise activate zsh)"
+  eval "$(mise complete --shell zsh)"
 
-  export RTX_GEM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/ruby/default_gems"
-  export RTX_NPM_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/nodejs/default_npm_packages"
-  export RTX_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/rtx/python/default_python_packages"
+  export MISE_RUBY_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/ruby/default_gems"
+  export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/nodejs/default_npm_packages"
+  export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/python/default_python_packages"
 fi
 
 # Add GPG key

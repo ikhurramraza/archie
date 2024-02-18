@@ -12,12 +12,12 @@ HOME/.config/joshuto              REPO/joshuto/.config/joshuto
 HOME/.config/kitty                REPO/kitty/.config/kitty
 HOME/.config/lazygit              REPO/lazygit/.config/lazygit
 HOME/.config/litecli              REPO/litecli/.config/litecli
+HOME/.config/mise                 REPO/mise/.config/mise
 HOME/.config/mpv                  REPO/mpv/.config/mpv
 HOME/.config/nushell              REPO/nushell/.config/nushell
 HOME/.config/nvim                 REPO/nvim/.config/nvim
 HOME/.config/picom                REPO/picom/.config/picom
 HOME/.config/rofi                 REPO/rofi/.config/rofi
-HOME/.config/rtx                  REPO/rtx/.config/rtx
 HOME/.config/rubocop              REPO/rubocop/.config/rubocop
 HOME/.config/starship.toml        REPO/starship/.config/starship.toml
 HOME/.config/stylua               REPO/stylua/.config/stylua
