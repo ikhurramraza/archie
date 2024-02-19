@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-NOTIE_DIRECTORY="${XDG_DATA_HOME:-$HOME/.local/share}/notie"
+DEFAULT_NOTIE_DIRECTORY="${XDG_DATA_HOME:-$HOME/.local/share}/notie"
 
 exit_with_error() {
   echo "$1" 1>&2
@@ -10,13 +10,14 @@ exit_with_error() {
 }
 
 create() {
-  local filename="$1"
+  local filename="$2"
+  local notie_directory="$1"
 
   if [ -z "$filename" ]; then
     exit_with_error "No filename provided."
   fi
 
-  local filepath="$NOTIE_DIRECTORY/$filename"
+  local filepath="$notie_directory/$filename"
   local directory="$(dirname $filepath)"
 
   mkdir -p "$directory"
@@ -33,7 +34,15 @@ create() {
 }
 
 main() {
-  create "$(cd "$NOTIE_DIRECTORY" && fd --type=f --strip-cwd-prefix | sort | fzf --exact --print-query | tail -n1 | grep -Ev '^$')"
+  local notie_directory="${NOTIE_DIRECTORY:-$DEFAULT_NOTIE_DIRECTORY}"
+  local filename="$(cd "$notie_directory" && \
+                    fd --type=f --strip-cwd-prefix | \
+                    sort | \
+                    fzf --exact --print-query | \
+                    tail -n1 | \
+                    grep -Ev '^$')"
+
+  create "$notie_directory" "$filename"
 }
 
 main
