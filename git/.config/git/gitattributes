@@ -6,3 +6,5 @@
 *.rake    diff=ruby
 *_spec.rb diff=rspec
 *.secret  diff=gpg
+
+# vim:ft=gitattributes
