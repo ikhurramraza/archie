@@ -16,6 +16,9 @@ export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 # Configure pass
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 
+# Configure notie
+export NOTIE_DIRECTORY="/mnt/nas/Notes"
+
 # Init OMZ
 zstyle ':omz:*' aliases no
 zstyle ':omz:plugins:bundler' aliases yes
