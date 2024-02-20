@@ -21,8 +21,6 @@ exa v0.10.1:
     exa
 fd-find v9.0.0:
     fd
-git-interactive-rebase-tool v2.3.0:
-    interactive-rebase-tool
 gitui v0.23.0 (https://github.com/hendrikmaus/gitui?branch=gpg-commit-signing#3f625db9):
     gitui
 hyperfine v1.18.0:

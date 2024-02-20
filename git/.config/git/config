@@ -32,9 +32,6 @@
   autoSetupRemote = true
   default = simple
 
-[sequence]
-  editor = interactive-rebase-tool
-
 [user]
   name       = Khurram Raza
   email      = ikhurramraza@gmail.com
