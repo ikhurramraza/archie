@@ -91,7 +91,7 @@ return {
       skip_confirm_for_simple_edits = true,
     },
     dependencies = "kyazdani42/nvim-web-devicons",
-    keys = { { "-", "<CMD>Oil --float<CR>", desc = "Open parent directory using Oil" } },
+    keys = { { "-", vim.cmd.Oil, desc = "Open parent directory using Oil" } },
   },
 
   -- Text objects
