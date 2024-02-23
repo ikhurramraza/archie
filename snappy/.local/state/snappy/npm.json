@@ -10,7 +10,7 @@
       "overridden": false
     },
     "npm": {
-      "version": "10.2.4",
+      "version": "10.4.0",
       "overridden": false
     },
     "prettier-plugin-sort-json": {
@@ -18,7 +18,7 @@
       "overridden": false
     },
     "prettier": {
-      "version": "3.2.4",
+      "version": "3.2.5",
       "overridden": false
     }
   }
