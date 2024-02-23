@@ -7,13 +7,14 @@ devour
 docker-compose-v2-git
 git-extras
 git-secret
+google-chrome
 lazygit-git
 lefthook
 libunity
 litecli-git
+mise-bin
 par
 parabolic
 paru
 pspg
-rtx-bin
 visual-studio-code-bin
