@@ -24,7 +24,6 @@ local M = {
     set("<leader>K", vim.lsp.buf.signature_help, { desc = "Get signature help" })
     set("<leader>gd", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
     set("<leader>rn", vim.lsp.buf.rename, { desc = "Rename variable" })
-    set("<leader>ca", vim.lsp.buf.code_action, { desc = "Open code actions menu" })
 
     set("<leader>oh", function()
       vim.lsp.inlay_hint(bufnr, nil)

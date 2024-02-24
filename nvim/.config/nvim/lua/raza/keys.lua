@@ -26,6 +26,10 @@ vim.keymap.set(
 -- Replace current word
 vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>", { desc = "Replace current word" })
 
+-- LSP mappings (common between None and LSP)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { silent = true, desc = "Open code actions menu" })
+vim.keymap.set("n", "<leader>xf", vim.lsp.buf.format, { silent = true, desc = "Execute format" })
+
 -- Diagnostics
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true, desc = "Next diagnostic" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true, desc = "Previous diagnostic" })

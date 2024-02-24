@@ -4,11 +4,6 @@ return {
   event = "VeryLazy",
   dependencies = { "nvim-lua/plenary.nvim" },
 
-  keys = {
-    { "<leader>ca", vim.lsp.buf.code_action, silent = true, desc = "Open code actions menu" },
-    { "<leader>xf", vim.lsp.buf.format, silent = true, desc = "Execute format" },
-  },
-
   init = function()
     local paths = require("raza.paths")
 
