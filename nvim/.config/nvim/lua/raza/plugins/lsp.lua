@@ -48,6 +48,7 @@ function M.config()
 
   local lua = lsp.lua_ls
   local ruby = lsp.ruby_ls
+  local taplo = lsp.taplo
 
   lua.setup({
     on_attach = config.on_attach,
@@ -67,6 +68,11 @@ function M.config()
     capabilities = config.capabilities,
     cmd = { "bundle", "exec", "ruby-lsp" },
     init_options = { formating = false },
+  })
+
+  taplo.setup({
+    on_attach = config.on_attach,
+    capabilities = config.capabilities,
   })
 end
 

@@ -1,8 +1,10 @@
 local M = {
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
   on_attach = function(client, bufnr)
+    local enable_formatting = client.name == "taplo"
+
     -- Disable formating by the language server (using other tools/plugins for this)
-    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentFormattingProvider = enable_formatting
 
     -- Disable syntax highlighting from LSP
     client.server_capabilities.semanticTokensProvider = nil
