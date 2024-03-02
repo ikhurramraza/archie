@@ -61,3 +61,13 @@ def --wrapped stree [...args: string] {
     ^stree ...$args
   }
 }
+
+def --wrapped rubocop [...args: string] {
+  if ("bin/rubocop" | path exists) {
+    bin/rubocop ...$args
+  } else if ("Gemfile" | path exists) {
+    bundle exec rubocop ...$args
+  } else {
+    ^rubocop ...$args
+  }
+}
