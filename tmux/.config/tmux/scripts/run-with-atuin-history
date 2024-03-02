@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+main() {
+  local command="$1"
+
+  SECONDS=0
+  local id=$(atuin history start "$command")
+  bash -c "$command"
+  atuin history end "$id" --exit $? --duration "${SECONDS}000000000"
+}
+
+main "$@"
