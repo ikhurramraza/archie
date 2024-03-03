@@ -63,7 +63,7 @@ def --wrapped stree [...args: string] {
 }
 
 def --wrapped rubocop [...args: string] {
-  if ("bin/rubocop" | path exists) {
+  if ("bin/rubocop" | path exists) and (not (file bin/rubocop | str contains "shell script")) {
     bin/rubocop ...$args
   } else if ("Gemfile" | path exists) {
     bundle exec rubocop ...$args
