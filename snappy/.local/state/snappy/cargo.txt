@@ -17,8 +17,6 @@ hyperfine v1.18.0:
     hyperfine
 joshuto v0.9.6:
     joshuto
-mprocs v0.6.4:
-    mprocs
 nu v0.90.1:
     nu
 ripgrep v14.1.0:
