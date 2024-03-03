@@ -1,19 +1,11 @@
-atuin v17.2.1:
+atuin v18.0.2:
     atuin
-bat v0.24.0:
-    bat
-cargo-binstall v1.6.0:
+cargo-binstall v1.6.3:
     cargo-binstall
 cargo-update v13.3.0:
     cargo-install-update
     cargo-install-update-config
-cargo-watch v8.5.2:
-    cargo-watch
-czkawka_cli v6.1.0:
-    czkawka_cli
-czkawka_gui v6.1.0:
-    czkawka_gui
-difftastic v0.54.0:
+difftastic v0.55.0:
     difft
 du-dust v0.9.0:
     dust
@@ -21,24 +13,20 @@ exa v0.10.1:
     exa
 fd-find v9.0.0:
     fd
-gitui v0.23.0 (https://github.com/hendrikmaus/gitui?branch=gpg-commit-signing#3f625db9):
-    gitui
 hyperfine v1.18.0:
     hyperfine
 joshuto v0.9.6:
     joshuto
 mprocs v0.6.4:
     mprocs
-nu v0.89.0:
+nu v0.90.1:
     nu
-pangran v0.1.0 (/home/raza/.local/installs/pangran):
-    pangran
 ripgrep v14.1.0:
     rg
 sd v1.0.0:
     sd
-stash v0.1.0 (/home/raza/Developer/stash-cli):
-    stash
-toipe v0.4.1:
+starship v1.17.1:
+    starship
+toipe v0.5.0:
     randomword
     toipe
