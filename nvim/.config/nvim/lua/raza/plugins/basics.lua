@@ -94,6 +94,23 @@ return {
     keys = { { "-", vim.cmd.Oil, desc = "Open parent directory using Oil" } },
   },
 
+  {
+    "otavioschwanck/arrow.nvim",
+    config = function(plugin, opts)
+      require("arrow").setup(opts)
+
+      vim.keymap.set("n", "H", require("arrow.persist").previous)
+      vim.keymap.set("n", "L", require("arrow.persist").next)
+    end,
+    opts = {
+      always_show_path = true,
+      hide_handbook = true,
+      leader_key = ";",
+      separate_by_branch = true,
+      show_icons = true,
+    },
+  },
+
   -- Text objects
   { "kana/vim-textobj-indent", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
   { "kana/vim-textobj-line", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
