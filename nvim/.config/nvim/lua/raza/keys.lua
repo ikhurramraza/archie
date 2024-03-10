@@ -2,14 +2,6 @@
 vim.keymap.set("n", "]b", ":bn<CR>", { silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "[b", ":bp<CR>", { silent = true, desc = "Previous buffer" })
 
--- Moving lines
-vim.keymap.set("n", "<C-J>", ":m .+1<CR>==", { silent = true })
-vim.keymap.set("n", "<C-K>", ":m .-2<CR>==", { silent = true })
-vim.keymap.set("i", "<C-J>", "<Esc>:m .+1<CR>==gi", { silent = true })
-vim.keymap.set("i", "<C-K>", "<Esc>:m .-2<CR>==gi", { silent = true })
-vim.keymap.set("v", "<C-J>", ":m '>+1<CR>gv=gv", { silent = true })
-vim.keymap.set("v", "<C-K>", ":m '<-2<CR>gv=gv", { silent = true })
-
 -- Center after moving up and down
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
