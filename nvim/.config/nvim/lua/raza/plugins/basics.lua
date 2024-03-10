@@ -47,7 +47,16 @@ return {
   {
     "numToStr/Comment.nvim",
     config = true,
-    keys = { "gbc", "gcA", "gcO", "gcc", "gco", { "gb", mode = "x" }, { "gc", mode = "x" } },
+    keys = {
+      "gbc",
+      "gc",
+      "gcA",
+      "gcO",
+      "gcc",
+      "gco",
+      { "gb", mode = "x" },
+      { "gc", mode = "x" },
+    },
   },
 
   {
