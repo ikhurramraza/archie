@@ -120,6 +120,13 @@ return {
     },
   },
 
+  {
+    "pocco81/auto-save.nvim",
+    event = "VeryLazy",
+    config = true,
+    keys = { { "<leader>os", vim.cmd.ASToggle, desc = "Toggle auto saving" } },
+  },
+
   -- Text objects
   { "kana/vim-textobj-indent", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
   { "kana/vim-textobj-line", dependencies = "kana/vim-textobj-user", event = "VeryLazy" },
