@@ -166,17 +166,29 @@ keymap_cursor = { emacs = "blink-block", vim_insert = "steady-bar", vim_normal =
 [stats]
 ## Set commands where we should consider the subcommand for statistics. Eg, kubectl get vs just kubectl
 common_subcommands = [
+  "apt",
   "brew",
   "bundle",
   "cargo",
+  "composer",
   "dctl",
+  "dnf",
+  "docker",
   "gh",
   "git",
   "go",
+  "ip",
   "kubectl",
+  "nix",
+  "nmcli",
   "npm",
+  "pecl",
   "pnpm",
+  "podman",
+  "port",
   "rails",
+  "systemctl",
+  "tmux",
   "yarn",
 ]
 
