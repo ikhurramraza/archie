@@ -15,6 +15,5 @@ litecli-git
 mise-bin
 par
 parabolic
-paru
 pspg
 visual-studio-code-bin

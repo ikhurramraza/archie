@@ -19,6 +19,8 @@ joshuto v0.9.6:
     joshuto
 nu v0.91.0:
     nu
+paru v1.11.0:
+    paru
 ripgrep v14.1.0:
     rg
 sd v1.0.0:
