@@ -6,6 +6,9 @@ hide-env -i ATUIN_HISTORY_ID
 let ATUIN_KEYBINDING_TOKEN = $"# (random uuid)"
 
 let _atuin_pre_execution = {||
+    if ($nu | get -i history-enabled) == false {
+        return
+    }
     let cmd = (commandline)
     if ($cmd | is-empty) {
         return
@@ -28,10 +31,12 @@ let _atuin_pre_prompt = {||
 }
 
 def _atuin_search_cmd [...flags: string] {
+    let nu_version = ($env.NU_VERSION | split row '.' | each { || into int })
     [
         $ATUIN_KEYBINDING_TOKEN,
         ([
-            `commandline (ATUIN_LOG=error run-external --redirect-stderr atuin search`,
+            (if $nu_version.0 <= 0 and $nu_version.1 <= 90 { 'commandline' } else { 'commandline edit' }),
+            `(ATUIN_LOG=error run-external --redirect-stderr atuin search`,
             ($flags | append [--interactive, --] | each {|e| $'"($e)"'}),
             `(commandline) | complete | $in.stderr | str substring ..-1)`,
         ] | flatten | str join ' '),
@@ -64,19 +69,3 @@ $env.config = (
         }
     )
 )
-
-# The up arrow keybinding has surprising behavior in Nu, and is disabled by default.
-# See https://github.com/atuinsh/atuin/issues/1025 for details
-# $env.config = (
-#     $env.config | upsert keybindings (
-#         $env.config.keybindings
-#         | append {
-#             name: atuin
-#             modifier: none
-#             keycode: up
-#             mode: [emacs, vi_normal, vi_insert]
-#             event: { send: executehostcommand cmd: (_atuin_search_cmd '--shell-up-key-binding') }
-#         }
-#     )
-# )
-
