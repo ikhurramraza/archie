@@ -28,6 +28,7 @@ $env._Z_DATA = $"($env.XDG_DATA_HOME)/z"
 # Configure Pipenv
 $env.PIPENV_VERBOSITY = -1
 $env.PIPENV_VENV_IN_PROJECT = enabled
+$env.VIRTUAL_ENV_DISABLE_PROMPT = 1
 
 # Configure IRB
 $env.IRBRC = $"($env.XDG_CONFIG_HOME)/irb/irbrc"
