@@ -16,6 +16,7 @@ HOME/.config/mise                 REPO/mise/.config/mise
 HOME/.config/mpv                  REPO/mpv/.config/mpv
 HOME/.config/nushell              REPO/nushell/.config/nushell
 HOME/.config/nvim                 REPO/nvim/.config/nvim
+HOME/.config/pgcli                REPO/pgcli/.config/pgcli
 HOME/.config/picom                REPO/picom/.config/picom
 HOME/.config/rofi                 REPO/rofi/.config/rofi
 HOME/.config/rubocop              REPO/rubocop/.config/rubocop
