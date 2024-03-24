@@ -2,7 +2,7 @@
   pager = delta
 
 [delta]
-  pager = less
+  pager = less -S
   paging = always
   zero-style = normal
   plus-style = auto raw
