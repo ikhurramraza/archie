@@ -8,6 +8,9 @@
   plus-style = auto raw
   minus-style = auto raw
   hunk-header-style = omit
+  blame-code-style = syntax
+  blame-palette = "#282a36"
+  blame-format = "{timestamp:<15} {commit:<8}"
 
 [diff]
   colorMoved = default
