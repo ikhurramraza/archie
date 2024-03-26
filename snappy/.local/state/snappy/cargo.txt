@@ -2,12 +2,12 @@ atuin v18.1.0:
     atuin
 cargo-binstall v1.6.4:
     cargo-binstall
-cargo-update v13.3.0:
+cargo-update v13.4.0:
     cargo-install-update
     cargo-install-update-config
 difftastic v0.56.1:
     difft
-du-dust v0.9.0:
+du-dust v1.0.0:
     dust
 exa v0.10.1:
     exa
@@ -27,7 +27,7 @@ ripgrep v14.1.0:
     rg
 sd v1.0.0:
     sd
-starship v1.17.1:
+starship v1.18.1:
     starship
 toipe v0.5.0:
     randomword
