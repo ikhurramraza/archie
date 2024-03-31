@@ -27,6 +27,7 @@ HOME/.config/sxiv                 REPO/sxiv/.config/sxiv
 HOME/.config/tmux                 REPO/tmux/.config/tmux
 HOME/.config/wezterm              REPO/wezterm/.config/wezterm
 HOME/.config/zsh                  REPO/zsh/.config/zsh
+HOME/.local/scripts/snappy        REPO/snappy/.local/scripts/snappy
 HOME/.local/scripts/t             REPO/tmux/.local/scripts/t
 HOME/.local/share/fonts           REPO/fonts/.local/share/fonts
 HOME/.local/share/gnupg           REPO/gnupg/.local/share/gnupg
