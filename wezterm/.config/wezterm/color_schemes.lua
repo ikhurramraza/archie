@@ -8,7 +8,4 @@ catppuccin_mocha.ansi[8] = "CBD3EF"
 catppuccin_mocha.brights[4] = "D7C08D"
 catppuccin_mocha.brights[8] = "FFFFFF"
 
--- Fix for irb autocomplete menu coloring
-catppuccin_mocha.ansi[7] = "679DD6"
-
 return { ["Catppuccin Mocha Custom"] = catppuccin_mocha }
