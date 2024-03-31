@@ -54,17 +54,23 @@ create_or_attach_to_dev_session() {
     tmux new-session -d -s "$session" -c "$working_directory" -n "editor" "nvim"
     tmux new-window -t="$session" -n "shell" -c "$working_directory" "nu -l"
 
-    if [[ $session == "doctolib" ]]; then
-      tmux new-window -t="$session" -n "console" -c "$working_directory"
-      tmux new-window -t="$session" -n "server" -c "$working_directory"
-      tmux new-window -t="$session" -n "services" -c "$working_directory"
-      tmux new-window -t="$session" -n "vite" -c "$working_directory"
-      tmux new-window -t="$session" -n "staging" -c "$working_directory"
-      tmux new-window -t="$session" -n "worker" -c "$working_directory"
-    fi
+    create_rails_windows "$working_directory"
 
     switch_or_attach "$session:shell"
   fi
+}
+
+create_rails_windows() {
+  local working_directory="$1"
+
+  if ! grep -qs rails "$working_directory/Gemfile"; then
+    return
+  fi
+
+  tmux new-window -t="$session" -n "console" -c "$working_directory"
+  tmux new-window -t="$session" -n "server" -c "$working_directory"
+  tmux new-window -t="$session" -n "services" -c "$working_directory"
+  tmux new-window -t="$session" -n "worker" -c "$working_directory"
 }
 
 # ============================================================================ #
