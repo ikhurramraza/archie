@@ -63,6 +63,7 @@ return {
     "LudoPinelli/comment-box.nvim",
     opts = { box_width = 75, line_width = 75 },
     cmd = {
+      "CBcatalog",
       "CBccbox",
       "CBccline",
       "CBclbox",
