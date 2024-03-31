@@ -19,7 +19,8 @@ scripts: clean-scripts
 
 clean-scripts:
 	mkdir -p ${SCRIPTS_DIRECTORY}
-	find ${SCRIPTS_DIRECTORY} -type l -exec unlink "{}" \;
+	find $$PWD/*/.local/scripts -maxdepth 1 -type f -printf "%f\n" | \
+	xargs -I{} sh -c 'unlink ${SCRIPTS_DIRECTORY}/{} || true'
 
 
 snapshot: HOME=/tmp/archie-home
