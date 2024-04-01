@@ -64,6 +64,7 @@ append-to-path $"($env.GOPATH)/bin"
 
 source bundler.nu
 source carapace.nu
+source direnv.nu
 source mise.nu
 source starship.nu
 source stream.nu
