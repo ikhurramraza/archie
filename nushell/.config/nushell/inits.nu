@@ -70,3 +70,7 @@ source starship.nu
 source stream.nu
 source zoxide.nu
 source atuin.nu
+
+if ($"($nu.config-path | path dirname)/overrides.nu" | path exists) {
+  source overrides.nu
+}
