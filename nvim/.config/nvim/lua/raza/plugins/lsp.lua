@@ -47,7 +47,7 @@ function M.config()
   local config = require("raza.lsp")
 
   local lua = lsp.lua_ls
-  local ruby = lsp.ruby_ls
+  local ruby = lsp.ruby_lsp
   local taplo = lsp.taplo
 
   lua.setup({
