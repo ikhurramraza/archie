@@ -1,17 +1,17 @@
-atuin v18.1.0:
+atuin v18.3.0:
     atuin
-cargo-binstall v1.6.4:
+cargo-binstall v1.7.4:
     cargo-binstall
 cargo-update v13.4.0:
     cargo-install-update
     cargo-install-update-config
-difftastic v0.56.1:
+difftastic v0.58.0:
     difft
 du-dust v1.0.0:
     dust
 exa v0.10.1:
     exa
-fd-find v9.0.0:
+fd-find v10.1.0:
     fd
 git-delta v0.17.0:
     delta
@@ -19,7 +19,7 @@ hyperfine v1.18.0:
     hyperfine
 joshuto v0.9.7:
     joshuto
-nu v0.91.0:
+nu v0.95.0:
     nu
 paru v1.11.0:
     paru
@@ -27,7 +27,7 @@ ripgrep v14.1.0:
     rg
 sd v1.0.0:
     sd
-starship v1.18.1:
+starship v1.19.0:
     starship
 toipe v0.5.0:
     randomword
