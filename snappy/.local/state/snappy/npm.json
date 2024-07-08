@@ -6,19 +6,19 @@
       "overridden": false
     },
     "corepack": {
-      "version": "0.24.0",
+      "version": "0.28.2",
       "overridden": false
     },
     "npm": {
-      "version": "10.4.0",
+      "version": "10.8.1",
       "overridden": false
     },
     "prettier-plugin-sort-json": {
-      "version": "3.1.0",
+      "version": "4.0.0",
       "overridden": false
     },
     "prettier": {
-      "version": "3.2.5",
+      "version": "3.3.2",
       "overridden": false
     }
   }
