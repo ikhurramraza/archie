@@ -12,8 +12,10 @@ lazygit-git
 lefthook
 libunity
 litecli-git
+manjaro-starter
 mise-bin
+mpv-git
+nsxiv-git
 par
-parabolic
+paru
 pspg
-visual-studio-code-bin
