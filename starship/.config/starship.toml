@@ -13,6 +13,7 @@ disabled = false
 ahead = '↑${count}'
 diverged = '↑${ahead_count}↓${behind_count}'
 behind = '↓${count}'
+stashed=''
 
 [hostname]
 ssh_symbol = ' '
