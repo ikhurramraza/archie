@@ -6,7 +6,7 @@ local Mason = {
       "lua_ls",
       "rust_analyzer",
       "taplo",
-      "tsserver",
+      "ts_ls",
     },
   },
   dependencies = { "williamboman/mason.nvim", config = true },
