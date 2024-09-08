@@ -51,6 +51,12 @@ return {
   },
 
   {
+    "moyiz/git-dev.nvim",
+    cmd = { "GitDevOpen", "GitDevToggleUI", "GitDevRecents", "GitDevCleanAll" },
+    config = true,
+  },
+
+  {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
     opts = {
