@@ -45,6 +45,12 @@ return {
   },
 
   {
+    "yutkat/git-rebase-auto-diff.nvim",
+    ft = { "gitrebase" },
+    config = true,
+  },
+
+  {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
     opts = {
