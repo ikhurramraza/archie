@@ -6,6 +6,7 @@ return {
   { "jesseleite/vim-noh", event = "VeryLazy" },
   { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
   { "kylechui/nvim-surround", config = true, event = "VeryLazy" },
+  { "letieu/btw.nvim", config = { text = "I use vim (BTW)" } },
   { "metakirby5/codi.vim", cmd = "Codi" },
   { "qpkorr/vim-renamer", cmd = "Renamer" },
   { "stevearc/dressing.nvim", event = "VeryLazy" },
