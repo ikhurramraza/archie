@@ -15,7 +15,6 @@ export HISTORY_SUBSTRING_SEARCH_PREFIXED=true
 export VI_MODE_SET_CURSOR=true
 
 plugins=(
-  ag
   bol
   bundler
   common-aliases
