@@ -28,7 +28,7 @@ create() {
     -c "set norelativenumber" \
     -c "set laststatus=0" \
     -c "set textwidth=100" \
-    -c "set formatoptions=atq" \
+    -c "set formatoptions=tq" \
     -c "set formatprg=par\ -jw100" \
     "$filepath"
 }
