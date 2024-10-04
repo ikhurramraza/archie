@@ -56,6 +56,14 @@ def --env append-to-path [path] {
   $env.PATH = ($paths | append $path | str join (char esep))
 }
 
+# Utility function to add new path to PATH env variable if it doesn't already exist
+def --env prepend-to-path [path] {
+  let paths = $env.PATH | split row (char esep)
+  if ($paths | where { |row| $row == $path } | length) > 0 { return }
+
+  $env.PATH = ($paths | prepend $path | str join (char esep))
+}
+
 # Add local scripts to PATH
 append-to-path $"($env.HOME)/.local/scripts"
 
@@ -63,7 +71,7 @@ append-to-path $"($env.HOME)/.local/scripts"
 append-to-path $"($env.CARGO_HOME)/bin"
 
 # Add go bin directory to PATH
-append-to-path $"($env.GOPATH)/bin"
+prepend-to-path $"($env.GOPATH)/bin"
 
 source bundler.nu
 source carapace.nu
