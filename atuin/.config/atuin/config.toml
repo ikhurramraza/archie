@@ -194,7 +194,7 @@ common_subcommands = [
 ]
 
 ## Set commands that should be totally stripped and ignored from stats
-common_prefix = ["bundle exec", "sudo"]
+common_prefix = ["bundle exec", "devrun", "sudo"]
 
 ## Set commands that will be completely ignored from stats
 ignored_commands = [
