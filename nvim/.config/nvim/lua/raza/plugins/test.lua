@@ -1,8 +1,10 @@
 local function sanitize_command(command)
   local sanitized_command = command
 
-  -- Replace "./bin/rails test" with "rails t"
-  sanitized_command = string.gsub(command, "^./bin/rails test", "rails t")
+  -- Remove prefixes from the "rails" and "rspec" commands
+  -- since smart prefixing is handled by shell (nushell and zsh)
+  sanitized_command = string.gsub(command, ".*rails test ", "rails t ")
+  sanitized_command = string.gsub(command, ".*rspec ", "rspec ")
 
   return sanitized_command
 end
