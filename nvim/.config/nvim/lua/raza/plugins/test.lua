@@ -3,8 +3,8 @@ local function sanitize_command(command)
 
   -- Remove prefixes from the "rails" and "rspec" commands
   -- since smart prefixing is handled by shell (nushell and zsh)
-  sanitized_command = string.gsub(command, ".*rails test ", "rails t ")
-  sanitized_command = string.gsub(command, ".*rspec ", "rspec ")
+  sanitized_command = string.gsub(sanitized_command, ".*rails test ", "rails t ")
+  sanitized_command = string.gsub(sanitized_command, ".*rspec ", "rspec ")
 
   return sanitized_command
 end
