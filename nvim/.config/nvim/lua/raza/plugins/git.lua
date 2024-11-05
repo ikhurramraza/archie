@@ -17,6 +17,7 @@ return {
     "NeogitOrg/neogit",
     cmd = "Neogit",
     dependencies = "nvim-lua/plenary.nvim",
+    commit = "3e44062d164d11848a1663831e4366b86ef6d889",
     keys = {
       {
         "<leader>gg",
