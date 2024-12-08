@@ -1,4 +1,5 @@
 bundler
 gemr
 irbtools
+rubocop
 syntax_tree
