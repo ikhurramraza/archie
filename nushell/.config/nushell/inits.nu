@@ -46,7 +46,7 @@ $env.SQLITE_HISTORY = $"($env.XDG_DATA_HOME)/sqlite/history"
 $env.PASSWORD_STORE_DIR = $"($env.XDG_DATA_HOME)/pass"
 
 # Configure notie
-$env.NOTIE_DIRECTORY = "/mnt/nas/Notes"
+$env.NOTIE_DIRECTORY = "/mnt/Notes"
 
 # Utility function to add new path to PATH env variable if it doesn't already exist
 def --env append-to-path [path] {
