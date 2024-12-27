@@ -8,7 +8,8 @@ main() {
   SECONDS=0
   local id=$(atuin history start "$command")
   bash -c "$command"
-  atuin history end "$id" --exit $? --duration "${SECONDS}000000000"
+  local exit_code="$?"
+  nohup bash -c "atuin history end "$id" --exit="$exit_code" --duration="${SECONDS}000000000"" &>/dev/null
 }
 
 main "$@"
