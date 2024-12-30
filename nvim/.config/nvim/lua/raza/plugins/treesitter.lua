@@ -1,7 +1,8 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "RRethy/nvim-treesitter-endwise" },
+    -- TODO: Revert to original repo once #42 is merged
+    dependencies = { "metiulekm/nvim-treesitter-endwise" },
     event = "VeryLazy",
     build = ":TSUpdate",
     main = "nvim-treesitter.configs",
