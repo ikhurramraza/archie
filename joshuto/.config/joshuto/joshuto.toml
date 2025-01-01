@@ -4,3 +4,7 @@ use_trash = false
 show_borders = false
 show_icons = false
 show_hidden = true
+
+[preview]
+max_preview_size = "2MB"
+preview_script = "~/.config/joshuto/preview.sh"
