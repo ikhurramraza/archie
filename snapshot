@@ -4,6 +4,7 @@ HOME/.config/btop                 REPO/btop/.config/btop
 HOME/.config/bundle               REPO/bundler/.config/bundle
 HOME/.config/docker               REPO/docker/.config/docker
 HOME/.config/gems                 REPO/gems/.config/gems
+HOME/.config/ghostty              REPO/ghostty/.config/ghostty
 HOME/.config/git                  REPO/git/.config/git
 HOME/.config/gitui                REPO/gitui/.config/gitui
 HOME/.config/i3                   REPO/i3/.config/i3

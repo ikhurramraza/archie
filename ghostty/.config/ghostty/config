@@ -1,0 +1,10 @@
+theme = catppuccin-mocha
+
+font-size = 21
+font-family = Monaco Nerd Font Mono
+window-colorspace = display-p3
+
+window-padding-x = 6,2
+window-padding-balance = true
+
+macos-titlebar-style = hidden
