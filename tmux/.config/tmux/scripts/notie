@@ -24,6 +24,7 @@ create() {
 
   nvim \
     -c "norm Gzz" \
+    -c "set nowrap" \
     -c "set nonumber" \
     -c "set norelativenumber" \
     -c "set laststatus=0" \
