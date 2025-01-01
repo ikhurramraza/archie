@@ -36,8 +36,9 @@ create() {
 main() {
   local notie_directory="${NOTIE_DIRECTORY:-$DEFAULT_NOTIE_DIRECTORY}"
   local filename="$(cd "$notie_directory" && \
-                    fd --type=f --strip-cwd-prefix | \
-                    sort | \
+                    fd -0 --type=f --strip-cwd-prefix | \
+                    xargs -0 ls -lt | \
+                    awk '{print $NF}' | \
                     fzf --exact --print-query | \
                     tail -n1 | \
                     grep -Ev '^$')"
