@@ -6,5 +6,5 @@ show_icons = false
 show_hidden = true
 
 [preview]
-max_preview_size = 2097152 # 2MB
+max_preview_size = 5242880 # 5MB
 preview_script = "~/.config/joshuto/preview.sh"
