@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+main() {
+  local program="$1"
+  local window_name=$(basename "$program")
+
+  tmux select-window -t "$window_name" &>/dev/null ||
+    tmux new-window -n "$window_name" "$program"
+}
+
+main "$@"
