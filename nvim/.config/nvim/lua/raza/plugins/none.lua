@@ -19,7 +19,10 @@ return {
       sources = {
         builtins.diagnostics.zsh,
         builtins.formatting.prettier,
-        builtins.formatting.shfmt,
+        builtins.formatting.shfmt.with({
+          extra_filetypes = { "bash" },
+          extra_args = { "--indent", "2" },
+        }),
         builtins.formatting.stylua,
         builtins.hover.dictionary,
         customs.diagnostics.rubocop,
