@@ -1,6 +1,5 @@
 return {
   "nvimtools/none-ls.nvim",
-  commit = "b7cf202083b18bc9319e4c8ad5341a3d09241192",
   main = "null-ls",
   event = "VeryLazy",
   dependencies = { "nvim-lua/plenary.nvim" },
