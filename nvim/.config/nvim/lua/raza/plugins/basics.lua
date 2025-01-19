@@ -10,6 +10,7 @@ return {
   { "qpkorr/vim-renamer", cmd = "Renamer" },
   { "stevearc/dressing.nvim", event = "VeryLazy" },
   { "tpope/vim-repeat", event = "VeryLazy" },
+  { "tpope/vim-eunuch", event = "VeryLazy" },
 
   {
     dir = vim.fn.stdpath("config") .. "/plugins/skeleton",
