@@ -4,6 +4,7 @@ local Mason = {
   opts = {
     ensure_installed = {
       "lua_ls",
+      "ruby_lsp",
       "rust_analyzer",
       "taplo",
       "ts_ls",
