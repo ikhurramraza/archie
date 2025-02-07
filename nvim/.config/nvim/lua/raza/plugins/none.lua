@@ -25,7 +25,6 @@ return {
         }),
         builtins.formatting.stylua,
         builtins.hover.dictionary,
-        customs.diagnostics.rubocop,
         customs.formatting.sql_formatter,
         customs.formatting.syntax_tree,
       },

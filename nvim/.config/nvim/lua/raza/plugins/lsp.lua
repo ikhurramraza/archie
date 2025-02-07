@@ -20,7 +20,7 @@ local Fidget = {
 
 local M = {
   "neovim/nvim-lspconfig",
-  cmd = { "LspInfo", "LspStart" },
+  event = "VeryLazy",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     Fidget,
@@ -64,11 +64,9 @@ function M.config()
   })
 
   ruby.setup({
-    autostart = false,
     on_attach = config.on_attach,
     capabilities = config.capabilities,
-    cmd = { "bundle", "exec", "ruby-lsp" },
-    init_options = { formating = false },
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/ruby-lsp" },
   })
 
   taplo.setup({

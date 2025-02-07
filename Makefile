@@ -6,11 +6,23 @@ clean: clean-directories clean-scripts
 
 
 directories: clean-directories
-	stow --verbose --target=$$HOME --ignore=scripts --restow */
+	find . -maxdepth 1 \
+	       -mindepth 1 \
+	       -type d \
+	       -not -path '*/.*' \
+	       -not -path "*/vendor" \
+	       -printf "%P\0" | \
+	xargs -0 stow --verbose --target=$$HOME --ignore=scripts --restow
 
 clean-directories:
 	mkdir -p $$HOME
-	stow --verbose --target=$$HOME --ignore=scripts --delete */
+	find . -maxdepth 1 \
+	       -mindepth 1 \
+	       -type d \
+	       -not -path '*/.*' \
+	       -not -path "*/vendor" \
+	       -printf "%P\0" | \
+	xargs -0 stow --verbose --target=$$HOME --ignore=scripts --delete
 
 
 scripts: clean-scripts
