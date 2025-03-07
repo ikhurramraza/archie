@@ -52,7 +52,7 @@ create_or_attach_to_dev_session() {
     switch_or_attach "$session"
   else
     tmux new-session -d -s "$session" -c "$working_directory" -n "editor" "nvim"
-    tmux new-window -t="$session" -n "shell" -c "$working_directory" "nu -l"
+    tmux new-window -t="$session" -n "shell" -c "$working_directory"
 
     create_rails_windows "$working_directory"
 
@@ -85,7 +85,7 @@ main() {
   elif [[ -d "$HOME/Developer/$session_name" ]]; then
     create_or_attach_to_dev_session "$HOME/Developer/$session_name"
   else
-    tmux new-session -d -c "$HOME" -s "$session_name" -n "shell" "nu -l"
+    tmux new-session -d -c "$HOME" -s "$session_name" -n "shell"
     switch_or_attach "$session_name:shell"
   fi
 }
