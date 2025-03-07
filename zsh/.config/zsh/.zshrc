@@ -17,32 +17,19 @@ export VI_MODE_SET_CURSOR=true
 plugins=(
   bol
   bundler
-  common-aliases
   copybuffer
   docker
   docker-compose
   dotenv
-  git
   jira
-  npm
-  rails
-  rake-fast
   sudo
-  systemadmin
-  systemd
-  tmux
   universalarchive
   vi-mode
   z
 )
 
-if [[ "$OS" == "Darwin" ]]; then
-  plugins+=(brew macos)
-fi
-
 source "$ZDOTDIR/inits"
 source "$ZDOTDIR/aliases"
-source "$ZDOTDIR/functions"
 
 if [[ -f "$ZDOTDIR/overrides" ]]; then
   source "$ZDOTDIR/overrides"

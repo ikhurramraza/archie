@@ -7,13 +7,6 @@ alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}'"
 alias vi="nvim"
 alias vim="nvim"
 
-# Git aliases
-alias gdm='gd $(git_main_branch)'
-alias gdom='gd $(git remote show)/$(git_main_branch)'
-alias gfom='gfob $(git_main_branch)'
-alias gmm='gm $(git_main_branch)'
-alias gmmne='gm $(git_main_branch) --no-edit'
-
 # Exa aliases
 alias l='exa -l'
 
@@ -29,15 +22,3 @@ alias j='joshuto'
 
 # Lazygit alias
 alias g='lazygit'
-
-# Unalias for sd command
-alias sd &>/dev/null && unalias sd
-
-# Unalias for duf command
-alias duf &>/dev/null && unalias duf
-
-# Unalias for t script
-alias t &>/dev/null && unalias t
-
-# Unalias rm override by OMZ
-alias rm &>/dev/null && unalias rm
