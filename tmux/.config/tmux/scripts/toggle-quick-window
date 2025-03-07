@@ -6,13 +6,14 @@ main() {
   local program="$1"
   local window_name=$(basename "$program")
   local current_window_name=$(tmux display-message -p '#W')
+  local runner="$XDG_CONFIG_HOME/tmux/scripts/run-with-atuin-history"
 
   # If already on the quick window, toggle back to last window
   [[ "$current_window_name" == "$window_name" ]] && tmux last-window && return
 
   # Switch to quick window or create quick window
   tmux select-window -t "$window_name" &>/dev/null ||
-    tmux new-window -n "$window_name" "$program"
+    tmux new-window -n "$window_name" "$runner" "$program"
 }
 
 main "$@"
