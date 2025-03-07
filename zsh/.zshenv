@@ -37,6 +37,9 @@ export _Z_DATA="$XDG_DATA_HOME/z"
 # Add cargo bin directory to PATH
 export PATH="$PATH:$CARGO_HOME/bin"
 
+# Add go bin directory to PATH
+export PATH="$PATH:$GOPATH/bin"
+
 if [[ "$OS" == "Linux" ]]; then
   source "$ZDOTDIR/linux.zsh"
 elif [[ "$OS" == "Darwin" ]]; then
