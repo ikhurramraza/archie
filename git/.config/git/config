@@ -22,6 +22,9 @@
   required = true
   smudge   = git-lfs smudge -- %f
 
+[gui]
+  skipDiscardChangeWarning = true
+
 [init]
   defaultBranch = main
 
