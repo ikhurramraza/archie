@@ -13,6 +13,7 @@
   attributesfile = ~/.config/git/gitattributes
 
 [diff]
+  algorithm = histogram
   mnemonicprefix = true
   renames = copies
 
@@ -28,12 +29,18 @@
 [init]
   defaultBranch = main
 
+[merge]
+  conflictStyle = zdiff3
+
 [pull]
   twohead = ort
 
 [push]
   autoSetupRemote = true
   default = simple
+
+[rebase]
+  abbreviateCommands = true
 
 [user]
   name       = Khurram Raza
