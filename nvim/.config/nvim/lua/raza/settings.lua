@@ -10,6 +10,7 @@ vim.opt.termguicolors = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+vim.opt.wrap = false
 vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
