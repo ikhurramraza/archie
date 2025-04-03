@@ -13,7 +13,7 @@ main() {
 
   # Switch to quick window or create quick window
   tmux select-window -t "$window_name" &>/dev/null ||
-    tmux new-window -n "$window_name" "$runner" "$program"
+    tmux new-window -c "#{pane_current_path}"  -n "$window_name" "$runner" "$program"
 }
 
 main "$@"
