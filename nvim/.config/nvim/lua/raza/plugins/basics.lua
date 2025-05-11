@@ -20,27 +20,24 @@ return {
   },
 
   {
-    "github/copilot.vim",
-    init = function()
-      vim.g.copilot_no_tab_map = true
-      vim.g.copilot_filetypes = { TelescopePrompt = false }
-    end,
-    cmd = "Copilot",
-    keys = {
-      {
-        "<C-]>",
-        "copilot#Accept('<CR>')",
-        mode = "i",
-        expr = true,
-        silent = true,
-        replace_keycodes = false,
+    "zbirenbaum/copilot.lua",
+    opts = {
+      suggestion = {
+        keymap = {
+          accept = "<C-]>",
+          next = "<C-t>",
+          prev = "<C-r>",
+          dismiss = "<C-e>",
+        },
       },
-      {
-        "<C-l>",
-        "<Plug>(copilot-suggest)",
-        mode = "i",
-        silent = true,
-        desc = "Suggest a completion using Copilot",
+      filetypes = {
+        TelescopePrompt = false,
+        gitcommit = false,
+        gitrebase = false,
+        help = false,
+        markdown = false,
+        yaml = false,
+        ["."] = false,
       },
     },
   },
