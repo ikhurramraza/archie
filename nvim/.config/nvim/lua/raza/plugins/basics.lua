@@ -124,8 +124,12 @@ return {
   {
     "pocco81/auto-save.nvim",
     event = "VeryLazy",
-    config = true,
     keys = { { "<leader>os", vim.cmd.ASToggle, desc = "Toggle auto saving" } },
+    opts = {
+      condition = function(bufnr)
+        return vim.api.nvim_buf_get_option(bufnr, "filetype") ~= "oil"
+      end,
+    },
   },
 
   -- Text objects
