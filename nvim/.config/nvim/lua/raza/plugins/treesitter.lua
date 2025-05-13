@@ -22,7 +22,6 @@ return {
       },
       ensure_installed = {
         "bash",
-        "comment",
         "css",
         "csv",
         "diff",
