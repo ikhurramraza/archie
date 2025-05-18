@@ -12,7 +12,7 @@ return {
     "CodeCompanionCmd",
   },
   keys = {
-    { "<leader>ac", vim.cmd.CodeCompanionChat, desc = "[CodeCompanion] Open chat" },
+    { "<leader>ac", vim.cmd.CodeCompanionChat, desc = "[CodeCompanion] Open chat", mode = { "n", "v" } },
     { "<leader>aa", vim.cmd.CodeCompanionActions, desc = "[CodeCompanion] Open actions" },
   },
 }
