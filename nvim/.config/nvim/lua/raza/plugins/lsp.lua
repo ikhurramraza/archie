@@ -52,6 +52,7 @@ function M.config()
   local taplo = lsp.taplo
 
   lua.setup({
+    autostart = false,
     on_attach = config.on_attach,
     capabilities = config.capabilities,
     settings = {
@@ -64,12 +65,14 @@ function M.config()
   })
 
   ruby.setup({
+    autostart = false,
     on_attach = config.on_attach,
     capabilities = config.capabilities,
     cmd = { vim.fn.stdpath("data") .. "/mason/bin/ruby-lsp" },
   })
 
   taplo.setup({
+    autostart = false,
     on_attach = config.on_attach,
     capabilities = config.capabilities,
   })
