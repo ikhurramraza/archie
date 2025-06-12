@@ -15,7 +15,7 @@ local Mason = {
 
 local Fidget = {
   "j-hui/fidget.nvim",
-  opts = { progress = { ignore = { "null-ls" } } },
+  config = true,
 }
 
 local M = {
