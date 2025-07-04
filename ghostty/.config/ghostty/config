@@ -8,3 +8,4 @@ window-padding-x = 6,2
 window-padding-balance = true
 
 window-decoration = none
+macos-titlebar-style = hidden
