@@ -3,7 +3,7 @@
 Desktop.ini
 
 # Ruby project apps
-.bundle/config
+/.bundle/
 vendor/bundle
 
 # Project environment variable
