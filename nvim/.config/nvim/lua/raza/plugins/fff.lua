@@ -6,7 +6,7 @@ return {
     {
       "<leader>ff",
       function()
-        require("fff").toggle()
+        require("fff").find_files()
       end,
       desc = "[F]ind [F]iles",
     },
