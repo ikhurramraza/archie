@@ -11,6 +11,7 @@ local M = {
     { "<leader>fc", "<CMD>Telescope git_bcommits<CR>", silent = true, desc = "[F]ind buffer [C]ommits" },
     { "<leader>fC", "<CMD>Telescope git_commits<CR>", silent = true, desc = "[F]ind [C]ommits" },
     { "<leader>fd", "<CMD>Telescope diagnostics<CR>", silent = true, desc = "[F]ind [D]iagnostics" },
+    { "<leader>ff", "<CMD>Telescope find_files<CR>", silent = true, desc = "[F]ind git [F]iles" },
     { "<leader>fF", "<CMD>Telescope git_files<CR>", silent = true, desc = "[F]ind [F]iles" },
     { "<leader>fg", "<CMD>Telescope live_grep_args<CR>", silent = true, desc = "[F]ind by [G]rep" },
     { "<leader>fh", "<CMD>Telescope help_tags<CR>", silent = true, desc = "[F]ind [H]elp" },
