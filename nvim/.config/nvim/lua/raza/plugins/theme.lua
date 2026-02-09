@@ -1,4 +1,4 @@
-local theme = "catppuccin"
+local theme = "cyberdream"
 
 local Catppuccin = {
   "catppuccin/nvim",
@@ -11,6 +11,20 @@ local Catppuccin = {
     require(plugin.name).setup({ no_italic = true })
     vim.api.nvim_command("colorscheme catppuccin")
     vim.api.nvim_command("highlight Todo gui=none guibg=none guifg=#6c7086")
+  end,
+}
+
+local Cyberdream = {
+  "scottmckendry/cyberdream.nvim",
+  name = "cyberdream",
+  enabled = theme == "cyberdream",
+  lazy = false,
+  priority = 1000,
+  config = function(plugin)
+    require(plugin.name).setup({
+      transparent = true
+      })
+    vim.cmd("colorscheme cyberdream")
   end,
 }
 
@@ -32,4 +46,4 @@ local Dracula = {
   end,
 }
 
-return { Catppuccin, Dracula }
+return { Catppuccin, Cyberdream, Dracula }

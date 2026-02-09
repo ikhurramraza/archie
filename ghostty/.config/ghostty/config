@@ -1,4 +1,6 @@
-theme = Catppuccin Mocha
+theme = cyberdream
+background = #000000
+foreground = #D6E4FF
 
 font-size = 21
 font-family = Monaco Nerd Font Mono
