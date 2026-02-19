@@ -8,5 +8,3 @@ window-colorspace = display-p3
 
 window-padding-x = 6,2
 window-padding-balance = true
-
-macos-titlebar-style = hidden
