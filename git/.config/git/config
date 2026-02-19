@@ -41,6 +41,7 @@
 
 [rebase]
   abbreviateCommands = true
+  autosquash = true
 
 [user]
   name       = Khurram Raza
