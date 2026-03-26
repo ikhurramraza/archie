@@ -8,3 +8,6 @@ vendor/bundle
 
 # Project environment variable
 .env
+
+# AI agents
+**/.claude/settings.local.json
