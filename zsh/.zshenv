@@ -21,6 +21,9 @@ export LANG="en_US.UTF-8"
 # Add local scripts to PATH
 export PATH="$PATH:$HOME/.local/scripts"
 
+# Add local bin to PATH
+export PATH="$PATH:$HOME/.local/bin"
+
 # Set environment variables for XDG compliant paths
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle/config"
