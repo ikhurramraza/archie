@@ -2,25 +2,20 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = { "RRethy/nvim-treesitter-endwise" },
-    event = "VeryLazy",
+    lazy = false,
     build = ":TSUpdate",
-    main = "nvim-treesitter.configs",
-    opts = {
-      endwise = {
-        enable = true,
-      },
-      highlight = {
-        enable = true,
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "+",
-          node_incremental = "+",
-          node_decremental = "-",
-        },
-      },
-      ensure_installed = {
+    opts = { endwise = { enable = true } },
+    init = function()
+      -- Enable highlighting and indentation
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          pcall(vim.treesitter.start)
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
+
+      -- Install parsers
+      local parsersToInstall = {
         "bash",
         "css",
         "csv",
@@ -54,8 +49,17 @@ return {
         "vim",
         "vimdoc",
         "yaml",
-      },
-    },
+      }
+
+      local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+      local parsersToInstall = vim
+        .iter(parsersToInstall)
+        :filter(function(parser)
+          return not vim.tbl_contains(alreadyInstalled, parser)
+        end)
+        :totable()
+      require("nvim-treesitter").install(parsersToInstall)
+    end,
   },
 
   {
