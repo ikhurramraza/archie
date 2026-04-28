@@ -45,17 +45,12 @@ return {
   },
 
   {
-    "numToStr/Comment.nvim",
-    config = true,
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
     keys = {
-      "gbc",
-      "gc",
-      "gcA",
-      "gcO",
-      "gcc",
-      "gco",
-      { "gb", mode = "x" },
-      { "gc", mode = "x" },
+      { "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", desc = "Comment below" },
+      { "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", desc = "Comment above" },
     },
   },
 
