@@ -20,28 +20,29 @@ return {
   },
 
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    opts = {
-      suggestion = {
-        keymap = {
-          accept = "<C-]>",
-          next = "<C-t>",
-          prev = "<C-r>",
-          dismiss = "<C-e>",
-        },
+    "github/copilot.vim",
+    init = function()
+      vim.g.copilot_no_tab_map = true
+      vim.g.copilot_filetypes = { TelescopePrompt = false }
+    end,
+    event = "VeryLazy",
+    keys = {
+      {
+        "<C-]>",
+        "copilot#Accept('<CR>')",
+        mode = "i",
+        expr = true,
+        silent = true,
+        replace_keycodes = false,
       },
-      filetypes = {
-        TelescopePrompt = false,
-        gitcommit = false,
-        gitrebase = false,
-        help = false,
-        markdown = false,
-        yaml = false,
-        ["."] = false,
-      },
-    },
+      {
+        "<C-l>",
+        "<Plug>(copilot-suggest)",
+        mode = "i",
+        silent = true,
+        desc = "Suggest a completion using Copilot",
+      }
+    }
   },
 
   {
