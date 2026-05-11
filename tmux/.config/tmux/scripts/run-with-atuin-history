@@ -6,10 +6,13 @@ main() {
   local command="$1"
 
   SECONDS=0
-  local id=$(atuin history start "$command")
-  bash -c "$command"
-  local exit_code="$?"
-  nohup bash -c "atuin history end "$id" --exit="$exit_code" --duration="${SECONDS}000000000"" &>/dev/null
+  local id
+  id=$(atuin history start "$command")
+
+  local exit_code=0
+  bash -c "$command" || exit_code=$?
+
+  nohup bash -c "atuin history end '$id' --exit='$exit_code' --duration='${SECONDS}000000000'" &>/dev/null
 }
 
 main "$@"
