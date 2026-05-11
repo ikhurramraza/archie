@@ -2,9 +2,18 @@ FIND := $(shell command -v gfind >/dev/null 2>&1 && echo gfind || echo find)
 
 SCRIPTS_DIRECTORY = $$HOME/.local/scripts
 
-all: directories scripts
+.PHONY: preflight all clean directories clean-directories scripts clean-scripts snapshot
 
-clean: clean-directories clean-scripts
+preflight:
+	@$(FIND) . -maxdepth 0 -printf "" 2>/dev/null || { \
+		echo "error: GNU find required (with -printf support)." >&2; \
+		echo "       on macOS: brew install findutils  (provides 'gfind')." >&2; \
+		exit 1; \
+	}
+
+all: preflight directories scripts
+
+clean: preflight clean-directories clean-scripts
 
 
 directories: clean-directories
@@ -38,7 +47,7 @@ clean-scripts:
 
 
 snapshot: HOME=/tmp/archie-home
-snapshot: all
+snapshot: preflight all
 	$(FIND) $$HOME -type l | \
 	sort | \
 	xargs -I{} zsh -c 'printf "%-45s %s\n" "{}" "$$(readlink -f {})"' | \
