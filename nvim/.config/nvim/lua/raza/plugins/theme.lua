@@ -22,8 +22,8 @@ local Cyberdream = {
   priority = 1000,
   config = function(plugin)
     require(plugin.name).setup({
-      transparent = true
-      })
+      transparent = true,
+    })
     vim.cmd("colorscheme cyberdream")
   end,
 }
