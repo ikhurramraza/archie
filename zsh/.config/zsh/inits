@@ -54,9 +54,6 @@ fi
 # Add GPG key
 export GPG_TTY=$(tty)
 
-# Setup Copilot CLI
-which github-copilot-cli &>/dev/null && eval "$(github-copilot-cli alias -- "$0")"
-
 # Setup atuin
 which atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
 
