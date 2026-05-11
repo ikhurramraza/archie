@@ -3,7 +3,7 @@ export OS="$(uname)"
 
 # Default programs
 export EDITOR=nvim
-export TERMINAL=wezterm
+export TERMINAL=ghostty
 
 # XDG Dirs
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
