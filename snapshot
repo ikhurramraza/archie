@@ -10,7 +10,6 @@ HOME/.config/gitui                REPO/gitui/.config/gitui
 HOME/.config/i3                   REPO/i3/.config/i3
 HOME/.config/irb                  REPO/irb/.config/irb
 HOME/.config/joshuto              REPO/joshuto/.config/joshuto
-HOME/.config/kitty                REPO/kitty/.config/kitty
 HOME/.config/lazygit              REPO/lazygit/.config/lazygit
 HOME/.config/litecli              REPO/litecli/.config/litecli
 HOME/.config/mise                 REPO/mise/.config/mise
