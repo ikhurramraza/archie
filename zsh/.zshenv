@@ -4,7 +4,6 @@ export OS="$(uname)"
 # Default programs
 export EDITOR=nvim
 export TERMINAL=wezterm
-export BROWSER=firefox
 
 # XDG Dirs
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
