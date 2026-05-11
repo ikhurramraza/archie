@@ -1,9 +1,9 @@
 return {
   "laytan/cloak.nvim",
-  ft = "sh",
+  event = { "BufReadPre *.env*", "BufNewFile *.env*" },
   opts = {
     patterns = {
-      { file_pattern = "*.env", cloak_pattern =  "=.+" },
+      { file_pattern = "*.env*", cloak_pattern = "=.+" },
     },
   },
 }
