@@ -73,3 +73,12 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#000000,bg:#000000,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+# Configure difftastic
+export DFT_DISPLAY=side-by-side
+export DFT_BACKGROUND=dark
+export DFT_SYNTAX_HIGHLIGHT=on
+export DFT_TAB_WIDTH=2
+export DFT_CONTEXT=3
+export DFT_PARSE_ERROR_LIMIT=5
+export DFT_GRAPH_LIMIT=1000000

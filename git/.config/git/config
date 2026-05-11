@@ -48,5 +48,10 @@
   email      = ikhurramraza@gmail.com
   signingkey = 2422E12C0CC4325F
 
+[alias]
+  difft = -c diff.external=difft diff
+  showt = -c diff.external=difft show --ext-diff
+  logt  = -c diff.external=difft log -p --ext-diff
+
 [include]
   path = includes/git-delta
