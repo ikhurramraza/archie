@@ -27,3 +27,8 @@ vim.g.netrw_winsize = 25
 vim.g.netrw_browse_split = 0
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("cache") .. "/undodir"
