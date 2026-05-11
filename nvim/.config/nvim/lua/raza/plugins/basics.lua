@@ -123,7 +123,7 @@ return {
     keys = { { "<leader>os", vim.cmd.ASToggle, desc = "Toggle auto saving" } },
     opts = {
       condition = function(bufnr)
-        return vim.api.nvim_buf_get_option(bufnr, "filetype") ~= "oil"
+        return vim.bo[bufnr].filetype ~= "oil"
       end,
     },
   },

@@ -14,7 +14,6 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
-vim.opt.lazyredraw = true
 
 vim.opt.showmode = false
 
@@ -26,7 +25,5 @@ vim.opt.shiftwidth = 2
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.g.netrw_browse_split = 0
-
-vim.opt.shell = "/bin/bash"
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
