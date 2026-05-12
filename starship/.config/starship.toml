@@ -2,6 +2,12 @@
 
 command_timeout = 1000
 
+[package]
+disabled = true
+
+[maven]
+disabled = true
+
 [aws]
 disabled = true
 
