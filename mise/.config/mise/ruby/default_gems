@@ -2,4 +2,5 @@ bundler
 gemr
 irbtools
 rubocop
+ruby-lsp
 syntax_tree
