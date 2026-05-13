@@ -18,21 +18,6 @@ vim.keymap.set(
 -- Replace current word
 vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>", { desc = "Replace current word" })
 
--- LSP mappings (common between None and LSP)
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { silent = true, desc = "Open code actions menu" })
-vim.keymap.set("n", "<leader>xF", vim.lsp.buf.format, { silent = true, desc = "Format using LSP" })
-
--- Diagnostics
-vim.keymap.set("n", "]d", function()
-  vim.diagnostic.jump({ count = 1, float = true })
-end, { silent = true, desc = "Next diagnostic" })
-
-vim.keymap.set("n", "[d", function()
-  vim.diagnostic.jump({ count = -1, float = true })
-end, { silent = true, desc = "Previous diagnostic" })
-
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { silent = true, desc = "Open diagnostics window" })
-
 -- Copy to clipboard
 vim.keymap.set("n", "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
 vim.keymap.set("v", "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
