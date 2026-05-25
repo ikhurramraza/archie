@@ -14,7 +14,6 @@ HOME/.config/lazygit              REPO/lazygit/.config/lazygit
 HOME/.config/litecli              REPO/litecli/.config/litecli
 HOME/.config/mise                 REPO/mise/.config/mise
 HOME/.config/mpv                  REPO/mpv/.config/mpv
-HOME/.config/nushell              REPO/nushell/.config/nushell
 HOME/.config/nvim                 REPO/nvim/.config/nvim
 HOME/.config/pgcli                REPO/pgcli/.config/pgcli
 HOME/.config/picom                REPO/picom/.config/picom
