@@ -7,8 +7,8 @@ alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}'"
 alias vi="nvim"
 alias vim="nvim"
 
-# Exa aliases
-alias l='exa -l'
+# Eza aliases
+alias l='eza -l'
 
 # Klippy aliases
 alias kcp='klippy copy'
