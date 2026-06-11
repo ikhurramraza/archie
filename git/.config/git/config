@@ -4,6 +4,9 @@
 [blame]
   markIgnoredLines = true
 
+[branch]
+  sort = -committerdate
+
 [commit]
   gpgsign = true
   verbose = true
@@ -14,8 +17,12 @@
 
 [diff]
   algorithm = histogram
+  colorMoved = default
   mnemonicprefix = true
   renames = copies
+
+[fetch]
+  prune = true
 
 [filter "lfs"]
   clean    = git-lfs clean -- %f
@@ -42,6 +49,10 @@
 [rebase]
   abbreviateCommands = true
   autosquash = true
+  updateRefs = true
+
+[rerere]
+  enabled = true
 
 [user]
   name       = Khurram Raza
