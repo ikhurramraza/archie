@@ -20,10 +20,8 @@ plugins=(
   copybuffer
   docker
   docker-compose
-  dotenv
   jira
   sudo
-  universalarchive
   vi-mode
   z
 )
