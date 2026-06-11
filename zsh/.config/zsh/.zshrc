@@ -5,7 +5,8 @@ export ZSH="$ZDOTDIR/.oh-my-zsh"
 export ZSH_CUSTOM="$ZDOTDIR/oh-my-zsh-custom"
 
 # History file settings
-export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+mkdir -p "${HISTFILE:h}"
 
 # OMZ Plugins envs
 export BOL_QUIET_MODE=true
