@@ -28,6 +28,8 @@ export BUNDLED_COMMANDS=(good_job rails stree)
 export CASE_SENSITIVE=true
 export DISABLE_UPDATE_PROMPT=true
 export DISABLE_MAGIC_FUNCTIONS=true
+mkdir -p "$XDG_CACHE_HOME/zsh"
+export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 source "$ZSH/oh-my-zsh.sh"
 
 # Init starship
@@ -38,7 +40,6 @@ which starship &>/dev/null && eval "$(starship init zsh)"
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
-compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
 # Configure MISE
