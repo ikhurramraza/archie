@@ -15,7 +15,7 @@ module MyIrb
 
   def setup_irb_conf!
     IRB.conf[:SAVE_HISTORY] ||= 1000
-    IRB.conf[:HISTORY_FILE] ||= File.join(ENV.fetch("XDG_DATA_HOME", nil), "irb", "history")
+    IRB.conf[:HISTORY_FILE] ||= File.join(ENV.fetch("XDG_DATA_HOME") { File.expand_path("~/.local/share") }, "irb", "history")
   end
 
   def setup_irbtools!
