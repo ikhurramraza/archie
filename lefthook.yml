@@ -9,7 +9,7 @@ pre-commit:
   commands:
     shfmt:
       files: git diff --name-only --cached zsh tmux/.config/tmux/scripts/ tmux/.local/scripts/ snappy/.local/scripts/
-      exclude: ".p10k.zsh|.zshrc"
+      exclude: ".zshrc"
       run: shfmt -i=2 -d {files}
 
     stylua:
