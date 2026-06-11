@@ -7,7 +7,6 @@ HOME/.config/gems                 REPO/gems/.config/gems
 HOME/.config/ghostty              REPO/ghostty/.config/ghostty
 HOME/.config/git                  REPO/git/.config/git
 HOME/.config/gitui                REPO/gitui/.config/gitui
-HOME/.config/i3                   REPO/i3/.config/i3
 HOME/.config/irb                  REPO/irb/.config/irb
 HOME/.config/joshuto              REPO/joshuto/.config/joshuto
 HOME/.config/lazygit              REPO/lazygit/.config/lazygit
@@ -16,13 +15,9 @@ HOME/.config/mise                 REPO/mise/.config/mise
 HOME/.config/mpv                  REPO/mpv/.config/mpv
 HOME/.config/nvim                 REPO/nvim/.config/nvim
 HOME/.config/pgcli                REPO/pgcli/.config/pgcli
-HOME/.config/picom                REPO/picom/.config/picom
-HOME/.config/rofi                 REPO/rofi/.config/rofi
 HOME/.config/rubocop              REPO/rubocop/.config/rubocop
 HOME/.config/starship.toml        REPO/starship/.config/starship.toml
 HOME/.config/stylua               REPO/stylua/.config/stylua
-HOME/.config/sxhkd                REPO/sxhkd/.config/sxhkd
-HOME/.config/sxiv                 REPO/sxiv/.config/sxiv
 HOME/.config/tmux                 REPO/tmux/.config/tmux
 HOME/.config/wezterm              REPO/wezterm/.config/wezterm
 HOME/.config/zsh                  REPO/zsh/.config/zsh

@@ -39,7 +39,7 @@ lefthook install
 
 The hooks enforce:
 
-- `shfmt -i=2 -d` on staged shell scripts under `zsh/`, `i3/.config/i3/scripts/`,
+- `shfmt -i=2 -d` on staged shell scripts under `zsh/`,
   `tmux/.config/tmux/scripts/`, `tmux/.local/scripts/`, and
   `snappy/.local/scripts/`.
 - `stylua --check` on staged `*.lua`, using `stylua/.config/stylua/stylua.toml`.

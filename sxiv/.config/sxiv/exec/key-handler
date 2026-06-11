@@ -1,9 +1,0 @@
-#!/bin/bash
-
-while read file; do
-  case "$1" in
-  "C-p") echo -n "$file" | xclip -in -selection clipboard ;;
-  "C-r") convert "$file" -rotate 90 "$file" ;;
-  "C-x") x "$file" ;;
-  esac
-done
