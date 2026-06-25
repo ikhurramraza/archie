@@ -66,6 +66,41 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
+# Ctrl+x Ctrl+a to turn a plain-English request on the prompt into a shell
+# command via Claude. Type what you want, hit the chord, then edit and run.
+_claude_command_line() {
+  emulate -L zsh
+
+  local request="$BUFFER"
+  [[ -z "$request" ]] && return
+
+  zle -R "🤖 Asking Claude…"
+
+  # NB: do not name this `prompt` — in zsh that is a synonym for PS1, so a local
+  # `prompt` gets painted as the shell prompt by `reset-prompt` below.
+  local query="Translate the request below into a single shell command for zsh on Linux. \
+Output only the command: no explanation, no prose, no markdown, no code fences. \
+Request: $request"
+
+  local answer
+  answer="$(claude -p "$query" --model "${CLAUDE_CLI_MODEL:-haiku}" </dev/null 2>/dev/null)"
+
+  # Defensively strip stray code fences and flatten to a single line.
+  answer="${answer//\`\`\`/}"
+  answer="${answer//$'\n'/ }"
+  answer="${answer## }"
+  answer="${answer%% }"
+
+  if [[ -n "$answer" ]]; then
+    BUFFER="$answer"
+    CURSOR=${#BUFFER}
+  fi
+
+  zle reset-prompt
+}
+zle -N _claude_command_line
+bindkey "^X^A" _claude_command_line
+
 # Set catppuccin theme for fzf
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#000000,bg:#000000,spinner:#f5e0dc,hl:#f38ba8 \
