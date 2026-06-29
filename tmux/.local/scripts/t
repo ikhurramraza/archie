@@ -2,6 +2,9 @@
 
 set -eo pipefail
 
+# Base directory that holds all projects. Overridable for testing.
+DEV_DIR="${DEV_DIR:-$HOME/Developer}"
+
 # ============================================================================ #
 # ============================== HELPER METHODS ============================== #
 # ============================================================================ #
@@ -10,12 +13,16 @@ set -eo pipefail
 
 help() {
   cat <<HELP
-Usage: $(basename $0) SESSION_NAME
+Usage: $(basename "$0") [SESSION_NAME | REPO/BRANCH | REPO]
 
-Create or attach to dev session
+Create or attach to a dev session.
 
-Arguments:
-  SESSION_NAME    Name of the session to create or switch to
+  SESSION_NAME   Existing session, or a plain repo under $DEV_DIR.
+  REPO/BRANCH    Worktree repo (REPO has a .bare): create or switch to the
+                 worktree at $DEV_DIR/REPO/BRANCH/REPO.
+  REPO           A worktree repo on its own opens a branch picker.
+
+With no argument, opens the "main" session.
 HELP
 }
 
@@ -36,6 +43,73 @@ switch_or_attach() {
   fi
 }
 
+# ============================= HELPERS: Worktree ============================ #
+
+# Echo a committish to branch new worktrees from: the remote's default branch
+# if known, else a sensible fallback. Only returns a ref that actually
+# resolves here (a bare clone keeps branches in refs/heads, not refs/remotes).
+default_base_ref() {
+  local bare="$1" head candidate
+
+  head=$(git --git-dir="$bare" symbolic-ref --quiet --short refs/remotes/origin/HEAD 2>/dev/null) || head=""
+
+  for candidate in "$head" origin/main origin/master main master; do
+    [[ -n "$candidate" ]] || continue
+    if git --git-dir="$bare" rev-parse --verify --quiet "${candidate}^{commit}" >/dev/null 2>&1; then
+      echo "$candidate"
+      return
+    fi
+  done
+
+  echo HEAD
+}
+
+# Create a worktree at DIR for BRANCH, checking out the right ref:
+#   existing local branch  -> check it out
+#   existing remote branch -> track it
+#   brand-new branch       -> branch off the (freshly fetched) remote default
+create_worktree() {
+  local bare="$1" branch="$2" directory="$3"
+
+  mkdir -p "${directory%/*}"
+  git --git-dir="$bare" fetch --quiet --prune origin 2>/dev/null || true
+
+  if git --git-dir="$bare" show-ref --verify --quiet "refs/heads/$branch"; then
+    git --git-dir="$bare" worktree add "$directory" "$branch"
+  elif git --git-dir="$bare" show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+    git --git-dir="$bare" worktree add --track -b "$branch" "$directory" "origin/$branch"
+  else
+    git --git-dir="$bare" worktree add -b "$branch" "$directory" "$(default_base_ref "$bare")"
+  fi
+}
+
+# fzf picker over a worktree repo's branches; runs inside a popup (needs a tty).
+# Existing branches are listed; typing a new name creates that worktree.
+pick_branch() {
+  local repo="$1" bare="$DEV_DIR/$repo/.bare"
+
+  [[ -d "$bare" ]] || exit_with_error "Not a worktree repo: $repo"
+  git --git-dir="$bare" fetch --quiet --prune origin 2>/dev/null || true
+
+  local raw_result
+  raw_result=$(
+    {
+      git --git-dir="$bare" for-each-ref --format='%(refname:short)' refs/heads
+      git --git-dir="$bare" for-each-ref --format='%(refname:short)' refs/remotes/origin |
+        sed 's#^origin/##'
+    } | grep -vx HEAD | sort -u |
+      fzf --exit-0 --print-query --reverse --prompt "$repo/"
+  )
+
+  local query branch
+  query=$(sed -n 1p <<<"$raw_result")
+  branch=$(sed -n 2p <<<"$raw_result")
+  [[ -z "$branch" ]] && branch="$query"
+  [[ -z "$branch" ]] && return 0
+
+  "$0" "$repo/$branch"
+}
+
 # ============================================================================ #
 # ============================= SESSION CREATORS ============================= #
 # ============================================================================ #
@@ -44,9 +118,9 @@ switch_or_attach() {
 
 create_or_attach_to_dev_session() {
   local working_directory="$1"
-  local session="$(basename "$working_directory")"
+  local session="$2"
 
-  [[ -d "$working_directory" ]] || exit_with_error "Directory not found."
+  [[ -d "$working_directory" ]] || exit_with_error "Directory not found: $working_directory"
 
   if tmux has-session -t="$session" 2>/dev/null; then
     switch_or_attach "$session"
@@ -54,7 +128,7 @@ create_or_attach_to_dev_session() {
     tmux new-session -d -s "$session" -c "$working_directory" -n "editor" "nvim"
     tmux new-window -t="$session" -n "shell" -c "$working_directory"
 
-    create_rails_windows "$working_directory"
+    create_rails_windows "$working_directory" "$session"
 
     switch_or_attach "$session:shell"
   fi
@@ -62,6 +136,7 @@ create_or_attach_to_dev_session() {
 
 create_rails_windows() {
   local working_directory="$1"
+  local session="$2"
 
   if ! grep -qs rails "$working_directory/Gemfile"; then
     return
@@ -77,26 +152,58 @@ create_rails_windows() {
 # ================================ ENTRYPOINT ================================ #
 # ============================================================================ #
 
-main() {
-  local session_name="$1"
+run() {
+  local input="$1"
 
-  if tmux has-session -t="$session_name" >/dev/null 2>&1; then
-    switch_or_attach "$session_name"
-  elif [[ -d "$HOME/Developer/$session_name" ]]; then
-    create_or_attach_to_dev_session "$HOME/Developer/$session_name"
+  # Exact existing session wins (cheapest path).
+  if tmux has-session -t="$input" 2>/dev/null; then
+    switch_or_attach "$input"
+    return
+  fi
+
+  local repo="${input%%/*}"
+
+  if [[ -d "$DEV_DIR/$repo/.bare" ]]; then
+    # Worktree-style repo. A bare repo name opens the branch picker.
+    if [[ "$input" != */* ]]; then
+      tmux display-popup -E "$0 --branches $repo"
+      return
+    fi
+
+    local branch="${input#*/}"
+    # tmux rewrites "." to "_" in session names; match that so re-runs attach.
+    local session="$repo/${branch//./_}"
+    local working_directory="$DEV_DIR/$repo/$branch/$repo"
+
+    if tmux has-session -t="$session" 2>/dev/null; then
+      switch_or_attach "$session"
+      return
+    fi
+
+    [[ -d "$working_directory" ]] ||
+      create_worktree "$DEV_DIR/$repo/.bare" "$branch" "$working_directory"
+
+    create_or_attach_to_dev_session "$working_directory" "$session"
+  elif [[ -d "$DEV_DIR/$input" ]]; then
+    create_or_attach_to_dev_session "$DEV_DIR/$input" "$input"
   else
-    tmux new-session -d -c "$HOME" -s "$session_name" -n "shell"
-    switch_or_attach "$session_name:shell"
+    tmux new-session -d -c "$HOME" -s "$input" -n "shell"
+    switch_or_attach "$input:shell"
   fi
 }
 
-if [[ $# -eq 0 ]]; then
-  main "main"
-elif [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+case "${1:-}" in
+-h | --help)
   help
-elif [[ $# -eq 1 ]]; then
-  main "$@"
-else
-  help
-  exit 1
-fi
+  ;;
+--branches)
+  [[ -n "${2:-}" ]] || exit_with_error "Usage: $(basename "$0") --branches REPO"
+  pick_branch "$2"
+  ;;
+"")
+  run "main"
+  ;;
+*)
+  run "$1"
+  ;;
+esac
