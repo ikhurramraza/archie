@@ -17,6 +17,15 @@ disabled = true
 [git_branch]
 symbol = ' '
 
+[git_state]
+rebase = 'rebase'
+merge = 'merge'
+revert = 'revert'
+cherry_pick = 'cherry'
+bisect = 'bisect'
+am = 'am'
+am_or_rebase = 'am/rebase'
+
 [git_status]
 disabled = false
 ahead = '↑${count}'
