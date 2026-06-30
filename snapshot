@@ -3,6 +3,7 @@ HOME/.config/atuin                REPO/atuin/.config/atuin
 HOME/.config/bat                  REPO/bat/.config/bat
 HOME/.config/btop                 REPO/btop/.config/btop
 HOME/.config/bundle               REPO/bundler/.config/bundle
+HOME/.config/cship.toml           REPO/cship/.config/cship.toml
 HOME/.config/docker               REPO/docker/.config/docker
 HOME/.config/gems                 REPO/gems/.config/gems
 HOME/.config/ghostty              REPO/ghostty/.config/ghostty
