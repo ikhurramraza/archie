@@ -37,6 +37,9 @@ stashed=''
 ssh_symbol = ' '
 trim_at = ''
 
+[mise]
+symbol = ' '
+
 [nodejs]
 symbol = ' '
 
