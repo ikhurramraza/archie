@@ -71,7 +71,6 @@ function M.config()
   })
 
   cmp.setup.filetype("gitcommit", { sources = { { name = "git-authors" } } })
-  cmp.setup.filetype("codecompanion", { sources = { { name = "codecompanion" } } })
 end
 
 return M
