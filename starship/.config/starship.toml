@@ -31,5 +31,9 @@ trim_at = ''
 [nodejs]
 symbol = ' '
 
+[python]
+symbol = ' '
+generic_venv_names = ['venv', '.venv']
+
 [ruby]
 symbol = '󰴭 '
