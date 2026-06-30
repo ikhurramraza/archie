@@ -66,6 +66,11 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
+# Enable Claude Code's experimental "agent teams" — a team-lead session that
+# spawns independent teammate sessions sharing a task list and mailbox. Needs
+# Claude Code >= v2.1.178; split-pane mode works inside tmux (not bare Ghostty).
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+
 # Ctrl+x Ctrl+a to turn a plain-English request on the prompt into a shell
 # command via Claude. Type what you want, hit the chord, then edit and run.
 _claude_command_line() {
