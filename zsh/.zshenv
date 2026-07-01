@@ -1,6 +1,12 @@
 # Machine info
 export OS="$(uname)"
 
+# Docker Compose profile (per host — see nukes/README.md)
+case "$(hostname)" in
+Cov) export COMPOSE_PROFILES=cov ;;
+Dort) export COMPOSE_PROFILES=dort ;;
+esac
+
 # Default programs
 export EDITOR=nvim
 export TERMINAL=ghostty
