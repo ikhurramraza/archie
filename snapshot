@@ -21,7 +21,6 @@ HOME/.config/rubocop              REPO/rubocop/.config/rubocop
 HOME/.config/starship.toml        REPO/starship/.config/starship.toml
 HOME/.config/stylua               REPO/stylua/.config/stylua
 HOME/.config/tmux                 REPO/tmux/.config/tmux
-HOME/.config/wezterm              REPO/wezterm/.config/wezterm
 HOME/.config/zsh                  REPO/zsh/.config/zsh
 HOME/.local/scripts/snappy        REPO/snappy/.local/scripts/snappy
 HOME/.local/scripts/t             REPO/tmux/.local/scripts/t
