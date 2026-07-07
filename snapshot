@@ -8,7 +8,6 @@ HOME/.config/docker               REPO/docker/.config/docker
 HOME/.config/gems                 REPO/gems/.config/gems
 HOME/.config/ghostty              REPO/ghostty/.config/ghostty
 HOME/.config/git                  REPO/git/.config/git
-HOME/.config/gitui                REPO/gitui/.config/gitui
 HOME/.config/irb                  REPO/irb/.config/irb
 HOME/.config/joshuto              REPO/joshuto/.config/joshuto
 HOME/.config/lazygit              REPO/lazygit/.config/lazygit
