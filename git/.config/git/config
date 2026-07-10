@@ -64,5 +64,19 @@
   showt = -c diff.external=difft show --ext-diff
   logt  = -c diff.external=difft log -p --ext-diff
 
+  ; Bare-clone a repo into <app>/.bare and lay out a worktree for the default
+  ; branch as <app>/<branch>/<app>. Usage: git wclone <url> [app]
+  wclone = "!f() { \
+      url=$1; \
+      app=${2:-$(basename \"$url\" .git)}; \
+      git clone --bare \"$url\" \"$app/.bare\" && \
+      git --git-dir=\"$app/.bare\" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' && \
+      git --git-dir=\"$app/.bare\" fetch origin && \
+      branch=$(git --git-dir=\"$app/.bare\" symbolic-ref --short HEAD) && \
+      git --git-dir=\"$app/.bare\" worktree add \"$app/$branch/$app\" \"$branch\" && \
+      git -C \"$app/$branch/$app\" branch --set-upstream-to=\"origin/$branch\" \"$branch\" && \
+      printf 'worktree ready: %s\\n' \"$app/$branch/$app\"; \
+    }; f"
+
 [include]
   path = includes/git-delta

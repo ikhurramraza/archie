@@ -18,3 +18,30 @@ Write self-documenting code that does not need comments — prefer clear names a
 structure over explanation. Only add a comment when it is genuinely needed: to
 capture a non-obvious *why* (a rationale, trade-off, or workaround that the code
 itself cannot convey), never to restate *what* the code does.
+
+## Repo checkout layout
+
+All my repos live under `~/Developer`.
+
+Not every repo is checked out the same way, but the ones that are use the
+**repo/branch/repo** worktree pattern: `<app>/<branch>/<app>`, backed by a bare
+clone at `<app>/.bare`.
+
+```
+~/Developer/<app>/            # app root (container)
+├── .bare/                    # bare clone; git dir, remote "origin" lives here
+└── <branch>/                 # one dir per branch (e.g. main/, feature-x/)
+    └── <app>/                # the checkout; its .git → <app>/.bare/worktrees/<app>
+```
+
+- **Creating a worktree** (run from the app root):
+  ```
+  git --git-dir=.bare worktree add ./<branch>/<app> <branch>            # existing branch
+  git --git-dir=.bare worktree add -b <branch> ./<branch>/<app> origin/main  # new branch
+  ```
+- There is no `.git` file at the app root, so run plain git from inside an
+  existing worktree, or use `--git-dir=.bare` from the app root.
+- **Before creating a worktree**, check the repo actually follows this pattern
+  (an `<app>/.bare` dir exists). If it does not, tell me it is not checked out in
+  the repo/branch/repo pattern so I can convert it or ask you to re-clone it that
+  way — do not silently `worktree add` against a non-bare checkout.
