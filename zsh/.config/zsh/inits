@@ -61,6 +61,13 @@ which atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
 # Setup carapace
 which carapace &>/dev/null && source <(carapace _carapace)
 
+# Auto-quote pasted URLs. Unlike the old url-quote-magic / bracketed-paste-magic
+# (disabled above via DISABLE_MAGIC_FUNCTIONS — they reinterpret the paste as
+# keystrokes and mangle it), this widget only single-quotes a paste that starts
+# with a URL scheme, leaving everything else exactly as pasted.
+autoload -Uz bracketed-paste-url-magic
+zle -N bracketed-paste bracketed-paste-url-magic
+
 # Ctrl+x Ctrl+e to edit current command in $EDITOR
 autoload -U edit-command-line
 zle -N edit-command-line
