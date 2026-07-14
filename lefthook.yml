@@ -8,7 +8,7 @@ pre-commit:
   parallel: true
   commands:
     shfmt:
-      files: git diff --name-only --cached zsh tmux/.config/tmux/scripts/ tmux/.local/scripts/ snappy/.local/scripts/
+      files: git diff --name-only --cached zsh tmux/.config/tmux/scripts/ tmux/.local/scripts/
       exclude: ".zshrc"
       run: shfmt -i=2 -d {files}
 

@@ -21,12 +21,10 @@ HOME/.config/starship.toml        REPO/starship/.config/starship.toml
 HOME/.config/stylua               REPO/stylua/.config/stylua
 HOME/.config/tmux                 REPO/tmux/.config/tmux
 HOME/.config/zsh                  REPO/zsh/.config/zsh
-HOME/.local/scripts/snappy        REPO/snappy/.local/scripts/snappy
 HOME/.local/scripts/t             REPO/tmux/.local/scripts/t
 HOME/.local/share/fonts           REPO/fonts/.local/share/fonts
 HOME/.local/share/gnupg           REPO/gnupg/.local/share/gnupg
 HOME/.local/share/litecli         REPO/litecli/.local/share/litecli
 HOME/.local/share/nvim            REPO/nvim/.local/share/nvim
-HOME/.local/state/less            REPO/zsh/.local/state/less
-HOME/.local/state/snappy          REPO/snappy/.local/state/snappy
+HOME/.local/state                 REPO/zsh/.local/state
 HOME/.zshenv                      REPO/zsh/.zshenv

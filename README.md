@@ -40,8 +40,7 @@ lefthook install
 The hooks enforce:
 
 - `shfmt -i=2 -d` on staged shell scripts under `zsh/`,
-  `tmux/.config/tmux/scripts/`, `tmux/.local/scripts/`, and
-  `snappy/.local/scripts/`.
+  `tmux/.config/tmux/scripts/`, and `tmux/.local/scripts/`.
 - `stylua --check` on staged `*.lua`, using `stylua/.config/stylua/stylua.toml`.
 - `make snapshot` plus `git diff --exit-code snapshot` — fails if the symlink
   layout drifts from the committed `snapshot` file.
