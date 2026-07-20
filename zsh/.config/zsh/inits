@@ -45,9 +45,29 @@ unset _cmd
 # waits the full timeout before the mode switches).
 KEYTIMEOUT=15
 
+# Cache the output of slow tool-init evals (each forks the tool once to print
+# deterministic shell code) to a zcompiled file, regenerated only when the tool
+# binary changes, instead of forking on every startup.
+_cache_eval() {
+  emulate -L zsh
+  local name=$1 bin=${commands[$2]}
+  [[ -n $bin ]] || return
+  shift
+  local cache=$XDG_CACHE_HOME/zsh/$name.zsh
+  if [[ ! -f $cache || $bin -nt $cache ]]; then
+    if "$@" >| $cache.tmp 2>/dev/null && [[ -s $cache.tmp ]]; then
+      mv -f $cache.tmp $cache
+      zcompile -R -- $cache 2>/dev/null
+    else
+      rm -f $cache.tmp
+    fi
+  fi
+  [[ -f $cache ]] && source $cache
+}
+
 # Init starship
 export STARSHIP_LOG="error" # Disable command timeout errors
-which starship &>/dev/null && eval "$(starship init zsh)"
+_cache_eval starship starship init zsh
 
 # Enable option stacking auto completion for docker
 zstyle ':completion:*:*:docker:*' option-stacking yes
@@ -56,9 +76,9 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
 # Configure MISE
-if which mise &>/dev/null; then
-  eval "$(mise activate zsh)"
-  eval "$(mise complete --shell zsh)"
+if (( ${+commands[mise]} )); then
+  _cache_eval mise-activate mise activate zsh
+  _cache_eval mise-complete mise complete --shell zsh
 
   export MISE_RUBY_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/ruby/default_gems"
   export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/nodejs/default_npm_packages"
@@ -69,10 +89,10 @@ fi
 export GPG_TTY=$(tty)
 
 # Setup atuin
-which atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
+_cache_eval atuin atuin init zsh --disable-up-arrow
 
 # Setup carapace
-which carapace &>/dev/null && source <(carapace _carapace)
+_cache_eval carapace carapace _carapace
 
 # Auto-quote pasted URLs. Unlike the old url-quote-magic / bracketed-paste-magic
 # (disabled above via DISABLE_MAGIC_FUNCTIONS — they reinterpret the paste as
