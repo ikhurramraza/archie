@@ -32,6 +32,14 @@ mkdir -p "$XDG_CACHE_HOME/zsh"
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 source "$ZSH/oh-my-zsh.sh"
 
+# Pin tools that are only ever invoked from command-substitution subshells
+# (atuin's preexec, mise's hook) so those forks inherit the hash instead of
+# re-walking PATH across the slow /mnt/c dirs on every command.
+for _cmd in atuin mise starship; do
+  (( ${+commands[$_cmd]} )) && hash "$_cmd=${commands[$_cmd]}"
+done
+unset _cmd
+
 # Init starship
 export STARSHIP_LOG="error" # Disable command timeout errors
 which starship &>/dev/null && eval "$(starship init zsh)"
