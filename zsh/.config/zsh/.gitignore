@@ -1,3 +1,4 @@
 /overrides
 /.zcompdump*
+*.zwc
 /.oh-my-zsh/
