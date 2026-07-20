@@ -40,6 +40,11 @@ for _cmd in atuin mise starship; do
 done
 unset _cmd
 
+# Shorten the post-ESC wait so vi-mode's insert->normal switch feels instant
+# (default is 40 = 400ms; the sudo plugin binds ESC-ESC, so a lone ESC otherwise
+# waits the full timeout before the mode switches).
+KEYTIMEOUT=15
+
 # Init starship
 export STARSHIP_LOG="error" # Disable command timeout errors
 which starship &>/dev/null && eval "$(starship init zsh)"
