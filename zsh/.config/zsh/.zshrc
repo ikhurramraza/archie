@@ -20,8 +20,6 @@ plugins=(
   bol
   bundler
   copybuffer
-  docker
-  docker-compose
   jira
   sudo
   vi-mode
