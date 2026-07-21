@@ -5,11 +5,11 @@ lines = [
 ]
 
 [cship.model]
-symbol = " "
+symbol = "🤖 "
 style  = "bold cyan"
 
 [cship.context_bar]
-symbol             = " "
+symbol             = "🧠 "
 format             = "[$symbol$value]($style)"
 width              = 10
 style              = "fg:#7dcfff"
@@ -27,8 +27,8 @@ critical_threshold = 50
 critical_style     = "bold fg:#f7768e"
 
 [cship.usage_limits]
-five_hour_format   = " {pct}% (resets at {reset_at})"
-seven_day_format   = ""
+five_hour_format   = "⏳ [{pct}%  /"
+seven_day_format   = "{pct}%]"
 extra_usage_format = "${used}"
 separator          = "  "
 warn_threshold     = 70.0
