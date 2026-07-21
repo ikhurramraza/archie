@@ -2,7 +2,7 @@ FIND := $(shell command -v gfind >/dev/null 2>&1 && echo gfind || echo find)
 
 SCRIPTS_DIRECTORY = $$HOME/.local/scripts
 
-.PHONY: preflight all clean directories clean-directories scripts clean-scripts mpvnet snapshot
+.PHONY: preflight all clean directories clean-directories scripts clean-scripts mpvnet windows-terminal snapshot
 
 preflight:
 	@$(FIND) . -maxdepth 0 -printf "" 2>/dev/null || { \
@@ -11,7 +11,7 @@ preflight:
 		exit 1; \
 	}
 
-all: preflight directories scripts mpvnet
+all: preflight directories scripts mpvnet windows-terminal
 
 clean: preflight clean-directories clean-scripts
 
@@ -23,6 +23,7 @@ directories: clean-directories
 	       -not -path '*/.*' \
 	       -not -path "*/vendor" \
 	       -not -path "*/mpvnet" \
+	       -not -path "*/windows-terminal" \
 	       -printf "%P\0" | \
 	xargs -0 stow --verbose --target=$$HOME --ignore=scripts --restow
 
@@ -34,6 +35,7 @@ clean-directories:
 	       -not -path '*/.*' \
 	       -not -path "*/vendor" \
 	       -not -path "*/mpvnet" \
+	       -not -path "*/windows-terminal" \
 	       -printf "%P\0" | \
 	xargs -0 stow --verbose --target=$$HOME --ignore=scripts --delete
 
@@ -55,6 +57,14 @@ mpvnet:
 	cp mpvnet/*.conf "$$dest/"; \
 	if [ -d mpvnet/scripts ]; then mkdir -p "$$dest/scripts"; cp mpvnet/scripts/*.lua "$$dest/scripts/"; fi; \
 	echo "mpvnet: synced conf + scripts -> $$dest/"
+
+
+windows-terminal:
+	@command -v wslpath >/dev/null 2>&1 || { echo "windows-terminal: not WSL, skipping"; exit 0; }
+	@dest="$$(wslpath "$$(cmd.exe /c 'echo %LOCALAPPDATA%' 2>/dev/null | tr -d '\r')")/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"; \
+	[ -d "$$dest" ] || { echo "windows-terminal: $$dest not found, skipping"; exit 0; }; \
+	cp windows-terminal/settings.json "$$dest/settings.json"; \
+	echo "windows-terminal: copied settings.json -> $$dest/settings.json"
 
 
 snapshot: HOME=/tmp/archie-home
