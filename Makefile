@@ -2,7 +2,7 @@ FIND := $(shell command -v gfind >/dev/null 2>&1 && echo gfind || echo find)
 
 SCRIPTS_DIRECTORY = $$HOME/.local/scripts
 
-.PHONY: preflight all clean directories clean-directories scripts clean-scripts snapshot
+.PHONY: preflight all clean directories clean-directories scripts clean-scripts mpvnet snapshot
 
 preflight:
 	@$(FIND) . -maxdepth 0 -printf "" 2>/dev/null || { \
@@ -11,7 +11,7 @@ preflight:
 		exit 1; \
 	}
 
-all: preflight directories scripts
+all: preflight directories scripts mpvnet
 
 clean: preflight clean-directories clean-scripts
 
@@ -22,6 +22,7 @@ directories: clean-directories
 	       -type d \
 	       -not -path '*/.*' \
 	       -not -path "*/vendor" \
+	       -not -path "*/mpvnet" \
 	       -printf "%P\0" | \
 	xargs -0 stow --verbose --target=$$HOME --ignore=scripts --restow
 
@@ -32,6 +33,7 @@ clean-directories:
 	       -type d \
 	       -not -path '*/.*' \
 	       -not -path "*/vendor" \
+	       -not -path "*/mpvnet" \
 	       -printf "%P\0" | \
 	xargs -0 stow --verbose --target=$$HOME --ignore=scripts --delete
 
@@ -44,6 +46,15 @@ clean-scripts:
 	mkdir -p ${SCRIPTS_DIRECTORY}
 	$(FIND) $$PWD/*/.local/scripts -maxdepth 1 -type f -printf "%f\n" | \
 	xargs -I{} sh -c 'unlink ${SCRIPTS_DIRECTORY}/{} || true'
+
+
+mpvnet:
+	@command -v wslpath >/dev/null 2>&1 || { echo "mpvnet: not WSL, skipping"; exit 0; }
+	@dest="$$(wslpath "$$(cmd.exe /c 'echo %APPDATA%' 2>/dev/null | tr -d '\r')")/mpv.net"; \
+	mkdir -p "$$dest"; \
+	cp mpvnet/*.conf "$$dest/"; \
+	if [ -d mpvnet/scripts ]; then mkdir -p "$$dest/scripts"; cp mpvnet/scripts/*.lua "$$dest/scripts/"; fi; \
+	echo "mpvnet: synced conf + scripts -> $$dest/"
 
 
 snapshot: HOME=/tmp/archie-home
