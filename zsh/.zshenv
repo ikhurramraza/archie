@@ -1,8 +1,12 @@
-# Machine info
-export OS="$(uname)"
+# Machine info ($OSTYPE and $HOST are set by zsh itself, saving two forks that
+# every zsh — including scripts — would otherwise pay)
+case "$OSTYPE" in
+linux*) export OS=Linux ;;
+darwin*) export OS=Darwin ;;
+esac
 
 # Docker Compose profile (per host — see nukes/README.md)
-case "$(hostname)" in
+case "$HOST" in
 Cov) export COMPOSE_PROFILES=cov ;;
 Dort) export COMPOSE_PROFILES=dort ;;
 esac
@@ -39,6 +43,7 @@ export _Z_DATA="$XDG_DATA_HOME/z"
 # Put user dirs ahead of the inherited (Windows-interop) PATH so command lookups
 # hit them before walking the slow /mnt/c 9p dirs.
 path=("$HOME/.local/scripts" "$HOME/.local/bin" "$CARGO_HOME/bin" "$GOPATH/bin" $path)
+typeset -gU path
 
 if [[ "$OS" == "Linux" ]]; then
   source "$ZDOTDIR/linux.zsh"
