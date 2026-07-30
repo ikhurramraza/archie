@@ -75,9 +75,11 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
-# Configure MISE
+# Configure MISE. Never cache `mise activate`: its output is not deterministic
+# — re-run from an already-activated (nested) shell it bakes that shell's PATH
+# into the script, which a cached copy then re-imposes on every startup.
 if (( ${+commands[mise]} )); then
-  _cache_eval mise-activate mise activate zsh
+  eval "$(mise activate zsh)"
   _cache_eval mise-complete mise complete --shell zsh
 
   export MISE_RUBY_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/ruby/default_gems"
@@ -85,8 +87,8 @@ if (( ${+commands[mise]} )); then
   export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/python/default_python_packages"
 fi
 
-# Add GPG key
-export GPG_TTY=$(tty)
+# Add GPG key ($TTY is set by zsh itself, no fork needed)
+export GPG_TTY=$TTY
 
 # Setup atuin
 _cache_eval atuin atuin init zsh --disable-up-arrow
