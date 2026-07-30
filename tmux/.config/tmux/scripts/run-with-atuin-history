@@ -3,14 +3,14 @@
 set -euo pipefail
 
 main() {
-  local command="$*"
+  local command="$1"
 
   SECONDS=0
   local id
   id=$(atuin history start "$command")
 
   local exit_code=0
-  bash -c "$command" || exit_code=$?
+  zsh -ic "$command" || exit_code=$?
 
   nohup bash -c "atuin history end '$id' --exit='$exit_code' --duration='${SECONDS}000000000'" &>/dev/null
 }
