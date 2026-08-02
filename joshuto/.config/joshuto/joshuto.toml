@@ -5,6 +5,10 @@ show_borders = false
 show_icons = false
 show_hidden = true
 
+[display.sort]
+sort_method = "mtime"
+reverse = true
+
 [preview]
 max_preview_size = 5242880 # 5MB
 preview_script = "~/.config/joshuto/preview.sh"
