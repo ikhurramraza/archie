@@ -1,0 +1,5 @@
+# Source-only payloads consumed by .chezmoiscripts — never deployed into $HOME.
+mpvnet
+mpvnet/**
+windows-terminal
+windows-terminal/**

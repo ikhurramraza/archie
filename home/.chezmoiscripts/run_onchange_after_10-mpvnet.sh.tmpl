@@ -1,0 +1,18 @@
+{{ if lookPath "wslpath" -}}
+#!/bin/sh
+set -eu
+
+# Sync mpv.net config to %APPDATA%/mpv.net (WSL only). The hash comments force
+# a re-run whenever a payload file changes:
+# mpv.conf:       {{ include "mpvnet/mpv.conf" | sha256sum }}
+# mpvnet.conf:    {{ include "mpvnet/mpvnet.conf" | sha256sum }}
+# force-mute.lua: {{ include "mpvnet/scripts/force-mute.lua" | sha256sum }}
+
+src="$CHEZMOI_SOURCE_DIR/mpvnet"
+dest="$(wslpath "$(cmd.exe /c 'echo %APPDATA%' 2>/dev/null | tr -d '\r')")/mpv.net"
+
+mkdir -p "$dest/scripts"
+cp "$src"/*.conf "$dest/"
+cp "$src"/scripts/*.lua "$dest/scripts/"
+echo "mpvnet: synced conf + scripts -> $dest/"
+{{ end -}}
