@@ -8,14 +8,10 @@ pre-commit:
   parallel: true
   commands:
     shfmt:
-      files: git diff --name-only --cached zsh tmux/.config/tmux/scripts/ tmux/.local/scripts/
-      exclude: ".zshrc"
+      files: git diff --name-only --cached home/dot_zshenv home/dot_config/zsh/ home/dot_config/tmux/scripts/ home/dot_local/scripts/
+      exclude: "dot_zshrc"
       run: shfmt -i=2 -d {files}
 
     stylua:
       files: git diff --name-only --cached *.lua
-      run: stylua --config-path stylua/.config/stylua/stylua.toml --check {files}
-
-    snapshot:
-      files: git ls-files
-      run: make snapshot &>/dev/null && git diff --exit-code snapshot
+      run: stylua --config-path home/dot_config/stylua/stylua.toml --check {files}
