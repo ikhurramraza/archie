@@ -14,15 +14,10 @@ reference them in my reply.
 
 ## Avoid comments
 
-Avoid comments. Write self-documenting code — clear names and structure instead
-of explanation.
-
-Think twice before adding one, and only add it if it is *super* necessary and you
-have a rock-solid justification you could defend to me. Restating what the code
-does never qualifies, and neither does anything the names already convey. If in
-doubt, leave it out and put the reasoning in the commit message instead.
-
-Existing comments in a file are not a reason to write more.
+Avoid comments — prefer clear names and structure. Add one only if it is *super*
+necessary and you have a rock-solid justification; restating the code never
+qualifies. In doubt, leave it out and put the reasoning in the commit message.
+Existing comments are not a reason to add more.
 
 ## Repo checkout layout
 
