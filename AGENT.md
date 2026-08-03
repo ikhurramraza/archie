@@ -1,0 +1,61 @@
+# Working in this repo
+
+## Commit messages
+
+Conventional commits: `type(scope): subject`.
+
+**The scope is the tool whose config changed** — `nvim`, `zsh`, `tmux`, `git`,
+`joshuto`, `atuin`, `starship`, `btop`, `mise`, `claude`, `lazygit`, `yt-dlp`.
+Derive it from the path, not from the file's language or format:
+
+| Path | Scope |
+| --- | --- |
+| `home/dot_config/<tool>/**` | `<tool>` |
+| `home/dot_zshenv`, `home/dot_config/zsh/**` | `zsh` |
+| `home/dot_local/scripts/**` | `scripts` |
+| `home/dot_local/share/fonts/**` | `fonts` |
+| `home/dot_claude/**` | `claude` |
+| `home/mpvnet/**` | `mpvnet` |
+| `home/windows-terminal/**` | `windows-terminal` |
+| `home/.chezmoi*`, `.chezmoiroot`, `.chezmoiversion` | `chezmoi` |
+| `lefthook.yml` | `lefthook` |
+| README, repo layout, tree-wide moves | no scope |
+
+A helper script nested under a tool takes that tool's scope, not its own name:
+`home/dot_config/tmux/scripts/notie` is `tmux`, not `notie`. A
+`.chezmoiscripts/` entry takes the scope of the payload it deploys.
+
+**Never scope by language, format, or tooling artifact.** `lua`, `toml`,
+`json`, `sh`, `style` are not tools and say nothing about what changed.
+
+One tool per commit. When a change genuinely spans tools, comma-separate
+(`fix(atuin,zsh)`, `feat(i3,picom,rofi)`) — but prefer splitting the commit.
+Reformatting two unrelated tools' files is two commits, not one.
+
+## Commit types
+
+Pick the type by what the change *does*, not by what it unblocks — config that
+trips a linter is not thereby broken.
+
+| Type | Use for |
+| --- | --- |
+| `feat` | a new capability: keybind, plugin, alias, script |
+| `fix` | a real defect — something misbehaved at runtime |
+| `refactor` | behaviour-preserving restructure: control flow, extraction, renames |
+| `style` | formatting only — indent, whitespace, trailing commas, ordering |
+| `perf` | measurably faster, usually shell startup |
+| `chore` | version pins, untracking, removing dead config |
+| `docs` | README and this file |
+
+The line that matters most in practice is `style` vs `refactor` vs `fix`.
+Reindenting a file is `style`; rewriting a loop so it keeps working is
+`refactor` even when the diff is small and the motive was a linter; neither is
+a `fix` unless the old code actually misbehaved.
+
+`ci` is legacy — it belongs to the pre-chezmoi Makefile era and was last used in
+2023. Hook and lint changes now take a normal type with the `lefthook` scope.
+
+## Comments
+
+See the no-comments rule in `home/dot_claude/CLAUDE.md` — it applies to the
+configs in this repo too. Put the reasoning in the commit message instead.
