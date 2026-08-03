@@ -18,3 +18,36 @@
     url = "https://github.com/rafamadriz/friendly-snippets/archive/efff286dd74c22f731cdec26a70b46e5b203c619.tar.gz"
     exact = true
     stripComponents = 1
+
+# tmux plugins. tpm still *loads* them at startup (tmux.conf runs tpm/tpm), but
+# chezmoi owns fetching them, so don't use tpm's prefix+I / prefix+U — they'd
+# pull behind chezmoi's back. Refresh with `chezmoi apply -R` instead.
+[".config/tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm.git"
+    refreshPeriod = "168h"
+    clone.args = ["--depth=1"]
+    pull.args = ["--ff-only"]
+
+# Target dir is `tmux`, not `dracula`: tpm names plugin dirs after the repo, and
+# tmux.conf's `@plugin 'dracula/tmux'` resolves against that layout.
+[".config/tmux/plugins/tmux"]
+    type = "git-repo"
+    url = "https://github.com/dracula/tmux.git"
+    refreshPeriod = "168h"
+    clone.args = ["--depth=1"]
+    pull.args = ["--ff-only"]
+
+[".config/tmux/plugins/tmux-thumbs"]
+    type = "git-repo"
+    url = "https://github.com/fcsonline/tmux-thumbs.git"
+    refreshPeriod = "168h"
+    clone.args = ["--depth=1"]
+    pull.args = ["--ff-only"]
+
+# My own plugin, so no refreshPeriod (0 = never auto-pulled) — same reasoning as
+# bol above. Update with:
+# git -C ~/.config/tmux/plugins/tmux-jumper pull
+[".config/tmux/plugins/tmux-jumper"]
+    type = "git-repo"
+    url = "https://github.com/ikhurramraza/tmux-jumper.git"

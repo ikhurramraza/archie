@@ -52,6 +52,10 @@ Declared in `home/.chezmoiexternal.toml`:
   `git -C ~/.config/zsh/oh-my-zsh-custom/plugins/bol pull`).
 - **friendly-snippets** (`~/.config/nvim/sneaps`) — archive pinned to an
   exact commit; bump by editing the URL.
+- **tmux plugins** (`~/.config/tmux/plugins/`) — tpm, dracula, tmux-thumbs
+  auto-pulled at most weekly; tmux-jumper never (my own, like bol). tpm still
+  loads them at startup, but chezmoi fetches them, so **don't use tpm's
+  `prefix+I` / `prefix+U`** — they pull behind chezmoi's back.
 
 Force a refresh regardless of `refreshPeriod` with `chezmoi apply -R`.
 
