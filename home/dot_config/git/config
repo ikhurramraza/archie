@@ -39,6 +39,9 @@
 [merge]
   conflictStyle = zdiff3
 
+[merge "ours"]
+  driver = true
+
 [pull]
   twohead = ort
 
