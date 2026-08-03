@@ -9,7 +9,9 @@ pre-commit:
   commands:
     shfmt:
       files: git diff --name-only --cached home/dot_zshenv home/dot_config/zsh/ home/dot_config/tmux/scripts/ home/dot_local/scripts/
-      exclude: "dot_zshrc"
+      exclude:
+        - "home/dot_config/zsh/dot_zshrc"
+        - "home/dot_config/zsh/inits"
       run: shfmt -i=2 -d {files}
 
     stylua:
