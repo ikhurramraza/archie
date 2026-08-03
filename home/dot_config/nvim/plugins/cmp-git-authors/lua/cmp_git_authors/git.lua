@@ -21,13 +21,9 @@ M.authors = function()
   for author in string.gmatch(result, "([^\n]+)") do
     local commits_count, name, email = string.match(author, "([%d]+)%s+(.+)%s+<(.+)>")
 
-    if name == nil or email == nil then
-      goto continue
+    if name ~= nil and email ~= nil then
+      table.insert(authors, { author = name, email = email, commits_count = commits_count })
     end
-
-    table.insert(authors, { author = name, email = email, commits_count = commits_count })
-
-    ::continue::
   end
 
   cache.authors = authors
