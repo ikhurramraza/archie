@@ -41,8 +41,8 @@ return {
         mode = "i",
         silent = true,
         desc = "Suggest a completion using Copilot",
-      }
-    }
+      },
+    },
   },
 
   {
