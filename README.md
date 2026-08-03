@@ -5,20 +5,29 @@ state lives under `home/` (selected by `.chezmoiroot`), so the repo root
 stays free for tooling files. chezmoi copies files into `$HOME` — nothing is
 symlinked.
 
-The repo lives at `~/Developer/archie` and is wired into chezmoi by
-symlinking chezmoi's default source directory to it.
+The repo lives at `~/Developer/archie`, and `home/.chezmoi.toml.tmpl` points
+chezmoi's `sourceDir` at it — no symlink into `~/.local/share/chezmoi`
+required.
 
 ## Bootstrap (new machine)
 
 ```sh
 sudo dnf install chezmoi        # brew install chezmoi on macOS
 git clone git@github.com:ikhurramraza/archie.git ~/Developer/archie
-ln -s ~/Developer/archie ~/.local/share/chezmoi
+chezmoi init --source=~/Developer/archie
 chezmoi diff                    # review what would change
 chezmoi apply
 ```
 
-Existing stow-managed machines: see `MIGRATE.md` on the `main` branch.
+## Config
+
+`home/.chezmoi.toml.tmpl` is chezmoi's own config, rendered into
+`~/.config/chezmoi/chezmoi.toml` by `chezmoi init`. It sets `sourceDir`, pipes
+`chezmoi diff` through `delta`, and points three-way merges at `nvim -d`.
+
+`chezmoi apply` does **not** regenerate it — after editing the template, re-run
+`chezmoi init`. Machines still using the old `~/.local/share/chezmoi` symlink
+need that one `chezmoi init` too; the symlink can be removed afterwards.
 
 ## Daily workflow
 
