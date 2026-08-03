@@ -12,12 +12,17 @@ reference them in my reply.
 - Keep the IDs **stable within a conversation** so I can refer back to them
   (e.g. "do H3 and L2"); don't renumber the same item across messages.
 
-## Avoid code comments
+## Avoid comments
 
-Write self-documenting code that does not need comments — prefer clear names and
-structure over explanation. Only add a comment when it is genuinely needed: to
-capture a non-obvious *why* (a rationale, trade-off, or workaround that the code
-itself cannot convey), never to restate *what* the code does.
+Avoid comments. Write self-documenting code — clear names and structure instead
+of explanation.
+
+Think twice before adding one, and only add it if it is *super* necessary and you
+have a rock-solid justification you could defend to me. Restating what the code
+does never qualifies, and neither does anything the names already convey. If in
+doubt, leave it out and put the reasoning in the commit message instead.
+
+Existing comments in a file are not a reason to write more.
 
 ## Repo checkout layout
 
