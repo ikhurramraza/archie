@@ -37,8 +37,8 @@ sync_address = "https://atuin.masukh.com"
 # sync_frequency = "10m"
 
 ## which search mode to use
-## possible values: prefix, fulltext, fuzzy, skim
-search_mode = "skim"
+## possible values: prefix, fulltext, fuzzy, daemon-fuzzy
+search_mode = "daemon-fuzzy"
 
 ## which filter mode to use by default
 ## possible values: "global", "host", "session", "directory", "workspace"
