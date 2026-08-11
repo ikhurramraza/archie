@@ -8,7 +8,7 @@ pre-commit:
   parallel: true
   commands:
     shfmt:
-      files: git diff --name-only --cached home/dot_zshenv home/dot_config/zsh/ home/dot_config/tmux/scripts/ home/dot_local/scripts/
+      files: git diff --name-only --cached home/dot_zshenv home/dot_config/zsh/ home/dot_config/tmux/scripts/ home/dot_local/scripts/ hooks/
       exclude:
         - "home/dot_config/zsh/dot_zshrc"
         - "home/dot_config/zsh/inits"
@@ -17,3 +17,8 @@ pre-commit:
     stylua:
       files: git diff --name-only --cached *.lua
       run: stylua --config-path home/dot_config/stylua/stylua.toml --check {files}
+
+commit-msg:
+  commands:
+    conventional:
+      run: ./hooks/commit-msg {1}

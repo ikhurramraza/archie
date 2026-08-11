@@ -1,0 +1,83 @@
+#!/bin/sh
+set -eu
+
+types='feat|fix|refactor|style|perf|chore|docs'
+banned_scopes='lua|toml|json|yaml|yml|md|markdown|sh|shell|bash|style|format|fmt|config|dotfiles|deps'
+
+header=$(head -n1 "$1")
+
+case "$header" in
+fixup!* | squash!* | "Merge "* | "Revert "*) exit 0 ;;
+esac
+
+reject() {
+  printf '\ncommit-msg: %s\n\n  %s\n\nsee AGENT.md, or bypass with --no-verify\n\n' "$1" "$header" >&2
+  exit 1
+}
+
+if ! printf '%s\n' "$header" | grep -qE "^($types)(\([a-z0-9][a-z0-9,._-]*\))?!?: [a-z].*[^.]$"; then
+  reject "expected 'type(scope): subject', type one of $types, subject lowercase and unpunctuated"
+fi
+
+if [ "${#header}" -gt 72 ]; then
+  reject "header is ${#header} characters, keep it under 72"
+fi
+
+scopes=$(printf '%s\n' "$header" | sed -n 's/^[a-z]*(\([^)]*\)).*/\1/p' | tr ',' ' ')
+
+for scope in $scopes; do
+  if printf '%s\n' "$scope" | grep -qE "^($banned_scopes)$"; then
+    reject "'$scope' is a language or format, not a tool — scope by the tool whose config changed"
+  fi
+done
+
+scope_for() {
+  case "$1" in
+  home/dot_zshenv | home/dot_config/zsh/*) echo zsh ;;
+  home/dot_claude/*) echo claude ;;
+  home/dot_local/scripts/*) echo scripts ;;
+  home/dot_local/share/fonts/*) echo fonts ;;
+  home/dot_local/share/nvim/*) echo nvim ;;
+  home/private_dot_ssh/*) echo ssh ;;
+  home/mpvnet/*) echo mpvnet ;;
+  home/windows-terminal/*) echo windows-terminal ;;
+  home/.chezmoiscripts/*) echo '?' ;;
+  home/.chezmoi* | .chezmoiroot | .chezmoiversion) echo chezmoi ;;
+  lefthook.yml | hooks/* | README.md | AGENT.md | CLAUDE.md | .gitattributes | .streerc) echo '-' ;;
+  home/dot_config/*/*) rest=${1#home/dot_config/} && echo "${rest%%/*}" ;;
+  home/dot_config/*) rest=${1#home/dot_config/} && echo "${rest%%.*}" ;;
+  *) echo '?' ;;
+  esac
+}
+
+staged=$(git diff --cached --name-only)
+[ -n "$staged" ] || exit 0
+
+expected=''
+while IFS= read -r path; do
+  derived=$(scope_for "$path")
+  if [ "$derived" = '?' ]; then
+    exit 0
+  fi
+  if [ -n "$expected" ] && [ "$derived" != "$expected" ]; then
+    exit 0
+  fi
+  expected=$derived
+done <<EOF
+$staged
+EOF
+
+if [ "$expected" = '-' ]; then
+  if [ -n "$scopes" ]; then
+    reject "repo-internal work is unscoped — scopes name a config deployed to \$HOME"
+  fi
+  exit 0
+fi
+
+for scope in $scopes; do
+  if [ "$scope" = "$expected" ]; then
+    exit 0
+  fi
+done
+
+reject "every staged path belongs to '$expected', so scope it ($expected), not '${scopes:-none}'"
