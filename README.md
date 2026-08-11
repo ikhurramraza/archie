@@ -13,6 +13,17 @@ chezmoi diff && chezmoi apply
 lefthook install
 ```
 
+## Machines
+
+`chezmoi init` asks once for a machine profile — `personal`, `breathe`,
+`doctolib`, `cov` or `dort` — and records it as `.profile`. Templates and
+`home/.chezmoiignore` branch on it, so a machine only gets what its profile
+lists: `~/.ssh/box` is deployed on `personal`, `cov` and `dort` only.
+
+Secrets come from 1Password at apply time via `onepasswordRead`, so `op` must be
+installed and signed in. On WSL that means the Windows `op.exe` reached through
+interop; `home/.chezmoi.toml.tmpl` picks the right binary.
+
 ## Gotchas
 
 - Edits in `$HOME` do not flow back. When a tool rewrites a managed file — e.g.
