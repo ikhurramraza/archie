@@ -41,7 +41,7 @@ scope_for() {
   home/private_dot_ssh/*) echo ssh ;;
   home/mpvnet/*) echo mpvnet ;;
   home/windows-terminal/*) echo windows-terminal ;;
-  home/.chezmoiscripts/*) echo '?' ;;
+  home/.chezmoiscripts/* | home/.chezmoiexternal.toml | home/.chezmoiignore) echo '?' ;;
   home/.chezmoi* | .chezmoiroot | .chezmoiversion) echo chezmoi ;;
   lefthook.yml | hooks/* | README.md | AGENT.md | CLAUDE.md | .gitattributes | .streerc) echo '-' ;;
   home/dot_config/*/*) rest=${1#home/dot_config/} && echo "${rest%%/*}" ;;

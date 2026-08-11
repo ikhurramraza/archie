@@ -19,14 +19,17 @@ or format:
 | `home/dot_claude/**` | `claude` |
 | `home/mpvnet/**` | `mpvnet` |
 | `home/windows-terminal/**` | `windows-terminal` |
-| `home/.chezmoi*`, `.chezmoiroot`, `.chezmoiversion` | `chezmoi` |
+| `home/.chezmoi.toml.tmpl`, `.chezmoiroot`, `.chezmoiversion` | `chezmoi` |
+| `home/.chezmoiexternal.toml`, `home/.chezmoiignore`, `home/.chezmoiscripts/**` | the payload's |
 | `lefthook.yml`, `hooks/**`, README, AGENT.md, repo layout, tree-wide moves | no scope |
 
 A helper script nested under a tool takes that tool's scope, not its own name:
 `home/dot_config/tmux/scripts/notie` is `tmux`, not `notie`. A
-`.chezmoiscripts/` entry takes the scope of the payload it deploys, and is
-unscoped when the payload is not a tool's config — the package bootstrap
-installs a set, not a config.
+`.chezmoiscripts/` entry, an external, and an ignore rule all take the scope
+of the payload they carry, not `chezmoi`: the mpv OSC external is `mpv`. They
+are unscoped when the payload is not a tool's config — the package bootstrap
+installs a set, not a config. Only the files configuring chezmoi itself are
+`chezmoi`.
 
 `hooks/commit-msg` enforces these rules and derives the expected scope from
 the same table, so keep it in step when a config is added or removed. A new
