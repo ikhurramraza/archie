@@ -45,8 +45,6 @@ export _Z_DATA="$XDG_DATA_HOME/z"
 path=("$HOME/.local/scripts" "$HOME/.local/bin" "$CARGO_HOME/bin" "$GOPATH/bin" $path)
 typeset -gU path
 
-if [[ "$OS" == "Linux" ]]; then
-  source "$ZDOTDIR/linux.zsh"
-elif [[ "$OS" == "Darwin" ]]; then
+if [[ "$OS" == "Darwin" ]]; then
   source "$ZDOTDIR/mac.zsh"
 fi
