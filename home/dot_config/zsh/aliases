@@ -10,10 +10,6 @@ alias vim="nvim"
 # Eza aliases
 alias l='eza -l'
 
-# Klippy aliases
-alias kcp='klippy copy'
-alias kpp='klippy paste'
-
 # Joshuto alias
 alias j='joshuto'
 
