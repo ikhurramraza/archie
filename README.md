@@ -13,6 +13,13 @@ chezmoi diff && chezmoi apply
 lefthook install
 ```
 
+`apply` installs the package set before the configs land — dnf on Fedora,
+brew on macOS, `cargo binstall` for the Rust tools — so the first run on a
+new machine prompts for sudo. Only missing packages are passed to the
+manager, so later runs are silent. Nvim, tmux and starship are built by hand,
+the mise-managed tools come from `~/.config/mise`, and `op` and `yt-dlp` are
+per-machine; none of those are installed for you.
+
 ## Machines
 
 `chezmoi init` asks once for a machine profile — `personal`, `breathe`,

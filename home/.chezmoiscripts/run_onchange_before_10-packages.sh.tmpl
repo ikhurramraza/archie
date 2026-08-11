@@ -1,0 +1,66 @@
+#!/bin/sh
+set -eu
+
+{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+packages="bat btop difftastic fzf git-lfs gnupg2 jq litecli pgcli shfmt{{ if eq .profile "personal" }} aria2 ffmpeg-free{{ end }}"
+
+missing=''
+for package in $packages; do
+  if ! rpm -q "$package" >/dev/null 2>&1; then
+    missing="$missing $package"
+  fi
+done
+
+if [ -n "$missing" ]; then
+  echo "packages: dnf install$missing"
+  sudo dnf install -y $missing
+fi
+{{ else -}}
+echo "packages: {{ .chezmoi.osRelease.id }} is not fedora, skipping the system packages"
+{{ end -}}
+{{ else if eq .chezmoi.os "darwin" -}}
+packages="bat btop difftastic fzf git-lfs gnupg jq litecli pgcli shfmt{{ if eq .profile "personal" }} aria2 ffmpeg{{ end }}"
+
+installed=$(brew list --formula -1)
+missing=''
+for package in $packages; do
+  if ! printf '%s\n' "$installed" | grep -qx "$package"; then
+    missing="$missing $package"
+  fi
+done
+
+if [ -n "$missing" ]; then
+  echo "packages: brew install$missing"
+  brew install $missing
+fi
+{{ else -}}
+echo "packages: no package manager known for {{ .chezmoi.os }}, skipping the system packages"
+{{ end }}
+crates="atuin cargo-update cship eza fd-find git-delta joshuto ripgrep sd stylua tree-sitter-cli"
+
+PATH="${CARGO_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/cargo}/bin:$PATH"
+export PATH
+
+if ! command -v cargo >/dev/null 2>&1; then
+  echo "packages: no cargo, install rustup first — skipping $crates"
+  exit 0
+fi
+
+if ! command -v cargo-binstall >/dev/null 2>&1; then
+  echo "packages: cargo install cargo-binstall"
+  cargo install cargo-binstall
+fi
+
+installed=$(cargo install --list | sed -n 's/^\([^ ]*\) v[^ ]*:$/\1/p')
+missing=''
+for crate in $crates; do
+  if ! printf '%s\n' "$installed" | grep -qx "$crate"; then
+    missing="$missing $crate"
+  fi
+done
+
+if [ -n "$missing" ]; then
+  echo "packages: cargo binstall$missing"
+  cargo binstall --no-confirm $missing
+fi

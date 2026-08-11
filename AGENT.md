@@ -24,7 +24,9 @@ or format:
 
 A helper script nested under a tool takes that tool's scope, not its own name:
 `home/dot_config/tmux/scripts/notie` is `tmux`, not `notie`. A
-`.chezmoiscripts/` entry takes the scope of the payload it deploys.
+`.chezmoiscripts/` entry takes the scope of the payload it deploys, and is
+unscoped when the payload is not a tool's config — the package bootstrap
+installs a set, not a config.
 
 `hooks/commit-msg` enforces these rules and derives the expected scope from
 the same table, so keep it in step when a config is added or removed. A new
