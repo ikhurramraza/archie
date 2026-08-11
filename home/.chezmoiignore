@@ -8,3 +8,8 @@ windows-terminal/**
 .ssh/box
 .ssh/box.pub
 {{ end -}}
+
+{{ if ne .profile "personal" -}}
+.config/mpv
+.config/mpv/**
+{{ end -}}
