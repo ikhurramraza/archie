@@ -14,6 +14,10 @@ pre-commit:
         - "home/dot_config/zsh/inits"
       run: shfmt -i=2 -d {files}
 
+    zsh:
+      files: git diff --name-only --cached home/dot_zshenv home/dot_config/zsh/ home/dot_config/tmux/scripts/executable_notie
+      run: for file in {files}; do zsh -n "$file" || exit 1; done
+
     stylua:
       files: git diff --name-only --cached *.lua
       run: stylua --config-path home/dot_config/stylua/stylua.toml --check {files}
