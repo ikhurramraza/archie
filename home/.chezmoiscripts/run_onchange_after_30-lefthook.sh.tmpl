@@ -1,0 +1,22 @@
+#!/bin/sh
+set -eu
+
+# lefthook.yml: {{ include "../lefthook.yml" | sha256sum }}
+
+repo=$(dirname "$CHEZMOI_SOURCE_DIR")
+
+if [ ! -e "$repo/.git" ]; then
+  echo "lefthook: $repo is not a git repo, skipping the hook install"
+  exit 0
+fi
+
+PATH="${MISE_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/mise}/shims:$PATH"
+export PATH
+
+if ! command -v lefthook >/dev/null 2>&1; then
+  echo "lefthook: not installed, skipping the hook install"
+  exit 0
+fi
+
+cd "$repo"
+lefthook install
