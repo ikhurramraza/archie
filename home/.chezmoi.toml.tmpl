@@ -10,6 +10,9 @@ sourceDir = "{{ .chezmoi.homeDir }}/Developer/archie"
 [diff]
     pager = "delta"
 
+[onepassword]
+    command = "{{ if lookPath "wslpath" }}op.exe{{ else }}op{{ end }}"
+
 [merge]
     command = "nvim"
     args = ["-d", "{{ `{{ .Destination }}` }}", "{{ `{{ .Source }}` }}", "{{ `{{ .Target }}` }}"]
