@@ -3,3 +3,8 @@ mpvnet
 mpvnet/**
 windows-terminal
 windows-terminal/**
+
+{{ if not (has .profile (list "personal" "cov" "dort")) -}}
+.ssh/box
+.ssh/box.pub
+{{ end -}}
