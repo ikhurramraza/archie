@@ -1,7 +1,11 @@
+{{- $profile := promptChoiceOnce . "profile" "Machine profile" (list "personal" "breathe" "doctolib" "cov" "dort") -}}
 # Rendered into ~/.config/chezmoi/chezmoi.toml by `chezmoi init`. `chezmoi
 # apply` does not regenerate it, so re-run `chezmoi init` after editing.
 
 sourceDir = "{{ .chezmoi.homeDir }}/Developer/archie"
+
+[data]
+    profile = {{ $profile | quote }}
 
 [diff]
     pager = "delta"
