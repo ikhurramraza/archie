@@ -19,6 +19,19 @@
     exact = true
     stripComponents = 1
 
+# The mpv OSC and the icon font it renders with, at main's tip. Pinned rather
+# than tracked: the sha256 only means something against a fixed ref, and mpv
+# executes this lua. Upstream last touched the script in 2022 anyway.
+[".config/mpv/scripts/modern.lua"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/maoiscat/mpv-osc-morden/277c6646298a519d2902cfcb1d4a5e55b9b4ad07/modern.lua"
+    checksum.sha256 = "3e79ff299a484f623bf6ee1ca2f78194063473e34d72aff1d51a50d7148dabf7"
+
+[".config/mpv/fonts/material-design-iconic-font.ttf"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/maoiscat/mpv-osc-morden/277c6646298a519d2902cfcb1d4a5e55b9b4ad07/Material-Design-Iconic-Font.ttf"
+    checksum.sha256 = "18a45be2ecb66ce217c3bbccf219f8bdc05dc76d61a6e63673186efd1c7cda1a"
+
 # tmux plugins. tpm still *loads* them at startup (tmux.conf runs tpm/tpm), but
 # chezmoi owns fetching them, so don't use tpm's prefix+I / prefix+U — they'd
 # pull behind chezmoi's back. Refresh with `chezmoi apply -R` instead.
