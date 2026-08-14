@@ -13,9 +13,6 @@ export GEMRC="$XDG_CONFIG_HOME/gems/gemrc"
 # Configure SQLite
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
-# Configure pass
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
-
 # Configure notie
 export NOTIE_DIRECTORY="/mnt/Notes"
 
