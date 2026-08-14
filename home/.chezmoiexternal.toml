@@ -5,13 +5,6 @@
     clone.args = ["--depth=1"]
     pull.args = ["--ff-only"]
 
-# bol carried `ignore = dirty` as a submodule: it's my own plugin and may hold
-# local edits. refreshPeriod deliberately omitted (0 = never auto-pulled);
-# update manually with: git -C ~/.config/zsh/oh-my-zsh-custom/plugins/bol pull
-[".config/zsh/oh-my-zsh-custom/plugins/bol"]
-    type = "git-repo"
-    url = "https://github.com/ikhurramraza/bol.git"
-
 # Pinned to the exact commit the old submodule referenced; bump by editing the URL.
 [".config/nvim/sneaps"]
     type = "archive"
@@ -58,8 +51,8 @@
     clone.args = ["--depth=1"]
     pull.args = ["--ff-only"]
 
-# My own plugin, so no refreshPeriod (0 = never auto-pulled) — same reasoning as
-# bol above. Update with:
+# My own plugin, so it may hold local edits: refreshPeriod deliberately omitted
+# (0 = never auto-pulled). Update with:
 # git -C ~/.config/tmux/plugins/tmux-jumper pull
 [".config/tmux/plugins/tmux-jumper"]
     type = "git-repo"

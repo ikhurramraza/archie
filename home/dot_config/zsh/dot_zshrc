@@ -9,7 +9,6 @@ export HISTFILE="$XDG_STATE_HOME/zsh/history"
 mkdir -p "${HISTFILE:h}"
 
 # OMZ Plugins envs
-export BOL_QUIET_MODE=true
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_PREFIXED=true
@@ -17,7 +16,6 @@ export VI_MODE_SET_CURSOR=true
 export VI_MODE_DISABLE_CLIPBOARD=true
 
 plugins=(
-  bol
   bundler
   copybuffer
   sudo
