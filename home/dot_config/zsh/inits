@@ -9,9 +9,6 @@ export GEMRC="$XDG_CONFIG_HOME/gems/gemrc"
 # Configure SQLite
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
 
-# Configure notie
-export NOTIE_DIRECTORY="/mnt/Notes"
-
 # Init OMZ
 zstyle ':omz:*' aliases no
 zstyle ':omz:plugins:bundler' aliases yes
