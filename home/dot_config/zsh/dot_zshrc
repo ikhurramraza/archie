@@ -20,7 +20,6 @@ plugins=(
   bol
   bundler
   copybuffer
-  jira
   sudo
   vi-mode
   z
