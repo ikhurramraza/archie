@@ -1,9 +1,5 @@
 #!/usr/bin/zsh
 
-# Configure Pipenv
-export PIPENV_VENV_IN_PROJECT=enabled
-export PIPENV_VERBOSITY=-1
-
 # Configure IRB
 export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
 
