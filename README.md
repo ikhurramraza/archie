@@ -30,7 +30,9 @@ machine — are deployed on `personal`, `cov` and `dort` only.
 
 Secrets come from 1Password at apply time via `onepasswordRead`, so `op` must be
 installed and signed in. On WSL that means the Windows `op.exe` reached through
-interop; `home/.chezmoi.toml.tmpl` picks the right binary.
+interop; `home/.chezmoi.toml.tmpl` picks the right binary. `--skip-secrets`
+skips every template that reads one, so `chezmoi diff --skip-secrets` still
+works when `op` is not signed in.
 
 ## Gotchas
 
