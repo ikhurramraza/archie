@@ -17,7 +17,7 @@ if [ -n "$missing" ]; then
   sudo dnf install -y $missing
 fi
 {{ else -}}
-echo "packages: {{ .chezmoi.osRelease.id }} is not fedora, skipping the system packages"
+echo {{ printf "packages: %s is not fedora, skipping the system packages" .chezmoi.osRelease.id | shellQuote }}
 {{ end -}}
 {{ else if eq .chezmoi.os "darwin" -}}
 packages="bat btop difftastic fzf git-lfs gnupg jq litecli pgcli shfmt{{ if eq .profile "personal" }} aria2 ffmpeg{{ end }}"
@@ -35,7 +35,7 @@ if [ -n "$missing" ]; then
   brew install $missing
 fi
 {{ else -}}
-echo "packages: no package manager known for {{ .chezmoi.os }}, skipping the system packages"
+echo {{ printf "packages: no package manager known for %s, skipping the system packages" .chezmoi.os | shellQuote }}
 {{ end }}
 crates="atuin cargo-update cship eza fd-find git-delta joshuto ripgrep sd stylua tree-sitter-cli"
 
