@@ -7,6 +7,9 @@ windows-terminal/**
 {{ if not (has .profile (list "cov" "dort" "personal")) -}}
 .ssh/box
 .ssh/box.pub
+{{ end -}}
+
+{{ if not (has .profile (list "breathe" "cov" "dort" "personal")) -}}
 .ssh/id_ed25519
 .ssh/id_ed25519.pub
 {{ end -}}
