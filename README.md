@@ -26,7 +26,8 @@ hand, the mise-managed tools come from `~/.config/mise`, and `op` and
 `doctolib`, `cov` or `dort` — and records it as `.profile`. Templates and
 `home/.chezmoiignore` branch on it, so a machine only gets what its profile
 lists: `~/.ssh/box` is deployed on `personal`, `cov` and `dort`, and
-`~/.ssh/id_ed25519` — a distinct key per machine — on those plus `breathe`.
+`~/.ssh/id_ed25519` — a distinct key per machine — on those plus `breathe`
+and `doctolib`.
 
 Secrets come from 1Password at apply time via `onepasswordRead`, so `op` must be
 installed and signed in. On WSL that means the Windows `op.exe` reached through
