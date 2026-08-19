@@ -1,2 +1,2 @@
 {{- $key := index (dict "breathe" "Breathe" "cov" "Cov" "dort" "Dort" "personal" "WSL") .profile -}}
-{{ onepasswordRead (printf "op://Dev/%s/private key" $key) | replaceAllRegex "\r" "" | trim }}
+{{ onepasswordRead (printf "op://Dev/%s/private key?ssh-format=openssh" $key) | replaceAllRegex "\r" "" | trim }}

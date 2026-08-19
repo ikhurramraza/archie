@@ -1,1 +1,1 @@
-{{ onepasswordRead "op://Dev/Box/private key" | replaceAllRegex "\r" "" | trim }}
+{{ onepasswordRead "op://Dev/Box/private key?ssh-format=openssh" | replaceAllRegex "\r" "" | trim }}
