@@ -4,7 +4,7 @@ mpvnet/**
 windows-terminal
 windows-terminal/**
 
-{{ if not (has .profile (list "personal" "cov" "dort")) -}}
+{{ if not (has .profile (list "cov" "dort" "personal")) -}}
 .ssh/box
 .ssh/box.pub
 .ssh/id_ed25519
