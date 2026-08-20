@@ -18,7 +18,7 @@ create() {
   fi
 
   local filepath="$notie_directory/$filename"
-  local directory="$(dirname $filepath)"
+  local directory="$(dirname "$filepath")"
 
   mkdir -p "$directory"
 
@@ -36,6 +36,7 @@ create() {
 
 main() {
   local notie_directory="${NOTIE_DIRECTORY:-$DEFAULT_NOTIE_DIRECTORY}"
+  mkdir -p "$notie_directory"
   local filename="$(
     cd "$notie_directory"
     fd -0 --type=f --strip-cwd-prefix |
