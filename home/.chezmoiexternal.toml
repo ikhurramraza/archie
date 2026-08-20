@@ -57,3 +57,10 @@
 [".config/tmux/plugins/tmux-jumper"]
     type = "git-repo"
     url = "https://github.com/ikhurramraza/tmux-jumper.git"
+
+# Also mine and also edited in place, so refreshPeriod is omitted the same way.
+# Private, hence SSH rather than HTTPS. Update with:
+# git -C ~/.config/tmux/plugins/tmux-roster pull
+[".config/tmux/plugins/tmux-roster"]
+    type = "git-repo"
+    url = "git@github.com:ikhurramraza/tmux-roster.git"
